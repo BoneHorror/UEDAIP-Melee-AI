@@ -1,0 +1,2153 @@
+script_name Protoss Expansion Custom Level
+script_id PMCx
+
+unstart_campaign
+wait 1
+
+start_town
+transports_off 
+farms_notiming 
+defaultbuild_off
+default_min 0
+build 5 probe 100
+max_force 3000
+supply 13 Set 260 Max marine Protoss supply_ensure
+#under_attack 0
+idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)
+idle_orders 10 16 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
+idle_orders 10 16 1 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 90 Health(LessThan 12)
+idle_orders 10 16 3 zealot|dark_templar|scout 160 group_men 90 Health(LessThan 33)
+idle_orders 10 16 3 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 33)
+idle_orders 10 16 3 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 100 Health(LessThan 24)
+idle_orders 10 16 5 zealot|dark_templar|scout 160 group_men 95 Health(LessThan 60)
+idle_orders 10 16 5 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 60)
+idle_orders 10 16 5 zealot|dark_templar|scout 160 sunken_colony|photon_cannon|bunker 105 Health(LessThan 45)
+idle_orders 10 64 1 dragoon 192 sunken_colony|photon_cannon|bunker 110 Health(LessThan 20)
+idle_orders 10 64 1 dragoon 192 group_men 100 Health(LessThan 15)
+idle_orders 10 64 2 dragoon 192 group_men 105 Health(LessThan 35)
+idle_orders 10 64 1 dragoon 192 infested_terran|dark_archon|defiler 130 Health(LessThan 20)
+idle_orders 10 64 1 dragoon 192 lurker|queen 120 Health(LessThan 20)
+idle_orders 10 64 1 archon 160 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 150 count(AtLeast 3 48 14)
+idle_orders 10 16 1 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
+idle_orders 10 16 2 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
+idle_orders 10 16 1 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
+idle_orders 10 16 3 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
+idle_orders 10 16 1 scout|corsair 192 devourer|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 16 2 scout|corsair 192 devourer|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 16 3 scout|corsair 192 devourer|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 16 4 scout|corsair 192 devourer|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 16 1 scout|corsair 192 shuttle|observer|overlord 60 Health(LessThan 20)
+idle_orders 10 16 1 revenant 192 mutalisk|scout|corsair|scourge|wraith 110 count(AtLeast 4 60 14)
+idle_orders 10 16 3 revenant 192 mutalisk|scout|corsair|scourge|wraith 135 count(AtLeast 4 60 14)
+idle_orders 10 16 1 revenant 192 devourer|battlecruiser|carrier 150 count(AtLeast 3 60 14)
+idle_orders 10 16 2 revenant 192 devourer|battlecruiser|carrier 160 count(AtLeast 3 60 14)
+idle_orders 10 16 3 revenant 192 devourer|battlecruiser|carrier 170 count(AtLeast 3 60 14)
+idle_orders 10 16 4 revenant 192 devourer|battlecruiser|carrier 190 count(AtLeast 3 60 14)
+idle_orders 10 16 1 revenant 192 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
+idle_orders 10 16 1 revenant 192 group_men 80 count(AtLeast 5 60 14)
+idle_orders 10 16 1 revenant 192 group_men 90 count(AtLeast 7 60 14)
+idle_orders 10 16 1 hornet 192 group_men 60 Health(LessThan 11)
+idle_orders 10 16 1 hornet 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
+idle_orders 10 16 2 hornet 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
+idle_orders 10 16 1 hornet 192 group_men 60 Health(LessThan 5)
+idle_orders 10 16 1 scout|corsair|dragoon 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 16 2 scout|corsair|dragoon 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+wait_rand 1 5
+multirun supply_ensure
+multirun defense_panic
+multirun worker_ensure
+multirun grand_exchange
+multirun start_cheat
+wait 120
+
+groundmap_jump ground_picker
+#never run this now
+goto skytoss
+
+:p_defaults
+define_max 10 zealot
+define_max 6 dragoon
+define_max 1 shuttle
+define_max 12 scout
+define_max 5 carrier
+define_max 3 observer
+define_max 2 arbiter
+define_max 10 high_templar
+define_max 4 archon
+define_max 60 probe
+define_max 3 reaver
+defenseclear_gg 
+defenseuse_gg 2 zealot
+defenseuse_gg 1 dragoon
+defenseuse_gg 1 reaver
+defenseuse_gg 1 dark_templar
+defenseuse_gg 1 dragoon
+defenseuse_gg 2 zealot
+defenseuse_gg 1 carrier
+defenseuse_gg 1 scout
+defenseuse_gg 1 archon
+defenseuse_gg 1 hornet
+defenseuse_gg 1 revenant
+defenseuse_gg 1 high_templar
+defenseclear_ag 
+defenseuse_ag 2 dragoon
+defenseuse_ag 2 scout
+defenseuse_ag 2 carrier
+defenseuse_ag 2 revenant
+defenseuse_ag 2 archon
+defenseuse_ag 2 corsair
+defenseuse_ag 2 hornet
+defenseclear_aa 
+defenseuse_aa 2 scout
+defenseuse_aa 1 carrier
+defenseuse_aa 1 corsair
+defenseuse_aa 1 carrier
+defenseuse_aa 1 arbiter
+defenseuse_aa 1 hornet
+defenseclear_ga 
+defenseuse_ga 1 carrier
+defenseuse_ga 2 scout
+defenseuse_ga 1 carrier
+defenseuse_ga 2 scout
+defenseuse_ga 1 hornet
+return 
+
+:ground_picker
+race_jump vst vsz vsp
+
+:vsp
+random_call 60 opener_randomizer
+random_jump 35 dt_casters
+random_jump 41 skytoss
+random_jump 55 robotics_force
+random_jump 85 khalai_squadron
+goto mixed_toss
+
+:vsz
+random_call 75 zealot_opener
+random_jump 7 dt_casters
+random_jump 33 mixed_toss
+random_jump 85 robotics_force
+random_jump 128 khalai_squadron
+goto skytoss
+
+:vst
+random_call 47 dt_opener
+random_jump 5 khalai_squadron
+random_jump 53 dt_casters
+random_jump 85 robotics_force
+goto mixed_toss
+
+:opener_randomizer
+random_jump 128 zealot_opener
+goto dt_opener
+
+:mixed_toss
+build 1 nexus 150
+deaths 13 Set 1 lurker robof
+wait_buildstart 1 nexus
+build 8 probe 130
+wait_buildstart 8 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 10 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+wait_buildstart 12 probe
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 13 probe 80
+wait_buildstart 13 probe
+expand 1 std_expansion
+train 1 zealot
+defenseuse_gg 2 zealot
+capt_expand 
+build 14 probe 80
+wait_buildstart 14 probe
+build 2 gateway 80
+wait_buildstart 2 gateway
+build 15 probe 80
+wait_buildstart 15 probe
+train 2 zealot
+build 16 probe 80
+wait_buildstart 16 probe
+build 3 pylon 80
+wait_buildstart 3 pylon
+build 17 probe 80
+wait_buildstart 17 probe
+train 4 zealot
+wait_force 3 zealot
+attack_add 3 zealot
+attack_prepare
+build 18 probe 80
+wait_buildstart 18 probe
+train 5 zealot
+build 1 assimilator 80
+wait_buildstart 1 assimilator
+build 1 cybernetics_core 80
+train 6 zealot
+build 4 pylon 80
+wait_buildstart 4 pylon
+train 8 zealot
+build 1 forge 80
+wait_buildstart 1 forge
+build 5 pylon 80
+wait_buildstart 5 pylon
+farms_timing 
+upgrade 1 p_ground_weapon 70
+wait_build 1 cybernetics_core
+build 1 stargate 80
+build 1 citadel_of_adun 80
+build 4 gateway 80
+define_max 6 dragoon
+wait_force 4 dragoon
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+attack_clear 
+attack_add 6 zealot
+attack_add 4 dragoon
+attack_prepare 
+panic std_expansion
+train 10 zealot
+define_max 12 zealot
+build 1 templar_archives 80
+wait_buildstart 1 templar_archives
+train 3 dragoon
+build 1 robotics_facility 80
+wait_buildstart 1 robotics_facility
+call p_defaults
+defensebuild_gg 2 zealot
+defensebuild_aa 1 corsair
+train 5 dragoon
+upgrade 1 zealot_speed 70
+define_max 2 corsair
+train 1 corsair
+train 1 shuttle
+upgrade 1 dragoon_range 70
+upgrade 2 p_ground_weapon 70
+check_transports 
+train 4 dragoon
+attack_do
+attack_clear
+attack_add 1 corsair
+attack_prepare
+wait 16
+
+attack_timeout 10
+defensebuild_gg 1 dragoon
+defensebuild_ag 2 dragoon
+defensebuild_gg 1 revenant
+defensebuild_ag 2 revenant
+train 2 revenant
+expand 2 std_expansion
+upgrade 1 p_plasma_shield 70
+define_max 10 zealot
+train 5 dragoon
+multirun MixedAttacks
+train 6 dragoon
+place_guard high_templar 0
+defensebuild_gg 1 archon
+defensebuild_ag 2 archon
+build 2 forge 80
+tech psionic_storm 80
+train 7 dragoon
+train 8 dragoon
+upgrade 3 p_ground_weapon 70
+define_max 2 shuttle
+multirun cannons
+upgrade 1 one_with_khala 70
+upgrade 2 p_armor 70
+upgrade 2 p_plating 70
+build 1 observatory 80
+wait_buildstart 1 observatory
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+expand 3 std_expansion
+defensebuild_gg 1 dark_templar
+defensebuild_ga 1 hornet
+upgrade 1 observer_speed 70
+upgrade 1 shuttle_speed 70
+define_max 1 observer
+upgrade 2 p_plasma_shield 70
+define_max 2 observer
+build 1 stargate 80
+wait_buildstart 1 stargate
+upgrade 1 observer_sight 70
+defensebuild_gg 1 reaver
+define_max 3 observer
+upgrade 1 p_air_weapon 70
+call resource_waitskip
+
+upgrade 3 p_armor 70
+upgrade 3 p_plating 70
+train 1 scout
+defensebuild_ga 1 scout
+defensebuild_ag 2 scout
+expand 3 std_expansion
+build 2 stargate 80
+wait_buildstart 2 stargate
+train 2 scout
+build 1 fleet_beacon 80
+build 2 robotics_facility 80
+wait_buildstart 1 fleet_beacon
+train 3 scout
+call resource_waitskip
+
+upgrade 2 one_with_khala 70
+upgrade 1 templar_mana 70
+upgrade 1 scout_speed 70
+build 3 stargate 80
+tech disruption_web 70
+defensebuild_aa 1 scout
+defensebuild_gg 1 scout
+wait_buildstart 3 stargate
+upgrade 1 scout_sight 70
+tech mind_control 70
+train 1 carrier
+expand 3 std_expansion
+build 1 arbiter_tribunal 80
+wait_buildstart 1 arbiter_tribunal
+upgrade 3 p_plasma_shield 70
+upgrade 2 p_air_weapon 70
+place_guard arbiter 0
+tech stasis_field 80
+call resource_waitskip
+
+expand 4 std_expansion
+train 1 carrier
+defensebuild_aa 1 carrier
+defensebuild_gg 1 carrier
+upgrade 1 reaver_capacity 70
+upgrade 1 carrier_capacity 70
+upgrade 3 p_air_weapon 70
+train 1 carrier
+tech maelstrom 70
+call resource_waitskip
+
+place_guard arbiter 0
+call resource_waitskip
+
+expand 5 std_expansion
+upgrade 1 arbiter_mana 70
+upgrade 1 scarab_damage 70
+upgrade 1 dark_archon_mana 70
+place_guard dark_archon 0
+:exp_repeater
+wait 8700
+expand 9 std_expansion
+goto exp_repeater
+
+
+:MixedAttacks
+define_max 14 zealot
+define_max 7 revenant
+define_max 20 dragoon
+define_max 3 carrier
+define_max 10 dark_templar
+define_max 1 dark_archon
+define_max 5 high_templar
+define_max 4 archon
+define_max 7 scout
+define_max 2 reaver
+define_max 8 hornet
+define_max 3 corsair
+attack_do
+attack_clear 
+attack_add 6 zealot
+attack_add 4 dragoon
+attack_add 4 revenant
+set_attacks 2
+
+:def009
+train 6 zealot
+train 4 dragoon
+train 4 revenant
+target_expansion 
+call resource_waitskip
+notowns_jump templar_archives def009
+attack_do
+attack_clear 
+attack_add 8 zealot
+attack_add 4 dragoon
+attack_add 2 archon
+set_attacks 2
+
+train 4 high_templar
+train 8 zealot
+train 4 dragoon
+do_morph 2 archon
+target_expansion 
+call resource_waitskip
+
+:def010
+attack_do
+attack_clear 
+attack_add 6 dark_templar
+attack_add 5 scout
+set_attacks 2
+
+train 2 scout
+train 4 dark_templar
+train 3 scout
+train 6 dark_templar
+train 5 scout
+wait 500
+target_expansion 
+call resource_waitskip
+
+notowns_jump fleet_beacon def010
+
+:def011
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 14 zealot
+attack_add 4 dragoon
+attack_add 2 reaver
+attack_add 2 archon
+attack_add 2 carrier
+attack_add 4 dark_templar
+attack_add 2 corsair
+set_attacks 2
+train 2 corsair
+train 2 carrier
+train 1 reaver
+train 4 high_templar
+train 8 zealot
+do_morph 2 archon
+train 4 dragoon
+train 4 high_templar
+train 2 reaver
+train 14 zealot
+do_morph 4 archon
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 16 dragoon
+attack_add 4 revenant
+attack_add 4 dark_templar
+attack_add 3 carrier
+attack_add 6 scout
+train 2 carrier
+train 7 dragoon
+train 3 carrier
+train 10 dragoon
+train 3 scout
+train 4 revenant
+train 6 scout
+train 4 dark_templar
+target_expansion 
+call resource_waitskip
+goto def011
+
+:dt_opener
+define_max 7 zealot
+define_max 2 revenant
+define_max 4 dark_templar
+build 1 nexus 130
+build 1 probe 110
+build 7 probe 90
+wait_buildstart 7 probe
+build 8 probe 80
+wait_build 7 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 9 probe
+wait_build 8 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+defenseuse_gg 2 zealot
+wait_buildstart 12 probe
+build 13 probe 80
+wait_build 12 probe
+build 1 assimilator 80
+defensebuild_gg 2 zealot
+build 13 probe 80
+wait_buildstart 13 probe
+build 1 cybernetics_core 80
+wait_buildstart 1 cybernetics_core
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 14 probe 80
+wait_buildstart 14 probe
+train 1 zealot
+build 1 forge 80
+build 15 probe 80
+wait_buildstart 15 probe
+build 1 citadel_of_adun 80
+train 2 zealot
+upgrade 1 p_ground_weapon 70
+build 2 gateway 80
+build 16 probe 80
+wait_buildstart 16 probe
+wait_build 15 probe
+random_jump 85 revenant_alt
+train 3 zealot
+build 1 templar_archives 80
+build 3 pylon 80
+wait_buildstart 3 pylon
+farms_timing
+build 18 probe 80
+wait_buildstart 18 probe
+train 4 zealot
+defensebuild_ag 2 revenant
+defenseuse_ag 2 revenant
+train 1 revenant
+build 20 probe 80
+wait_buildstart 20 probe
+train 6 zealot
+train 2 revenant
+train 1 dark_templar
+defensebuild_gg 1 dark_templar
+defenseuse_gg 1 dark_templar
+train 2 dark_templar
+expand 1 exp_noguard
+defensebuild_gg 1 revenant
+defenseuse_gg 1 revenant
+define_max 12 zealot
+enemyowns_jump science_vessel d_o_r
+enemyowns_jump lurker d_o_r
+enemyowns_jump observer d_o_r
+build 1 photon_cannon 80
+wait_force 2 dark_templar
+attack_add 5 zealot
+attack_add 2 dark_templar
+attack_prepare
+wait 90
+
+train 2 revenant
+attack_timeout 90
+attack_do
+attack_clear
+attack_add 2 revenant
+attack_prepare
+wait 16
+
+attack_timeout 60
+attack_do
+attack_clear
+:d_o_r
+return
+
+:revenant_alt
+define_max 8 revenant
+train 3 zealot
+train 1 revenant
+build 3 pylon 80
+wait_buildstart 3 pylon
+farms_timing
+build 18 probe 80
+wait_buildstart 18 probe
+defensebuild_gg 1 revenant
+defenseuse_gg 1 revenant
+defensebuild_ag 2 revenant
+defenseuse_ag 2 revenant
+train 3 revenant
+expand 1 exp_noguard
+train 1 revenant
+build 20 probe 80
+wait_buildstart 20 probe
+train 4 zealot
+train 6 revenant
+attack_add 3 zealot
+attack_add 6 revenant
+attack_prepare
+wait 90
+
+attack_do
+attack_clear
+build 1 templar_archives 80
+defensebuild_gg 1 dark_templar
+defenseuse_gg 1 dark_templar
+return
+
+:dt_casters
+call dt_opener
+define_max 60 probe
+deaths 13 Set 2 lurker robof
+deaths 13 Set 1 98 robof
+capt_expand 
+build 3 gateway 80
+wait_buildstart 3 gateway
+build 4 pylon 80
+wait_buildstart 4 pylon
+build 2 forge 80
+wait_buildstart 2 forge
+build 5 pylon 80
+wait_buildstart 5 pylon
+farms_timing 
+upgrade 2 p_ground_weapon 70
+upgrade 1 dragoon_range 70
+upgrade 1 p_armor 60
+upgrade 1 zealot_speed 70
+build 4 gateway 80
+define_max 6 revenant
+define_max 1 dark_archon
+define_max 6 dark_templar
+train 4 revenant
+expand 2 exp_noguard
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+attack_clear 
+attack_add 6 zealot
+attack_add 4 revenant
+attack_prepare 
+panic exp_noguard
+train 4 dark_templar
+define_max 8 dark_templar
+idle_orders 184 64 1 dark_archon 612 queen|science_vessel|battlecruiser|valhalla|dark_archon 40 energy(GreaterThanPercent,66)
+idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 energy(GreaterThanPercent,50)
+train 1 dark_archon
+tech mind_control 70
+train 3 revenant
+build 1 robotics_facility 80
+wait_buildstart 1 robotics_facility
+build 1 stargate 80
+wait_buildstart 1 stargate
+define_max 1 shuttle
+define_max 255 observer
+upgrade 1 p_air_weapon 70
+defensebuild_gg 2 zealot
+defensebuild_aa 1 corsair
+defenseuse_aa 1 corsair
+train 5 revenant
+idle_orders 182 780 1 dark_archon 912 ultralisk|battlecruiser|valhalla|carrier|arbiter 30 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 lurker|siege_tank|panzer 20 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 queen|science_vessel|phantom 20 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 defiler|high_templar 10 health(GreaterThanPercent,66)
+idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser 80 incombat|health(GreaterThanPercent,50)
+idle_orders 182 16 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
+define_max 4 corsair
+train 1 corsair
+train 1 shuttle
+check_transports 
+train 4 dark_templar
+attack_do
+attack_clear
+attack_add 1 corsair
+attack_prepare
+wait 16
+
+attack_timeout 10
+defensebuild_gg 1 revenant
+defensebuild_ag 2 revenant
+train 2 revenant
+expand 2 exp_noguard
+upgrade 1 p_plasma_shield 70
+define_max 18 zealot
+define_max 17 dark_templar
+define_max 3 dark_archon
+define_max 19 revenant
+define_max 7 corsair
+define_max 7 reaver
+define_max 255 high_templar
+define_max 255 arbiter
+define_max 255 carrier
+define_max 255 scout
+define_max 255 dragoon
+define_max 255 hornet
+multirun da_ensure
+train 5 revenant
+build 1 stargate 80
+multirun NerazimAttacks
+train 6 zealot
+upgrade 3 p_ground_weapon 70
+define_max 2 shuttle
+multirun cannons
+upgrade 2 p_armor 70
+defensebuild_ag 2 corsair
+defenseuse_ag 2 corsair
+upgrade 2 p_plating 70
+build 1 observatory 80
+wait_buildstart 1 observatory
+build 1 fleet_beacon 80
+wait_buildstart 1 fleet_beacon
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+expand 3 exp_noguard
+defensebuild_gg 1 reaver
+defenseuse_gg 1 reaver
+upgrade 1 scarab_damage 70
+define_max 1 observer
+upgrade 2 p_plasma_shield 70
+tech disruption_web 70
+upgrade 1 dark_archon_mana 70
+idle_orders 181 440 1 corsair 338 group_men 80 incombat|count(AtLeast 3 60 14)
+idle_orders 181 280 1 corsair 512 sunken_colony|spore_colony|lurker|photon_cannon|bunker|missile_turret|siege_tank|reaver|panzer 70 incombat
+idle_orders 181 0 0 corsair 188 group_men 30 deathrattle
+define_max 2 observer
+build 2 stargate 80
+wait_buildstart 2 stargate
+upgrade 1 observer_sight 70
+defensebuild_gg 1 reaver
+define_max 3 observer
+upgrade 3 p_armor 70
+upgrade 1 shuttle_speed 70
+upgrade 3 p_plating 70
+define_max 5 shuttle
+check_transports
+call resource_waitskip
+
+expand 3 exp_noguard
+build 2 robotics_facility 80
+wait_buildstart 1 fleet_beacon
+upgrade 2 p_air_weapon 70
+upgrade 1 reaver_capacity 70
+call resource_waitskip
+
+upgrade 2 dark_archon_mana 70
+build 3 robotics_facility 80
+
+wait_buildstart 3 robotics_facility
+upgrade 3 p_plasma_shield 70
+upgrade 3 p_air_weapon 70
+call resource_waitskip
+
+expand 4 exp_noguard
+upgrade 1 corsair_mana 70
+call resource_waitskip
+
+tech maelstrom 70
+
+place_guard dark_archon 0
+call resource_waitskip
+
+idle_orders 186 882 1 dark_archon 1024 group_men 80 incombat|count(AtLeast 2 60 14)|unitflags(organic)
+expand 5 exp_noguard
+place_guard dark_archon 0
+:noguard_repeater
+wait_rand 7999 10500
+
+expand 9 exp_noguard
+goto noguard_repeater
+
+:NerazimAttacks
+train 8 zealot
+train 6 revenant
+attack_add 8 zealot
+attack_add 6 revenant
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+set_attacks 2
+train 15 dark_templar
+attack_add 13 dark_templar
+attack_add 1 dark_archon
+target_expansion
+wait 500
+
+attack_do
+attack_clear
+train 3 zealot
+train 2 reaver
+train 3 revenant
+train 2 corsair
+train 5 revenant
+train 6 zealot
+train 4 reaver
+train 8 revenant
+train 4 corsair
+train 6 reaver
+attack_add 6 zealot
+attack_add 4 reaver
+attack_add 4 corsair
+attack_add 8 revenant
+target_expansion
+wait 500
+
+attack_do
+attack_clear
+attack_add 2 reaver
+attack_add 4 revenant
+goto NerazimAttacks
+
+:robotics_force
+build 1 nexus 150
+deaths 13 Set 2 lurker robof
+wait_buildstart 1 nexus
+build 8 probe 130
+wait_buildstart 8 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 10 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+wait_buildstart 12 probe
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 13 probe 80
+wait_buildstart 13 probe
+expand 1 exp_noguard
+train 1 zealot
+defenseuse_gg 2 zealot
+capt_expand 
+build 14 probe 80
+wait_buildstart 14 probe
+build 1 cybernetics_core 80
+build 15 probe 80
+wait_buildstart 15 probe
+train 2 zealot
+build 1 assimilator 80
+wait_buildstart 1 assimilator
+build 16 probe 80
+wait_buildstart 16 probe
+build 3 pylon 80
+wait_buildstart 3 pylon
+build 17 probe 80
+wait_buildstart 17 probe
+train 4 zealot
+wait_force 2 zealot
+attack_add 1 zealot
+attack_prepare
+build 2 gateway 80
+wait_buildstart 2 gateway
+build 18 probe 80
+wait_buildstart 18 probe
+train 5 zealot
+build 1 robotics_facility 80
+train 6 zealot
+build 4 pylon 80
+wait_buildstart 4 pylon
+train 2 dragoon
+defensebuild_gg 1 dragoon
+defenseuse_gg 1 dragoon
+build 1 forge 80
+wait_buildstart 1 forge
+build 5 pylon 80
+wait_buildstart 5 pylon
+farms_timing 
+upgrade 1 p_plasma_shield 70
+upgrade 1 p_plating 70
+build 1 stargate 80
+wait_buildstart 1 stargate
+build 2 robotics_facility 80
+define_max 6 dragoon
+define_max 6 hornet
+train 4 hornet
+wait_force 4 dragoon
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+attack_clear 
+attack_add 4 hornet
+attack_add 4 dragoon
+attack_prepare 
+upgrade 1 dragoon_range 70
+panic exp_noguard
+expand 2 std_expansion
+define_max 12 zealot
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+define_max 1 shuttle
+check_transports
+train 3 dragoon
+build 3 robotics_facility 80
+wait_buildstart 3 robotics_facility
+call p_defaults
+defensebuild_gg 2 zealot
+train 5 dragoon
+train 1 reaver
+upgrade 1 scarab_damage 70
+upgrade 1 zealot_speed 70
+define_max 3 corsair
+train 1 corsair
+train 1 shuttle
+define_max 3 shuttle
+train 4 dragoon
+attack_do
+attack_clear
+attack_add 1 corsair
+attack_prepare
+wait 16
+
+attack_timeout 10
+defensebuild_gg 1 dragoon
+defensebuild_ag 2 dragoon
+defensebuild_gg 1 revenant
+defensebuild_ag 2 revenant
+train 2 reaver
+expand 2 std_expansion
+upgrade 1 p_plasma_shield 70
+define_max 10 zealot
+train 5 dragoon
+train 4 hornet
+defensebuild_gg 1 hornet
+defensebuild_ga 1 hornet
+defensebuild_ag 2 hornet
+defensebuild_aa 1 hornet
+multirun RoboAttacks
+train 6 dragoon
+build 2 forge 80
+train 7 dragoon
+train 8 dragoon
+upgrade 1 p_ground_weapon 70
+
+define_max 2 shuttle
+multirun cannons
+upgrade 2 p_armor 70
+upgrade 2 p_plating 70
+build 1 observatory 80
+wait_buildstart 1 observatory
+build 1 robotics_support_bay 80
+expand 3 exp_noguard
+wait_buildstart 1 robotics_support_bay
+defensebuild_gg 1 reaver
+upgrade 1 observer_speed 70
+upgrade 1 shuttle_speed 70
+define_max 1 observer
+upgrade 2 p_plasma_shield 70
+define_max 2 observer
+build 1 citadel_of_adun 80
+build 2 stargate 80
+wait_buildstart 2 stargate
+build 3 gateway 80
+upgrade 2 p_ground_weapon 70
+upgrade 1 observer_sight 70
+define_max 3 observer
+upgrade 3 p_armor 70
+upgrade 3 p_plating 70
+upgrade 1 p_air_weapon 70
+defensebuild_gg 1 scout
+defensebuild_aa 1 scout
+train 1 scout
+expand 2 std_expansion
+train 2 scout
+build 1 fleet_beacon 80
+build 4 robotics_facility 80
+wait_buildstart 1 fleet_beacon
+train 3 scout
+expand 3 exp_noguard
+build 1 templar_archives 80
+multirun random_owk
+call resource_waitskip
+
+defensebuild_gg 1 carrier
+defensebuild_ga 1 carrier
+upgrade 1 robotics_speed 70
+upgrade 1 carrier_capacity 70
+upgrade 1 scout_speed 70
+build 3 stargate 80
+defensebuild_aa 1 corsair
+wait_buildstart 3 stargate
+upgrade 1 p_armor 70
+upgrade 1 p_plating 70
+upgrade 1 scout_sight 70
+train 1 carrier
+upgrade 3 p_plasma_shield 70
+upgrade 2 p_air_weapon 70
+expand 4 std_expansion
+call resource_waitskip
+
+train 1 carrier
+upgrade 1 reaver_capacity 70
+upgrade 3 p_air_weapon 70
+train 1 carrier
+upgrade 3 p_ground_weapon 70
+expand 5 std_expansion
+goto noguard_repeater
+
+:random_owk
+random_jump 128 rowk_skip
+upgrade 1 one_with_khala 70
+wait 6000
+
+random_jump 128 rowk_skip
+upgrade 2 one_with_khala 70
+:rowk_skip
+stop
+
+:RoboAttacks
+define_max 6 zealot
+define_max 255 revenant
+define_max 20 dragoon
+define_max 4 carrier
+define_max 255 dark_templar
+define_max 255 dark_archon
+define_max 4 high_templar
+define_max 1 archon
+define_max 8 scout
+define_max 8 reaver
+define_max 30 hornet
+define_max 3 corsair
+attack_do
+attack_clear 
+attack_add 10 hornet
+set_attacks 2
+
+:RRe
+train 10 hornet
+target_expansion 
+call resource_waitskip
+notowns_jump robotics_support_bay RRe
+attack_do
+attack_clear 
+attack_add 10 dragoon
+attack_add 3 reaver
+set_attacks 2
+
+train 3 reaver
+train 10 dragoon
+target_expansion 
+call resource_waitskip
+
+:RPu
+attack_do
+attack_clear
+attack_add 6 zealot
+attack_add 2 corsair
+attack_add 4 reaver
+set_attacks 2
+
+train 2 zealot
+train 1 corsair
+train 2 reaver
+train 4 zealot
+train 2 corsair
+train 4 reaver
+train 6 zealot
+wait 500
+target_expansion 
+call resource_waitskip
+
+notowns_jump fleet_beacon RPu
+
+:RLo
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 2 carrier
+attack_add 16 hornet
+set_attacks 2
+train 1 carrier
+train 10 hornet
+train 2 carrier
+train 16 hornet
+wait_force 2 carrier
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 16 dragoon
+attack_add 6 reaver
+attack_add 10 hornet
+train 10 hornet
+train 8 dragoon
+train 6 reaver
+train 16 dragoon
+target_expansion 
+call resource_waitskip
+goto RLo
+
+:khalai_squadron
+build 1 nexus 150
+deaths 13 Set 1 lurker robof
+wait_buildstart 1 nexus
+build 8 probe 130
+wait_buildstart 8 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 10 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+wait_buildstart 12 probe
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 13 probe 80
+wait_buildstart 13 probe
+train 1 zealot
+defenseuse_gg 2 zealot
+capt_expand 
+build 14 probe 80
+wait_buildstart 14 probe
+build 2 gateway 80
+wait_buildstart 2 gateway
+build 15 probe 80
+wait_buildstart 15 probe
+train 2 zealot
+build 16 probe 80
+wait_buildstart 16 probe
+build 3 pylon 80
+wait_buildstart 3 pylon
+build 17 probe 80
+wait_buildstart 17 probe
+define_max 15 zealot
+train 4 zealot
+build 1 forge 80
+wait_buildstart 1 forge
+build 3 gateway 80
+wait_buildstart 3 gateway
+upgrade 1 p_ground_weapon 70
+train 7 zealot
+build 4 pylon 80
+train 12 zealot
+attack_add 12 zealot
+attack_prepare
+expand 1 std_expansion
+build 18 probe 80
+wait_buildstart 18 probe
+train 12 zealot
+build 1 assimilator 80
+wait_buildstart 1 assimilator
+build 1 cybernetics_core 80
+train 12 zealot
+build 4 pylon 80
+wait_buildstart 4 pylon
+train 14 zealot
+build 5 pylon 80
+wait_buildstart 5 pylon
+farms_timing 
+wait_build 1 cybernetics_core
+upgrade 1 dragoon_range 70
+build 1 citadel_of_adun 80
+build 5 gateway 80
+define_max 8 dragoon
+train 10 zealot
+wait_force 6 dragoon
+build 1 robotics_facility 80
+wait_buildstart 1 robotics_facility
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+attack_clear 
+attack_add 10 zealot
+attack_add 6 dragoon
+attack_prepare 
+panic std_expansion
+upgrade 1 zealot_speed 70
+define_max 12 zealot
+upgrade 1 p_plasma_shield 70
+build 1 templar_archives 80
+wait_buildstart 1 templar_archives
+train 3 dragoon
+
+call p_defaults
+defensebuild_gg 3 zealot
+train 5 dragoon
+build 1 observatory 80
+wait_buildstart 1 observatory
+upgrade 1 zealot_speed 70
+build 1 stargate 80
+define_max 2 scout
+train 1 scout
+tech psionic_storm 80
+train 1 shuttle
+check_transports 
+expand 2 std_expansion
+train 4 dragoon
+train 1 observer
+attack_do
+attack_clear
+defensebuild_gg 2 dragoon
+defensebuild_ag 2 dragoon
+attack_add 1 scout
+attack_prepare
+wait 16
+
+attack_timeout 10
+defensebuild_gg 1 scout
+defensebuild_ag 2 scout
+defensebuild_aa 1 scout
+upgrade 2 p_plasma_shield 70
+define_max 14 zealot
+train 5 dragoon
+multirun KhaAtt
+train 6 dragoon
+place_guard high_templar 0
+build 2 forge 80
+train 7 dragoon
+train 8 dragoon
+upgrade 2 p_ground_weapon 70
+upgrade 1 one_with_khala 70
+defensebuild_gg 1 high_templar
+defensebuild_gg 1 archon
+defensebuild_ag 2 archon
+define_max 2 shuttle
+multirun cannons
+upgrade 2 p_armor 70
+upgrade 2 p_plating 70
+
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+defensebuild_ag 2 hornet
+upgrade 1 observer_speed 70
+upgrade 1 shuttle_speed 70
+define_max 2 observer
+build 2 stargate 80
+wait_buildstart 2 stargate
+expand 3 std_expansion
+upgrade 1 observer_sight 70
+define_max 3 observer
+upgrade 3 p_armor 70
+upgrade 3 p_plating 70
+upgrade 1 templar_mana 70
+call resource_waitskip
+
+train 1 scout
+train 2 scout
+build 1 arbiter_tribunal 80
+upgrade 2 one_with_khala 70
+wait_buildstart 1 arbiter_tribunal
+upgrade 1 p_air_weapon 70
+build 2 robotics_facility 80
+train 3 scout
+call resource_waitskip
+
+expand 3 std_expansion
+
+build 3 stargate 80
+wait_buildstart 3 stargate
+upgrade 3 p_plasma_shield 70
+upgrade 1 p_armor 70
+upgrade 1 p_plating 70
+build 1 fleet_beacon 80
+wait_buildstart 1 fleet_beacon
+upgrade 1 arbiter_mana 70
+upgrade 1 reaver_capacity 70
+upgrade 1 scout_speed 70
+upgrade 2 p_air_weapon 70
+place_guard arbiter 0
+call resource_waitskip
+
+tech stasis_field 80
+upgrade 1 scout_sight 70
+place_guard harbiter 1
+upgrade 3 p_air_weapon 70
+tech maelstrom 70
+upgrade 3 p_ground_weapon 70
+call resource_waitskip
+
+expand 5 std_expansion
+place_guard harbiter 2
+call resource_waitskip
+
+upgrade 1 scarab_damage 70
+goto exp_repeater
+
+
+:KhaAtt
+define_max 40 zealot
+define_max 255 revenant
+define_max 20 dragoon
+define_max 255 carrier
+define_max 255 dark_templar
+define_max 25 dark_archon
+define_max 15 high_templar
+define_max 8 archon
+define_max 7 scout
+define_max 3 reaver
+define_max 4 hornet
+define_max 255 corsair
+define_max 3 harbiter
+attack_do
+attack_clear 
+attack_add 8 zealot
+attack_add 8 dragoon
+set_attacks 2
+
+:KhaWa
+train 8 zealot
+train 8 dragoon
+target_expansion 
+call resource_waitskip
+notowns_jump templar_archives KhaWa
+attack_do
+attack_clear 
+multirun templar_ensure
+attack_add 8 zealot
+attack_add 4 archon
+set_attacks 2
+
+train 8 zealot
+train 8 high_templar
+do_morph 4 archon
+target_expansion 
+call resource_waitskip
+
+:KhaPu
+attack_do
+attack_clear 
+attack_add 10 zealot
+attack_add 4 scout
+attack_add 4 archon
+set_attacks 2
+
+train 2 scout
+train 8 zealot
+train 8 high_templar
+do_morph 4 archon
+train 4 scout
+train 10 zealot
+wait 500
+target_expansion 
+call resource_waitskip
+
+notowns_jump arbiter_tribunal KhaPu
+defensebuild_gg 1 harbiter
+defenseuse_gg 1 harbiter
+
+:KhaLo
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 28 zealot
+attack_add 2 harbiter
+attack_add 6 archon
+attack_add 2 reaver
+set_attacks 2
+train 2 harbiter
+train 10 zealot
+train 1 reaver
+train 8 high_templar
+train 14 zealot
+do_morph 4 archon
+train 2 reaver
+train 2 harbiter
+train 19 zealot
+do_morph 6 archon
+train 28 zealot
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 20 dragoon
+attack_add 1 harbiter
+attack_add 6 scout
+train 2 scout
+train 7 dragoon
+train 1 harbiter
+train 10 dragoon
+train 3 scout
+train 14 dragoon
+train 6 scout
+train 20 dragoon
+target_expansion 
+call resource_waitskip
+goto KhaLo
+
+:templar_ensure
+wait_train 6 high_templar
+
+do_morph 6 archon
+wait_rand 133 850
+goto templar_ensure
+
+:da_ensure
+wait_train 7 dark_templar
+
+do_morph 2 dark_archon
+wait_rand 133 850
+goto da_ensure
+
+:exp_noguard
+start_town 
+build 1 nexus 100
+wait_buildstart 1 nexus
+get_oldpeons 1
+multirun expo_probes
+multirun tech_prog2_cannon
+multirun sb_checker
+build 1 assimilator 50 
+max_workers 21
+wait 500
+
+multirun worker_decay
+get_oldpeons 6
+wait 3500
+
+deaths 13 Exactly 3 lurker e_ng_air
+build 1 gateway 80
+wait 3500
+
+:e_ng_robo
+build 1 robotics_facility 80
+:e_ng_loop
+wait 1500
+
+goto e_ng_loop
+
+:e_ng_air
+build 1 stargate 80
+wait 3500
+
+random_jump 128 e_ng_robo
+build 1 gateway 80
+wait 3500
+
+goto e_ng_loop
+
+:sb_checker
+wait 3500
+
+random_jump 164 sb_done
+:sb_conditionals
+wait 160
+
+if_owned carrier sb_exec
+if_owned archon sb_exec
+if_owned dark_archon sb_exec
+if_owned arbiter sb_exec
+if_owned harbiter sb_exec
+goto sb_conditionals
+
+:sb_exec
+build 1 shield_battery 80
+:sb_done
+stop
+
+:std_expansion
+start_town 
+build 1 nexus 100
+wait_buildstart 1 nexus
+get_oldpeons 1
+multirun expo_probes
+multirun tech_prog1
+multirun tech_prog2_cannon
+multirun sb_checker
+build 1 assimilator 50
+max_workers 21
+wait 500
+
+multirun worker_decay
+get_oldpeons 6
+:def015
+notowns_jump templar_archives def016
+goto def017
+
+
+:def016
+wait 500
+goto def015
+
+
+:def017
+wait 3500
+
+deaths 13 AtLeast 1 98 def018
+place_guard high_templar 0
+wait 4500
+
+place_guard high_templar 2
+
+:def018
+wait 1500
+goto def018
+
+
+:tech_prog1
+notowns_jump gateway def019
+goto def020
+
+
+:def019
+wait 500
+goto tech_prog1
+
+
+:def020
+player_need 1 gateway
+
+:def021
+notowns_jump cybernetics_core def022
+goto def023
+
+
+:def022
+wait 500
+goto def021
+
+
+:def023
+player_need 1 cybernetics_core
+
+:def024
+notowns_jump citadel_of_adun def025
+goto def026
+
+
+:def025
+wait 500
+goto def024
+
+
+:def026
+player_need 1 citadel_of_adun
+
+:def027
+notowns_jump robotics_facility def028
+goto def029
+
+
+:def028
+wait 500
+goto def027
+
+
+:def029
+player_need 1 robotics_facility
+
+:def030
+notowns_jump templar_archives def031
+goto def032
+
+
+:def031
+wait 500
+goto def030
+
+
+:def032
+player_need 1 templar_archives
+
+:def033
+notowns_jump observatory def034
+goto def035
+
+
+:def034
+wait 500
+goto def033
+
+
+:def035
+player_need 1 observatory
+
+:def036
+notowns_jump robotics_support_bay def037
+goto def038
+
+
+:def037
+wait 500
+goto def036
+
+
+:def038
+player_need 1 robotics_support_bay
+
+:def039
+notowns_jump stargate def040
+goto def041
+
+
+:def040
+wait 500
+goto def039
+
+
+:def041
+deaths 13 Exactly 2 lurker robof
+build 1 stargate 80
+build 1 gateway 80
+goto def042
+
+:robof
+build 1 robotics_facility 80
+build 1 gateway 80
+:def042
+notowns_jump fleet_beacon def043
+goto def044
+
+
+:def043
+wait 500
+goto def042
+
+
+:def044
+player_need 1 fleet_beacon
+
+:def045
+notowns_jump arbiter_tribunal def046
+goto def047
+
+
+:def046
+wait 500
+goto def045
+
+
+:def047
+player_need 1 arbiter_tribunal
+
+:def048
+wait 1500
+goto def048
+
+
+:tech_prog2_cannon
+build 1 pylon 80
+wait_build 1 pylon
+
+:def049
+notowns_jump forge def050
+goto def051
+
+
+:def050
+wait 500
+goto def049
+
+
+:def051
+player_need 1 forge
+build 1 photon_cannon 80
+wait_build 1 photon_cannon
+build 2 pylon 80
+wait_build 2 pylon
+build 2 photon_cannon 80
+wait_build 2 photon_cannon
+build 3 pylon 80
+wait_build 3 pylon
+build 3 photon_cannon 80
+wait_build 3 photon_cannon
+stop 
+
+
+:cannons
+creep 3
+build 1 photon_cannon 80
+wait_build 1 photon_cannon
+creep 4
+build 2 photon_cannon 80
+wait_build 2 photon_cannon
+creep 3
+build 3 photon_cannon 80
+wait_build 3 photon_cannon
+creep 4
+build 4 photon_cannon 80
+wait_build 4 photon_cannon
+creep 3
+build 5 photon_cannon 80
+wait_build 5 photon_cannon
+creep 4
+build 6 photon_cannon 80
+wait_build 6 photon_cannon
+stop 
+
+:worker_decay
+wait 10700
+
+max_workers 16
+wait 4700
+
+max_workers 12
+wait 2800
+
+max_workers 255
+stop
+
+:expo_probes
+wait_build 1 nexus
+build 6 probe 100
+wait_buildstart 6 probe
+build 8 probe 80
+wait_buildstart 8 probe
+get_oldpeons 8
+build 10 probe 80
+wait_buildstart 10 probe
+build 12 probe 80
+wait_buildstart 12 probe
+build 14 probe 80
+wait_buildstart 14 probe
+build 16 probe 80
+wait_buildstart 16 probe
+build 19 probe 80
+wait_buildstart 19 probe
+build 21 probe 80
+wait_buildstart 21 probe
+stop 
+
+:skytoss
+build 1 nexus 150
+deaths 13 Set 3 lurker robof
+wait_buildstart 1 nexus
+build 8 probe 130
+wait_buildstart 8 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 10 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+wait_buildstart 12 probe
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 13 probe 80
+wait_buildstart 13 probe
+build 1 assimilator 80
+wait_buildstart 1 assimilator
+call p_defaults
+define_max 2 shuttle
+groundmap_jump skytoss_earlydo
+multirun island_transports
+goto skytoss_earlyskip
+
+:island_transports
+wait_build 1 cybernetics_core
+build 1 robotics_facility 80
+wait_build 1 robotics_facility
+define_max 7 shuttle
+check_transports
+train 1 shuttle
+wait_train 1 shuttle
+expand 1 exp_noguard
+wait 15500
+
+:it_loop
+wait 3720
+
+train 7 shuttle
+goto it_loop
+
+:skytoss_earlydo
+expand 1 exp_noguard
+:skytoss_earlyskip
+train 1 zealot
+defenseuse_gg 2 zealot
+capt_expand
+build 14 probe 80
+wait_buildstart 14 probe
+build 1 cybernetics_core 80
+build 15 probe 80
+wait_buildstart 15 probe
+train 2 zealot
+build 16 probe 80
+wait_buildstart 16 probe
+build 1 forge 80
+defensebuild_gg 2 zealot
+build 3 pylon 80
+wait_buildstart 3 pylon
+build 17 probe 80
+wait_buildstart 17 probe
+build 1 stargate 80
+wait_force 2 zealot
+build 2 stargate 80
+wait_buildstart 2 stargate
+build 18 probe 80
+wait_buildstart 18 probe
+build 2 photon_cannon 80
+define_max 8 scout
+train 2 scout
+upgrade 1 p_air_weapon 70
+build 4 pylon 80
+defensebuild_gg 2 scout
+defensebuild_ag 2 scout
+defensebuild_ga 1 scout
+defensebuild_aa 1 scout
+wait_buildstart 4 pylon
+build 2 gateway 80
+train 2 dragoon
+defensebuild_gg 1 dragoon
+defenseuse_gg 1 dragoon
+expand 2 exp_noguard
+build 5 pylon 80
+wait_buildstart 5 pylon
+farms_timing
+build 1 robotics_facility 80
+upgrade 1 p_plasma_shield 70
+train 4 scout
+train 4 zealot
+attack_add 4 zealot
+attack_add 4 scout
+attack_prepare
+build 3 stargate 80
+wait_buildstart 3 stargate
+define_max 6 dragoon
+build 1 fleet_beacon 80
+wait_force 4 dragoon
+upgrade 1 dragoon_range 70
+panic exp_noguard
+define_max 10 zealot
+build 1 observatory 80
+wait_buildstart 1 observatory
+define_max 2 observer
+define_max 4 carrier
+check_transports
+train 1 carrier
+upgrade 2 p_air_weapon 70
+upgrade 1 scout_sight 70
+train 2 scout
+defensebuild_gg 2 zealot
+defensebuild_gg 1 carrier
+defensebuild_ga 1 carrier
+define_max 3 corsair
+defensebuild_aa 1 corsair
+defensebuild_ag 2 corsair
+build 4 stargate 80
+wait_buildstart 4 stargate
+build 3 photon_cannon 80
+wait_buildstart 3 photon_cannon
+build 1 shield_battery 80
+upgrade 2 p_plasma_shield 70
+define_max 3 corsair
+upgrade 1 carrier_capacity 70
+train 3 carrier
+train 5 scout
+wait_force 2 carrier
+attack_do
+attack_clear
+attack_add 2 carrier
+attack_add 5 scout
+attack_prepare
+expand 2 exp_noguard
+multirun STAttacks
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+build 2 cybernetics_core 80
+call resource_waitskip
+defensebuild_gg 1 reaver
+upgrade 1 p_ground_weapon 60
+multirun cannons
+upgrade 1 p_plating 70
+expand 3 exp_noguard
+upgrade 1 observer_speed 60
+upgrade 1 scout_speed 70
+build 1 citadel_of_adun 80
+build 5 stargate 80
+wait_buildstart 5 stargate
+build 3 gateway 80
+call resource_waitskip
+
+upgrade 1 zealot_speed 60
+upgrade 3 p_air_weapon 70
+upgrade 2 p_ground_weapon 60
+upgrade 1 observer_sight 60
+upgrade 3 p_plasma_shield 70
+define_max 3 observer
+call resource_waitskip
+upgrade 1 p_armor 70
+upgrade 2 p_plating 70
+defensebuild_gg 1 scout
+defensebuild_aa 1 scout
+train 4 scout
+train 6 scout
+build 1 templar_archives 80
+wait_buildstart 1 fleet_beacon
+train 8 scout
+expand 3 exp_noguard
+upgrade 1 one_with_khala 70
+call resource_waitskip
+
+defensebuild_gg 1 carrier
+defensebuild_ga 1 carrier
+tech psionic_storm 80
+tech disruption_web 70
+defensebuild_aa 1 corsair
+wait_buildstart 3 stargate
+upgrade 2 p_armor 70
+upgrade 3 p_plating 70
+upgrade 1 scarab_damage 50
+upgrade 3 p_ground_weapon 70
+call resource_waitskip
+build 1 arbiter_tribunal 80
+wait_buildstart 1 arbiter_tribunal
+train 1 harbiter
+place_guard harbiter 0
+upgrade 1 arbiter_mana 70
+expand 4 exp_noguard
+call resource_waitskip
+
+train 1 carrier
+train 3 carrier
+upgrade 3 p_ground_weapon 70
+upgrade 1 reaver_capacity 50
+place_guard arbiter 0
+expand 5 exp_noguard
+tech stasis_field 80
+upgrade 1 corsair_mana 70
+goto noguard_repeater
+
+:STAttacks
+define_max 12 zealot
+define_max 255 revenant
+define_max 6 dragoon
+define_max 7 carrier
+define_max 255 dark_templar
+define_max 255 dark_archon
+define_max 1 high_templar
+define_max 255 archon
+define_max 20 scout
+define_max 2 reaver
+define_max 255 hornet
+define_max 2 harbiter
+define_max 6 corsair
+attack_do
+attack_clear 
+attack_add 6 zealot
+attack_add 3 carrier
+set_attacks 2
+
+:STRe
+train 3 carrier
+train 6 zealot
+wait_force 3 carrier
+wait 96
+
+target_expansion 
+call resource_waitskip
+notowns_jump citadel_of_adun STRe
+attack_do
+attack_clear 
+attack_add 12 scout
+set_attacks 2
+
+train 12 scout
+target_expansion 
+call resource_waitskip
+
+:STPu
+attack_do
+attack_clear
+attack_add 3 carrier
+attack_add 9 scout
+set_attacks 2
+
+train 3 carrier
+train 9 scout
+wait_force 3 carrier
+wait 96
+
+target_expansion 
+call resource_waitskip
+
+notowns_jump arbiter_tribunal STPu
+
+:STLo
+set_attacks 3
+attack_do
+attack_clear 
+attack_add 2 carrier
+attack_add 1 harbiter
+attack_add 9 scout
+attack_add 2 reaver
+attack_add 8 zealot
+set_attacks 2
+train 2 carrier
+train 1 harbiter
+train 6 scout
+train 4 zealot
+train 2 reaver
+train 8 zealot
+train 10 scout
+wait_force 2 carrier
+wait 96
+
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 7 carrier
+attack_add 6 corsair
+attack_add 1 harbiter
+train 7 carrier
+train 1 harbiter
+train 6 corsair
+wait_force 7 carrier
+wait 96
+
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear
+wait 500
+
+attack_add 18 scout
+train 18 scout
+target_expansion 
+call resource_waitskip
+goto STLo
+
+:supply_ensure
+wait 50
+
+resources_jump 650 0 s_ensured
+goto supply_ensure
+
+:s_ensured
+farms_timing
+wait_build 1 robotics_support_bay
+wait_train 2 shuttle
+:transport_ensure
+wait 50
+
+resources_jump 2500 1000 t_ensured
+goto transport_ensure
+
+:t_ensured
+define_max 5 shuttle
+check_transports
+stop
+
+:resource_waitskip
+wait 16
+
+resources_jump 1033 785 waitskip_do
+wait 1499
+
+:waitskip_do
+return
+
+:defense_panic
+wait_rand 1 3
+
+multirun decrement_workers
+:dp_checker
+wait 50
+
+deaths 13 AtMost 12 probe dp_checker
+#under_attack 1
+max_force 3000
+:dp_retain
+wait 1000
+
+deaths 13 AtLeast 13 probe dp_retain
+max_force 2500
+#under_attack 0
+goto dp_checker
+
+:decrement_workers
+time_jump 20 dec_2
+wait 500
+
+deaths 13 AtMost 0 probe decrement_workers
+deaths 13 Subtract 1 probe decrement_workers
+goto decrement_workers
+
+:dec_2
+time_jump 33 dec_3
+wait 333
+
+deaths 13 AtMost 1 probe dec_2
+deaths 13 Subtract 2 probe dec_2
+goto dec_2
+
+:dec_3
+wait 250
+
+deaths 13 AtMost 2 probe dec_3
+deaths 13 AtLeast_Call 30 probe harsh_dec
+deaths 13 Subtract 3 probe dec_3
+goto dec_3
+
+:harsh_dec
+deaths 13 Set 20 probe dec_3
+return
+
+:worker_ensure
+max_workers 24
+wait 22500
+
+max_workers 255
+stop
+
+:zealot_opener
+define_max 4 zealot
+build 1 nexus 130
+build 1 probe 110
+build 7 probe 90
+wait_buildstart 7 probe
+build 8 probe 80
+wait_build 7 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 9 probe
+wait_build 8 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+defenseuse_gg 2 zealot
+wait_buildstart 12 probe
+build 13 probe 80
+wait_build 12 probe
+build 2 gateway 80
+wait_buildstart 2 gateway
+defensebuild_gg 2 zealot
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 14 probe 80
+wait_buildstart 14 probe
+train 1 zealot
+build 1 forge 80
+build 15 probe 80
+wait_buildstart 15 probe
+train 3 zealot
+build 1 assimilator 80
+build 16 probe 80
+wait_buildstart 16 probe
+wait_build 15 probe
+upgrade 1 p_ground_weapon 70
+build 3 pylon 80
+wait_buildstart 3 pylon
+farms_timing
+build 17 probe 80
+wait_buildstart 17 probe
+define_max 16 zealot
+enemyowns_jump stargate z_o_r
+enemyowns_jump spire z_o_r
+enemyowns_jump starport z_o_r
+train 5 zealot
+build 3 gateway 80
+wait_buildstart 3 gateway
+build 1 photon_cannon 80
+train 9 zealot
+build 1 cybernetics_core 80
+train 12 zealot
+build 18 probe 80
+wait_buildstart 18 probe
+train 15 zealot
+attack_add 13 zealot
+attack_prepare
+wait 90
+
+attack_timeout 90
+attack_do
+attack_clear
+:z_o_r
+return
+
+:grand_exchange
+wait_rand 160 210
+
+call ge_gas
+call ge_mins
+goto grand_exchange
+
+:ge_gas
+resources 13 AtLeast Gas 600 ge_skip
+resources 13 AtMost Ore 1499 ge_skip
+resources 13 Subtract Ore 170 ge_skip
+resources 13 Add Gas 80 ge_skip
+return
+
+:ge_mins
+resources 13 AtMost Gas 599 ge_skip
+resources 13 AtLeast Ore 1500 ge_skip
+resources 13 Subtract Gas 100 ge_skip
+resources 13 Add Ore 133 ge_skip
+return
+
+:ge_skip
+return
+
+:start_cheat
+wait_build 1 pylon
+
+resources 13 Add Ore 150 ge_skip
+stop
+

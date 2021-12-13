@@ -1,0 +1,4092 @@
+script_name Terran Expansion Custom Level
+script_id TMCx
+
+unstart_campaign
+deaths 13 Set 1 214 ued_empair
+deaths 13 Set 1 217 ued_empair
+#psi emitter death to disable scivessel aura malus
+wait 1
+
+start_town 
+transports_off 
+farms_notiming 
+defaultbuild_off
+default_min 0
+build 5 scv 100
+max_force 2500
+supply 13 Set 250 Max marine Terran t_groundmap
+#under_attack 0
+idle_orders 10 16 1 marine|ghost 160 group_men 80 Health(LessThan 6)
+idle_orders 10 16 1 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 6)
+idle_orders 10 16 1 marine|ghost 160 sunken_colony|photon_cannon 90 Health(LessThan 6)
+idle_orders 10 16 3 marine|ghost 160 group_men 90 Health(LessThan 15)
+idle_orders 10 16 3 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 15)
+idle_orders 10 16 3 marine|ghost 160 sunken_colony|photon_cannon 100 Health(LessThan 12)
+idle_orders 10 16 5 marine|ghost 160 group_men 95 Health(LessThan 30)
+idle_orders 10 16 5 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 30)
+idle_orders 10 16 5 marine|ghost 160 sunken_colony|photon_cannon|bunker 105 Health(LessThan 21)
+idle_orders 10 64 1 siege_tank 256 sunken_colony|photon_cannon|bunker 110 Health(LessThan 73)
+idle_orders 10 64 1 siege_tank 256 group_men 100 Health(LessThan 36)
+idle_orders 10 64 2 siege_tank 256 group_men 105 Health(LessThan 73)
+idle_orders 10 64 1 siege_tank 256 infested_terran|dark_archon|defiler|archon 130 Health(LessThan 80)
+idle_orders 10 64 1 siege_tank 256 lurker|defiler|high_templar 120 Health(LessThan 50)
+idle_orders 10 64 1 siege_tank 300 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 120 count(AtLeast 3 48 14)
+idle_orders 10 16 1 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
+idle_orders 10 16 2 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
+idle_orders 10 16 1 wraith 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
+idle_orders 10 16 3 wraith 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
+idle_orders 10 16 1 wraith 192 devourer|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 16 2 wraith 192 devourer|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 16 3 wraith 192 devourer|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 16 4 wraith 192 devourer|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 16 1 wraith 192 shuttle|observer|overlord 60 Health(LessThan 20)
+idle_orders 10 16 1 goliath 192 group_men 60 Health(LessThan 11)
+idle_orders 10 16 1 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
+idle_orders 10 16 2 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
+idle_orders 10 16 1 vulture 192 group_men 60 Health(LessThan 5)
+idle_orders 10 16 1 battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 16 2 battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+idle_orders 142 256 1 valhalla 1024 zergling|zealot 50 incombat|count(AtLeast 4 48 14)
+idle_orders 142 256 1 valhalla 1024 hydralisk|dark_templar 50 incombat|count(AtLeast 3 48 14)
+idle_orders 142 512 1 valhalla 2048 lurker|revenant|reaver 80 incombat|count(AtLeast 2 48 14)
+idle_orders 142 512 1 valhalla 1536 mutalisk|scout|corsair 60 incombat|count(AtLeast 2 48 14)
+idle_orders 142 512 1 valhalla 1536 carrier|devourer|guardian|ultralisk|infested_terran 40 incombat
+#UED-specific unit storm orders depending on count or priority
+idle_orders 92 512 2 heavy_marine 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 1 phantom 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 1 tesla_trooper 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 3 marine 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 1 ghost 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 1 firebat 368 bunker 50 Own|NotEnemies
+#UED-specific idle orders to enter bunkers since UED units wont do it automatically
+idle_orders 10 16 1 heavy_marine|tesla_trooper 160 group_men 80 Health(LessThan 12)
+idle_orders 10 16 1 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 120 Health(LessThan 12)
+idle_orders 10 16 1 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 90 Health(LessThan 24)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 160 group_men 90 Health(LessThan 36)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 130 Health(LessThan 36)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 100 Health(LessThan 24)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 160 group_men 95 Health(LessThan 65)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 135 Health(LessThan 65)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 105 Health(LessThan 55)
+idle_orders 10 16 1 phantom|panzer 256 sunken_colony|photon_cannon 110 Health(LessThan 73)
+idle_orders 10 16 1 phantom|panzer 256 group_men 100 Health(LessThan 36)
+idle_orders 10 16 2 phantom|panzer 256 group_men 105 Health(LessThan 73)
+idle_orders 10 16 1 phantom|panzer 256 infested_terran|dark_archon|defiler 130 Health(LessThan 80)
+idle_orders 10 16 1 phantom|panzer 256 lurker|queen 120 Health(LessThan 50)
+idle_orders 10 16 1 panzer 300 zergling|zealot|hydralisk|dark_templar 120 count(AtLeast 3 48 14)
+idle_orders 10 16 1 firebat 128 zergling|zealot|hydralisk|dark_templar 110 count(AtLeast 2 24 14)
+idle_orders 10 16 2 firebat 128 zergling|zealot|hydralisk|dark_templar 130 count(AtLeast 2 24 14)
+idle_orders 10 16 1 skywing|valkyrie|valhalla 224 mutalisk|scout|corsair|scourge 110 count(AtLeast 4 60 14)
+idle_orders 10 16 3 skywing|valkyrie|valhalla 260 mutalisk|scout|corsair|scourge 135 count(AtLeast 4 60 14)
+idle_orders 10 16 1 skywing|valkyrie|valhalla 224 devourer 150 count(AtLeast 3 60 14)
+idle_orders 10 16 2 skywing|valkyrie|valhalla 255 devourer 160 count(AtLeast 3 60 14)
+idle_orders 10 16 3 skywing|valkyrie|valhalla 265 devourer 170 count(AtLeast 3 60 14)
+idle_orders 10 16 4 skywing|valkyrie|valhalla 300 devourer 190 count(AtLeast 3 60 14)
+idle_orders 10 16 1 skywing|valkyrie|valhalla 224 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
+idle_orders 10 16 1 skywing|valhalla 224 group_men 80 count(AtLeast 5 60 14)
+idle_orders 10 16 1 skywing|valhalla 224 group_men 90 count(AtLeast 7 60 14)
+idle_orders 10 16 1 death_knight 192 ultralisk|dark_archon|reaver|sunken_colony|lurker 90 Health(GreaterThanPercent 50)
+idle_orders 10 16 1 death_knight 192 ultralisk|dark_archon|reaver|sunken_colony|lurker 100 Health(GreaterThanPercent 80)
+idle_orders 10 16 2 death_knight 224 ultralisk|dark_archon|reaver|sunken_colony|lurker 130 Health(GreaterThanPercent 70)
+idle_orders 10 16 1 scorpion 192 group_men 60 Health(LessThan 24)
+idle_orders 10 16 1 scorpion 192 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 24)
+idle_orders 10 16 2 scorpion 224 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 48)
+wait_rand 1 3
+multirun supply_ensure
+multirun worker_ensure
+multirun defense_panic
+multirun grand_exchange
+multirun start_cheat
+wait 120
+
+multirun comsat_evaluator
+multirun sciv_evaluator
+groundmap_jump t_groundmap
+#never run island code for now
+if_owned zealot t_island
+goto t_groundmap
+
+:t_defaults
+define_max 8 siege_tank
+define_max 7 vulture
+define_max 8 wraith
+define_max 24 marine
+define_max 11 firebat
+define_max 2 dropship
+define_max 60 scv
+define_max 12 ghost
+define_max 6 battlecruiser
+define_max 4 science_vessel
+define_max 10 goliath
+define_max 255 medic
+define_max 255 heavy_marine
+define_max 255 tesla_trooper
+define_max 255 phantom
+define_max 255 valkyrie
+define_max 255 death_knight
+define_max 255 panzer
+define_max 255 scorpion
+define_max 255 skywing
+define_max 2 nuclear_missile
+return 
+
+:usetup
+define_max 60 scv
+define_max 255 marine
+define_max 255 firebat
+define_max 1 dropship
+define_max 255 siege_tank
+define_max 255 ghost
+define_max 255 battlecruiser
+define_max 255 science_vessel
+define_max 255 goliath
+define_max 16 heavy_marine
+define_max 8 tesla_trooper
+define_max 7 phantom
+define_max 4 valkyrie
+define_max 7 death_knight
+define_max 3 panzer
+define_max 4 scorpion
+define_max 8 skywing
+define_max 5 medic
+defenseuse_gg 1 siege_tank
+defenseuse_gg 1 ghost
+multirun ctech_storm
+multirun ctech_lockdown
+multirun ctech_resto
+return
+
+:ctech_storm
+wait 16
+
+idle_orders 142 64 1 valhalla 256 zergling|zealot|marine|heavy_marine 50 incombat|count(AtLeast 4 48 14)
+idle_orders 142 64 1 valhalla 256 hydralisk|dark_templar|dragoon|firebat|tesla_trooper|high_templar|ghost|phantom 50 incombat|count(AtLeast 3 48 14)
+idle_orders 142 128 1 valhalla 256 lurker|revenant|reaver|scorpion|death_knight|goliath 80 incombat|count(AtLeast 2 48 14)
+idle_orders 142 128 1 valhalla 256 mutalisk|scout|corsair|skywing|wraith 60 incombat|count(AtLeast 2 48 14)
+idle_orders 142 128 1 valhalla 256 carrier|devourer|guardian|ultralisk|infested_terran|valhalla|battlecruiser|archon 40 incombat
+stop
+
+:ctech_lockdown
+wait 16
+
+tech_jump 13 Exactly lockdown 0 ctech_lockdown
+idle_orders 115 32 1 phantom 210 group_men 50 Hp(GreaterThanPercent 50)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
+idle_orders 115 32 1 phantom 280 carrier|reaver|battlecruiser|siege_tank|panzer|valhalla 80 Hp(GreaterThanPercent 20)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
+stop
+
+:ctech_resto
+wait 16
+
+tech_jump 13 Exactly restoration 0 ctech_lockdown
+idle_orders Restoration 33 1 medic 256 Group_Men 55 NotEnemies|Own|Allied|Self(Energy(GreaterThan 65))|SpellEffects(Irradiate)|UnitFlags(Organic)
+idle_orders Restoration 33 1 medic 256 Group_Men 50 NotEnemies|Own|Allied|Self(Energy(GreaterThan 65))|SpellEffects(Plague)
+idle_orders Restoration 33 1 medic 256 Group_Men 45 NotEnemies|Own|Allied|Self(Energy(GreaterThan 90))|SpellEffects(Lockdown)
+idle_orders Restoration 33 1 medic 256 Group_Men 35 NotEnemies|Own|Allied|Self(Energy(GreaterThan 95))|SpellEffects(Maelstrom)
+stop
+
+:supply_fix
+wait 16000
+
+farms_timing
+stop
+
+:emp_allin
+train 10 heavy_marine
+train 10 tesla_trooper
+attack_add 4 heavy_marine
+attack_add 2 tesla_trooper
+return
+
+:UED1
+defaultbuild_off
+build 1 command_center 150
+wait_buildstart 1 command_center
+build 8 scv 130
+wait_buildstart 8 scv
+multirun supply_fix
+race_jump ued_latebio ued_biomech ued_empair
+
+:ued_empair
+random_call 64 ued_valhallarush
+build 8 scv 80
+wait_buildstart 8 scv
+wait 1
+
+deaths 13 Set 1 lurker ued_empair
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 13 scv 80
+build 1 barracks 80
+wait_buildstart 13 scv
+expand 1 std_expo
+wait_buildstart 1 barracks
+train 1 heavy_marine
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+capt_expand 
+build 14 scv 80
+wait_buildstart 14 scv
+train 2 heavy_marine
+build 15 scv 80
+wait_buildstart 15 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 heavy_marine
+build 16 scv 80
+wait_buildstart 16 scv
+train 4 heavy_marine
+build 17 scv 80
+build 2 barracks 80
+wait_buildstart 17 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 5 heavy_marine
+aicontrol build_gas
+build 1 refinery 80
+wait_buildstart 1 refinery
+build 16 scv 80
+wait_buildstart 16 scv
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+train 6 heavy_marine
+defenseclear_gg 
+call usetup
+train 7 heavy_marine
+build 18 scv 80
+wait_buildstart 18 scv
+train 8 heavy_marine
+build 19 scv 80
+wait_buildstart 19 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+train 9 heavy_marine
+build 1 academy 80
+wait_buildstart 1 academy
+train 10 heavy_marine
+attack_add 8 heavy_marine
+attack_prepare 
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 20 scv 80
+wait_buildstart 20 scv
+define_max 14 heavy_marine
+define_max 10 tesla_trooper
+build 1 engineering_bay 80
+train 12 heavy_marine
+train 1 tesla_trooper
+defensebuild_gg 2 tesla_trooper
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 tesla_trooper
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+farms_timing 
+train 3 tesla_trooper
+train 2 medic
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 1 factory 80
+wait_buildstart 1 factory
+upgrade 1 t_infantry_weapon 70
+train 6 tesla_trooper
+wait_force 6 heavy_marine
+wait_force 8 tesla_trooper
+attack_do 
+attack_clear
+attack_add 2 medic
+attack_add 6 heavy_marine
+attack_add 8 tesla_trooper
+random_call 65 emp_allin
+attack_prepare
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+define_max 3 panzer
+define_max 255 scorpion
+build 2 engineering_bay 80
+wait_buildstart 2 engineering_bay
+upgrade 1 medic_mana 70
+
+wait 48
+define_max 13 heavy_marine
+define_max 8 tesla_trooper
+build 4 barracks 80
+train 11 heavy_marine
+train 3 tesla_trooper
+train 2 medic
+train 1 panzer
+upgrade 1 t_infantry_armor 70
+define_max 14 heavy_marine
+train 13 heavy_marine
+train 5 tesla_trooper
+define_max 16 heavy_marine
+train 15 heavy_marine
+panic std_expo
+attack_do 
+attack_clear 
+attack_add 9 heavy_marine
+attack_add 1 panzer
+attack_add 2 medic
+attack_add 4 tesla_trooper
+attack_prepare
+build 1 starport 80
+wait_buildstart 1 starport
+tech restoration 70
+multirun UED_EMPAtk
+define_max 18 heavy_marine
+train 18 heavy_marine
+check_transports 
+build 1 control_tower 100
+expand 2 std_expo
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+train 1 panzer
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+place_guard phantom 0
+place_guard phantom 2
+multirun defRout010
+expand 3 std_expo
+
+tech personnel_cloaking 70
+defensebuild_gg 2 phantom
+defensebuild_ag 2 phantom
+defenseuse_gg 2 phantom
+defenseuse_ag 2 phantom
+upgrade 1 p_plasma_shield 70
+upgrade 2 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+tech lockdown 70
+build 1 armory 80
+wait_buildstart 1 armory
+call resource_waitskip
+
+defensebuild_gg 2 panzer
+defenseuse_gg 2 panzer
+upgrade 1 t_vehicle_weapon 70
+define_max 2 dropship
+expand 3 std_expo
+upgrade 1 ghost_sight 70
+expand 4 std_expo
+upgrade 1 t_vehicle_plating 70
+upgrade 2 p_plasma_shield 70
+build 5 barracks 80
+wait_build 5 barracks
+build 2 armory 80
+call resource_waitskip
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 70
+upgrade 1 t_ship_plating 70
+upgrade 2 t_vehicle_weapon 70
+upgrade 2 t_vehicle_plating 70
+upgrade 1 safety_protocols 70
+expand 5 std_expo
+upgrade 2 t_ship_plating 70
+define_max 4 valhalla
+place_guard valhalla 0
+upgrade 1 staballoy 70
+train 1 valhalla
+tech psionic_storm 80
+build 2 factory 80
+call resource_waitskip
+
+build 2 machine_shop 100
+upgrade 3 t_vehicle_plating 70
+upgrade 3 p_plasma_shield 70
+expand 6 std_expo
+defensebuild_ga 1 valhalla
+defensebuild_aa 1 valhalla
+defensebuild_ag 1 valhalla
+defensebuild_gg 1 valhalla
+defenseuse_ga 1 valhalla
+defenseuse_aa 1 valhalla
+defenseuse_ag 1 valhalla
+defenseuse_gg 1 valhalla
+build 2 starport 80
+wait_buildstart 2 starport
+call resource_waitskip
+build 2 control_tower 100
+wait_buildstart 2 control_tower
+upgrade 3 t_ship_plating 70
+build 3 starport 80
+wait_buildstart 3 starport
+build 3 control_tower 100
+wait_buildstart 3 control_tower
+define_max 6 valhalla
+goto exp_repeater
+
+:ued_valhallarush
+build 8 scv 80
+wait_buildstart 8 scv
+wait 1
+
+deaths 13 Set 1 lurker ued_empair
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 12 scv 80
+wait_buildstart 12 scv
+expand 1 std_expo
+build 13 scv 80
+wait_buildstart 13 scv
+capt_expand 
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 14 scv 80
+wait_buildstart 14 scv
+build 1 refinery 80
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+train 2 heavy_marine
+build 15 scv 80
+wait_buildstart 15 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 heavy_marine
+build 16 scv 80
+wait_buildstart 16 scv
+train 4 heavy_marine
+build 17 scv 80
+build 1 factory 80
+wait_buildstart 17 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 5 heavy_marine
+aicontrol build_gas
+build 1 starport 80
+build 16 scv 80
+wait_buildstart 16 scv
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+define_max 4 scorpion
+defensebuild_gg 2 scorpion
+defenseuse_gg 2 scorpion
+build 1 bunker 80
+build 1 engineering_bay 80
+train 6 heavy_marine
+build 2 starport 80
+defenseclear_gg 
+call usetup
+do_morph 7 heavy_marine
+build 18 scv 80
+wait_buildstart 18 scv
+upgrade 1 t_infantry_weapon 70
+build 1 science_facility 80
+build 2 control_tower 100
+train 1 scorpion
+do_morph 8 heavy_marine
+build 19 scv 80
+wait_buildstart 19 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+train 9 heavy_marine
+train 2 scorpion
+farms_timing
+define_max 4 valhalla
+define_max 40 heavy_marine
+define_max 8 scorpion
+defensebuild_gg 1 valhalla
+defensebuild_ag 1 valhalla
+defensebuild_ga 1 valhalla
+defensebuild_aa 1 valhalla
+defenseuse_gg 1 valhalla
+defenseuse_ag 1 valhalla
+defenseuse_ga 1 valhalla
+defenseuse_aa 1 valhalla
+upgrade 1 p_plasma_shield 70
+train 2 valhalla
+build 3 starport 80
+train 10 heavy_marine
+build 3 barracks 80
+train 16 heavy_marine
+build 3 control_tower 100
+train 4 scorpion
+build 5 barracks 80
+train 3 valhalla
+train 25 heavy_marine
+train 5 scorpion
+wait_force 2 valhalla
+train 30 heavy_marine
+attack_add 30 heavy_marine
+attack_add 4 scorpion
+attack_add 3 valhalla
+attack_prepare
+wait 16
+
+attack_timeout 16
+attack_do
+attack_clear
+upgrade 2 p_plasma_shield 60
+multirun added_vals
+return
+
+:added_vals
+wait 16
+wait_train 2 valhalla
+
+if_attacking added_vals
+attack_add 2 valhalla
+goto added_vals
+
+:UED_EMPAtk
+define_max 34 heavy_marine
+define_max 16 tesla_trooper
+define_max 5 medic
+define_max 4 panzer
+define_max 16 phantom
+wait 1500
+
+attack_do
+attack_clear
+attack_add 1 panzer
+attack_add 15 heavy_marine
+attack_add 5 tesla_trooper
+attack_add 5 medic
+set_attacks 2
+player_need 1 machine_shop
+:EMPPush
+train 1 panzer
+train 15 heavy_marine
+train 5 tesla_trooper
+train 5 medic
+target_expansion 
+wait 2150
+notowns_jump science_facility EMPPush
+attack_clear 
+wait_build 1 science_facility
+attack_add 20 heavy_marine
+attack_add 1 panzer
+attack_add 5 medic
+attack_add 10 tesla_trooper
+set_attacks 2
+
+:EPu2
+train 20 heavy_marine
+train 1 panzer
+train 5 medic
+train 10 tesla_trooper
+target_expansion 
+wait 2500
+notowns_jump covert_ops EPu2
+attack_clear 
+attack_add 15 heavy_marine
+attack_add 1 panzer
+attack_add 3 medic
+attack_add 5 phantom
+set_attacks 2
+
+train 1 panzer
+train 3 phantom
+train 8 heavy_marine
+train 5 phantom
+train 15 heavy_marine
+train 3 medic
+train 5 phantom
+target_expansion 
+call resource_waitskip
+notowns_jump covert_ops EPu2
+
+:ELo
+set_attacks 3
+
+attack_do
+attack_clear 
+attack_add 30 heavy_marine
+attack_add 10 phantom
+attack_add 5 medic
+train 1 panzer
+train 5 phantom
+train 15 heavy_marine
+train 10 phantom
+train 2 panzer
+train 20 heavy_marine
+train 3 panzer
+train 30 heavy_marine
+train 10 phantom
+train 5 medic
+target_expansion 
+wait 2500
+
+attack_do
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 8 phantom
+attack_add 10 tesla_trooper
+attack_add 4 medic
+attack_add 4 panzer
+train 4 panzer
+train 4 phantom
+train 10 tesla_trooper
+train 30 heavy_marine
+train 8 phantom
+train 5 medic
+train 2 valhalla
+target_expansion 
+wait 2500
+
+attack_do
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 10 tesla_trooper
+attack_add 3 medic
+attack_add 4 valhalla
+train 4 valhalla
+train 20 heavy_marine
+train 10 tesla_trooper
+train 3 medic
+wait_force 4 valhalla
+target_expansion 
+wait 2500
+goto ELo
+
+:ued_latebio
+random_jump 45 ued_AirStart
+build 8 scv 80
+wait_buildstart 8 scv
+deaths 13 Set 2 lurker ued_empair
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 13 scv 80
+wait_buildstart 13 scv
+expand 1 std_expo
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 15 scv 80
+wait 650
+
+build 2 barracks 80
+build 1 refinery 80
+wait_buildstart 1 refinery
+train 1 heavy_marine
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+capt_expand 
+train 2 heavy_marine
+wait_buildstart 15 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 heavy_marine
+build 16 scv 80
+wait_buildstart 16 scv
+build 1 factory 80
+build 17 scv 80
+build 2 barracks 80
+wait_buildstart 17 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 4 heavy_marine
+aicontrol build_gas
+wait_buildstart 1 factory
+build 1 machine_shop 100
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+train 6 heavy_marine
+defenseclear_gg 
+call usetup
+build 18 scv 80
+wait_buildstart 18 scv
+build 2 factory 80
+wait_buildstart 2 factory
+train 7 heavy_marine
+farms_timing
+build 19 scv 80
+wait_buildstart 19 scv
+define_max 5 scorpion
+train 2 scorpion
+build 1 academy 80
+wait_buildstart 1 academy
+train 8 heavy_marine
+attack_add 8 heavy_marine
+attack_add 2 scorpion
+attack_prepare 
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 20 scv 80
+wait_buildstart 20 scv
+define_max 12 heavy_marine
+build 1 engineering_bay 80
+train 12 heavy_marine
+train 1 medic
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defensebuild_gg 2 scorpion
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+defenseuse_gg 2 scorpion
+farms_timing
+train 1 scorpion
+train 2 medic
+build 3 barracks 80
+wait_buildstart 3 barracks
+upgrade 1 vulture_speed 70
+upgrade 1 t_infantry_weapon 70
+train 10 heavy_marine
+train 3 scorpion
+wait_force 10 heavy_marine
+wait_force 3 scorpion
+attack_do 
+attack_clear 
+attack_add 2 medic
+attack_add 10 heavy_marine
+attack_add 3 scorpion
+attack_prepare 
+define_max 8 scorpion
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+define_max 3 panzer
+build 2 engineering_bay 80
+wait_buildstart 2 engineering_bay
+upgrade 1 medic_mana 70
+
+
+build 1 armory 80
+wait 48
+define_max 18 heavy_marine
+build 3 factory 80
+train 12 heavy_marine
+upgrade 1 t_vehicle_weapon 70
+train 6 scorpion
+train 2 medic
+upgrade 1 t_infantry_armor 70
+define_max 19 heavy_marine
+train 15 heavy_marine
+train 8 scorpion
+define_max 21 heavy_marine
+train 18 heavy_marine
+panic std_expo
+attack_do 
+attack_clear 
+attack_add 18 heavy_marine
+attack_add 2 medic
+attack_prepare
+build 1 starport 80
+wait_buildstart 1 starport
+multirun UED_BioScorpAt
+train 18 heavy_marine
+check_transports 
+build 1 control_tower 100
+expand 2 std_expo
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+train 1 panzer
+build 1 covert_ops 100
+#wait_buildstart 1 covert_ops
+upgrade 2 t_vehicle_weapon 70
+place_guard phantom 0
+multirun defRout010
+expand 3 std_expo
+
+defensebuild_gg 2 phantom
+defensebuild_ag 2 phantom
+defenseuse_gg 2 phantom
+defenseuse_ag 2 phantom
+upgrade 1 p_plasma_shield 70
+upgrade 1 t_vehicle_plating 70
+upgrade 2 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+tech lockdown 70
+call resource_waitskip
+
+defensebuild_gg 2 panzer
+defenseuse_gg 2 panzer
+define_max 2 dropship
+expand 3 std_expo
+upgrade 1 ghost_sight 70
+expand 4 std_expo
+
+upgrade 1 staballoy 70
+upgrade 1 safety_protocols 70
+upgrade 2 p_plasma_shield 70
+build 4 barracks 80
+wait_build 4 barracks
+build 2 armory 80
+call resource_waitskip
+
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 70
+upgrade 1 t_ship_plating 70
+upgrade 3 t_vehicle_weapon 70
+upgrade 2 t_vehicle_plating 70
+expand 5 std_expo
+upgrade 2 t_ship_plating 70
+define_max 2 valhalla
+place_guard valhalla 0
+train 1 valhalla
+tech psionic_storm 80
+build 4 factory 80
+call resource_waitskip
+
+build 2 machine_shop 100
+upgrade 3 t_vehicle_plating 70
+upgrade 3 p_plasma_shield 70
+expand 6 std_expo
+defensebuild_ga 1 valhalla
+defensebuild_aa 1 valhalla
+defensebuild_ag 1 valhalla
+defensebuild_gg 1 valhalla
+defenseuse_ga 1 valhalla
+defenseuse_aa 1 valhalla
+defenseuse_ag 1 valhalla
+defenseuse_gg 1 valhalla
+build 2 starport 80
+wait_buildstart 2 starport
+build 2 control_tower 100
+wait_buildstart 2 control_tower
+upgrade 3 t_ship_plating 70
+upgrade 1 t_ship_weapon 60
+upgrade 2 t_ship_weapon 60
+goto exp_repeater
+
+
+:UED_BioScorpAt
+define_max 50 heavy_marine
+define_max 255 tesla_trooper
+define_max 7 medic
+define_max 2 panzer
+define_max 7 phantom
+define_max 20 scorpion
+define_max 4 valkyrie
+wait 1500
+
+attack_do
+attack_clear
+attack_add 1 panzer
+attack_add 13 scorpion
+set_attacks 2
+player_need 1 machine_shop
+train 1 panzer
+train 13 scorpion
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+wait_build 1 science_facility
+player_need 5 barracks
+attack_add 30 heavy_marine
+attack_add 5 medic
+set_attacks 2
+train 30 heavy_marine
+train 5 medic
+train 1 valkyrie
+target_expansion 
+call resource_waitskip
+
+attack_clear
+player_need 1 armory
+player_need 1 covert_ops
+build 2 starport 80
+build 2 control_tower 100
+:tPu
+attack_add 20 heavy_marine
+attack_add 10 scorpion
+attack_add 3 valkyrie
+set_attacks 2
+train 1 valkyrie
+train 4 scorpion
+train 10 heavy_marine
+train 2 valkyrie
+train 6 scorpion
+train 16 heavy_marine
+train 8 scorpion
+train 3 valkyrie
+train 20 heavy_marine
+train 10 scorpion
+train 3 valkyrie
+target_expansion 
+call resource_waitskip
+
+notowns_jump covert_ops tPu
+:TLo
+set_attacks 3
+
+attack_do
+attack_clear 
+attack_add 36 heavy_marine
+attack_add 4 phantom
+attack_add 6 medic
+train 1 panzer
+train 2 phantom
+train 15 heavy_marine
+train 4 phantom
+train 2 panzer
+train 20 heavy_marine
+train 36 heavy_marine
+train 4 phantom
+train 6 medic
+train 1 valkyrie
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 30 heavy_marine
+attack_add 16 scorpion
+attack_add 4 medic
+attack_add 2 panzer
+train 2 panzer
+train 4 scorpion
+train 2 valkyrie
+train 10 heavy_marine
+train 8 scorpion
+train 20 heavy_marine
+train 12 scorpion
+train 3 valkyrie
+train 30 heavy_marine
+train 16 scorpion
+train 5 medic
+train 1 valhalla
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 3 medic
+attack_add 3 valkyrie
+attack_add 2 valhalla
+train 2 valhalla
+train 20 heavy_marine
+train 3 medic
+wait_force 2 valhalla
+target_expansion 
+call resource_waitskip
+goto TLo
+
+:legion_allin
+farms_timing
+build 18 scv 80
+train 4 heavy_marine
+wait_buildstart 18 scv
+define_max 22 heavy_marine
+train 6 heavy_marine
+build 1 engineering_bay 80
+train 10 heavy_marine
+build 3 barracks 80
+train 13 heavy_marine
+build 4 barracks 80
+upgrade 1 t_infantry_weapon 70
+train 20 heavy_marine
+attack_add 20 marine
+attack_prepare
+return
+
+:ued_biomech
+random_jump 67 ued_AirStart
+build 8 scv 80
+wait_buildstart 8 scv
+deaths 13 Set 3 lurker ued_empair
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 13 scv 80
+wait_buildstart 13 scv
+expand 1 std_expo
+build 1 barracks 80
+wait_buildstart 1 barracks
+random_jump 128 ubm_quickgas
+build 15 scv 80
+build 1 refinery 80
+wait_buildstart 1 refinery
+build 2 barracks 80
+random_call 58 legion_allin
+goto ubm_skiprush
+
+:ued_2fac
+#random_jump 128 ued_2fgol
+build 1 factory 80
+wait_buildstart 1 factory
+build 15 scv 80
+wait_build 14 scv
+build 2 supply_depot 80
+wait_build 15 scv
+build 2 factory 80
+build 18 scv 80
+wait_build 1 factory
+define_max 8 scorpion
+train 1 scorpion
+build 21 scv 80
+build 1 machine_shop 100
+build 3 supply_depot 80
+wait_buildstart 1 machine_shop
+train 3 scorpion
+upgrade 1 vulture_speed 70
+farms_timing
+build 24 scv 80
+train 4 scorpion
+build 5 supply_depot 80
+defensebuild_gg 1 scorpion
+defenseuse_gg 1 scorpion
+train 5 scorpion
+train 6 scorpion
+expand 1 std_expo
+attack_add 6 scorpion
+attack_prepare
+#idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
+#this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
+attack_do
+attack_clear
+return
+
+:ubm_quickgas
+build 1 refinery 80
+build 13 scv 80
+wait_buildstart 13 scv
+train 1 heavy_marine
+build 15 scv 80
+wait_buildstart 15 scv
+random_call 128 ued_2fac
+
+:ubm_skiprush
+train 2 heavy_marine
+build 1 factory 80
+train 1 heavy_marine
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+capt_expand 
+train 2 heavy_marine
+wait_buildstart 15 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 heavy_marine
+wait_buildstart 1 factory
+build 16 scv 80
+wait_buildstart 16 scv
+build 17 scv 80
+build 1 machine_shop 100
+wait_buildstart 17 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 4 heavy_marine
+aicontrol build_gas
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+train 6 heavy_marine
+defenseclear_gg 
+call usetup
+build 18 scv 80
+wait_buildstart 18 scv
+train 7 heavy_marine
+build 19 scv 80
+wait_buildstart 19 scv
+define_max 2 panzer
+train 1 panzer
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+build 1 academy 80
+wait_buildstart 1 academy
+train 8 heavy_marine
+attack_do
+attack_clear
+attack_add 8 heavy_marine
+attack_add 1 panzer
+attack_prepare 
+build 2 factory 80
+wait_buildstart 2 factory
+build 2 machine_shop 100
+build 20 scv 80
+wait_buildstart 20 scv
+define_max 14 heavy_marine
+build 1 engineering_bay 80
+train 1 panzer
+train 12 heavy_marine
+train 1 medic
+define_max 4 panzer
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defensebuild_gg 2 panzer
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+defenseuse_gg 2 panzer
+farms_timing
+train 2 panzer
+train 2 medic
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 1 armory 80
+wait_buildstart 1 armory
+upgrade 1 t_infantry_weapon 70
+train 10 heavy_marine
+upgrade 1 t_vehicle_weapon 70
+train 4 panzer
+wait_force 10 heavy_marine
+wait_force 4 panzer
+attack_do 
+attack_clear 
+attack_add 2 medic
+attack_add 10 heavy_marine
+attack_add 4 panzer
+attack_prepare
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+define_max 6 panzer
+build 2 armory 80
+wait_buildstart 2 armory
+
+build 1 armory 80
+wait 48
+define_max 18 heavy_marine
+define_max 6 death_knight
+build 3 factory 80
+train 12 heavy_marine
+train 6 death_knight
+train 2 medic
+upgrade 1 t_infantry_armor 70
+upgrade 1 t_vehicle_plating 70
+build 3 machine_shop 100
+define_max 19 heavy_marine
+train 15 heavy_marine
+upgrade 1 goliath_range 70
+train 2 panzer
+define_max 21 heavy_marine
+panic std_expo
+attack_do 
+attack_clear 
+attack_add 12 heavy_marine
+attack_add 2 panzer
+attack_add 4 death_knight
+attack_add 2 medic
+attack_prepare
+build 1 starport 80
+wait_buildstart 1 starport
+multirun UED_MechBio
+train 18 heavy_marine
+check_transports 
+build 1 control_tower 100
+expand 2 std_expo
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+call resource_waitskip
+upgrade 1 medic_mana 70
+train 1 panzer
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+upgrade 2 t_vehicle_weapon 70
+upgrade 2 t_vehicle_plating 70
+place_guard phantom 0
+multirun defRout010
+expand 3 std_expo
+
+defensebuild_gg 2 phantom
+defensebuild_ag 2 phantom
+defenseuse_gg 2 phantom
+defenseuse_ag 2 phantom
+upgrade 1 p_plasma_shield 70
+upgrade 1 safety_protocols 70
+upgrade 2 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+tech lockdown 70
+call resource_waitskip
+
+defensebuild_gg 2 death_knight
+defensebuild_ag 2 death_knight
+defenseuse_gg 2 death_knight
+defenseuse_ag 2 death_knight
+define_max 4 dropship
+expand 3 std_expo
+call resource_waitskip
+upgrade 1 ghost_sight 70
+expand 4 std_expo
+
+upgrade 1 staballoy 70
+upgrade 2 p_plasma_shield 70
+build 4 barracks 80
+wait_build 4 barracks
+build 2 armory 80
+upgrade 2 goliath_range 70
+call resource_waitskip
+
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 70
+upgrade 1 t_ship_plating 70
+upgrade 3 t_vehicle_weapon 70
+upgrade 3 t_vehicle_plating 70
+expand 5 std_expo
+upgrade 2 t_ship_plating 70
+define_max 2 valhalla
+place_guard valhalla 0
+train 1 valhalla
+tech psionic_storm 80
+build 4 factory 80
+call resource_waitskip
+
+build 4 machine_shop 100
+upgrade 3 p_plasma_shield 70
+expand 6 std_expo
+defensebuild_ga 1 valhalla
+defensebuild_aa 1 valhalla
+defensebuild_ag 1 valhalla
+defensebuild_gg 1 valhalla
+defenseuse_ga 1 valhalla
+defenseuse_aa 1 valhalla
+defenseuse_ag 1 valhalla
+defenseuse_gg 1 valhalla
+call resource_waitskip
+build 2 starport 80
+wait_buildstart 2 starport
+build 2 control_tower 100
+wait_buildstart 2 control_tower
+upgrade 3 t_ship_plating 70
+upgrade 1 t_ship_weapon 60
+upgrade 2 t_ship_weapon 60
+upgrade 3 t_ship_weapon 60
+goto exp_repeater
+
+
+:UED_MechBio
+define_max 30 heavy_marine
+define_max 255 tesla_trooper
+define_max 4 medic
+define_max 7 panzer
+define_max 6 phantom
+define_max 255 scorpion
+define_max 2 valkyrie
+define_max 8 skywing
+define_max 14 death_knight
+wait 1500
+
+attack_do
+attack_clear
+attack_add 6 panzer
+attack_add 6 death_knight
+set_attacks 2
+train 6 death_knight
+train 6 panzer
+target_expansion 
+call resource_waitskip
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 4 medic
+attack_add 8 death_knight
+set_attacks 2
+train 20 heavy_marine
+train 4 medic
+train 8 death_knight
+target_expansion 
+wait 2115
+attack_clear
+:mPu
+attack_add 20 heavy_marine
+attack_add 3 medic
+attack_add 5 panzer
+attack_add 7 death_knight
+set_attacks 2
+train 2 panzer
+train 1 death_knight
+train 10 heavy_marine
+train 3 panzer
+train 4 death_knight
+train 16 heavy_marine
+train 3 medic
+train 7 death_knight
+train 20 heavy_marine
+train 5 panzer
+train 2 skywing
+target_expansion 
+wait 2115
+
+notowns_jump covert_ops mPu
+:MLo
+set_attacks 3
+
+attack_do
+attack_clear 
+attack_add 16 heavy_marine
+attack_add 4 phantom
+attack_add 3 medic
+train 4 panzer
+train 2 phantom
+train 15 heavy_marine
+train 4 phantom
+train 7 panzer
+train 4 skywing
+train 3 medic
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 7 panzer
+attack_add 12 death_knight
+attack_add 8 skywing
+train 7 panzer
+train 6 skywing
+train 6 death_knight
+train 8 skywing
+train 12 death_knight
+train 2 valhalla
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 3 medic
+attack_add 3 panzer
+attack_add 7 death_knight
+attack_add 2 valhalla
+train 2 valhalla
+train 3 panzer
+train 2 death_knight
+train 10 heavy_marine
+train 7 death_knight
+train 20 heavy_marine
+train 3 medic
+wait_force 2 valhalla
+target_expansion 
+call resource_waitskip
+goto MLo
+
+:ued_AirStart
+random_call 32 ued_valhallarush
+build 8 scv 80
+wait_buildstart 8 scv
+deaths 13 Set 4 lurker ued_empair
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 13 scv 80
+wait_buildstart 13 scv
+expand 1 std_expo
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 15 scv 80
+wait 650
+
+build 1 refinery 80
+wait_buildstart 1 refinery
+build 2 barracks 80
+build 1 factory 80
+train 1 heavy_marine
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+capt_expand 
+train 2 heavy_marine
+wait_buildstart 15 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 heavy_marine
+wait_buildstart 1 factory
+build 16 scv 80
+wait_buildstart 16 scv
+build 17 scv 80
+build 1 machine_shop 100
+wait_buildstart 17 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 4 heavy_marine
+aicontrol build_gas
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+train 6 heavy_marine
+defenseclear_gg 
+call usetup
+build 18 scv 80
+wait_buildstart 18 scv
+train 7 heavy_marine
+build 19 scv 80
+wait_buildstart 19 scv
+define_max 1 panzer
+train 1 panzer
+build 5 supply_depot 80
+wait_buildstart 5 supply_depot
+build 1 academy 80
+wait_buildstart 1 academy
+train 8 heavy_marine
+build 1 starport 80
+wait_buildstart 1 starport
+build 1 control_tower 100
+attack_add 8 heavy_marine
+attack_add 1 panzer
+attack_prepare 
+upgrade 1 goliath_range 70
+build 2 starport 80
+wait_buildstart 2 starport
+build 2 control_tower 100
+build 20 scv 80
+wait_buildstart 20 scv
+define_max 14 heavy_marine
+build 1 engineering_bay 80
+train 1 panzer
+define_max 8 skywing
+train 2 skywing
+train 12 heavy_marine
+train 1 medic
+defensebuild_gg 2 heavy_marine
+defensebuild_ag 2 heavy_marine
+defenseuse_gg 2 heavy_marine
+defenseuse_ag 2 heavy_marine
+defensebuild_gg 2 panzer
+defensebuild_gg 2 skywing
+defensebuild_ga 1 skywing
+defensebuild_ag 2 skywing
+defensebuild_aa 1 skywing
+defenseuse_gg 2 panzer
+defenseuse_gg 2 skywing
+defenseuse_ga 1 skywing
+defenseuse_ag 2 skywing
+defenseuse_aa 1 skywing
+farms_timing
+train 2 medic
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 1 armory 80
+wait_buildstart 1 armory
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+upgrade 1 safety_protocols 70
+upgrade 1 t_infantry_weapon 70
+train 4 skywing
+train 10 heavy_marine
+upgrade 1 t_ship_weapon 70
+build 3 starport 80
+wait_buildstart 3 starport
+build 3 control_tower 100
+train 6 skywing
+wait_force 10 heavy_marine
+wait_force 6 skywing
+attack_do 
+attack_clear 
+attack_add 2 medic
+attack_add 10 heavy_marine
+attack_add 4 skywing
+attack_prepare
+build 2 armory 80
+wait_buildstart 2 armory
+upgrade 2 goliath_range 70
+build 1 armory 80
+wait 48
+define_max 18 heavy_marine
+define_max 2 death_knight
+define_max 10 skywing
+define_max 2 valkyrie
+build 4 starport 80
+train 4 skywing
+train 12 heavy_marine
+train 8 skywing
+train 2 medic
+upgrade 1 t_infantry_armor 70
+upgrade 1 t_vehicle_plating 70
+define_max 19 heavy_marine
+train 15 heavy_marine
+define_max 21 heavy_marine
+panic std_expo
+attack_do 
+attack_clear 
+attack_add 8 skywing
+attack_prepare
+multirun UED_Air
+defensebuild_aa 1 valkyrie
+defenseuse_aa 1 valkyrie
+train 18 heavy_marine
+check_transports 
+expand 2 std_expo
+upgrade 1 medic_mana 70
+call resource_waitskip
+train 1 panzer
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+upgrade 2 t_ship_weapon 70
+upgrade 2 t_ship_plating 70
+place_guard phantom 0
+multirun defRout010
+expand 3 std_expo
+
+defensebuild_gg 2 phantom
+defensebuild_ag 2 phantom
+defenseuse_gg 2 phantom
+defenseuse_ag 2 phantom
+upgrade 1 p_plasma_shield 70
+upgrade 2 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+tech lockdown 70
+call resource_waitskip
+
+defensebuild_gg 2 death_knight
+defensebuild_ag 2 death_knight
+defenseuse_gg 2 death_knight
+defenseuse_ag 2 death_knight
+define_max 4 dropship
+expand 3 std_expo
+upgrade 1 ghost_sight 70
+expand 4 std_expo
+
+upgrade 1 staballoy 70
+upgrade 2 p_plasma_shield 70
+build 4 barracks 80
+wait_build 4 barracks
+call resource_waitskip
+
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 70
+call resource_waitskip
+upgrade 1 t_vehicle_plating 70
+upgrade 3 t_ship_weapon 70
+upgrade 3 t_ship_plating 70
+expand 5 std_expo
+upgrade 2 t_vehicle_plating 70
+define_max 7 valhalla
+place_guard valhalla 0
+train 1 valhalla
+tech psionic_storm 80
+call resource_waitskip
+
+upgrade 3 p_plasma_shield 70
+expand 6 std_expo
+defensebuild_ga 1 valhalla
+defensebuild_aa 1 valhalla
+defensebuild_ag 1 valhalla
+defensebuild_gg 1 valhalla
+defenseuse_ga 1 valhalla
+defenseuse_aa 1 valhalla
+defenseuse_ag 1 valhalla
+defenseuse_gg 1 valhalla
+call resource_waitskip
+build 2 factory 80
+wait_buildstart 2 factory
+build 2 machine_shop 100
+wait_buildstart 2 machine_shop
+upgrade 3 t_vehicle_plating 70
+upgrade 1 t_vehicle_weapon 60
+upgrade 2 t_vehicle_weapon 60
+upgrade 3 t_vehicle_weapon 60
+goto exp_repeater
+
+
+:UED_Air
+define_max 30 heavy_marine
+define_max 255 tesla_trooper
+define_max 4 medic
+define_max 6 phantom
+define_max 255 scorpion
+define_max 5 valkyrie
+define_max 20 skywing
+define_max 5 death_knight
+wait 1500
+
+attack_do
+attack_clear
+attack_add 10 skywing
+set_attacks 2
+train 1 death_knight
+train 10 skywing
+train 2 death_knight
+target_expansion 
+call resource_waitskip
+attack_clear 
+attack_add 20 heavy_marine
+attack_add 4 medic
+attack_add 4 death_knight
+set_attacks 2
+train 3 death_knight
+train 20 heavy_marine
+train 4 medic
+train 4 death_knight
+target_expansion 
+wait 2115
+attack_clear
+:aPu
+attack_add 20 heavy_marine
+attack_add 3 medic
+attack_add 10 skywing
+set_attacks 2
+train 3 skywing
+train 10 heavy_marine
+train 5 skywing
+train 16 heavy_marine
+train 3 medic
+train 7 skywing
+train 20 heavy_marine
+train 10 skywing
+target_expansion 
+wait 2115
+
+notowns_jump science_facility aPu
+:ALo
+set_attacks 3
+
+attack_do
+attack_clear 
+attack_add 16 heavy_marine
+attack_add 4 valhalla
+attack_add 3 medic
+train 2 valhalla
+train 15 heavy_marine
+train 4 valhalla
+train 3 medic
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 16 skywing
+attack_add 3 valkyrie
+train 3 valkyrie
+train 16 skywing
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 7 valhalla
+train 7 valhalla
+wait_force 7 valhalla
+target_expansion 
+call resource_waitskip
+goto ALo
+
+:t_groundmap
+random_jump 128 UED1
+random_jump 85 t_mech
+race_jump dominion_air firemech t_mech
+
+:firemech
+build 1 command_center 150
+wait_buildstart 1 command_center
+#random_call 45 proxy_rax
+build 7 scv 130
+deaths 13 Set 5 lurker ued_empair
+wait_buildstart 7 scv
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 8 scv 80
+wait_buildstart 8 scv
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+train 1 marine
+defensebuild_gg 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 1 marine
+capt_expand 
+build 12 scv 80
+wait_buildstart 12 scv
+random_call 128 early_bio
+expand 2 std_expo
+train 2 marine
+build 13 scv 80
+wait_buildstart 13 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 3 marine
+build 13 scv 80
+wait_buildstart 13 scv
+build 1 refinery 80
+train 4 marine
+build 14 scv 80
+wait_buildstart 14 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 5 marine
+build 15 scv 80
+wait_buildstart 15 scv
+build 2 barracks 80
+wait_buildstart 2 barracks
+train 6 marine
+build 16 scv 80
+wait_buildstart 16 scv
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+train 7 marine
+build 17 scv 80
+wait_buildstart 17 scv
+aicontrol build_gas
+wait_buildstart 1 refinery
+defenseclear_gg 
+call t_defaults
+train 8 marine
+build 3 barracks 80
+build 18 scv 80
+wait_buildstart 18 scv
+build 2 bunker 80
+wait_buildstart 2 bunker
+train 10 marine
+build 19 scv 80
+wait_buildstart 19 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+train 12 marine
+build 1 academy 80
+wait_buildstart 1 academy
+train 14 marine
+tech stim_packs 70
+attack_clear
+attack_add 12 marine
+attack_prepare 
+build 4 barracks 80
+wait_buildstart 4 barracks
+build 20 scv 80
+wait_buildstart 20 scv
+build 1 factory 80
+wait_buildstart 1 factory
+define_max 16 marine
+define_max 10 firebat
+train 12 marine
+train 2 firebat
+build 1 engineering_bay 80
+wait_buildstart 1 engineering_bay
+upgrade 1 marine_range 70
+defensebuild_gg 2 marine
+defensebuild_ag 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 2 marine
+farms_timing 
+train 4 firebat
+build 5 barracks 80
+wait_buildstart 5 barracks
+upgrade 1 vademecum 60
+build 1 armory 80
+upgrade 1 t_infantry_weapon 70
+train 6 firebat
+tech siege_mode 70
+expand 2 std_expo
+train 6 marine
+train 8 firebat
+attack_do 
+attack_clear 
+attack_add 6 marine
+attack_add 8 firebat
+attack_prepare 
+define_max 6 firebat
+defensebuild_gg 2 firebat
+defenseuse_gg 2 firebat
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+define_max 8 goliath
+define_max 2 siege_tank
+define_max 18 marine
+train 18 marine
+upgrade 1 hospitals 60
+build 2 factory 80
+tech siege_mode 80
+train 1 siege_tank
+train 1 goliath
+build 1 armory 80
+wait_buildstart 1 armory
+defensebuild_gg 2 goliath
+defensebuild_ag 2 goliath
+defenseuse_gg 2 goliath
+defenseuse_ag 2 goliath
+define_max 20 marine
+define_max 12 firebat
+define_max 4 siege_tank
+train 4 firebat
+upgrade 1 t_vehicle_weapon 70
+train 2 siege_tank
+define_max 22 marine
+train 22 marine
+train 4 goliath
+train 8 firebat
+build 2 machine_shop 100
+build 3 factory 80
+build 2 armory 80
+panic std_expo
+attack_do 
+attack_clear 
+wait_force 4 goliath
+attack_add 10 marine
+attack_add 8 firebat
+attack_add 4 goliath
+attack_add 3 siege_tank
+attack_prepare
+upgrade 1 t_vehicle_plating 70
+build 1 starport 80
+wait_buildstart 1 starport
+multirun chenlas_clone
+train 2 siege_tank
+build 1 control_tower 100
+wait_buildstart 1 control_tower
+define_max 40 marine
+train 2 goliath
+train 24 marine
+train 4 siege_tank
+define_max 2 dropship
+train 1 dropship
+check_transports 
+build 2 armory 80
+wait_buildstart 2 armory
+defensebuild_gg 2 siege_tank
+defenseuse_gg 2 siege_tank
+wait_force 1 dropship
+expand 1 std_expo
+wait 48
+upgrade 1 t_infantry_armor 70
+train 5 siege_tank
+upgrade 2 t_vehicle_weapon 70
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+upgrade 1 t_ship_weapon 70
+build 4 factory 80
+build 3 machine_shop 100
+wait_buildstart 4 factory
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+upgrade 1 adv_mechanics 60
+upgrade 3 t_vehicle_weapon 70
+place_guard ghost 0
+place_guard ghost 2
+upgrade 2 t_infantry_weapon 70
+multirun defRout010
+tech lockdown 80
+expand 3 std_expo
+tech emp_shockwave 80
+tech irradiate 80
+place_guard science_vessel 0
+tech personnel_cloaking 70
+defensebuild_gg 2 ghost
+defensebuild_ag 2 ghost
+defenseuse_gg 2 ghost
+defenseuse_ag 2 ghost
+tech lockdown 70
+tech irradiate 70
+tech emp_shockwave 70
+upgrade 1 62 70
+define_max 2 dropship
+upgrade 2 t_vehicle_plating 70
+expand 3 std_expo
+wait 1500
+
+call resource_waitskip
+upgrade 1 t_ship_plating 70
+upgrade 1 ghost_sight 70
+defensebuild_ag 2 goliath
+defenseuse_ag 2 goliath
+expand 4 std_expo
+wait 1500
+
+call resource_waitskip
+build 4 machine_shop 100
+wait_buildstart 4 machine_shop
+upgrade 3 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+upgrade 2 t_ship_plating 70
+call resource_waitskip
+
+upgrade 1 ghost_mana 70
+upgrade 3 t_vehicle_weapon 70
+build 2 armory 80
+wait_buildstart 2 armory
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_infantry_armor 70
+expand 5 std_expo
+wait 1500
+
+call resource_waitskip
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_ship_plating 70
+upgrade 3 t_vehicle_weapon 70
+upgrade 3 t_infantry_armor 70
+call resource_waitskip
+
+expand 6 std_expo
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+upgrade 3 t_infantry_weapon 70
+upgrade 1 battlecruiser_mana 70
+tech spider_mines 70
+tech irradiate 70
+tech emp_shockwave 70
+tech lockdown 70
+build 2 starport 80
+wait_buildstart 2 starport
+call resource_waitskip
+
+build 2 control_tower 100
+wait_buildstart 2 control_tower
+upgrade 1 t_ship_weapon 70
+
+:exp_repeater
+wait 8500
+expand 9 std_expo
+goto exp_repeater
+
+#:p_rax
+#start_town
+#build 1 barracks 100
+#get_oldpeons 1
+#wait_build 1 barracks
+#wait_force 1 marine
+#attack_add 1 marine
+#attack_prepare
+#wait 16
+#
+#attack_timeout 10
+#attack_do
+#wait_force 2 marine
+#attack_add 2 marine
+#attack_prepare
+#wait 16
+#
+#attack_timeout 15
+#attack_do
+#wait_force 2 marine
+#build 2 barracks 100
+#attack_add 2 marine
+#attack_prepare
+#wait 16
+#
+#attack_timeout 15
+#attack_do
+#wait_force 4 marine
+#attack_add 2 marine
+#attack_prepare
+#wait 16
+#
+#attack_timeout 15
+#attack_do
+#wait_force 6 marine
+#attack_add 4 marine
+#attack_prepare
+#wait 16
+#
+#attack_timeout 15
+#attack_do
+#build 1 command_center 100
+#wait_build 1 command_center
+#build 1 refinery 50
+#multirun exp_workers
+#
+#goto defRout022
+
+#:proxy_rax
+#expand 1 p_rax
+#build 5 scv 80
+#:prb
+#resources 13 AtLeast Ore 150 prb_s
+#wait 16
+#
+#goto prb
+#:prb_s
+#wait 150
+#
+#build 6 scv 80
+#wait_build 6 scv
+#build 7 scv 80
+#wait_build 7 scv
+#build 1 supply_depot 80
+#wait_build 1 supply_depot
+#build 9 scv 80
+#return
+
+:early_bio
+define_max 30 marine
+build 2 barracks 80
+train 3 marine
+build 13 scv 80
+wait_buildstart 13 scv
+build 3 barracks 80
+train 5 marine
+build 15 scv 80
+wait_buildstart 15 scv
+build 3 barracks 80
+train 8 marine
+build 1 refinery 80
+train 12 marine
+build 18 scv 80
+wait_buildstart 18 scv
+build 1 academy 80
+train 16 marine
+build 1 engineering_bay 80
+tech stim_packs 70
+train 20 marine
+upgrade 1 t_infantry_weapon 70
+train 24 marine
+upgrade 1 marine_range 70
+train 28 marine
+attack_add 28 marine
+attack_prepare
+return
+
+:chenlas_clone
+define_max 40 marine
+define_max 20 goliath
+define_max 12 siege_tank
+define_max 30 firebat
+define_max 12 ghost
+attack_do
+attack_clear 
+attack_add 8 goliath
+attack_add 12 firebat
+set_attacks 1
+
+:defRout017
+train 2 firebat
+train 2 goliath
+train 6 firebat
+train 4 goliath
+train 12 firebat
+train 8 goliath
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility defRout017
+attack_do
+attack_clear 
+attack_add 12 marine
+attack_add 4 siege_tank
+attack_add 8 goliath
+attack_add 10 firebat
+set_attacks 1
+
+:defRout018
+#random_jump 1 latebio
+#random_jump 1 latemech
+train 6 marine
+train 4 siege_tank
+train 12 marine
+train 4 goliath
+train 5 firebat
+train 8 goliath
+train 10 firebat
+train 4 siege_tank
+target_expansion 
+call resource_waitskip
+notowns_jump covert_ops defRout018
+attack_do
+attack_clear
+attack_add 12 marine
+attack_add 10 ghost
+attack_add 20 firebat
+attack_add 4 siege_tank
+set_attacks 1
+train 12 marine
+train 4 siege_tank
+train 10 firebat
+train 10 ghost
+train 20 firebat
+target_expansion 
+call resource_waitskip
+
+:defRout020
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 30 marine
+attack_add 20 firebat
+attack_add 10 ghost
+train 10 ghost
+train 20 firebat
+train 30 marine
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 18 firebat
+attack_add 14 goliath
+attack_add 8 siege_tank
+train 6 goliath
+train 6 firebat
+train 12 goliath
+train 14 firebat
+train 14 goliath
+train 3 siege_tank
+train 18 firebat
+train 8 siege_tank
+target_expansion 
+call resource_waitskip
+goto defRout020
+
+:2fac_timing
+random_jump 128 2fac_gol
+build 1 factory 80
+wait_buildstart 1 factory
+build 15 scv 80
+wait_build 14 scv
+build 2 supply_depot 80
+wait_build 15 scv
+build 2 factory 80
+build 18 scv 80
+wait_build 1 factory
+train 1 vulture
+build 21 scv 80
+build 1 machine_shop 100
+build 3 supply_depot 80
+wait_buildstart 1 machine_shop
+define_max 10 vulture
+train 3 vulture
+upgrade 1 vulture_speed 70
+farms_timing
+build 24 scv 80
+train 5 vulture
+build 5 supply_depot 80
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+train 7 vulture
+tech spider_mines 70
+train 8 vulture
+expand 1 std_expo
+attack_add 8 vulture
+attack_prepare
+#idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
+#this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
+attack_do
+attack_clear
+train 9 vulture
+return
+
+:2fac_gol
+build 1 factory 80
+wait_buildstart 1 factory
+build 15 scv 80
+wait_build 14 scv
+build 2 supply_depot 80
+wait_build 15 scv
+build 2 factory 80
+build 18 scv 80
+wait_build 1 factory
+build 1 armory 80
+build 21 scv 80
+build 3 supply_depot 80
+define_max 10 goliath
+expand 1 std_expo
+farms_timing
+build 24 scv 80
+build 4 supply_depot 80
+train 1 goliath
+upgrade 1 t_vehicle_weapon 70
+train 2 goliath
+build 5 supply_depot 80
+train 4 goliath
+defensebuild_gg 2 goliath
+defenseuse_gg 2 goliath
+train 6 goliath
+build 6 supply_depot 80
+train 8 goliath
+attack_add 8 goliath
+attack_prepare
+attack_do
+attack_clear
+return
+
+:t_mech
+build 1 command_center 150
+wait_buildstart 1 command_center
+build 7 scv 130
+deaths 13 Set 6 lurker ued_empair
+wait_buildstart 7 scv
+build 8 scv 80
+wait_buildstart 8 scv
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+capt_expand 
+build 11 scv 80
+build 1 refinery 80
+wait_buildstart 1 refinery
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 12 scv 80
+train 1 marine
+defensebuild_gg 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 1 marine
+build 13 scv 80
+random_call 128 2fac_timing
+train 2 marine
+expand 2 std_expo
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 4 marine
+build 1 factory 80
+wait_buildstart 1 factory
+build 14 scv 80
+wait_buildstart 14 scv
+aicontrol build_gas
+build 15 scv 80
+wait_buildstart 15 scv
+build 2 barracks 80
+wait_buildstart 2 barracks
+farms_timing
+build 16 scv 80
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+build 17 scv 80
+defenseclear_gg 
+call t_defaults
+train 6 marine
+train 1 vulture
+build 18 scv 80
+wait_buildstart 18 scv
+build 1 bunker 80
+wait_buildstart 1 bunker
+train 7 marine
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+define_max 3 vulture
+define_max 14 marine
+define_max 2 siege_tank
+build 2 factory 80
+build 19 scv 80
+wait_buildstart 19 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+train 2 vulture
+build 1 machine_shop 100
+defensebuild_gg 2 siege_tank
+defenseuse_gg 2 siege_tank
+train 12 marine
+defensebuild_gg 2 marine
+defensebuild_ag 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 2 marine
+train 1 siege_tank
+train 13 marine
+train 2 vulture
+set_attacks 1
+attack_add 10 marine
+attack_add 1 siege_tank
+attack_add 2 vulture
+target_expansion 
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 20 scv 80
+wait_buildstart 20 scv
+build 1 academy 80
+wait_buildstart 1 academy
+define_max 16 marine
+define_max 7 vulture
+train 12 marine
+train 2 vulture
+build 1 engineering_bay 80
+wait_buildstart 1 engineering_bay
+upgrade 1 marine_range 70
+farms_timing 
+build 2 machine_shop 100
+tech siege_mode 70
+define_max 4 siege_tank
+upgrade 1 hospitals 70
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 1 armory 80
+tech spider_mines 70
+upgrade 1 t_infantry_weapon 70
+upgrade 1 t_vehicle_weapon 60
+upgrade 1 t_vehicle_plating 50
+train 2 siege_tank
+build 3 factory 80
+expand 2 std_expo
+defensebuild_gg 2 goliath
+defensebuild_ag 2 goliath
+defenseuse_gg 2 goliath
+defenseuse_ag 2 goliath
+define_max 10 vulture
+define_max 8 goliath
+attack_do 
+attack_clear
+set_attacks 1
+train 4 siege_tank
+deaths 13 AtLeast 3 goliath gol_instead
+#check if we launched the goliath timing and have infra for them already
+train 9 vulture
+attack_add 9 vulture
+goto gi_continue
+
+:gol_instead
+train 7 goliath
+attack_add 7 goliath
+
+:gi_continue
+train 4 siege_tank
+attack_add 4 siege_tank
+target_expansion
+define_max 18 marine
+define_max 6 siege_tank
+define_max 10 goliath
+build 3 machine_shop 100
+upgrade 1 vulture_speed 70
+build 1 starport 80
+define_max 20 marine
+upgrade 1 t_ship_weapon 70
+define_max 22 marine
+build 2 armory 80
+wait_buildstart 2 armory
+panic std_expo
+attack_do 
+attack_clear 
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+build 5 factory 80
+train 4 goliath
+train 10 marine
+train 2 siege_tank
+upgrade 1 adv_mechanics 70
+train 6 goliath
+train 4 siege_tank
+train 10 goliath
+attack_add 10 goliath
+attack_add 4 siege_tank
+attack_prepare
+upgrade 1 t_vehicle_plating 70
+multirun TM_atk
+build 1 control_tower 100
+wait_buildstart 1 control_tower
+upgrade 2 t_vehicle_weapon 70
+build 1 physics_lab 100
+check_transports 
+defensebuild_gg 2 siege_tank
+defenseuse_gg 2 siege_tank
+wait_force 1 dropship
+expand 3 std_expo
+
+wait 48
+
+upgrade 2 t_vehicle_plating 70
+upgrade 1 t_infantry_armor 70
+tech stim_packs 70
+build 2 starport 80
+wait 1833
+
+build 2 control_tower 100
+upgrade 2 t_infantry_weapon 70
+upgrade 1 wraith_mana 70
+build 2 science_facility 80
+wait_buildstart 2 science_facility
+upgrade 3 t_vehicle_weapon 70
+wait 2400
+
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+multirun defRout010
+tech lockdown 60
+expand 3 std_expo
+tech emp_shockwave 60
+upgrade 1 vademecum 70
+tech irradiate 60
+call resource_waitskip
+tech yamato_gun 70
+place_guard science_vessel 0
+tech personnel_cloaking 70
+defensebuild_gg 2 battlecruiser
+defensebuild_ag 2 battlecruiser
+defensebuild_ga 1 battlecruiser
+defensebuild_aa 1 battlecruiser
+defensebuild_gg 2 ghost
+defensebuild_ag 2 ghost
+defenseuse_gg 2 battlecruiser
+defenseuse_ag 2 battlecruiser
+defenseuse_ga 1 battlecruiser
+defenseuse_aa 1 battlecruiser
+defenseuse_gg 2 ghost
+defenseuse_ag 2 ghost
+upgrade 1 t_ship_weapon 70
+tech lockdown 70
+wait 2250
+
+upgrade 1 battlecruiser_mana 70
+upgrade 2 t_ship_weapon 70
+upgrade 1 t_ship_plating 70
+upgrade 1 science_aura 70
+tech irradiate 70
+tech emp_shockwave 70
+define_max 2 dropship
+upgrade 3 t_vehicle_plating 70
+expand 3 std_expo
+call resource_waitskip
+upgrade 1 ghost_sight 70
+expand 4 std_expo
+call resource_waitskip
+upgrade 3 t_ship_weapon 70
+upgrade 2 t_ship_plating 70
+build 4 machine_shop 100
+wait_buildstart 4 machine_shop
+upgrade 3 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+build 3 barracks 80
+wait_buildstart 4 barracks
+upgrade 1 ghost_mana 70
+upgrade 3 t_vehicle_weapon 70
+call resource_waitskip
+
+upgrade 3 t_ship_plating 70
+upgrade 3 t_infantry_armor 70
+expand 5 std_expo
+wait 3500
+
+
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_ship_plating 70
+upgrade 3 t_vehicle_weapon 70
+upgrade 3 t_infantry_armor 70
+expand 6 std_expo
+upgrade 3 t_infantry_weapon 70
+upgrade 1 battlecruiser_mana 70
+call resource_waitskip
+
+tech spider_mines 70
+tech irradiate 70
+tech emp_shockwave 70
+tech lockdown 70
+build 3 starport 80
+wait_build 3 starport
+build 3 control_tower 100
+wait_buildstart 3 control_tower
+goto exp_repeater
+
+:TM_atk
+define_max 20 marine
+define_max 30 goliath
+define_max 20 siege_tank
+define_max 20 vulture
+define_max 255 firebat
+define_max 4 ghost
+define_max 4 battlecruiser
+define_max 255 wraith
+attack_do
+attack_clear 
+attack_add 6 vulture
+attack_add 6 goliath
+attack_add 4 siege_tank
+set_attacks 2
+
+:TMSC
+train 6 vulture
+train 6 goliath
+train 4 siege_tank
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility TMSC
+attack_do
+attack_clear 
+attack_add 10 goliath
+attack_add 8 siege_tank
+set_attacks 1
+
+:TMPu
+train 10 goliath
+train 8 siege_tank
+target_expansion 
+call resource_waitskip
+notowns_jump physics_lab TMPu
+attack_do
+attack_clear
+attack_add 1 science_vessel
+attack_add 2 battlecruiser
+attack_add 10 vulture
+attack_add 10 goliath
+set_attacks 1
+train 2 battlecruiser
+train 10 vulture
+train 1 science_vessel
+train 10 goliath
+target_expansion 
+call resource_waitskip
+
+:TMLo
+set_attacks 2
+attack_do
+attack_clear
+attack_add 10 vulture
+attack_add 20 goliath
+train 20 goliath
+train 10 vulture
+attack_prepare 
+call resource_waitskip
+attack_do
+attack_clear
+attack_add 1 science_vessel
+attack_add 3 battlecruiser
+attack_add 14 siege_tank
+attack_add 14 goliath
+train 1 science_vessel
+train 1 battlecruiser
+train 10 siege_tank
+train 3 battlecruiser
+train 14 goliath
+train 14 siege_tank
+target_expansion 
+call resource_waitskip
+goto TMLo
+
+
+
+:dominion_air
+build 1 command_center 150
+wait_buildstart 1 command_center
+build 7 scv 130
+deaths 13 Set 4 lurker ued_empair
+wait_buildstart 7 scv
+build 8 scv 80
+wait_buildstart 8 scv
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 10 scv
+build 1 barracks 80
+wait_buildstart 1 barracks
+capt_expand 
+build 11 scv 80
+wait_buildstart 11 scv
+build 1 refinery 80
+build 12 scv 80
+wait_buildstart 12 scv
+define_max 8 marine
+expand 1 std_expo
+train 1 marine
+build 13 scv 80
+defensebuild_gg 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 1 marine
+train 2 marine
+build 14 scv 80
+train 3 marine
+wait_buildstart 14 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+train 4 marine
+build 15 scv 80
+wait_buildstart 15 scv
+aicontrol build_gas
+wait_buildstart 1 refinery
+build 1 bunker 80
+wait_buildstart 1 bunker
+build 1 factory 80
+wait_buildstart 1 factory
+define_max 12 marine
+train 5 marine
+build 16 scv 80
+wait_buildstart 16 scv
+build 2 barracks 80
+wait_buildstart 2 barracks
+train 6 marine
+build 16 scv 80
+wait_buildstart 16 scv
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+train 7 marine
+build 17 scv 80
+wait_buildstart 17 scv
+build 1 starport 80
+wait_buildstart 1 starport
+defenseclear_gg 
+call t_defaults
+define_max 8 wraith
+train 8 marine
+build 1 academy 80
+wait_buildstart 1 academy
+race_jump fire_skip get_fire fire_skip
+
+:get_fire
+define_max 10 firebat
+defensebuild_gg 1 firebat
+defenseuse_gg 1 firebat
+:fire_skip
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+build 18 scv 80
+wait_buildstart 18 scv
+train 10 marine
+train 1 wraith
+build 19 scv 80
+wait_buildstart 19 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+build 2 starport 80
+wait_buildstart 2 starport
+define_max 15 marine
+train 12 marine
+train 2 wraith
+random_jump 128 doma_skiptiming
+train 1 siege_tank
+train 14 marine
+attack_add 12 marine
+attack_add 2 wraith
+attack_add 1 siege_tank
+attack_prepare
+:doma_skiptiming
+build 3 barracks 80
+wait_buildstart 3 barracks
+build 20 scv 80
+wait_buildstart 20 scv
+
+define_max 16 marine
+define_max 2 vulture
+train 12 marine
+train 4 wraith
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+build 1 engineering_bay 80
+wait_buildstart 1 engineering_bay
+upgrade 1 marine_range 70
+defensebuild_gg 2 marine
+defensebuild_ag 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 2 marine
+farms_timing 
+define_max 2 siege_tank
+build 3 starport 80
+wait_buildstart 3 starport
+build 1 control_tower 100
+upgrade 1 hospitals 70
+build 1 armory 80
+upgrade 1 t_infantry_weapon 70
+tech cloaking_field 80
+define_max 10 wraith
+train 2 wraith
+train 2 marine
+build 3 starport 80
+wait_buildstart 3 starport
+tech siege_mode 70
+expand 2 std_expo
+train 1 siege_tank
+train 4 marine
+train 6 wraith
+train 8 marine
+wait_force 6 wraith
+attack_do 
+attack_clear 
+attack_add 6 wraith
+attack_prepare 
+defensebuild_gg 2 wraith
+defenseuse_gg 2 wraith
+define_max 18 marine
+build 1 armory 80
+wait_buildstart 1 armory
+define_max 20 marine
+upgrade 1 t_ship_weapon 70
+define_max 22 marine
+build 2 control_tower 100
+build 4 starport 80
+build 2 armory 80
+panic std_expo
+attack_do 
+attack_clear 
+define_max 14 wraith
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+build 4 barracks 80
+wait_buildstart 4 barracks
+train 4 wraith
+train 10 marine
+train 6 wraith
+upgrade 1 overclocking 70
+train 14 marine
+train 8 wraith
+train 18 marine
+attack_add 14 marine
+attack_add 8 wraith
+attack_prepare
+upgrade 1 t_ship_plating 70
+multirun dom_atk
+build 3 control_tower 100
+wait_buildstart 3 control_tower
+upgrade 2 t_ship_weapon 70
+upgrade 2 t_ship_plating 70
+train 8 wraith
+build 1 physics_lab 100
+check_transports 
+defensebuild_gg 2 siege_tank
+defenseuse_gg 2 siege_tank
+wait_force 1 dropship
+expand 3 std_expo
+
+wait 48
+upgrade 1 t_infantry_armor 70
+place_guard ghost 2
+tech stim_packs 70
+call resource_waitskip
+
+tech yamato_gun 70
+upgrade 2 t_infantry_weapon 70
+upgrade 1 wraith_mana 70
+build 2 science_facility 80
+wait_buildstart 2 science_facility
+upgrade 3 t_ship_weapon 70
+call resource_waitskip
+
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+multirun defRout010
+tech lockdown 60
+expand 3 std_expo
+tech emp_shockwave 60
+upgrade 1 vademecum 70
+tech irradiate 60
+call resource_waitskip
+
+place_guard science_vessel 0
+tech personnel_cloaking 70
+defensebuild_ag 2 ghost
+defenseuse_ag 2 ghost
+tech lockdown 70
+build 2 armory 80
+wait_buildstart 2 armory
+build 4 control_tower 100
+wait_buildstart 4 control_tower
+wait 1250
+
+call resource_waitskip
+upgrade 1 battlecruiser_mana 70
+upgrade 2 t_vehicle_weapon 70
+tech irradiate 70
+tech emp_shockwave 70
+define_max 2 dropship
+upgrade 2 t_vehicle_plating 70
+expand 3 std_expo
+call resource_waitskip
+
+defensebuild_ag 2 goliath
+defenseuse_ag 2 goliath
+expand 4 std_expo
+call resource_waitskip
+
+upgrade 1 science_aura 70
+upgrade 3 t_infantry_weapon 70
+upgrade 2 t_infantry_armor 70
+upgrade 2 t_ship_plating 70
+upgrade 1 ghost_mana 70
+upgrade 3 t_vehicle_weapon 70
+call resource_waitskip
+
+upgrade 1 ghost_sight 70
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_infantry_armor 70
+expand 5 std_expo
+call resource_waitskip
+
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_ship_plating 70
+upgrade 3 t_vehicle_weapon 70
+upgrade 3 t_infantry_armor 70
+expand 6 std_expo
+tech emp_shockwave 70
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+upgrade 3 t_infantry_weapon 70
+upgrade 1 battlecruiser_mana 70
+call resource_waitskip
+
+tech irradiate 70
+tech lockdown 70
+build 5 starport 80
+wait_buildstart 5 starport
+build 5 control_tower 100
+wait_buildstart 5 control_tower
+goto exp_repeater
+
+:dom_atk
+define_max 20 marine
+define_max 255 goliath
+define_max 6 siege_tank
+define_max 255 firebat
+define_max 2 ghost
+define_max 7 battlecruiser
+define_max 14 wraith
+attack_do
+attack_clear 
+attack_add 10 marine
+attack_add 2 siege_tank
+attack_add 8 wraith
+set_attacks 2
+
+:DSC
+train 1 siege_tank
+train 10 marine
+train 4 wraith
+train 2 siege_tank
+train 8 wraith
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility DSC
+attack_do
+attack_clear 
+attack_add 12 wraith
+set_attacks 1
+
+:DPu
+train 12 wraith
+target_expansion 
+call resource_waitskip
+notowns_jump physics_lab DPu
+attack_do
+attack_clear
+attack_add 1 science_vessel
+attack_add 4 battlecruiser
+set_attacks 1
+train 2 science_vessel
+train 4 battlecruiser
+wait_force 4 battlecruiser
+target_expansion 
+call resource_waitskip
+
+define_max 22 wraith
+:DLo
+set_attacks 3
+attack_do
+attack_clear 
+attack_add 10 wraith
+train 2 marine
+train 4 wraith
+train 6 marine
+train 1 siege_tank
+train 6 wraith
+train 10 marine
+train 8 wraith
+train 2 siege_tank
+train 14 marine
+train 10 wraith
+train 16 marine
+train 3 siege_tank
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear
+attack_add 4 siege_tank
+attack_add 20 marine
+train 4 siege_tank
+train 20 marine
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear
+attack_add 1 science_vessel
+attack_add 6 battlecruiser
+attack_add 10 wraith
+train 2 science_vessel
+train 6 battlecruiser
+train 10 wraith
+wait_force 3 battlecruiser
+target_expansion 
+call resource_waitskip
+goto DLo
+
+
+:std_expo
+start_town 
+build 1 command_center 100
+get_oldpeons 1
+wait_build 1 command_center
+build 1 refinery 50
+multirun exp_workers
+wait 500
+
+max_workers 21
+multirun worker_decay
+:defRout022
+notowns_jump barracks defRout023
+goto defRout024
+
+
+:defRout023
+wait 500
+goto defRout022
+
+
+:defRout024
+player_need 1 barracks
+groundmap_jump defRout025
+goto defRout026
+
+
+:defRout025
+build 1 bunker 80
+wait_buildstart 1 bunker
+
+:defRout026
+multirun defRout027
+wait_build 20 scv
+
+:defRout028
+notowns_jump academy defRout029
+goto defRout030
+
+
+:defRout029
+wait 500
+goto defRout028
+
+
+:defRout030
+player_need 1 academy
+notowns_jump comsat_station defRout031
+notowns_jump covert_ops defRout031
+goto defRout032
+
+
+:defRout031
+
+wait 48
+
+:defRout033
+notowns_jump factory defRout034
+goto defRout035
+
+
+:defRout034
+wait 500
+goto defRout033
+
+
+:defRout035
+player_need 1 factory
+
+:defRout036
+notowns_jump machine_shop defRout037
+goto defRout038
+
+
+:defRout037
+wait 500
+goto defRout036
+
+
+:defRout038
+player_need 1 machine_shop
+
+:defRout039
+notowns_jump armory defRout040
+goto defRout041
+
+
+:defRout040
+wait 500
+goto defRout039
+
+
+:defRout041
+player_need 1 armory
+
+:defRout042
+notowns_jump starport defRout043
+goto defRout044
+
+
+:defRout043
+wait 500
+goto defRout042
+
+
+:defRout044
+player_need 1 starport
+
+:defRout045
+notowns_jump control_tower defRout046
+goto defRout047
+
+
+:defRout046
+wait 500
+goto defRout045
+
+
+:defRout047
+player_need 1 control_tower
+
+:defRout048
+notowns_jump science_facility defRout049
+goto defRout050
+
+
+:defRout049
+wait 500
+goto defRout048
+
+
+:defRout050
+player_need 1 science_facility
+
+:defRout051
+notowns_jump covert_ops defRout052
+goto defRout053
+
+
+:defRout052
+wait 500
+goto defRout051
+
+
+:defRout053
+player_need 1 covert_ops
+place_guard science_vessel 0
+goto defRout054
+
+
+:defRout032
+notowns_jump factory defRout055
+goto defRout056
+
+
+:defRout055
+wait 500
+goto defRout032
+
+
+:defRout056
+player_need 1 factory
+
+:defRout057
+notowns_jump machine_shop defRout058
+goto defRout059
+
+
+:defRout058
+wait 500
+goto defRout057
+
+
+:defRout059
+player_need 1 machine_shop
+
+:defRout060
+notowns_jump armory defRout061
+goto defRout062
+
+
+:defRout061
+wait 500
+goto defRout060
+
+
+:defRout062
+player_need 1 armory
+
+:defRout063
+notowns_jump starport defRout064
+goto defRout065
+
+
+:defRout064
+wait 500
+goto defRout063
+
+
+:defRout065
+player_need 1 starport
+
+:defRout066
+notowns_jump control_tower defRout067
+goto defRout068
+
+
+:defRout067
+wait 500
+goto defRout066
+
+
+:defRout068
+player_need 1 control_tower
+
+:defRout069
+notowns_jump science_facility defRout070
+goto defRout071
+
+
+:defRout070
+wait 500
+goto defRout069
+
+
+:defRout071
+player_need 1 science_facility
+
+:defRout072
+notowns_jump covert_ops defRout073
+goto defRout074
+
+
+:defRout073
+wait 500
+goto defRout072
+
+
+:defRout074
+deaths 13 Exactly 1 lurker exp_comsat
+deaths 13 Exactly 2 lurker exp_comsat2
+deaths 13 Exactly 5 lurker exp_comsat2n
+deaths 13 Exactly 3 lurker exp_comsat3
+deaths 13 Exactly 4 lurker exp_comsat4
+deaths 13 Exactly 6 lurker exp_comsat5n
+player_need 1 covert_ops
+place_guard ghost 0
+place_guard ghost 2
+call random_sciv_guard
+build 1 nuclear_silo 80
+wait_buildstart 1 nuclear_silo
+goto defRout054
+
+:exp_comsat
+build 1 comsat_station 80
+call random_sciv_guard
+build 2 barracks 80
+goto defRout054
+
+:exp_comsat2
+build 1 comsat_station 80
+call random_sciv_guard
+build 1 barracks 80
+build 1 factory 80
+wait_build 1 factory
+build 1 machine_shop 100
+goto defRout054
+
+:exp_comsat2n
+random_jump 158 exp_comsat2
+build 1 nuclear_silo 80
+call random_sciv_guard
+build 1 barracks 80
+build 1 factory 80
+wait_build 1 factory
+build 1 machine_shop 100
+goto defRout054
+
+:exp_comsat5n
+random_jump 158 exp_comsat5
+build 1 nuclear_silo 80
+call random_sciv_guard
+build 2 factory 80
+wait_build 2 factory
+build 2 machine_shop 100
+goto defRout054
+
+:exp_comsat5
+build 1 comsat_station 80
+call random_sciv_guard
+build 2 factory 80
+wait_build 2 factory
+build 2 machine_shop 100
+goto defRout054
+
+:exp_comsat4
+build 1 comsat_station 80
+call random_sciv_guard
+build 1 starport 80
+wait_build 1 starport
+build 1 control_tower 100
+build 2 starport 80
+wait_build 2 starport
+build 2 control_tower 100
+goto defRout054
+
+:ec_star
+build 1 starport 80
+wait_build 1 starport
+build 1 control_tower 100
+goto defRout054
+
+:random_sciv_guard
+random_jump 158 sciv_pass
+place_guard science_vessel 0
+:sciv_pass
+return
+
+:exp_comsat3
+build 1 comsat_station 80
+call random_sciv_guard
+build 1 factory 80
+wait_build 1 factory
+build 1 machine_shop 100
+random_jump 128 ec_star
+build 1 barracks 80
+:defRout054
+notowns_jump physics_lab defRout075
+goto defRout076
+
+
+:defRout075
+wait 500
+goto defRout054
+
+
+:defRout076
+notowns_jump science_facility defRout077
+goto defRout078
+
+
+:defRout077
+wait 500
+goto defRout076
+
+
+:defRout078
+player_need 2 science_facility
+
+:defRout079
+notowns_jump physics_lab defRout080
+goto defRout081
+
+
+:defRout080
+wait 500
+goto defRout079
+
+
+:defRout081
+player_need 1 physics_lab
+stop 
+
+
+:exp_workers
+wait_build 1 command_center
+get_oldpeons 6
+build 6 scv 100
+wait_build 6 scv
+build 7 scv 80
+wait_build 7 scv
+build 8 scv 80
+wait_build 8 scv
+build 9 scv 80
+wait_build 9 scv
+build 10 scv 80
+wait_build 10 scv
+build 11 scv 80
+wait_build 11 scv
+build 12 scv 80
+wait_build 12 scv
+build 13 scv 80
+wait_build 13 scv
+build 14 scv 80
+wait_build 14 scv
+build 15 scv 80
+wait_build 15 scv
+build 16 scv 80
+wait_build 16 scv
+build 17 scv 80
+wait_build 17 scv
+build 18 scv 80
+wait_build 18 scv
+build 21 scv 80
+wait_build 21 scv
+stop 
+
+:worker_decay
+wait 10700
+
+max_workers 16
+wait 4700
+
+max_workers 12
+wait 2800
+
+max_workers 255
+stop
+
+:defRout027
+notowns_jump engineering_bay defRout082
+goto defRout083
+
+
+:defRout082
+wait 500
+goto defRout027
+
+
+:defRout083
+build 1 missile_turret 80
+wait_build 1 missile_turret
+build 2 missile_turret 80
+wait_build 2 missile_turret
+build 3 missile_turret 80
+wait_build 3 missile_turret
+build 4 missile_turret 80
+wait_build 4 missile_turret
+
+:defRout084
+wait 1500
+goto defRout084
+
+
+:defRout010
+notowns_jump engineering_bay defRout085
+goto defRout086
+
+
+:defRout085
+wait 500
+goto defRout010
+
+
+:defRout086
+build 1 missile_turret 80
+wait_build 1 missile_turret
+build 2 missile_turret 80
+wait_build 2 missile_turret
+build 3 missile_turret 80
+wait_build 3 missile_turret
+build 4 missile_turret 80
+wait_build 4 missile_turret
+build 5 missile_turret 80
+wait_build 5 missile_turret
+build 6 missile_turret 80
+wait_build 6 missile_turret
+build 7 missile_turret 80
+wait_build 7 missile_turret
+build 8 missile_turret 80
+wait_build 8 missile_turret
+
+:defRout087
+wait 1500
+goto defRout087
+
+
+:defRout088
+define_max 16 marine
+define_max 4 firebat
+define_max 12 ghost
+define_max 30 scv
+define_max 12 goliath
+define_max 4 dropship
+define_max 3 siege_tank
+define_max 3 science_vessel
+define_max 16 wraith
+define_max 8 battlecruiser
+defenseuse_gg 2 siege_tank
+defenseuse_gg 3 marine
+defenseuse_gg 2 goliath
+defenseuse_gg 2 vulture
+defenseuse_gg 2 wraith
+defenseuse_gg 2 firebat
+defenseuse_gg 2 ghost
+defenseuse_gg 2 battlecruiser
+defenseuse_ag 2 goliath
+defenseuse_ag 3 marine
+defenseuse_ag 2 wraith
+defenseuse_ag 2 ghost
+defenseuse_ag 2 battlecruiser
+defenseuse_ga 2 wraith
+defenseuse_ga 1 battlecruiser
+defenseuse_aa 2 wraith
+defenseuse_aa 1 battlecruiser
+return 
+
+
+:t_island
+build 1 command_center 150
+wait_buildstart 1 command_center
+build 8 scv 130
+wait_buildstart 8 scv
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 130
+wait_buildstart 10 scv
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 11 scv 80
+wait_buildstart 11 scv
+build 1 refinery 80
+wait_buildstart 1 refinery
+call defRout088
+build 14 scv 80
+wait_buildstart 14 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+define_max 1 marine
+train 1 marine
+defenseuse_gg 2 marine
+capt_expand 
+build 15 scv 80
+wait_buildstart 15 scv
+build 2 barracks 80
+wait_buildstart 2 barracks
+define_max 2 marine
+train 2 marine
+build 16 scv 80
+wait_buildstart 16 scv
+define_max 3 marine
+train 3 marine
+build 17 scv 80
+wait_buildstart 17 scv
+build 1 factory 80
+wait_buildstart 1 factory
+define_max 4 marine
+train 4 marine
+build 18 scv 80
+wait_buildstart 18 scv
+build 3 supply_depot 80
+wait_buildstart 3 supply_depot
+define_max 5 marine
+train 5 marine
+build 19 scv 80
+wait_buildstart 19 scv
+define_max 9 marine
+train 9 marine
+build 1 starport 80
+wait_buildstart 1 starport
+build 20 scv 80
+wait_buildstart 20 scv
+defensebuild_gg 2 marine
+defensebuild_ag 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 2 marine
+define_max 10 marine
+train 10 marine
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
+farms_timing 
+build 1 armory 80
+wait_buildstart 1 armory
+build 1 control_tower 100
+wait_buildstart 1 control_tower
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+build 1 bunker 80
+wait_buildstart 1 bunker
+define_max 1 wraith
+train 1 wraith
+build 2 bunker 80
+wait_buildstart 2 bunker
+define_max 2 goliath
+train 2 goliath
+build 2 starport 80
+wait_buildstart 2 starport
+define_max 12 marine
+train 12 marine
+race_jump defRout089 defRout090 defRout091
+
+
+:defRout089
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+tech lockdown 70
+goto defRout090
+
+
+:defRout091
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+tech lockdown 80
+
+:defRout090
+train 1 dropship
+define_max 3 goliath
+train 3 goliath
+rush 10 defRout092
+wait_force 1 dropship
+wait_force 8 marine
+attack_add 8 marine
+attack_prepare 
+
+:defRout092
+build 1 academy 80
+wait_buildstart 1 academy
+defensebuild_gg 2 firebat
+defenseuse_gg 2 firebat
+define_max 2 wraith
+train 2 wraith
+panic defRout093
+define_max 3 wraith
+train 3 wraith
+
+wait 48
+build 1 engineering_bay 80
+wait_buildstart 1 engineering_bay
+define_max 4 wraith
+train 4 wraith
+tech cloaking_field 80
+define_max 4 goliath
+train 4 goliath
+place_guard ghost 0
+place_guard ghost 1
+place_guard ghost 2
+multirun defRout094
+expand 1 defRout093
+multirun defRout095
+train 2 dropship
+check_transports 
+define_max 16 marine
+attack_clear 
+rush 11 defRout096
+wait_force 16 marine
+wait_force 2 dropship
+attack_add 16 marine
+attack_prepare 
+
+:defRout096
+define_max 7 wraith
+train 7 wraith
+upgrade 1 t_ship_weapon 70
+target_expansion 
+attack_clear 
+attack_add 8 marine
+attack_add 4 goliath
+attack_add 6 wraith
+build 1 machine_shop 100
+wait_buildstart 1 machine_shop
+define_max 255 siege_tank
+define_max 10 goliath
+defensebuild_gg 2 goliath
+defensebuild_ag 2 goliath
+defenseuse_gg 2 goliath
+defenseuse_ag 2 goliath
+build 1 covert_ops 100
+wait_buildstart 1 covert_ops
+expand 2 defRout093
+defensebuild_ga 1 wraith
+defensebuild_aa 1 wraith
+defensebuild_ag 2 wraith
+defensebuild_gg 2 wraith
+defenseuse_ga 1 wraith
+defenseuse_aa 1 wraith
+defenseuse_ag 2 wraith
+defenseuse_gg 2 wraith
+race_jump defRout097 defRout098 defRout097
+
+
+:defRout097
+attack_add 4 ghost
+
+:defRout098
+defensebuild_gg 2 ghost
+defensebuild_ag 2 ghost
+defenseuse_gg 2 ghost
+defenseuse_ag 2 ghost
+tech personnel_cloaking 70
+upgrade 1 t_ship_plating 70
+define_max 10 wraith
+train 10 wraith
+tech siege_mode 80
+define_max 3 siege_tank
+defensebuild_gg 2 siege_tank
+defenseuse_gg 2 siege_tank
+upgrade 1 marine_range 70
+upgrade 1 t_infantry_weapon 70
+upgrade 1 ghost_sight 70
+define_max 12 wraith
+train 12 wraith
+upgrade 2 t_ship_weapon 70
+race_jump defRout099 defRout100 defRout101
+
+
+:defRout099
+build 2 science_facility 80
+wait_buildstart 2 science_facility
+tech irradiate 80
+goto defRout102
+
+
+:defRout101
+build 2 science_facility 80
+wait_buildstart 2 science_facility
+tech emp_shockwave 80
+goto defRout102
+
+
+:defRout100
+tech irradiate 80
+
+:defRout102
+tech irradiate 70
+tech emp_shockwave 70
+define_max 14 wraith
+train 14 wraith
+place_guard science_vessel 0
+expand 3 defRout093
+target_expansion 
+attack_clear 
+attack_add 12 wraith
+define_max 14 wraith
+train 14 wraith
+expand 4 defRout093
+define_max 16 wraith
+train 16 wraith
+build 1 physics_lab 100
+wait_buildstart 1 physics_lab
+build 2 control_tower 100
+wait_buildstart 2 control_tower
+train 1 battlecruiser
+defensebuild_ga 1 battlecruiser
+defensebuild_aa 1 battlecruiser
+defensebuild_ag 2 battlecruiser
+defensebuild_gg 2 battlecruiser
+defenseuse_ga 1 battlecruiser
+defenseuse_aa 1 battlecruiser
+defenseuse_ag 2 battlecruiser
+defenseuse_gg 2 battlecruiser
+tech yamato_gun 80
+tech stim_packs 70
+upgrade 1 science_vessel_mana 70
+train 2 battlecruiser
+build 3 starport 80
+wait_buildstart 3 starport
+upgrade 3 t_ship_weapon 70
+wait_build 3 starport
+build 3 control_tower 100
+wait_buildstart 3 control_tower
+build 4 starport 80
+wait_buildstart 4 starport
+train 3 battlecruiser
+wait_build 4 starport
+build 4 control_tower 100
+wait_buildstart 4 control_tower
+train 5 battlecruiser
+upgrade 1 battlecruiser_mana 70
+train 6 battlecruiser
+upgrade 2 t_ship_plating 70
+train 7 battlecruiser
+target_expansion 
+attack_clear 
+attack_add 12 wraith
+attack_add 6 battlecruiser
+build 2 armory 80
+wait_buildstart 2 armory
+train 8 wraith
+train 4 battlecruiser
+upgrade 3 t_ship_plating 70
+upgrade 1 t_vehicle_plating 70
+upgrade 1 t_vehicle_weapon 70
+train 8 wraith
+train 4 battlecruiser
+upgrade 2 t_infantry_weapon 70
+upgrade 2 t_vehicle_plating 70
+upgrade 2 t_vehicle_weapon 70
+train 8 wraith
+train 4 battlecruiser
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_vehicle_plating 70
+upgrade 3 t_vehicle_weapon 70
+
+:defRout103
+target_expansion 
+wait 7500
+target_expansion 
+wait 7500
+target_expansion 
+wait 7500
+expand 99 defRout093
+goto defRout103
+
+
+:defRout093
+start_town 
+build 1 command_center 80
+wait_buildstart 1 command_center
+multirun defRout104
+multirun defRout105
+multirun exp_workers
+wait_build 1 command_center
+place_guard ghost 0
+place_guard ghost 2
+wait_build 20 scv
+
+:defRout106
+notowns_jump academy defRout107
+goto defRout108
+
+
+:defRout107
+wait 500
+goto defRout106
+
+
+:defRout108
+
+wait 48
+
+:defRout109
+notowns_jump physics_lab defRout110
+goto defRout111
+
+
+:defRout110
+wait 500
+goto defRout109
+
+
+:defRout111
+place_guard battlecruiser 0
+place_guard science_vessel 0
+build 1 bunker 50
+wait_buildstart 1 bunker
+
+:defRout112
+wait 1500
+goto defRout112
+
+
+:defRout105
+notowns_jump engineering_bay defRout113
+goto defRout114
+
+
+:defRout113
+wait 500
+goto defRout105
+
+
+:defRout114
+build 1 missile_turret 80
+wait_build 1 missile_turret
+build 2 missile_turret 80
+wait_build 2 missile_turret
+build 3 missile_turret 80
+wait_build 3 missile_turret
+build 4 missile_turret 80
+wait_build 4 missile_turret
+build 5 missile_turret 80
+wait_build 5 missile_turret
+
+:defRout115
+wait 1500
+goto defRout115
+
+
+:defRout104
+notowns_jump barracks defRout116
+goto defRout117
+
+
+:defRout116
+wait 500
+goto defRout104
+
+
+:defRout117
+player_need 1 barracks
+
+:defRout118
+notowns_jump engineering_bay defRout119
+goto defRout120
+
+
+:defRout119
+wait 500
+goto defRout118
+
+
+:defRout120
+player_need 1 engineering_bay
+
+:defRout121
+notowns_jump academy defRout122
+goto defRout123
+
+
+:defRout122
+wait 500
+goto defRout121
+
+
+:defRout123
+player_need 1 academy
+
+:defRout124
+notowns_jump factory defRout125
+goto defRout126
+
+
+:defRout125
+wait 500
+goto defRout124
+
+
+:defRout126
+player_need 1 factory
+
+:defRout127
+notowns_jump starport defRout128
+goto defRout129
+
+
+:defRout128
+wait 500
+goto defRout127
+
+
+:defRout129
+player_need 1 starport
+
+:defRout130
+notowns_jump control_tower defRout131
+goto defRout132
+
+
+:defRout131
+wait 500
+goto defRout130
+
+
+:defRout132
+player_need 1 control_tower
+
+:defRout133
+notowns_jump armory defRout134
+goto defRout135
+
+
+:defRout134
+wait 500
+goto defRout133
+
+
+:defRout135
+player_need 1 armory
+
+:defRout136
+notowns_jump science_facility defRout137
+goto defRout138
+
+
+:defRout137
+wait 500
+goto defRout136
+
+
+:defRout138
+player_need 1 science_facility
+
+:defRout139
+notowns_jump physics_lab defRout140
+goto defRout141
+
+
+:defRout140
+wait 500
+goto defRout139
+
+
+:defRout141
+player_need 1 physics_lab
+
+:defRout142
+notowns_jump machine_shop defRout143
+goto defRout144
+
+
+:defRout143
+wait 500
+goto defRout142
+
+
+:defRout144
+player_need 1 machine_shop
+
+:defRout145
+wait 1500
+goto defRout145
+
+
+:defRout094
+notowns_jump engineering_bay defRout146
+goto defRout147
+
+
+:defRout146
+wait 500
+goto defRout094
+
+
+:defRout147
+build 1 missile_turret 80
+wait_build 1 missile_turret
+build 2 missile_turret 80
+wait_build 2 missile_turret
+build 3 missile_turret 80
+wait_build 3 missile_turret
+build 4 missile_turret 80
+wait_build 4 missile_turret
+build 5 missile_turret 80
+wait_build 5 missile_turret
+build 6 missile_turret 80
+wait_build 6 missile_turret
+build 7 missile_turret 80
+wait_build 7 missile_turret
+build 8 missile_turret 80
+wait_build 8 missile_turret
+build 9 missile_turret 80
+wait_build 9 missile_turret
+build 10 missile_turret 80
+wait_build 10 missile_turret
+
+:defRout148
+wait 1500
+goto defRout148
+
+
+:defRout095
+wait_build 1 starport
+attack_clear 
+attack_add 4 wraith
+set_attacks 2
+
+:defRout149
+train 4 wraith
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility defRout149
+attack_clear 
+attack_add 6 wraith
+set_attacks 1
+
+:defRout150
+train 6 wraith
+target_expansion 
+call resource_waitskip
+notowns_jump physics_lab defRout150
+attack_clear 
+attack_add 12 marine
+attack_add 2 siege_tank
+attack_add 10 wraith
+set_attacks 2
+train 12 marine
+train 2 siege_tank
+train 10 wraith
+target_expansion 
+
+:defRout151
+set_attacks 1
+attack_clear 
+attack_add 12 marine
+attack_add 3 siege_tank
+attack_add 10 wraith
+attack_add 2 ghost
+attack_add 6 battlecruiser
+set_attacks 3
+train 12 marine
+train 10 wraith
+train 3 siege_tank
+train 2 ghost
+train 6 battlecruiser
+target_expansion 
+call resource_waitskip
+goto defRout151
+
+:supply_ensure
+wait 50
+
+resources_jump 650 0 s_ensured
+goto supply_ensure
+
+:s_ensured
+farms_timing
+wait_build 1 science_facility
+wait_build 1 control_tower
+wait_train 2 dropship
+:transport_ensure
+wait 50
+
+resources_jump 2500 1000 t_ensured
+goto transport_ensure
+
+:t_ensured
+define_max 5 dropship
+check_transports
+stop
+
+:resource_waitskip
+wait 160
+
+resources_jump 1200 933 waitskip_do
+wait 1533
+
+:waitskip_do
+return
+
+:defense_panic
+wait_rand 1 3
+
+multirun decrement_workers
+:dp_checker
+wait 50
+
+deaths 13 AtMost 12 scv dp_checker
+#under_attack 1
+max_force 3000
+:dp_retain
+wait 1000
+
+deaths 13 AtLeast 13 scv dp_retain
+max_force 2200
+#under_attack 0
+goto dp_checker
+
+:decrement_workers
+time_jump 20 dec_2
+wait 500
+
+deaths 13 AtMost 0 scv decrement_workers
+deaths 13 Subtract 1 scv decrement_workers
+goto decrement_workers
+
+:dec_2
+time_jump 33 dec_3
+wait 333
+
+deaths 13 AtMost 1 scv dec_2
+deaths 13 Subtract 2 scv dec_2
+goto dec_2
+
+:dec_3
+wait 250
+
+deaths 13 AtMost 2 scv dec_3
+deaths 13 AtLeast_Call 30 scv harsh_dec
+deaths 13 Subtract 3 scv dec_3
+goto dec_3
+
+:harsh_dec
+deaths 13 Set 20 scv dec_3
+return
+
+:worker_ensure
+max_workers 24
+wait 22500
+
+max_workers 255
+stop
+
+:grand_exchange
+wait_rand 175 230
+
+call ge_gas
+call ge_mins
+goto grand_exchange
+
+:ge_gas
+resources 13 AtLeast Gas 600 ge_skip
+resources 13 AtMost Ore 1499 ge_skip
+resources 13 Subtract Ore 170 ge_skip
+resources 13 Add Gas 80 ge_skip
+return
+
+:ge_mins
+resources 13 AtMost Gas 599 ge_skip
+resources 13 AtLeast Ore 1500 ge_skip
+resources 13 Subtract Gas 100 ge_skip
+resources 13 Add Ore 133 ge_skip
+return
+
+:ge_skip
+return
+
+:start_cheat
+wait_build 1 supply_depot
+
+resources 13 Add Ore 150 ge_skip
+stop
+
+:comsat_evaluator
+wait_build 1 academy
+build 1 comsat_station 100
+stop
+
+:sciv_evaluator
+wait_train 2 science_vessel
+wait 1500
+
+tech stim_packs 70
+wait 1500
+
+call resource_waitskip
+wait 150
+
+call resource_waitskip
+#bionanites
+upgrade 1 72 70
+wait 480
+
+stop
