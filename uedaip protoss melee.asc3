@@ -487,7 +487,7 @@ build 2 gateway 80
 build 16 probe 80
 wait_buildstart 16 probe
 wait_build 15 probe
-random_jump 85 revenant_alt
+define_max 8 zealot
 train 3 zealot
 build 1 templar_archives 80
 build 3 pylon 80
@@ -536,6 +536,48 @@ attack_clear
 return
 
 :revenant_alt
+define_max 7 zealot
+define_max 2 revenant
+define_max 4 dark_templar
+build 1 nexus 130
+build 1 probe 110
+build 7 probe 90
+wait_buildstart 7 probe
+build 8 probe 80
+wait_build 7 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 9 probe
+wait_build 8 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+defenseuse_gg 2 zealot
+wait_buildstart 12 probe
+build 13 probe 80
+wait_build 12 probe
+build 1 assimilator 80
+defensebuild_gg 2 zealot
+build 13 probe 80
+wait_buildstart 13 probe
+build 1 cybernetics_core 80
+wait_buildstart 1 cybernetics_core
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 14 probe 80
+wait_buildstart 14 probe
+train 1 zealot
+build 1 forge 80
+build 15 probe 80
+wait_buildstart 15 probe
+build 1 citadel_of_adun 80
+train 2 zealot
+upgrade 1 p_ground_weapon 70
+build 2 gateway 80
+build 16 probe 80
+wait_buildstart 16 probe
+wait_build 15 probe
 define_max 8 revenant
 train 3 zealot
 train 1 revenant
@@ -550,7 +592,6 @@ defensebuild_ag 2 revenant
 defenseuse_ag 2 revenant
 train 3 revenant
 expand 1 exp_noguard
-train 1 revenant
 build 20 probe 80
 wait_buildstart 20 probe
 train 4 zealot
@@ -560,15 +601,16 @@ attack_add 6 revenant
 attack_prepare
 wait 90
 
-attack_do
-attack_clear
 build 1 templar_archives 80
 defensebuild_gg 1 dark_templar
 defenseuse_gg 1 dark_templar
-return
+goto dt_return
 
 :dt_casters
+random_jump 128 revenant_alt
 call dt_opener
+
+:dt_return
 define_max 60 probe
 deaths 13 Set 2 lurker robof
 deaths 13 Set 1 98 robof
@@ -578,7 +620,6 @@ wait_buildstart 3 gateway
 build 4 pylon 80
 wait_buildstart 4 pylon
 build 2 forge 80
-wait_buildstart 2 forge
 build 5 pylon 80
 wait_buildstart 5 pylon
 farms_timing 
@@ -603,7 +644,7 @@ train 4 dark_templar
 define_max 8 dark_templar
 idle_orders 184 64 1 dark_archon 612 queen|science_vessel|battlecruiser|valhalla|dark_archon 40 energy(GreaterThanPercent,66)
 idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 energy(GreaterThanPercent,50)
-train 1 dark_archon
+do_morph 1 dark_archon
 tech mind_control 70
 train 3 revenant
 build 1 robotics_facility 80
