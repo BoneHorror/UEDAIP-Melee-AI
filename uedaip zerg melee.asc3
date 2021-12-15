@@ -40,6 +40,7 @@ wait_rand 1 2
 multirun basic_melee
 multirun basic_ranged
 multirun basic_air
+multirun rush_panic
 idle_orders 10 16 3 mutalisk 160 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 90 Health(LessThan 27)
 idle_orders 10 16 1 mutalisk 128 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 70 Health(LessThan 9)
 idle_orders 10 16 2 mutalisk 128 bunker|missile_turret|photon_cannon|spore_colony 100 Health(LessThan 18)
@@ -99,7 +100,7 @@ goto p_bust
 #openings
 
 :4pool
-build 1 spawning_pool 110
+build 1 spawning_pool 105
 wait_build 1 spawning_pool
 farms_notiming
 train 6 zergling
@@ -212,7 +213,7 @@ wait_buildstart 10 drone
 build 12 drone 80
 max_workers 22
 wait_buildstart 12 drone
-build 1 spawning_pool 110
+build 1 spawning_pool 105
 wait_buildstart 1 spawning_pool
 expand 1 priority_expansion
 random_call 16 rush_subroutine_earlyground
@@ -895,7 +896,7 @@ wait_buildstart 1 extractor
 wait_build 12 drone
 wait 48
 
-build 1 spawning_pool 110
+build 1 spawning_pool 105
 wait_buildstart 1 spawning_pool
 random_call 16 rush_subroutine_earlyground
 aicontrol build_gas
@@ -975,17 +976,17 @@ return
 :overflow_hatch1
 wait 50
 
-resources 1 AtMost Ore 600 overflow_hatch1
+resources 13 AtMost Ore 600 overflow_hatch1
 build 2 hatchery 80
 :overflow_hatch2
 wait 50
 
-resources 1 AtMost Ore 1050 overflow_hatch2
+resources 13 AtMost Ore 1050 overflow_hatch2
 build 3 hatchery 80
 :overflow_hatch3
 wait 50
 
-resources 1 AtMost Ore 1750 overflow_hatch3
+resources 13 AtMost Ore 1750 overflow_hatch3
 build 4 hatchery 80
 stop
 
@@ -998,7 +999,7 @@ goto gen_ret
 
 :generic_expansion
 start_town
-build 1 hatchery 100
+build 1 hatchery 110
 get_oldpeons 1
 :gen_ret
 wait_build 1 hatchery
@@ -1007,6 +1008,7 @@ max_workers 19
 multirun worker_decay
 build 8 drone 80
 wait_buildstart 8 drone
+multirun rush_panic_exp
 :expo_def_min
 wait 50
 
@@ -1054,7 +1056,7 @@ stop
 
 :priority_expansion
 start_town
-build 1 hatchery 110
+build 1 hatchery 150
 get_oldpeons 1
 wait_build 1 hatchery
 get_oldpeons 6
@@ -1063,6 +1065,7 @@ multirun worker_decay
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
+multirun rush_panic_exp
 :expo_def_min2
 wait 50
 
@@ -2268,6 +2271,7 @@ max_workers 19
 wait 22500
 
 max_workers 255
+:void
 stop
 
 #call this for zerg that can spare minerals for early zergling aggression
@@ -2417,3 +2421,37 @@ wait_train 30 hydralisk
 upgrade 2 z_melee_attack 60
 upgrade 2 z_carapace 60
 stop
+
+:rush_panic
+wait 50
+
+time_jump 11 void
+resources 13 AtMost Ore 1050 rush_panic
+guard_all
+build 4 creep_colony 130
+build 4 sunken_colony 120
+build 1 spawning_pool 120
+build 1 hydralisk_den 120
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
+defensebuild_gg 1 hydralisk
+defenseuse_gg 1 hydralisk
+defensebuild_ag 1 hydralisk
+defenseuse_ag 1 hydralisk
+goto void
+
+:rush_panic_exp
+wait 50
+
+time_jump 30 void
+resources 13 AtMost Ore 3050 rush_panic_exp
+guard_all
+build 1 spawning_pool 120
+build 1 hydralisk_den 120
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
+defensebuild_gg 1 hydralisk
+defenseuse_gg 1 hydralisk
+defensebuild_ag 1 hydralisk
+defenseuse_ag 1 hydralisk
+goto void
