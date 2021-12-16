@@ -392,7 +392,6 @@ train 1 valhalla
 tech psionic_storm 80
 build 2 factory 80
 call resource_waitskip
-
 build 2 machine_shop 100
 upgrade 3 t_vehicle_plating 70
 upgrade 3 p_plasma_shield 70
@@ -660,8 +659,7 @@ expand 1 std_expo
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 15 scv 80
-wait 650
-
+wait_buildstart 15 scv
 build 2 barracks 80
 build 1 refinery 80
 wait_buildstart 1 refinery
@@ -993,9 +991,9 @@ wait_buildstart 10 scv
 build 13 scv 80
 wait_buildstart 13 scv
 expand 1 std_expo
+random_jump 128 ubm_quickgas
 build 1 barracks 80
 wait_buildstart 1 barracks
-random_jump 128 ubm_quickgas
 build 15 scv 80
 build 1 refinery 80
 wait_buildstart 1 refinery
@@ -1042,10 +1040,12 @@ return
 :ubm_quickgas
 build 1 refinery 80
 build 13 scv 80
+wait_buildstart 1 refinery
 wait_buildstart 13 scv
-train 1 heavy_marine
+build 1 barracks 80
+wait_buildstart 1 barracks
 build 15 scv 80
-wait_buildstart 15 scv
+#wait_buildstart 15 scv
 random_call 128 ued_2fac
 
 :ubm_skiprush
@@ -1364,11 +1364,10 @@ wait_buildstart 13 scv
 expand 1 std_expo
 build 1 barracks 80
 wait_buildstart 1 barracks
-build 15 scv 80
-wait 650
-
 build 1 refinery 80
 wait_buildstart 1 refinery
+build 15 scv 80
+wait_buildstart 15 scv
 build 2 barracks 80
 build 1 factory 80
 train 1 heavy_marine
@@ -2881,7 +2880,7 @@ goto DLo
 
 :std_expo
 start_town 
-build 1 command_center 100
+build 1 command_center 130
 get_oldpeons 1
 wait_build 1 command_center
 build 1 refinery 50
@@ -3675,7 +3674,7 @@ goto defRout103
 
 :defRout093
 start_town 
-build 1 command_center 80
+build 1 command_center 110
 wait_buildstart 1 command_center
 multirun defRout104
 multirun defRout105
