@@ -1393,7 +1393,7 @@ goto da_ensure
 
 :exp_noguard
 start_town 
-build 1 nexus 100
+build 1 nexus 130
 wait_buildstart 1 nexus
 get_oldpeons 1
 multirun expo_probes
@@ -1449,7 +1449,7 @@ stop
 
 :std_expansion
 start_town 
-build 1 nexus 100
+build 1 nexus 130
 wait_buildstart 1 nexus
 get_oldpeons 1
 multirun expo_probes
