@@ -2465,7 +2465,7 @@ goto void
 :rush_panic_exp
 wait 50
 
-time_jump 45 void
+time_jump 30 void
 resources 13 AtMost Ore 3050 rush_panic_exp
 guard_all
 build 1 spawning_pool 120
