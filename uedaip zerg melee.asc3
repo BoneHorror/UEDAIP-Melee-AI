@@ -2450,8 +2450,8 @@ wait 50
 time_jump 14 void
 resources 13 AtMost Ore 1050 rush_panic
 guard_all
-build 4 creep_colony 130
-build 4 sunken_colony 120
+build 4 creep_colony 110
+build 4 sunken_colony 80
 build 1 spawning_pool 120
 build 1 hydralisk_den 120
 defensebuild_gg 1 zergling
@@ -2460,13 +2460,18 @@ defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_ag 1 hydralisk
 defenseuse_ag 1 hydralisk
+wait 4500
+
+build 7 creep_colony 80
 goto void
 
 :rush_panic_exp
 wait 50
 
+deaths 13 AtLeast 1 bunker void
 time_jump 30 void
 resources 13 AtMost Ore 3050 rush_panic_exp
+deaths 13 Set 1 bunker void
 guard_all
 build 1 spawning_pool 120
 build 1 hydralisk_den 120
