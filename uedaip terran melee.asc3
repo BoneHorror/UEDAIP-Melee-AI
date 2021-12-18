@@ -361,7 +361,7 @@ build 1 covert_ops 100
 wait_buildstart 1 covert_ops
 place_guard phantom 0
 place_guard phantom 2
-multirun defRout010
+multirun iniBTurret
 expand 3 std_expo
 
 tech personnel_cloaking 70
@@ -794,7 +794,7 @@ build 1 covert_ops 100
 #wait_buildstart 1 covert_ops
 upgrade 2 t_vehicle_weapon 70
 place_guard phantom 0
-multirun defRout010
+multirun iniBTurret
 expand 3 std_expo
 
 defensebuild_gg 2 phantom
@@ -1190,7 +1190,7 @@ wait_buildstart 1 covert_ops
 upgrade 2 t_vehicle_weapon 70
 upgrade 2 t_vehicle_plating 70
 place_guard phantom 0
-multirun defRout010
+multirun iniBTurret
 expand 3 std_expo
 
 defensebuild_gg 2 phantom
@@ -1525,7 +1525,7 @@ wait_buildstart 1 covert_ops
 upgrade 2 t_ship_weapon 70
 upgrade 2 t_ship_plating 70
 place_guard phantom 0
-multirun defRout010
+multirun iniBTurret
 expand 3 std_expo
 
 defensebuild_gg 2 phantom
@@ -1863,7 +1863,7 @@ upgrade 3 t_vehicle_weapon 70
 place_guard ghost 0
 place_guard ghost 2
 upgrade 2 t_infantry_weapon 70
-multirun defRout010
+multirun iniBTurret
 tech lockdown 80
 expand 3 std_expo
 tech emp_shockwave 80
@@ -2394,7 +2394,7 @@ wait 2400
 
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
-multirun defRout010
+multirun iniBTurret
 tech lockdown 60
 expand 3 std_expo
 tech emp_shockwave 60
@@ -2770,7 +2770,7 @@ call resource_waitskip
 
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
-multirun defRout010
+multirun iniBTurret
 tech lockdown 60
 expand 3 std_expo
 tech emp_shockwave 60
@@ -2957,7 +2957,7 @@ build 1 bunker 80
 wait_buildstart 1 bunker
 
 :defRout026
-multirun defRout027
+multirun iniTurret
 wait_build 20 scv
 
 :defRout028
@@ -3334,17 +3334,17 @@ wait 2800
 max_workers 255
 stop
 
-:defRout027
+:iniTurret
 notowns_jump engineering_bay defRout082
-goto defRout083
+goto smallTurret
 
 
 :defRout082
 wait 500
-goto defRout027
+goto iniTurret
 
 
-:defRout083
+:smallTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
 build 2 missile_turret 80
@@ -3354,26 +3354,30 @@ wait_build 3 missile_turret
 build 4 missile_turret 80
 wait_build 4 missile_turret
 
-:defRout084
+:loopTurret
 wait 1500
-goto defRout084
+goto loopTurret
 
 
-:defRout010
+:iniBTurret
 notowns_jump engineering_bay defRout085
-goto defRout086
+goto bigTurret
 
 
 :defRout085
 wait 500
-goto defRout010
+goto iniBTurret
 
 
-:defRout086
+:bigTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
 build 2 missile_turret 80
 wait_build 2 missile_turret
+groundmap_jump bTur_con
+goto loopTurret
+
+:bTur_con
 build 3 missile_turret 80
 wait_build 3 missile_turret
 build 4 missile_turret 80
@@ -3387,9 +3391,7 @@ wait_build 7 missile_turret
 build 8 missile_turret 80
 wait_build 8 missile_turret
 
-:defRout087
-wait 1500
-goto defRout087
+goto loopTurret
 
 :supply_ensure
 wait 50
