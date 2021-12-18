@@ -1093,7 +1093,7 @@ train 10 hornet
 train 8 dragoon
 train 6 reaver
 train 16 dragoon
-target_expansion 
+attack_prepare
 call resource_waitskip
 goto RLo
 
@@ -1668,6 +1668,10 @@ stop
 creep 3
 build 1 photon_cannon 80
 wait_build 1 photon_cannon
+groundmap_jump can_con
+goto can_skip
+
+:can_con
 creep 4
 build 2 photon_cannon 80
 wait_build 2 photon_cannon
@@ -1683,6 +1687,7 @@ wait_build 5 photon_cannon
 creep 4
 build 6 photon_cannon 80
 wait_build 6 photon_cannon
+:can_skip
 stop 
 
 :worker_decay
