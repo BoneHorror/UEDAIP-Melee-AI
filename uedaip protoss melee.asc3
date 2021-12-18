@@ -821,6 +821,9 @@ build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
 wait_buildstart 10 probe
+groundmap_jump irobos
+build 1 assimilator 80
+:irobos
 build 1 gateway 80
 wait_buildstart 1 gateway
 build 12 probe 80
@@ -1733,6 +1736,9 @@ build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
 wait_buildstart 10 probe
+groundmap_jump iskys
+build 1 assimilator 80
+:iskys
 build 1 gateway 80
 wait_buildstart 1 gateway
 build 12 probe 80

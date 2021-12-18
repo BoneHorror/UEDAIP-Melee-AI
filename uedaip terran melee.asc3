@@ -1373,6 +1373,9 @@ build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 10 scv
+groundmap_jump ius
+build 1 refinery 80
+:ius
 build 13 scv 80
 wait_buildstart 13 scv
 define_max 2 dropship
@@ -2560,6 +2563,9 @@ build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 10 scv
+groundmap_jump ids
+build 1 refinery 80
+:ids
 build 1 barracks 80
 wait_buildstart 1 barracks
 capt_expand 
