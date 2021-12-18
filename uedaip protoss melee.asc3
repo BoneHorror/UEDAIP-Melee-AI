@@ -58,10 +58,11 @@ multirun defense_panic
 multirun worker_ensure
 multirun grand_exchange
 multirun start_cheat
-wait 120
+wait 115
 
 groundmap_jump ground_picker
 #never run this now
+random_jump 128 robotics_force
 goto skytoss
 
 :p_defaults
@@ -828,8 +829,15 @@ build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
 wait_buildstart 13 probe
+define_max 2 shuttle
+groundmap_jump robotoss_earlydo
+multirun island_transports
+goto robo_earlyskip
+
+:robotoss_earlydo
 expand 1 exp_noguard
 train 1 zealot
+:robo_earlyskip
 defenseuse_gg 2 zealot
 capt_expand 
 build 14 probe 80

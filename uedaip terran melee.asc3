@@ -102,9 +102,8 @@ wait 120
 multirun comsat_evaluator
 multirun sciv_evaluator
 groundmap_jump t_groundmap
-#never run island code for now
-if_owned zealot t_island
-goto t_groundmap
+random_jump 128 ued_AirNoRush
+goto dominion_air
 
 :t_defaults
 define_max 8 siege_tank
@@ -112,7 +111,14 @@ define_max 7 vulture
 define_max 8 wraith
 define_max 24 marine
 define_max 11 firebat
+groundmap_jump tdrop
+
+define_max 7 dropship
+goto tdropsk
+:tdrop
 define_max 2 dropship
+
+:tdropsk
 define_max 60 scv
 define_max 12 ghost
 define_max 6 battlecruiser
@@ -134,7 +140,14 @@ return
 define_max 60 scv
 define_max 255 marine
 define_max 255 firebat
+groundmap_jump udrop
+
+define_max 7 dropship
+goto udropsk
+:udrop
 define_max 1 dropship
+
+:udropsk
 define_max 255 siege_tank
 define_max 255 ghost
 define_max 255 battlecruiser
@@ -1352,6 +1365,7 @@ goto MLo
 
 :ued_AirStart
 random_call 32 ued_valhallarush
+:ued_AirNoRush
 build 8 scv 80
 wait_buildstart 8 scv
 deaths 13 Set 4 lurker ued_empair
@@ -1361,7 +1375,14 @@ build 10 scv 80
 wait_buildstart 10 scv
 build 13 scv 80
 wait_buildstart 13 scv
+define_max 2 dropship
+groundmap_jump ua_earlydo
+multirun island_transports
+goto ua_earlyskip
+
+:ua_earlydo
 expand 1 std_expo
+:ua_earlyskip
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 1 refinery 80
@@ -2548,7 +2569,29 @@ build 1 refinery 80
 build 12 scv 80
 wait_buildstart 12 scv
 define_max 8 marine
+define_max 2 dropship
+groundmap_jump doma_earlydo
+multirun island_transports
+goto doma_earlyskip
+
+:island_transports
+wait_build 1 control_tower
+define_max 7 dropship
+check_transports
+train 1 dropship
+wait_train 1 dropship
 expand 1 std_expo
+wait 15500
+
+:it_loop
+wait 3720
+
+train 7 dropship
+goto it_loop
+
+:doma_earlydo
+expand 1 std_expo
+:doma_earlyskip
 train 1 marine
 build 13 scv 80
 defensebuild_gg 2 marine
@@ -3343,628 +3386,6 @@ wait_build 8 missile_turret
 :defRout087
 wait 1500
 goto defRout087
-
-
-:defRout088
-define_max 16 marine
-define_max 4 firebat
-define_max 12 ghost
-define_max 30 scv
-define_max 12 goliath
-define_max 4 dropship
-define_max 3 siege_tank
-define_max 3 science_vessel
-define_max 16 wraith
-define_max 8 battlecruiser
-defenseuse_gg 2 siege_tank
-defenseuse_gg 3 marine
-defenseuse_gg 2 goliath
-defenseuse_gg 2 vulture
-defenseuse_gg 2 wraith
-defenseuse_gg 2 firebat
-defenseuse_gg 2 ghost
-defenseuse_gg 2 battlecruiser
-defenseuse_ag 2 goliath
-defenseuse_ag 3 marine
-defenseuse_ag 2 wraith
-defenseuse_ag 2 ghost
-defenseuse_ag 2 battlecruiser
-defenseuse_ga 2 wraith
-defenseuse_ga 1 battlecruiser
-defenseuse_aa 2 wraith
-defenseuse_aa 1 battlecruiser
-return 
-
-
-:t_island
-build 1 command_center 150
-wait_buildstart 1 command_center
-build 8 scv 130
-wait_buildstart 8 scv
-build 1 supply_depot 80
-wait_buildstart 1 supply_depot
-build 10 scv 130
-wait_buildstart 10 scv
-build 1 barracks 80
-wait_buildstart 1 barracks
-build 11 scv 80
-wait_buildstart 11 scv
-build 1 refinery 80
-wait_buildstart 1 refinery
-call defRout088
-build 14 scv 80
-wait_buildstart 14 scv
-build 2 supply_depot 80
-wait_buildstart 2 supply_depot
-define_max 1 marine
-train 1 marine
-defenseuse_gg 2 marine
-capt_expand 
-build 15 scv 80
-wait_buildstart 15 scv
-build 2 barracks 80
-wait_buildstart 2 barracks
-define_max 2 marine
-train 2 marine
-build 16 scv 80
-wait_buildstart 16 scv
-define_max 3 marine
-train 3 marine
-build 17 scv 80
-wait_buildstart 17 scv
-build 1 factory 80
-wait_buildstart 1 factory
-define_max 4 marine
-train 4 marine
-build 18 scv 80
-wait_buildstart 18 scv
-build 3 supply_depot 80
-wait_buildstart 3 supply_depot
-define_max 5 marine
-train 5 marine
-build 19 scv 80
-wait_buildstart 19 scv
-define_max 9 marine
-train 9 marine
-build 1 starport 80
-wait_buildstart 1 starport
-build 20 scv 80
-wait_buildstart 20 scv
-defensebuild_gg 2 marine
-defensebuild_ag 2 marine
-defenseuse_gg 2 marine
-defenseuse_ag 2 marine
-define_max 10 marine
-train 10 marine
-build 4 supply_depot 80
-wait_buildstart 4 supply_depot
-farms_timing 
-build 1 armory 80
-wait_buildstart 1 armory
-build 1 control_tower 100
-wait_buildstart 1 control_tower
-build 1 science_facility 80
-wait_buildstart 1 science_facility
-build 1 bunker 80
-wait_buildstart 1 bunker
-define_max 1 wraith
-train 1 wraith
-build 2 bunker 80
-wait_buildstart 2 bunker
-define_max 2 goliath
-train 2 goliath
-build 2 starport 80
-wait_buildstart 2 starport
-define_max 12 marine
-train 12 marine
-race_jump defRout089 defRout090 defRout091
-
-
-:defRout089
-build 1 covert_ops 100
-wait_buildstart 1 covert_ops
-tech lockdown 70
-goto defRout090
-
-
-:defRout091
-build 1 covert_ops 100
-wait_buildstart 1 covert_ops
-tech lockdown 80
-
-:defRout090
-train 1 dropship
-define_max 3 goliath
-train 3 goliath
-rush 10 defRout092
-wait_force 1 dropship
-wait_force 8 marine
-attack_add 8 marine
-attack_prepare 
-
-:defRout092
-build 1 academy 80
-wait_buildstart 1 academy
-defensebuild_gg 2 firebat
-defenseuse_gg 2 firebat
-define_max 2 wraith
-train 2 wraith
-panic defRout093
-define_max 3 wraith
-train 3 wraith
-
-wait 48
-build 1 engineering_bay 80
-wait_buildstart 1 engineering_bay
-define_max 4 wraith
-train 4 wraith
-tech cloaking_field 80
-define_max 4 goliath
-train 4 goliath
-place_guard ghost 0
-place_guard ghost 1
-place_guard ghost 2
-multirun defRout094
-expand 1 defRout093
-multirun defRout095
-train 2 dropship
-check_transports 
-define_max 16 marine
-attack_clear 
-rush 11 defRout096
-wait_force 16 marine
-wait_force 2 dropship
-attack_add 16 marine
-attack_prepare 
-
-:defRout096
-define_max 7 wraith
-train 7 wraith
-upgrade 1 t_ship_weapon 70
-target_expansion 
-attack_clear 
-attack_add 8 marine
-attack_add 4 goliath
-attack_add 6 wraith
-build 1 machine_shop 100
-wait_buildstart 1 machine_shop
-define_max 255 siege_tank
-define_max 10 goliath
-defensebuild_gg 2 goliath
-defensebuild_ag 2 goliath
-defenseuse_gg 2 goliath
-defenseuse_ag 2 goliath
-build 1 covert_ops 100
-wait_buildstart 1 covert_ops
-expand 2 defRout093
-defensebuild_ga 1 wraith
-defensebuild_aa 1 wraith
-defensebuild_ag 2 wraith
-defensebuild_gg 2 wraith
-defenseuse_ga 1 wraith
-defenseuse_aa 1 wraith
-defenseuse_ag 2 wraith
-defenseuse_gg 2 wraith
-race_jump defRout097 defRout098 defRout097
-
-
-:defRout097
-attack_add 4 ghost
-
-:defRout098
-defensebuild_gg 2 ghost
-defensebuild_ag 2 ghost
-defenseuse_gg 2 ghost
-defenseuse_ag 2 ghost
-tech personnel_cloaking 70
-upgrade 1 t_ship_plating 70
-define_max 10 wraith
-train 10 wraith
-tech siege_mode 80
-define_max 3 siege_tank
-defensebuild_gg 2 siege_tank
-defenseuse_gg 2 siege_tank
-upgrade 1 marine_range 70
-upgrade 1 t_infantry_weapon 70
-upgrade 1 ghost_sight 70
-define_max 12 wraith
-train 12 wraith
-upgrade 2 t_ship_weapon 70
-race_jump defRout099 defRout100 defRout101
-
-
-:defRout099
-build 2 science_facility 80
-wait_buildstart 2 science_facility
-tech irradiate 80
-goto defRout102
-
-
-:defRout101
-build 2 science_facility 80
-wait_buildstart 2 science_facility
-tech emp_shockwave 80
-goto defRout102
-
-
-:defRout100
-tech irradiate 80
-
-:defRout102
-tech irradiate 70
-tech emp_shockwave 70
-define_max 14 wraith
-train 14 wraith
-place_guard science_vessel 0
-expand 3 defRout093
-target_expansion 
-attack_clear 
-attack_add 12 wraith
-define_max 14 wraith
-train 14 wraith
-expand 4 defRout093
-define_max 16 wraith
-train 16 wraith
-build 1 physics_lab 100
-wait_buildstart 1 physics_lab
-build 2 control_tower 100
-wait_buildstart 2 control_tower
-train 1 battlecruiser
-defensebuild_ga 1 battlecruiser
-defensebuild_aa 1 battlecruiser
-defensebuild_ag 2 battlecruiser
-defensebuild_gg 2 battlecruiser
-defenseuse_ga 1 battlecruiser
-defenseuse_aa 1 battlecruiser
-defenseuse_ag 2 battlecruiser
-defenseuse_gg 2 battlecruiser
-tech yamato_gun 80
-tech stim_packs 70
-upgrade 1 science_vessel_mana 70
-train 2 battlecruiser
-build 3 starport 80
-wait_buildstart 3 starport
-upgrade 3 t_ship_weapon 70
-wait_build 3 starport
-build 3 control_tower 100
-wait_buildstart 3 control_tower
-build 4 starport 80
-wait_buildstart 4 starport
-train 3 battlecruiser
-wait_build 4 starport
-build 4 control_tower 100
-wait_buildstart 4 control_tower
-train 5 battlecruiser
-upgrade 1 battlecruiser_mana 70
-train 6 battlecruiser
-upgrade 2 t_ship_plating 70
-train 7 battlecruiser
-target_expansion 
-attack_clear 
-attack_add 12 wraith
-attack_add 6 battlecruiser
-build 2 armory 80
-wait_buildstart 2 armory
-train 8 wraith
-train 4 battlecruiser
-upgrade 3 t_ship_plating 70
-upgrade 1 t_vehicle_plating 70
-upgrade 1 t_vehicle_weapon 70
-train 8 wraith
-train 4 battlecruiser
-upgrade 2 t_infantry_weapon 70
-upgrade 2 t_vehicle_plating 70
-upgrade 2 t_vehicle_weapon 70
-train 8 wraith
-train 4 battlecruiser
-upgrade 3 t_infantry_weapon 70
-upgrade 3 t_vehicle_plating 70
-upgrade 3 t_vehicle_weapon 70
-
-:defRout103
-target_expansion 
-wait 7500
-target_expansion 
-wait 7500
-target_expansion 
-wait 7500
-expand 99 defRout093
-goto defRout103
-
-
-:defRout093
-start_town 
-build 1 command_center 110
-wait_buildstart 1 command_center
-multirun defRout104
-multirun defRout105
-multirun exp_workers
-wait_build 1 command_center
-place_guard ghost 0
-place_guard ghost 2
-wait_build 20 scv
-
-:defRout106
-notowns_jump academy defRout107
-goto defRout108
-
-
-:defRout107
-wait 500
-goto defRout106
-
-
-:defRout108
-
-wait 48
-
-:defRout109
-notowns_jump physics_lab defRout110
-goto defRout111
-
-
-:defRout110
-wait 500
-goto defRout109
-
-
-:defRout111
-place_guard battlecruiser 0
-place_guard science_vessel 0
-build 1 bunker 50
-wait_buildstart 1 bunker
-
-:defRout112
-wait 1500
-goto defRout112
-
-
-:defRout105
-notowns_jump engineering_bay defRout113
-goto defRout114
-
-
-:defRout113
-wait 500
-goto defRout105
-
-
-:defRout114
-build 1 missile_turret 80
-wait_build 1 missile_turret
-build 2 missile_turret 80
-wait_build 2 missile_turret
-build 3 missile_turret 80
-wait_build 3 missile_turret
-build 4 missile_turret 80
-wait_build 4 missile_turret
-build 5 missile_turret 80
-wait_build 5 missile_turret
-
-:defRout115
-wait 1500
-goto defRout115
-
-
-:defRout104
-notowns_jump barracks defRout116
-goto defRout117
-
-
-:defRout116
-wait 500
-goto defRout104
-
-
-:defRout117
-player_need 1 barracks
-
-:defRout118
-notowns_jump engineering_bay defRout119
-goto defRout120
-
-
-:defRout119
-wait 500
-goto defRout118
-
-
-:defRout120
-player_need 1 engineering_bay
-
-:defRout121
-notowns_jump academy defRout122
-goto defRout123
-
-
-:defRout122
-wait 500
-goto defRout121
-
-
-:defRout123
-player_need 1 academy
-
-:defRout124
-notowns_jump factory defRout125
-goto defRout126
-
-
-:defRout125
-wait 500
-goto defRout124
-
-
-:defRout126
-player_need 1 factory
-
-:defRout127
-notowns_jump starport defRout128
-goto defRout129
-
-
-:defRout128
-wait 500
-goto defRout127
-
-
-:defRout129
-player_need 1 starport
-
-:defRout130
-notowns_jump control_tower defRout131
-goto defRout132
-
-
-:defRout131
-wait 500
-goto defRout130
-
-
-:defRout132
-player_need 1 control_tower
-
-:defRout133
-notowns_jump armory defRout134
-goto defRout135
-
-
-:defRout134
-wait 500
-goto defRout133
-
-
-:defRout135
-player_need 1 armory
-
-:defRout136
-notowns_jump science_facility defRout137
-goto defRout138
-
-
-:defRout137
-wait 500
-goto defRout136
-
-
-:defRout138
-player_need 1 science_facility
-
-:defRout139
-notowns_jump physics_lab defRout140
-goto defRout141
-
-
-:defRout140
-wait 500
-goto defRout139
-
-
-:defRout141
-player_need 1 physics_lab
-
-:defRout142
-notowns_jump machine_shop defRout143
-goto defRout144
-
-
-:defRout143
-wait 500
-goto defRout142
-
-
-:defRout144
-player_need 1 machine_shop
-
-:defRout145
-wait 1500
-goto defRout145
-
-
-:defRout094
-notowns_jump engineering_bay defRout146
-goto defRout147
-
-
-:defRout146
-wait 500
-goto defRout094
-
-
-:defRout147
-build 1 missile_turret 80
-wait_build 1 missile_turret
-build 2 missile_turret 80
-wait_build 2 missile_turret
-build 3 missile_turret 80
-wait_build 3 missile_turret
-build 4 missile_turret 80
-wait_build 4 missile_turret
-build 5 missile_turret 80
-wait_build 5 missile_turret
-build 6 missile_turret 80
-wait_build 6 missile_turret
-build 7 missile_turret 80
-wait_build 7 missile_turret
-build 8 missile_turret 80
-wait_build 8 missile_turret
-build 9 missile_turret 80
-wait_build 9 missile_turret
-build 10 missile_turret 80
-wait_build 10 missile_turret
-
-:defRout148
-wait 1500
-goto defRout148
-
-
-:defRout095
-wait_build 1 starport
-attack_clear 
-attack_add 4 wraith
-set_attacks 2
-
-:defRout149
-train 4 wraith
-target_expansion 
-call resource_waitskip
-notowns_jump science_facility defRout149
-attack_clear 
-attack_add 6 wraith
-set_attacks 1
-
-:defRout150
-train 6 wraith
-target_expansion 
-call resource_waitskip
-notowns_jump physics_lab defRout150
-attack_clear 
-attack_add 12 marine
-attack_add 2 siege_tank
-attack_add 10 wraith
-set_attacks 2
-train 12 marine
-train 2 siege_tank
-train 10 wraith
-target_expansion 
-
-:defRout151
-set_attacks 1
-attack_clear 
-attack_add 12 marine
-attack_add 3 siege_tank
-attack_add 10 wraith
-attack_add 2 ghost
-attack_add 6 battlecruiser
-set_attacks 3
-train 12 marine
-train 10 wraith
-train 3 siege_tank
-train 2 ghost
-train 6 battlecruiser
-target_expansion 
-call resource_waitskip
-goto defRout151
 
 :supply_ensure
 wait 50

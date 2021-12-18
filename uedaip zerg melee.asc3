@@ -385,21 +385,24 @@ aicontrol build_gas
 build 1 extractor 80
 wait_buildstart 1 extractor
 build 1 lair 110
-defensebuild_gg 1 zergling
-defenseuse_gg 1 zergling
 build 16 drone 80
 build 3 overlord 130
 wait_buildstart 3 overlord
-upgrade 1 overlord_capacity 70
 build 1 hydralisk_den 80
 build 2 hatchery 80
 farms_notiming
 build 19 drone 80
+upgrade 1 overlord_capacity 90
+wait_buildstart 17 drone
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
 build 1 evolution_chamber 80
 wait_build 1 lair
-build 1 spire 110
-upgrade 1 overlord_speed 70
-build 4 overlord 60
+wait_upgrades
+train 3 hydralisk
+build 1 spire 90
+upgrade 1 overlord_speed 75
+build 4 overlord 80
 defensebuild_gg 2 hydralisk
 defenseuse_gg 3 mutalisk
 defensebuild_ag 2 hydralisk
@@ -412,7 +415,7 @@ aicontrol build_gas
 build 1 extractor 80
 wait_buildstart 1 extractor
 farms_timing
-upgrade 1 z_melee_attack 70
+upgrade 1 z_missile_attack 70
 upgrade 1 z_flyer_attack 30
 train 15 hydralisk
 wait_upgrades
@@ -452,21 +455,22 @@ aicontrol build_gas
 build 1 extractor 80
 wait_buildstart 1 extractor
 build 1 lair 110
-defensebuild_gg 1 zergling
-defenseuse_gg 1 zergling
 build 16 drone 80
 build 3 overlord 130
 wait_buildstart 3 overlord
-upgrade 1 overlord_capacity 70
 build 1 hydralisk_den 85
 build 2 hatchery 80
-farms_notiming
 build 19 drone 80
+wait_buildstart 17 drone
+upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
 wait_build 1 lair
+wait_upgrades
 build 1 spire 110
-upgrade 1 overlord_speed 70
-build 4 overlord 60
+upgrade 1 overlord_speed 75
+build 4 overlord 80
 defensebuild_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
 defensebuild_gg 1 hydralisk
@@ -477,13 +481,11 @@ defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
-aicontrol build_gas
-build 1 extractor 80
-wait_buildstart 1 extractor
 farms_timing
 upgrade 1 z_flyer_carapace 70
-train 4 mutalisk
+train 1 mutalisk
 expand 1 generic_expansion
+train 4 mutalisk
 train 9 mutalisk
 wait_upgrades
 attack_add 9 mutalisk
@@ -523,21 +525,23 @@ build 1 extractor 80
 wait_buildstart 1 extractor
 build 1 lair 110
 build 12 drone 110
-defensebuild_gg 1 zergling
-defenseuse_gg 1 zergling
 build 16 drone 80
 build 3 overlord 110
 wait_buildstart 3 overlord
 build 1 hydralisk_den 80
 build 2 hatchery 80
-upgrade 1 overlord_capacity 70
-farms_notiming
 build 19 drone 80
+wait_buildstart 17 drone
+upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
 wait_build 1 lair
-build 1 spire 110
+wait_upgrades
+build 1 spire 100
 upgrade 1 overlord_speed 70
 build 4 overlord 60
+expand 1 generic_expansion
 defensebuild_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
 defensebuild_gg 1 hydralisk
@@ -548,13 +552,9 @@ defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
-aicontrol build_gas
-build 1 extractor 80
-wait_buildstart 1 extractor
 farms_timing
 upgrade 1 z_melee_attack 30
 upgrade 1 z_flyer_attack 60
-expand 1 generic_expansion
 goto island_mid
 
 :is_this_zvp
@@ -595,7 +595,6 @@ build 2 hatchery 80
 build 1 lair 110
 build 3 overlord 110
 wait_buildstart 3 overlord
-farms_notiming
 build 19 drone 80
 build 3 hatchery 80
 expand 1 priority_expansion
