@@ -359,7 +359,7 @@ goto late_muta
 define_max 75 drone
 define_max 30 overlord
 define_max 50 mutalisk
-define_max 40 zergling
+define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
 define_max 60 hydralisk
@@ -429,7 +429,7 @@ goto island_mid
 define_max 75 drone
 define_max 30 overlord
 define_max 50 mutalisk
-define_max 40 zergling
+define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
 define_max 60 hydralisk
@@ -498,7 +498,7 @@ goto island_mid
 define_max 75 drone
 define_max 30 overlord
 define_max 50 mutalisk
-define_max 40 zergling
+define_max 8 zergling
 define_max 6 ultralisk
 define_max 6 defiler
 define_max 60 hydralisk
@@ -1603,9 +1603,6 @@ call resource_waitskip
 goto terran_loop
 
 :island_mid
-attack_do
-attack_clear
-
 build 1 queen_nest 80
 build 1 spire 80
 build 1 hydralisk_den 80
@@ -1618,6 +1615,7 @@ upgrade 1 hydralisk_range 50
 upgrade 1 hydralisk_speed 50
 defensebuild_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
+define_max 10 zergling
 expand 2 generic_expansion
 build 3 evolution_chamber 80
 upgrade 1 z_carapace 70
@@ -1628,21 +1626,36 @@ define_max 6 queen
 train 6 hydralisk
 train 6 mutalisk
 train 9 mutalisk
+attack_clear
 attack_add 9 mutalisk
 set_attacks 2
 target_expansion
 wait 16
 
 call resource_waitskip
-expand 3 generic_expansion
-train 9 mutalisk
+train 6 hydralisk
 build 1 defiler_mound 80
-train 13 mutalisk
+train 12 hydralisk
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
-train 18 mutalisk
+expand 3 generic_expansion
+call resource_waitskip
+build 1 greater_spire 110
+train 24 hydralisk
+attack_add 24 hydralisk
+attack_prepare
+wait 16
+
+attack_timeout 90
+attack_do
+attack_clear
+train 5 mutalisk
+train 2 queen
+train 7 mutalisk
+tech ensnare 60
+train 9 mutalisk
 attack_do
 attack_clear
 attack_add 9 mutalisk
@@ -1651,18 +1664,7 @@ wait 16
 
 attack_do
 attack_clear
-call resource_waitskip
-build 1 greater_spire 110
-train 2 queen
-tech ensnare 60
-train 24 hydralisk
-attack_add 24 hydralisk
-attack_prepare
-wait 16
-
-attack_timeout 15
-attack_do
-attack_clear
+define_max 18 zergling
 upgrade 2 z_carapace 50
 upgrade 2 z_flyer_carapace 70
 upgrade 2 z_flyer_attack 70
