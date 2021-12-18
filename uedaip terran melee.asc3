@@ -2575,6 +2575,10 @@ multirun island_transports
 goto doma_earlyskip
 
 :island_transports
+wait_build 1 factory
+build 1 starport 80
+wait_build 1 starport
+build 1 control_tower 80
 wait_build 1 control_tower
 define_max 7 dropship
 check_transports
