@@ -135,7 +135,6 @@ wait_buildstart 10 drone
 expand 1 priority_expansion
 build 12 drone 100
 max_workers 22
-wait_build 12 drone
 wait 48
 
 build 1 spawning_pool 90
@@ -302,7 +301,6 @@ expand 1 priority_expansion
 #call try_town
 random_call 16 rush_subroutine_earlyground
 build 13 drone 80
-wait_build 12 drone
 build 1 lair 110
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
@@ -373,14 +371,13 @@ wait_build 6 drone
 build 9 drone 80
 wait_buildstart 9 drone
 build 2 overlord 100
+build 1 extractor 80
 wait_buildstart 2 overlord
 build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
-build 1 extractor 80
 #wait_buildstart 1 extractor
 max_workers 22
-wait_build 12 drone
 build 1 spawning_pool 90
 wait_buildstart 1 spawning_pool
 aicontrol build_gas
@@ -445,13 +442,12 @@ wait_build 6 drone
 build 9 drone 80
 wait_buildstart 9 drone
 build 2 overlord 100
+build 1 extractor 80
 wait_buildstart 2 overlord
 build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
 max_workers 22
-wait_build 12 drone
-build 1 extractor 80
 #wait_buildstart 1 extractor
 build 1 spawning_pool 90
 wait_buildstart 1 spawning_pool
@@ -517,14 +513,13 @@ wait_build 6 drone
 build 9 drone 80
 wait_buildstart 9 drone
 build 2 overlord 100
+build 1 extractor 80
 wait_buildstart 2 overlord
 build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
-build 1 extractor 80
 #wait_buildstart 1 extractor
 max_workers 22
-wait_build 12 drone
 build 1 spawning_pool 90
 wait_buildstart 1 spawning_pool
 aicontrol build_gas
@@ -587,7 +582,6 @@ build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
 max_workers 22
-wait_build 12 drone
 build 1 spawning_pool 90
 wait_buildstart 1 spawning_pool
 aicontrol build_gas
@@ -657,7 +651,6 @@ build 11 drone 80
 max_workers 22
 random_call 16 rush_subroutine_earlyground
 build 12 drone 80
-wait_build 12 drone
 expand 1 priority_expansion
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
@@ -899,7 +892,6 @@ max_workers 22
 expand 1 generic_expansion
 build 1 extractor 80
 #wait_buildstart 1 extractor
-wait_build 12 drone
 wait 48
 
 build 1 spawning_pool 105
