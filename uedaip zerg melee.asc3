@@ -642,44 +642,47 @@ build 6 drone 110
 wait_build 6 drone
 build 9 drone 80
 wait_buildstart 9 drone
-build 2 overlord 105
+build 2 overlord 90
+wait_buildstart 2 overlord
 build 1 spawning_pool 90
 wait_buildstart 1 spawning_pool
 build 10 drone 80
 wait_buildstart 10 drone
 build 11 drone 80
+wait_buildstart 11 drone
 max_workers 22
 random_call 16 rush_subroutine_earlyground
-build 12 drone 80
-expand 1 priority_expansion
+expand 1 generic_expansion
+build 14 drone 80
+wait_buildstart 13 drone
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
+build 1 extractor 80
 train 4 zergling
 build 15 drone 80
-wait 160
-
-build 15 drone 80
-build 1 extractor 80
-#wait_buildstart 1 extractor
+wait_buildstart 15 drone
 aicontrol build_gas
 build 16 drone 80
 build 3 overlord 100
-wait_buildstart 3 overlord
 build 1 hydralisk_den 80
+wait_buildstart 1 hydralisk_den
 defensebuild_gg 2 hydralisk
 defenseuse_gg 3 hydralisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
 build 5 overlord 90
 build 2 hatchery 80
+train 1 hydralisk
+build 1 evolution_chamber 80
+wait_buildstart 2 hatchery
 train 3 hydralisk
 upgrade 1 hydralisk_speed 75
 farms_timing
 train 8 hydralisk
-build 1 evolution_chamber 80
 train 12 hydralisk
 upgrade 1 z_missile_attack 70
 train 18 hydralisk
+tech burrowing 60
 upgrade 1 hydralisk_range 75
 train 22 hydralisk
 set_attacks 1
@@ -698,7 +701,6 @@ train 8 zergling
 train 12 zergling
 build 1 creep_colony 80
 build 1 sunken_colony 80
-farms_notiming
 build 20 drone 80
 build 2 evolution_chamber 80
 build 21 drone 80
@@ -710,7 +712,6 @@ build 4 overlord 60
 defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
-farms_timing
 set_attacks 2
 train 25 hydralisk
 tech lurker_aspect 80
@@ -754,7 +755,6 @@ upgrade 1 overlord_capacity 70
 tech consume 70
 call resource_waitskip
 define_max 2 defiler
-tech burrowing 70
 upgrade 3 z_missile_attack 70
 upgrade 3 z_carapace 70
 call resource_waitskip
