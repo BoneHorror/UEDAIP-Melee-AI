@@ -552,7 +552,7 @@ define_max 16 tesla_trooper
 define_max 5 medic
 define_max 4 panzer
 define_max 16 phantom
-wait 1500
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -568,7 +568,7 @@ train 15 heavy_marine
 train 5 tesla_trooper
 train 5 medic
 target_expansion 
-wait 2150
+call resource_waitskip
 notowns_jump science_facility EMPPush
 attack_clear 
 wait_build 1 science_facility
@@ -584,7 +584,7 @@ train 1 panzer
 train 5 medic
 train 10 tesla_trooper
 target_expansion 
-wait 2500
+call resource_waitskip
 notowns_jump covert_ops EPu2
 attack_clear 
 attack_add 15 heavy_marine
@@ -623,8 +623,7 @@ train 30 heavy_marine
 train 10 phantom
 train 5 medic
 target_expansion 
-wait 2500
-
+call resource_waitskip
 attack_do
 attack_clear 
 attack_add 20 heavy_marine
@@ -640,8 +639,7 @@ train 8 phantom
 train 5 medic
 train 2 valhalla
 target_expansion 
-wait 2500
-
+call resource_waitskip
 attack_do
 attack_clear 
 attack_add 20 heavy_marine
@@ -654,7 +652,7 @@ train 10 tesla_trooper
 train 3 medic
 wait_force 4 valhalla
 target_expansion 
-wait 2500
+call resource_waitskip
 goto ELo
 
 :ued_latebio
@@ -867,7 +865,7 @@ define_max 2 panzer
 define_max 7 phantom
 define_max 20 scorpion
 define_max 4 valkyrie
-wait 1500
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -1269,7 +1267,7 @@ define_max 255 scorpion
 define_max 2 valkyrie
 define_max 8 skywing
 define_max 14 death_knight
-wait 1500
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -1289,7 +1287,7 @@ train 20 heavy_marine
 train 4 medic
 train 8 death_knight
 target_expansion 
-wait 2115
+call resource_waitskip
 attack_clear
 :mPu
 attack_add 20 heavy_marine
@@ -1309,7 +1307,7 @@ train 20 heavy_marine
 train 5 panzer
 train 2 skywing
 target_expansion 
-wait 2115
+call resource_waitskip
 
 notowns_jump covert_ops mPu
 :MLo
@@ -1601,7 +1599,7 @@ define_max 255 scorpion
 define_max 5 valkyrie
 define_max 20 skywing
 define_max 5 death_knight
-wait 1500
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -1622,7 +1620,7 @@ train 20 heavy_marine
 train 4 medic
 train 4 death_knight
 target_expansion 
-wait 2115
+call resource_waitskip
 attack_clear
 :aPu
 attack_add 20 heavy_marine
@@ -1638,7 +1636,7 @@ train 7 skywing
 train 20 heavy_marine
 train 10 skywing
 target_expansion 
-wait 2115
+call resource_waitskip
 
 notowns_jump science_facility aPu
 :ALo
