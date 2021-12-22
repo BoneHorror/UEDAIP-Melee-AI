@@ -13,7 +13,7 @@ farms_notiming
 defaultbuild_off
 default_min 0
 build 5 scv 100
-max_force 2500
+max_force 800
 supply 13 Set 250 Max marine Terran t_groundmap
 #under_attack 0
 idle_orders 10 16 1 marine|ghost 160 group_men 80 Health(LessThan 6)
@@ -3437,12 +3437,12 @@ wait 50
 
 deaths 13 AtMost 12 scv dp_checker
 #under_attack 1
-max_force 3000
+max_force 800
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 scv dp_retain
-max_force 2200
+max_force 1200
 #under_attack 0
 goto dp_checker
 
