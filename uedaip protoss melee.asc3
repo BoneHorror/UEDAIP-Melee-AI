@@ -10,7 +10,7 @@ farms_notiming
 defaultbuild_off
 default_min 0
 build 5 probe 100
-max_force 3000
+max_force 800
 supply 13 Set 260 Max marine Protoss supply_ensure
 #under_attack 0
 idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)
@@ -2071,12 +2071,12 @@ wait 50
 
 deaths 13 AtMost 12 probe dp_checker
 #under_attack 1
-max_force 3000
+max_force 800
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 probe dp_retain
-max_force 2500
+max_force 1200
 #under_attack 0
 goto dp_checker
 
