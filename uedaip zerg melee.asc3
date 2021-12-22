@@ -7,7 +7,7 @@ wait 1
 start_town
 defaultbuild_off
 default_min 0
-max_force 3000
+max_force 800
 capt_expand
 transports_off
 farms_notiming
@@ -190,7 +190,7 @@ return
 define_max 75 drone
 define_max 30 overlord
 define_max 24 mutalisk
-define_max 60 zergling
+define_max 6 zergling
 define_max 12 ultralisk
 define_max 3 defiler
 define_max 75 hydralisk
@@ -205,29 +205,30 @@ build 9 drone 80
 wait_buildstart 9 drone
 build 1 extractor 80
 #wait_buildstart 1 extractor
-build 2 overlord 100
+build 2 overlord 90
 wait_buildstart 2 overlord
 build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
 max_workers 22
-wait_buildstart 12 drone
 build 1 spawning_pool 105
 wait_buildstart 1 spawning_pool
 expand 1 priority_expansion
 random_call 16 rush_subroutine_earlyground
 build 1 extractor 80
 #wait_buildstart 1 extractor
-build 14 drone 80
+build 14 drone 90
 build 3 overlord 80
 #call try_town
 aicontrol build_gas
 multirun earlydef_panic
 defenseuse_gg 1 zergling
+wait_build 13 drone
 build 16 drone 80
 build 1 hydralisk_den 100
 wait_buildstart 1 hydralisk_den
 defensebuild_gg 1 zergling
+define_max 12 zergling
 defensebuild_gg 2 hydralisk
 defenseuse_gg 3 hydralisk
 defensebuild_ag 2 hydralisk
@@ -241,6 +242,7 @@ farms_notiming
 build 17 drone 80
 upgrade 1 z_missile_attack 50
 build 2 hatchery 80
+define_max 60 zergling
 train 6 hydralisk
 wait_build 1 lair
 tech lurker_aspect 90
@@ -1002,6 +1004,8 @@ wait_build 1 hatchery
 get_oldpeons 4
 max_workers 19
 multirun worker_decay
+build 4 drone 90
+wait_buildstart 8 drone
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
@@ -1061,6 +1065,8 @@ wait_build 1 hatchery
 get_oldpeons 6
 max_workers 21
 multirun worker_decay
+build 4 drone 90
+wait_buildstart 8 drone
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
@@ -2255,12 +2261,12 @@ wait 50
 
 deaths 13 AtMost 12 drone dp_checker
 #under_attack 1
-max_force 3000
+max_force 800
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 drone dp_retain
-max_force 2500
+max_force 1500
 #under_attack 0
 goto dp_checker
 
