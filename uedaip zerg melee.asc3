@@ -1784,7 +1784,9 @@ attack_clear
 call resource_waitskip
 train 24 hydralisk
 train 3 ultralisk
+train 12 zergling
 attack_add 3 ultralisk
+attack_add 12 zergling
 attack_add 24 hydralisk
 target_expansion
 wait 660
