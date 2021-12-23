@@ -1020,7 +1020,7 @@ get_oldpeons 4
 max_workers 19
 multirun worker_decay
 build 4 drone 90
-wait_buildstart 8 drone
+wait_buildstart 4 drone
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
@@ -1083,7 +1083,7 @@ multirun worker_decay
 build 2 drone 80
 wait_build 2 drone
 build 4 drone 90
-wait_buildstart 8 drone
+wait_buildstart 4 drone
 get_oldpeons 6
 build 8 drone 80
 wait_buildstart 8 drone
