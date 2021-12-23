@@ -707,7 +707,7 @@ target_expansion
 attack_do
 attack_clear
 build 3 hatchery 80
-define_max 44 zergling
+define_max 14 zergling
 build 1 lair 110
 build 19 drone 80
 upgrade 1 zergling_speed 70
@@ -733,6 +733,7 @@ tech lurker_aspect 80
 train 45 hydralisk
 attack_add 45 hydralisk
 attack_prepare
+upgrade 2 z_carapace 70
 attack_do
 attack_clear
 defensebuild_gg 1 hydralisk
@@ -752,9 +753,9 @@ call resource_waitskip
 build 3 evolution_chamber 80
 upgrade 1 z_flyer_carapace 70
 upgrade 2 z_missile_attack 70
-upgrade 2 z_carapace 70
 upgrade 1 hydra_attack 60
 define_max 6 queen
+define_max 34 zergling
 train 2 queen
 train 32 zergling
 upgrade 1 overlord_speed 60
@@ -774,12 +775,12 @@ upgrade 3 z_missile_attack 70
 upgrade 3 z_carapace 70
 call resource_waitskip
 upgrade 1 ultralisk_speed 70
-upgrade 3 z_melee_attack 60
 call resource_waitskip
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
 call resource_waitskip
+upgrade 3 z_melee_attack 60
 upgrade 1 burrowed_regen 60
 upgrade 1 ultralisk_armor 70
 upgrade 3 z_flyer_carapace 30
