@@ -403,7 +403,6 @@ build 2 lair 80
 wait_build 1 lair
 wait_upgrades
 train 3 hydralisk
-build 1 spire 90
 upgrade 1 overlord_speed 75
 build 4 overlord 80
 defensebuild_gg 2 hydralisk
@@ -414,20 +413,29 @@ defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
-aicontrol build_gas
-build 1 extractor 80
-#wait_buildstart 1 extractor
 farms_timing
 upgrade 1 z_missile_attack 70
-upgrade 1 z_flyer_attack 30
+upgrade 1 hydralisk_range 70
+train 8 hydralisk
+expand 1 generic_expansion
 train 15 hydralisk
 wait_upgrades
 attack_add 15 hydralisk
 attack_prepare
 wait 16
 
+upgrade 1 hydralisk_speed 70
 build 2 creep_colony 80
 build 2 spore_colony 80
+build 1 spire 90
+upgrade 1 z_flyer_attack 30
+attack_do
+attack_clear
+train 25 hydralisk
+attack_add 25 hydralisk
+attack_prepare
+wait 16
+
 goto island_mid
 
 :muta_island
@@ -542,6 +550,7 @@ upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
+build 2 lair 80
 wait_build 1 lair
 wait_upgrades
 build 1 spire 100
