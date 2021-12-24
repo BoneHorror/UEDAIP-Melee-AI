@@ -1107,7 +1107,7 @@ attack_add 1 panzer
 attack_prepare 
 build 2 factory 80
 wait_buildstart 2 factory
-build 2 machine_shop 100
+build 2 machine_shop 80
 build 20 scv 80
 wait_buildstart 20 scv
 define_max 14 heavy_marine
@@ -1141,8 +1141,6 @@ attack_add 2 medic
 attack_add 10 heavy_marine
 attack_add 4 panzer
 attack_prepare
-build 1 machine_shop 100
-wait_buildstart 1 machine_shop
 define_max 6 panzer
 build 2 armory 80
 wait_buildstart 2 armory
@@ -2962,16 +2960,18 @@ wait_buildstart 1 bunker
 
 :defRout026
 multirun iniTurret
-wait_build 20 scv
+multirun techExpCheck
+wait_build 15 scv
+goto prodGetter
 
-:defRout028
+:techExpCheck
 notowns_jump academy defRout029
 goto defRout030
 
 
 :defRout029
 wait 500
-goto defRout028
+goto techExpCheck
 
 
 :defRout030
@@ -3156,18 +3156,10 @@ goto defRout069
 
 :defRout071
 player_need 1 science_facility
-
-:defRout072
-notowns_jump covert_ops defRout073
-goto defRout074
+stop
 
 
-:defRout073
-wait 500
-goto defRout072
-
-
-:defRout074
+:prodGetter
 deaths 13 Exactly 1 lurker exp_comsat
 deaths 13 Exactly 2 lurker exp_comsat2
 deaths 13 Exactly 5 lurker exp_comsat2n
