@@ -1471,6 +1471,7 @@ build 1 assimilator 50
 max_workers 21
 wait 500
 
+multirun prodGetter
 multirun worker_decay
 get_oldpeons 6
 :def015
@@ -1489,8 +1490,6 @@ wait 3500
 deaths 13 AtLeast 1 98 def018
 place_guard high_templar 0
 wait 4500
-
-place_guard high_templar 2
 
 :def018
 wait 1500
@@ -1590,7 +1589,8 @@ player_need 1 robotics_support_bay
 
 :def039
 notowns_jump stargate def040
-goto def041
+player_need 1 stargate
+goto def042
 
 
 :def040
@@ -1598,7 +1598,7 @@ wait 500
 goto def039
 
 
-:def041
+:prodGetter
 deaths 13 Exactly 2 lurker robof
 build 1 stargate 80
 build 1 gateway 80
@@ -1607,6 +1607,8 @@ goto def042
 :robof
 build 1 robotics_facility 80
 build 1 gateway 80
+stop
+
 :def042
 notowns_jump fleet_beacon def043
 goto def044
