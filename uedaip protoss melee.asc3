@@ -831,7 +831,6 @@ wait_buildstart 12 probe
 build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
-wait_buildstart 13 probe
 define_max 2 shuttle
 groundmap_jump robotoss_earlydo
 multirun island_transports
@@ -841,11 +840,11 @@ goto robo_earlyskip
 expand 1 exp_noguard
 train 1 zealot
 :robo_earlyskip
+build 1 cybernetics_core 80
 defenseuse_gg 2 zealot
 capt_expand 
 build 14 probe 80
 wait_buildstart 14 probe
-build 1 cybernetics_core 80
 build 15 probe 80
 wait_buildstart 15 probe
 train 2 zealot
@@ -1751,6 +1750,7 @@ build 13 probe 80
 wait_buildstart 13 probe
 build 1 assimilator 80
 wait_buildstart 1 assimilator
+build 1 cybernetics_core 80
 call p_defaults
 define_max 2 shuttle
 groundmap_jump skytoss_earlydo
@@ -1766,6 +1766,16 @@ check_transports
 train 1 shuttle
 wait_train 1 shuttle
 expand 1 exp_noguard
+wait_train 2 shuttle
+
+set_attacks 1
+attack_add 4 zealot
+attack_add 2 dragoon
+target_expansion
+wait 960
+
+attack_do
+attack_clear
 wait 15500
 
 :it_loop
@@ -1782,7 +1792,6 @@ defenseuse_gg 2 zealot
 capt_expand
 build 14 probe 80
 wait_buildstart 14 probe
-build 1 cybernetics_core 80
 build 15 probe 80
 wait_buildstart 15 probe
 train 2 zealot

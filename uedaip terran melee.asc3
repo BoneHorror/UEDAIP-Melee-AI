@@ -1384,12 +1384,10 @@ expand 1 std_expo
 :ua_earlyskip
 build 1 barracks 80
 wait_buildstart 1 barracks
-build 1 refinery 80
-wait_buildstart 1 refinery
+build 1 factory 80
 build 15 scv 80
 wait_buildstart 15 scv
 build 2 barracks 80
-build 1 factory 80
 train 1 heavy_marine
 defensebuild_gg 2 heavy_marine
 defensebuild_ag 2 heavy_marine
@@ -2603,23 +2601,19 @@ build 13 scv 80
 defensebuild_gg 2 marine
 defenseuse_gg 2 marine
 defenseuse_ag 1 marine
-train 2 marine
 build 14 scv 80
-train 3 marine
 wait_buildstart 14 scv
-build 2 supply_depot 80
-wait_buildstart 2 supply_depot
-train 4 marine
+farms_timing
+train 2 marine
 build 15 scv 80
-wait_buildstart 15 scv
 aicontrol build_gas
 wait_buildstart 1 refinery
-build 1 bunker 80
-wait_buildstart 1 bunker
 build 1 factory 80
 wait_buildstart 1 factory
+build 1 bunker 80
+wait_buildstart 1 bunker
 define_max 12 marine
-train 5 marine
+train 3 marine
 build 16 scv 80
 wait_buildstart 16 scv
 build 2 barracks 80
