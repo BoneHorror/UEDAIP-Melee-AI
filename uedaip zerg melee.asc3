@@ -1145,8 +1145,9 @@ defenseuse_ag 2 scourge
 multirun scourge_getter
 defenseuse_aa 2 scourge
 set_attacks 2
-:es_check_bank
 build 2 hatchery 80
+upgrade 1 z_flyer_carapace 75
+:es_check_bank
 train 4 mutalisk
 train 8 zergling
 train 7 mutalisk
@@ -1162,7 +1163,6 @@ attack_do
 attack_clear
 deaths 13 AtLeast 1 valhalla es_skip_check
 deaths 13 Add 1 valhalla es_skip_check
-upgrade 1 z_flyer_carapace 70
 upgrade 1 z_carapace 70
 build 2 creep_colony 80
 expand 2 generic_expansion
@@ -1206,7 +1206,7 @@ notowns_jump lurker es_pressure
 upgrade 1 burrowed_regen 70
 tech burrowing 60
 expand 2 generic_expansion
-upgrade 2 z_flyer_attack 70
+upgrade 2 z_flyer_carapace 75
 upgrade 2 z_carapace 70
 train 12 zergling
 train 4 hydralisk
@@ -1430,7 +1430,8 @@ defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 expand 2 generic_expansion
 build 2 evolution_chamber 80
-upgrade 2 z_flyer_attack 70
+upgrade 2 z_flyer_carapace 70
+upgrade 2 z_flyer_attack 60
 upgrade 1 z_missile_attack 30
 upgrade 2 z_carapace 70
 train 12 zergling
@@ -1546,11 +1547,11 @@ attack_clear
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
-upgrade 1 ultralisk_armor 70
-upgrade 3 z_melee_attack 70
-upgrade 3 z_flyer_attack 60
-upgrade 3 z_missile_attack 60
-upgrade 3 z_flyer_carapace 70
+upgrade 1 ultralisk_armor 75
+upgrade 3 z_melee_attack 75
+upgrade 3 z_flyer_attack 65
+upgrade 3 z_missile_attack 65
+upgrade 3 z_flyer_carapace 75
 build 2 spire 80
 wait_buildstart 2 spire
 build 1 greater_spire 110
