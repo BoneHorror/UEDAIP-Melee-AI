@@ -235,7 +235,7 @@ deaths 13 Set 1 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 build 13 scv 80
 build 1 barracks 80
 wait_buildstart 13 scv
@@ -445,7 +445,7 @@ deaths 13 Set 1 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 build 12 scv 80
 wait_buildstart 12 scv
 expand 1 std_expo
@@ -669,7 +669,7 @@ deaths 13 Set 2 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 build 13 scv 80
 wait_buildstart 13 scv
 expand 1 std_expo
@@ -1004,7 +1004,7 @@ deaths 13 Set 3 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 build 13 scv 80
 wait_buildstart 13 scv
 expand 1 std_expo
@@ -1374,7 +1374,7 @@ deaths 13 Set 4 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 groundmap_jump ius
 build 1 refinery 80
 :ius
@@ -1694,7 +1694,7 @@ random_call 128 early_bio
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 train 1 marine
 defensebuild_gg 2 marine
 defenseuse_gg 2 marine
@@ -2017,7 +2017,7 @@ wait 50
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 train 1 marine
 defensebuild_gg 2 marine
 defenseuse_gg 2 marine
@@ -2219,7 +2219,7 @@ wait_buildstart 8 scv
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 capt_expand 
 build 11 scv 80
 build 1 refinery 80
@@ -2555,14 +2555,14 @@ build 1 command_center 150
 wait_buildstart 1 command_center
 build 7 scv 130
 deaths 13 Set 4 lurker ued_empair
-wait_buildstart 7 scv
+wait_buildstart 6 scv
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 random_call 14 early_bio
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
-wait_buildstart 10 scv
+wait_buildstart 8 scv
 groundmap_jump ids
 build 1 refinery 80
 :ids
@@ -2659,6 +2659,7 @@ build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 build 2 starport 80
 wait_buildstart 2 starport
+random_call 83 earlycloak
 define_max 15 marine
 train 12 marine
 train 2 wraith
@@ -2926,6 +2927,19 @@ target_expansion
 call resource_waitskip
 goto DLo
 
+:earlycloak
+build 1 control_tower 100
+train 1 wraith
+wait_build 1 control_tower
+tech cloaking_field 90
+train 7 wraith
+attack_add 7 wraith
+attack_prepare
+wait 150
+
+attack_do
+attack_clear
+return
 
 :std_expo
 start_town 
