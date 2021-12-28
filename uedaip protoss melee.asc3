@@ -147,8 +147,8 @@ goto dt_opener
 build 1 nexus 150
 deaths 13 Set 1 lurker robof
 wait_buildstart 1 nexus
-build 8 probe 130
-wait_buildstart 8 probe
+build 8 probe 90
+wait_buildstart 7 probe
 build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
@@ -815,8 +815,8 @@ goto NerazimAttacks
 build 1 nexus 150
 deaths 13 Set 2 lurker robof
 wait_buildstart 1 nexus
-build 8 probe 130
-wait_buildstart 8 probe
+build 8 probe 90
+wait_buildstart 7 probe
 build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
@@ -1103,8 +1103,8 @@ goto RLo
 build 1 nexus 150
 deaths 13 Set 1 lurker robof
 wait_buildstart 1 nexus
-build 8 probe 130
-wait_buildstart 8 probe
+build 8 probe 90
+wait_buildstart 7 probe
 build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
@@ -1731,8 +1731,8 @@ stop
 build 1 nexus 150
 deaths 13 Set 3 lurker robof
 wait_buildstart 1 nexus
-build 8 probe 130
-wait_buildstart 8 probe
+build 8 probe 90
+wait_buildstart 7 probe
 build 1 pylon 80
 wait_buildstart 1 pylon
 build 10 probe 80
