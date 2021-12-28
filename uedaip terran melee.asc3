@@ -52,12 +52,18 @@ idle_orders 142 512 1 valhalla 2048 lurker|revenant|reaver 80 incombat|count(AtL
 idle_orders 142 512 1 valhalla 1536 mutalisk|scout|corsair 60 incombat|count(AtLeast 2 48 14)
 idle_orders 142 512 1 valhalla 1536 carrier|devourer|guardian|ultralisk|infested_terran 40 incombat
 #UED-specific unit storm orders depending on count or priority
-idle_orders 92 512 2 heavy_marine 368 bunker 50 Own|NotEnemies
-idle_orders 92 512 1 phantom 368 bunker 50 Own|NotEnemies
-idle_orders 92 512 1 tesla_trooper 368 bunker 50 Own|NotEnemies
-idle_orders 92 512 3 marine 368 bunker 50 Own|NotEnemies
-idle_orders 92 512 1 ghost 368 bunker 50 Own|NotEnemies
-idle_orders 92 512 1 firebat 368 bunker 50 Own|NotEnemies
+idle_orders 92 512 2 heavy_marine 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 92 512 1 phantom 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 92 512 1 tesla_trooper 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 32 160 2 heavy_marine 368 bunker 90 Own|NotEnemies|Self(InCombat)
+idle_orders 32 160 1 phantom 368 bunker 90 Own|NotEnemies|Self(InCombat)
+idle_orders 32 160 1 tesla_trooper 368 bunker 90 Own|NotEnemies|Self(InCombat)
+idle_orders 92 512 3 marine 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 92 512 1 ghost 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 92 512 1 firebat 368 bunker 50 Own|NotEnemies|Self(Not(InCombat))
+idle_orders 92 512 3 marine 368 bunker 90 Own|NotEnemies|Self(InCombat)
+idle_orders 92 512 1 ghost 368 bunker 90 Own|NotEnemies|Self(InCombat)
+idle_orders 92 512 1 firebat 368 bunker 90 Own|NotEnemies|Self(InCombat)
 #UED-specific idle orders to enter bunkers since UED units wont do it automatically
 idle_orders 10 16 1 heavy_marine|tesla_trooper 160 group_men 80 Health(LessThan 12)
 idle_orders 10 16 1 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 120 Health(LessThan 12)
