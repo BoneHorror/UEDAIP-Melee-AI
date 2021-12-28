@@ -445,7 +445,7 @@ define_max 50 mutalisk
 define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
-define_max 60 hydralisk
+define_max 4 hydralisk
 define_max 6 lurker
 define_max 22 guardian
 define_max 24 devourer
@@ -507,6 +507,7 @@ wait 16
 build 2 creep_colony 80
 build 1 spore_colony 80
 build 1 sunken_colony 80
+define_max 60 hydralisk
 goto island_mid
 
 :generic_island
@@ -516,7 +517,7 @@ define_max 50 mutalisk
 define_max 8 zergling
 define_max 6 ultralisk
 define_max 6 defiler
-define_max 60 hydralisk
+define_max 4 hydralisk
 define_max 6 lurker
 define_max 22 guardian
 define_max 24 devourer
@@ -563,6 +564,7 @@ defensebuild_gg 1 hydralisk
 defenseuse_gg 1 mutalisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
+define_max 6 hydralisk
 defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 multirun scourge_getter
@@ -572,6 +574,7 @@ upgrade 1 z_missile_attack 30
 upgrade 1 z_flyer_attack 60
 build 2 creep_colony 80
 build 2 spore_colony 80
+define_max 60 hydralisk
 goto island_mid
 
 :is_this_zvp
