@@ -217,7 +217,9 @@ max_workers 22
 build 1 spawning_pool 105
 wait_buildstart 1 spawning_pool
 expand 1 priority_expansion
+define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
+define_max 6 zergling
 build 1 extractor 80
 #wait_buildstart 1 extractor
 build 14 drone 90
@@ -318,6 +320,7 @@ build 2 hatchery 80
 build 14 drone 80
 train 6 zergling
 build 15 drone 80
+wait_buildstart 13 drone
 train 8 zergling
 build 16 drone 80
 build 3 overlord 80
@@ -657,21 +660,23 @@ define_max 4 devourer
 define_max 6 scourge
 multirun worker_decay
 build 6 drone 110
-wait_build 6 drone
+wait_build 5 drone
 build 9 drone 80
-wait_buildstart 9 drone
+wait_buildstart 8 drone
 build 2 overlord 80
 wait_buildstart 2 overlord
 build 12 drone 80
-wait_buildstart 12 drone
+wait_buildstart 11 drone
 expand 1 priority_expansion
 max_workers 22
 wait 48
 
 build 14 drone 80
-wait_buildstart 14 drone
+wait_buildstart 12 drone
 build 1 spawning_pool 90
+define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
+define_max 4 zergling
 wait_buildstart 1 spawning_pool
 #wait_buildstart 1 extractor
 #call try_town
@@ -702,7 +707,6 @@ build 2 hatchery 100
 wait_buildstart 2 hatchery
 train 1 hydralisk
 build 1 evolution_chamber 80
-wait_buildstart 2 hatchery
 train 3 hydralisk
 upgrade 1 hydralisk_speed 75
 train 12 hydralisk
@@ -716,11 +720,14 @@ train 22 hydralisk
 set_attacks 1
 attack_add 22 hydralisk
 target_expansion
+wait 150
+
 attack_do
 attack_clear
 build 3 hatchery 80
 define_max 14 zergling
 build 1 lair 110
+wait_buildstart 1 lair
 build 19 drone 80
 upgrade 1 zergling_speed 70
 build 5 hatchery 80
@@ -2352,14 +2359,14 @@ rush 5 skip_earlyground
 train 6 zergling
 resources 13 AtLeast Ore 300 sub_hatch
 :sub_return
-train 10 zergling
 rush 5 skip_earlyground
-attack_add 10 zergling
+attack_add 6 zergling
 attack_prepare
 #melee will target this close by
 wait 60
 attack_timeout 60
 #lets ensure we don't waste much time
+build 2 hatchery 80
 attack_do
 attack_clear
 :skip_earlyground
