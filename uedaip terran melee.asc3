@@ -221,14 +221,14 @@ defaultbuild_off
 build 1 command_center 150
 wait_buildstart 1 command_center
 build 8 scv 130
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 multirun supply_fix
 race_jump ued_latebio ued_biomech ued_empair
 
 :ued_empair
 random_call 64 ued_valhallarush
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 wait 1
 
 deaths 13 Set 1 lurker ued_empair
@@ -238,7 +238,7 @@ build 10 scv 80
 wait_buildstart 8 scv
 build 13 scv 80
 build 1 barracks 80
-wait_buildstart 13 scv
+wait_buildstart 11 scv
 expand 1 std_expo
 wait_buildstart 1 barracks
 train 1 heavy_marine
@@ -248,19 +248,19 @@ defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
 capt_expand 
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 13 scv
 train 2 heavy_marine
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 train 3 heavy_marine
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 train 4 heavy_marine
 build 17 scv 80
 build 2 barracks 80
-wait_buildstart 17 scv
+wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 5 heavy_marine
@@ -447,15 +447,15 @@ wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
 build 12 scv 80
-wait_buildstart 12 scv
+wait_buildstart 11 scv
 expand 1 std_expo
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 capt_expand 
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 13 scv
 build 1 refinery 80
 defensebuild_gg 2 heavy_marine
 defensebuild_ag 2 heavy_marine
@@ -463,12 +463,12 @@ defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
 train 2 heavy_marine
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 train 3 heavy_marine
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 train 4 heavy_marine
 build 17 scv 80
 build 1 factory 80
@@ -671,12 +671,12 @@ wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 expand 1 std_expo
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 barracks 80
 build 1 refinery 80
 wait_buildstart 1 refinery
@@ -687,16 +687,15 @@ defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
 capt_expand 
 train 2 heavy_marine
-wait_buildstart 15 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 train 3 heavy_marine
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 1 factory 80
 build 17 scv 80
 build 2 barracks 80
-wait_buildstart 17 scv
+wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 4 heavy_marine
@@ -1006,7 +1005,7 @@ wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 expand 1 std_expo
 random_jump 128 ubm_quickgas
 build 1 barracks 80
@@ -1262,6 +1261,7 @@ goto exp_repeater
 
 
 :UED_MechBio
+random_jump 128 ScorpMech
 define_max 30 heavy_marine
 define_max 255 tesla_trooper
 define_max 4 medic
@@ -1365,11 +1365,97 @@ target_expansion
 call resource_waitskip
 goto MLo
 
+:ScorpMech
+define_max 10 heavy_marine
+define_max 255 tesla_trooper
+define_max 4 medic
+define_max 7 panzer
+define_max 6 phantom
+define_max 14 scorpion
+define_max 2 valkyrie
+define_max 8 skywing
+define_max 14 death_knight
+upgrade 1 vulture_speed 70
+call resource_waitskip
+
+attack_do
+attack_clear
+attack_add 4 panzer
+attack_add 4 death_knight
+attack_add 4 scorpion
+set_attacks 2
+train 4 panzer
+train 4 death_knight
+train 4 scorpion
+target_expansion 
+call resource_waitskip
+attack_clear 
+attack_add 8 scorpion
+attack_add 8 death_knight
+set_attacks 2
+train 8 scorpion
+train 8 death_knight
+target_expansion 
+call resource_waitskip
+attack_clear
+:ScPu
+attack_add 8 scorpion
+attack_add 5 panzer
+attack_add 7 death_knight
+set_attacks 2
+train 8 scorpion
+train 5 panzer
+train 7 death_knight
+target_expansion 
+call resource_waitskip
+
+notowns_jump covert_ops ScPu
+:ScLo
+set_attacks 3
+
+attack_do
+attack_clear 
+attack_add 10 scorpion
+train 10 scorpion
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 7 panzer
+attack_add 12 death_knight
+attack_add 8 skywing
+train 7 panzer
+train 6 skywing
+train 6 death_knight
+train 8 skywing
+train 12 death_knight
+train 2 valhalla
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear 
+attack_add 8 scorpion
+attack_add 3 panzer
+attack_add 7 death_knight
+attack_add 2 valhalla
+train 2 valhalla
+train 3 panzer
+train 2 death_knight
+train 4 scorpion
+train 7 death_knight
+train 8 scorpion
+wait_force 2 valhalla
+target_expansion 
+call resource_waitskip
+goto ScLo
+
 :ued_AirStart
 random_call 32 ued_valhallarush
 :ued_AirNoRush
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 deaths 13 Set 4 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
@@ -1379,7 +1465,7 @@ groundmap_jump ius
 build 1 refinery 80
 :ius
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 define_max 2 dropship
 groundmap_jump ua_earlydo
 multirun island_transports
@@ -1392,7 +1478,7 @@ build 1 barracks 80
 wait_buildstart 1 barracks
 build 1 factory 80
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 barracks 80
 train 1 heavy_marine
 defensebuild_gg 2 heavy_marine
@@ -1401,16 +1487,15 @@ defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
 capt_expand 
 train 2 heavy_marine
-wait_buildstart 15 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 train 3 heavy_marine
 wait_buildstart 1 factory
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 17 scv 80
 build 1 machine_shop 100
-wait_buildstart 17 scv
+wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 4 heavy_marine
@@ -1685,11 +1770,11 @@ wait_buildstart 1 command_center
 #random_call 45 proxy_rax
 build 7 scv 130
 deaths 13 Set 5 lurker ued_empair
-wait_buildstart 7 scv
+wait_buildstart 6 scv
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 random_call 128 early_bio
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
@@ -1701,20 +1786,20 @@ defenseuse_gg 2 marine
 defenseuse_ag 1 marine
 capt_expand 
 build 12 scv 80
-wait_buildstart 12 scv
+wait_buildstart 11 scv
 expand 2 std_expo
 train 2 marine
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 train 3 marine
 build 13 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 build 1 refinery 80
 train 4 marine
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 13 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 5 marine
@@ -1832,7 +1917,7 @@ attack_prepare
 upgrade 1 t_vehicle_plating 70
 build 1 starport 80
 wait_buildstart 1 starport
-multirun chenlas_clone
+multirun firegol_ter
 train 2 siege_tank
 build 1 control_tower 100
 wait_buildstart 1 control_tower
@@ -2025,20 +2110,20 @@ defenseuse_ag 1 marine
 farms_timing
 build 2 barracks 70
 build 11 scv 80
-wait_buildstart 11 scv
+wait_buildstart 10 scv
 build 2 barracks 80
 train 3 marine
 build 12 scv 80
-wait_buildstart 12 scv
+wait_buildstart 11 scv
 train 7 marine
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 12 scv
 train 9 marine
 build 1 refinery 80
 train 11 marine
 build 1 academy 80
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 13 scv
 build 3 barracks 80
 tech stim_packs 70
 train 14 marine
@@ -2048,7 +2133,8 @@ attack_add 23 marine
 attack_prepare
 return
 
-:chenlas_clone
+:firegol_ter
+random_jump 128 ghost_focus
 define_max 40 marine
 define_max 20 goliath
 define_max 12 siege_tank
@@ -2058,7 +2144,7 @@ attack_do
 attack_clear 
 attack_add 8 goliath
 attack_add 12 firebat
-set_attacks 1
+set_attacks 2
 
 :defRout017
 train 2 firebat
@@ -2076,7 +2162,7 @@ attack_add 12 marine
 attack_add 4 siege_tank
 attack_add 8 goliath
 attack_add 10 firebat
-set_attacks 1
+set_attacks 2
 
 :defRout018
 #random_jump 1 latebio
@@ -2098,7 +2184,7 @@ attack_add 12 marine
 attack_add 10 ghost
 attack_add 20 firebat
 attack_add 4 siege_tank
-set_attacks 1
+set_attacks 2
 train 12 marine
 train 4 siege_tank
 train 10 firebat
@@ -2135,6 +2221,91 @@ train 8 siege_tank
 target_expansion 
 call resource_waitskip
 goto defRout020
+
+:ghost_focus
+define_max 50 marine
+define_max 12 goliath
+define_max 12 siege_tank
+define_max 6 firebat
+define_max 24 ghost
+attack_do
+attack_clear 
+attack_add 8 goliath
+attack_add 12 marine
+set_attacks 2
+
+:gFac
+train 2 marine
+train 2 goliath
+train 6 marine
+train 4 goliath
+train 12 marine
+train 8 goliath
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility gFac
+attack_do
+attack_clear 
+attack_add 22 marine
+attack_add 4 siege_tank
+attack_add 8 goliath
+set_attacks 2
+
+:gCo
+train 6 marine
+train 4 siege_tank
+train 12 marine
+train 4 goliath
+train 16 marine
+train 8 goliath
+train 22 marine
+train 4 siege_tank
+target_expansion 
+call resource_waitskip
+notowns_jump covert_ops gCo
+attack_do
+attack_clear
+attack_add 22 marine
+attack_add 20 ghost
+attack_add 4 siege_tank
+set_attacks 2
+train 10 ghost
+train 12 marine
+train 2 siege_tank
+train 20 ghost
+train 4 siege_tank
+train 22 marine
+target_expansion 
+call resource_waitskip
+
+:gLo
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 40 marine
+attack_add 20 ghost
+train 10 ghost
+train 20 marine
+train 20 ghost
+train 40 marine
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 12 ghost
+attack_add 12 goliath
+attack_add 8 siege_tank
+train 6 goliath
+train 6 ghost
+train 10 goliath
+train 10 ghost
+train 12 goliath
+train 3 siege_tank
+train 12 ghost
+train 8 siege_tank
+target_expansion 
+call resource_waitskip
+goto gLo
 
 :2fac_timing
 random_jump 128 2fac_gol
@@ -2213,9 +2384,9 @@ build 1 command_center 150
 wait_buildstart 1 command_center
 build 7 scv 130
 deaths 13 Set 6 lurker ued_empair
-wait_buildstart 7 scv
+wait_buildstart 6 scv
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
@@ -2232,6 +2403,7 @@ defensebuild_gg 2 marine
 defenseuse_gg 2 marine
 defenseuse_ag 1 marine
 build 13 scv 80
+wait_buildstart 11 scv
 random_call 128 2fac_timing
 train 2 marine
 expand 2 std_expo
@@ -2241,7 +2413,7 @@ train 4 marine
 build 1 factory 80
 wait_buildstart 1 factory
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 12 scv
 aicontrol build_gas
 build 15 scv 80
 wait_buildstart 15 scv
@@ -2283,7 +2455,7 @@ defenseuse_ag 2 marine
 train 1 siege_tank
 train 13 marine
 train 2 vulture
-set_attacks 1
+set_attacks 2
 attack_add 10 marine
 attack_add 1 siege_tank
 attack_add 2 vulture
@@ -2324,7 +2496,7 @@ define_max 10 vulture
 define_max 8 goliath
 attack_do 
 attack_clear
-set_attacks 1
+set_attacks 2
 train 4 siege_tank
 deaths 13 AtLeast 3 goliath gol_instead
 #check if we launched the goliath timing and have infra for them already
@@ -2500,7 +2672,7 @@ attack_do
 attack_clear 
 attack_add 10 goliath
 attack_add 8 siege_tank
-set_attacks 1
+set_attacks 2
 
 :TMPu
 train 10 goliath
@@ -2514,7 +2686,7 @@ attack_add 1 science_vessel
 attack_add 2 battlecruiser
 attack_add 10 vulture
 attack_add 10 goliath
-set_attacks 1
+set_attacks 2
 train 2 battlecruiser
 train 10 vulture
 train 1 science_vessel
@@ -2709,7 +2881,6 @@ train 1 siege_tank
 train 4 marine
 train 6 wraith
 train 8 marine
-wait_force 6 wraith
 attack_do 
 attack_clear 
 attack_add 6 wraith
@@ -2868,7 +3039,7 @@ notowns_jump science_facility DSC
 attack_do
 attack_clear 
 attack_add 12 wraith
-set_attacks 1
+set_attacks 2
 
 :DPu
 train 12 wraith
@@ -2879,7 +3050,7 @@ attack_do
 attack_clear
 attack_add 1 science_vessel
 attack_add 4 battlecruiser
-set_attacks 1
+set_attacks 2
 train 2 science_vessel
 train 4 battlecruiser
 wait_force 4 battlecruiser

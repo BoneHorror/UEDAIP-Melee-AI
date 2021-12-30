@@ -100,7 +100,7 @@ goto p_bust
 #openings
 
 :4pool
-build 1 spawning_pool 105
+build 1 spawning_pool 95
 wait_build 1 spawning_pool
 farms_notiming
 train 6 zergling
@@ -214,7 +214,7 @@ build 10 drone 80
 wait_buildstart 10 drone
 build 12 drone 80
 max_workers 22
-build 1 spawning_pool 105
+build 1 spawning_pool 95
 wait_buildstart 1 spawning_pool
 expand 1 priority_expansion
 define_max 10 zergling
@@ -724,7 +724,7 @@ expand 2 generic_expansion
 tech burrowing 60
 upgrade 1 hydralisk_range 75
 train 22 hydralisk
-set_attacks 1
+set_attacks 2
 attack_add 22 hydralisk
 target_expansion
 wait 150
@@ -828,7 +828,7 @@ goto exp_repeater
 :late_flood
 wait 1500
 
-set_attacks 1
+set_attacks 2
 train 32 hydralisk
 call resource_waitskip
 train 64 hydralisk
@@ -937,7 +937,7 @@ build 1 extractor 80
 #wait_buildstart 1 extractor
 wait 48
 
-build 1 spawning_pool 105
+build 1 spawning_pool 95
 wait_buildstart 1 spawning_pool
 random_call 16 rush_subroutine_earlyground
 aicontrol build_gas
@@ -2150,7 +2150,7 @@ defenseuse_ga 1 guardian
 multirun exp_repeater
 :protoss_loop
 define_max 10 scourge
-set_attacks 1
+set_attacks 2
 train 20 hydralisk
 train 30 hydralisk
 call resource_waitskip

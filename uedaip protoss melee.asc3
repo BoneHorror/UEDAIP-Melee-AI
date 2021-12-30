@@ -173,47 +173,46 @@ build 2 gateway 80
 wait_buildstart 2 gateway
 build 15 probe 80
 wait_buildstart 13 probe
-train 2 zealot
+train 3 zealot
+attack_add 3 zealot
+attack_prepare
 build 16 probe 80
 wait_buildstart 14 probe
 build 3 pylon 80
 wait_buildstart 3 pylon
+build 1 cybernetics_core 80
 build 17 probe 80
 wait_buildstart 15 probe
-train 4 zealot
-wait_force 3 zealot
-attack_add 3 zealot
-attack_prepare
 build 18 probe 80
 wait_buildstart 16 probe
 train 5 zealot
 build 1 assimilator 80
 wait_buildstart 1 assimilator
-build 1 cybernetics_core 80
-train 6 zealot
 build 4 pylon 80
 wait_buildstart 4 pylon
-train 8 zealot
 build 1 forge 80
+define_max 4 dragoon
+wait_build 1 cybernetics_core
+upgrade 1 dragoon_range 70
+train 2 dragoon
 wait_buildstart 1 forge
 build 5 pylon 80
 wait_buildstart 5 pylon
+build 4 gateway 80
 farms_timing 
 upgrade 1 p_ground_weapon 70
-wait_build 1 cybernetics_core
+train 4 dragoon
 build 1 stargate 80
 build 1 citadel_of_adun 80
-build 4 gateway 80
-define_max 6 dragoon
-wait_force 4 dragoon
+define_max 12 dragoon
+wait_force 10 dragoon
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
 attack_clear 
-attack_add 6 zealot
-attack_add 4 dragoon
+attack_add 10 dragoon
 attack_prepare 
 panic std_expansion
-train 10 zealot
+train 6 zealot
 define_max 12 zealot
 build 1 templar_archives 80
 wait_buildstart 1 templar_archives
@@ -228,7 +227,6 @@ upgrade 1 zealot_speed 70
 define_max 2 corsair
 train 1 corsair
 train 1 shuttle
-upgrade 1 dragoon_range 70
 upgrade 2 p_ground_weapon 70
 check_transports 
 train 4 dragoon
@@ -388,14 +386,18 @@ call resource_waitskip
 attack_do
 attack_clear 
 attack_add 6 dark_templar
+attack_add 6 zealot
 attack_add 5 scout
 set_attacks 2
 
+train 2 zealot
 train 2 scout
 train 4 dark_templar
+train 4 zealot
 train 3 scout
 train 6 dark_templar
 train 5 scout
+train 6 zealot
 wait 500
 target_expansion 
 call resource_waitskip
@@ -1769,7 +1771,7 @@ wait_train 1 shuttle
 expand 1 exp_noguard
 wait_train 2 shuttle
 
-set_attacks 1
+set_attacks 2
 attack_add 4 zealot
 attack_add 2 dragoon
 target_expansion
@@ -2176,6 +2178,7 @@ enemyowns_jump starport z_o_r
 train 5 zealot
 build 3 gateway 80
 wait_buildstart 3 gateway
+train 7 zealot
 build 1 photon_cannon 80
 train 9 zealot
 build 1 cybernetics_core 80
@@ -2187,6 +2190,7 @@ attack_add 13 zealot
 attack_prepare
 wait 90
 
+expand 1 exp_noguard
 attack_timeout 90
 attack_do
 attack_clear
