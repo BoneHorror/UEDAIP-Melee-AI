@@ -618,12 +618,12 @@ build 1 hydralisk_den 90
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
 build 16 drone 80
+farms_timing
 wait_buildstart 14 drone
 build 2 hatchery 80
 build 1 lair 110
-build 3 overlord 80
-wait_buildstart 3 overlord
 build 19 drone 80
+wait_buildstart 16 drone
 build 3 hatchery 80
 expand 1 priority_expansion
 build 1 evolution_chamber 80
@@ -634,7 +634,6 @@ defensebuild_gg 2 hydralisk
 defenseuse_gg 3 hydralisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
-build 1 extractor 80
 aicontrol build_gas
 farms_timing
 upgrade 1 hydralisk_speed 60
@@ -678,7 +677,7 @@ max_workers 22
 wait 48
 
 build 14 drone 80
-wait_buildstart 12 drone
+wait_buildstart 13 drone
 build 1 spawning_pool 90
 define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
@@ -937,14 +936,17 @@ build 1 extractor 80
 #wait_buildstart 1 extractor
 wait 48
 
+build 13 drone 80
+wait_buildstart 13 drone
 build 1 spawning_pool 95
 wait_buildstart 1 spawning_pool
 random_call 16 rush_subroutine_earlyground
 aicontrol build_gas
+build 14 drone 80
 build 1 lair 110
-build 12 drone 80
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
+wait_buildstart 1 lair
 build 16 drone 80
 wait_buildstart 14 drone
 build 2 creep_colony 80
@@ -953,7 +955,7 @@ wait_buildstart 3 overlord
 upgrade 1 zergling_speed 70
 farms_notiming
 build 17 drone 80
-wait_build 14 drone
+wait_build 15 drone
 build 2 sunken_colony 80
 build 1 evolution_chamber 80
 expand 2 generic_expansion
@@ -2594,6 +2596,8 @@ defenseuse_ag 1 hydralisk
 wait 4500
 
 build 7 creep_colony 80
+wait_build 7 creep_colony
+build 3 spore_colony 80
 goto void
 
 :rush_panic_exp
