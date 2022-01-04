@@ -239,8 +239,9 @@ wait_buildstart 8 scv
 build 13 scv 80
 build 1 barracks 80
 wait_buildstart 11 scv
-expand 1 std_expo
 wait_buildstart 1 barracks
+expand 1 std_expo
+define_max 14 heavy_marine
 train 1 heavy_marine
 defensebuild_gg 2 heavy_marine
 defensebuild_ag 2 heavy_marine
@@ -254,19 +255,21 @@ build 15 scv 80
 wait_buildstart 14 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
+build 2 barracks 80
 train 3 heavy_marine
 build 16 scv 80
 wait_buildstart 15 scv
 train 4 heavy_marine
 build 17 scv 80
-build 2 barracks 80
+build 1 refinery 80
 wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 5 heavy_marine
 aicontrol build_gas
-build 1 refinery 80
 wait_buildstart 1 refinery
+build 3 barracks 80
+wait_buildstart 3 barracks
 build 16 scv 80
 wait_buildstart 16 scv
 build 3 supply_depot 80
@@ -276,10 +279,10 @@ defenseclear_gg
 call usetup
 train 7 heavy_marine
 build 18 scv 80
-wait_buildstart 18 scv
+wait_buildstart 16 scv
 train 8 heavy_marine
 build 19 scv 80
-wait_buildstart 19 scv
+wait_buildstart 17 scv
 build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 train 9 heavy_marine
@@ -288,10 +291,10 @@ wait_buildstart 1 academy
 train 10 heavy_marine
 attack_add 8 heavy_marine
 attack_prepare 
-build 3 barracks 80
-wait_buildstart 3 barracks
+build 1 factory 80
+wait_buildstart 1 factory
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 18 scv
 define_max 14 heavy_marine
 define_max 10 tesla_trooper
 build 1 engineering_bay 80
@@ -308,8 +311,6 @@ train 3 tesla_trooper
 train 2 medic
 build 3 barracks 80
 wait_buildstart 3 barracks
-build 1 factory 80
-wait_buildstart 1 factory
 upgrade 1 t_infantry_weapon 70
 train 6 tesla_trooper
 wait_force 6 heavy_marine
@@ -328,8 +329,8 @@ define_max 255 scorpion
 build 2 engineering_bay 80
 wait_buildstart 2 engineering_bay
 upgrade 1 medic_mana 70
-
 wait 48
+
 define_max 13 heavy_marine
 define_max 8 tesla_trooper
 build 4 barracks 80
@@ -664,22 +665,31 @@ goto ELo
 :ued_latebio
 random_jump 45 ued_AirStart
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 deaths 13 Set 2 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
 build 13 scv 80
-wait_buildstart 12 scv
-expand 1 std_expo
+wait_buildstart 11 scv
+random_jump 128 ulb_skiprush
+deaths 13 Set 1 arbiter ulb_dorush
+:ulb_skiprush
+deaths 13 Exactly 1 arbiter ulb_dorush
 build 1 barracks 80
 wait_buildstart 1 barracks
-build 15 scv 80
-wait_buildstart 14 scv
-build 2 barracks 80
+expand 1 std_expo
+:ulb_dorush
 build 1 refinery 80
 wait_buildstart 1 refinery
+build 15 scv 80
+wait_buildstart 12 scv
+build 2 barracks 80
+wait_buildstart 2 barracks
+deaths 13 Exactly 0 arbiter ulb_cont
+call ued_2fac
+:ulb_cont
 train 1 heavy_marine
 defensebuild_gg 2 heavy_marine
 defensebuild_ag 2 heavy_marine
@@ -981,7 +991,7 @@ goto TLo
 farms_timing
 build 18 scv 80
 train 4 heavy_marine
-wait_buildstart 18 scv
+wait_buildstart 16 scv
 define_max 22 heavy_marine
 train 6 heavy_marine
 build 1 engineering_bay 80
@@ -991,14 +1001,14 @@ train 13 heavy_marine
 build 4 barracks 80
 upgrade 1 t_infantry_weapon 70
 train 20 heavy_marine
-attack_add 20 marine
+attack_add 20 heavy_marine
 attack_prepare
 return
 
 :ued_biomech
 random_jump 67 ued_AirStart
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 deaths 13 Set 3 lurker ued_empair
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
@@ -1006,10 +1016,10 @@ build 10 scv 80
 wait_buildstart 8 scv
 build 13 scv 80
 wait_buildstart 12 scv
-expand 1 std_expo
-random_jump 128 ubm_quickgas
 build 1 barracks 80
 wait_buildstart 1 barracks
+expand 1 std_expo
+random_jump 128 ubm_quickgas
 build 15 scv 80
 build 1 refinery 80
 wait_buildstart 1 refinery
@@ -1022,9 +1032,9 @@ goto ubm_skiprush
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
-wait_build 14 scv
+wait_build 13 scv
 build 2 supply_depot 80
-wait_build 15 scv
+wait_buildstart 14 scv
 build 2 factory 80
 build 18 scv 80
 wait_build 1 factory
@@ -1034,17 +1044,20 @@ build 21 scv 80
 build 1 machine_shop 100
 build 3 supply_depot 80
 wait_buildstart 1 machine_shop
+train 2 scorpion
+wait_buildstart 19 scv
+expand 1 std_expo
 train 3 scorpion
 upgrade 1 vulture_speed 70
 farms_timing
 build 24 scv 80
+wait_buildstart 20 scv
 train 4 scorpion
 build 5 supply_depot 80
 defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
-train 5 scorpion
 train 6 scorpion
-expand 1 std_expo
+
 attack_add 6 scorpion
 attack_prepare
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -1376,6 +1389,8 @@ define_max 2 valkyrie
 define_max 8 skywing
 define_max 14 death_knight
 upgrade 1 vulture_speed 70
+defensebuild_gg 2 scorpion
+defenseuse_gg 2 scorpion
 call resource_waitskip
 
 attack_do
@@ -1771,10 +1786,10 @@ wait_buildstart 1 command_center
 build 7 scv 130
 deaths 13 Set 5 lurker ued_empair
 wait_buildstart 6 scv
-build 1 barracks 80
-wait_buildstart 1 barracks
 build 8 scv 80
 wait_buildstart 7 scv
+build 1 barracks 80
+wait_buildstart 1 barracks
 random_call 128 early_bio
 build 1 supply_depot 80
 wait_buildstart 1 supply_depot
@@ -2312,7 +2327,7 @@ random_jump 128 2fac_gol
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
-wait_build 14 scv
+wait_build 13 scv
 build 2 supply_depot 80
 wait_build 15 scv
 build 2 factory 80
@@ -2328,6 +2343,7 @@ train 3 vulture
 upgrade 1 vulture_speed 70
 farms_timing
 build 24 scv 80
+wait_buildstart 20 scv
 train 5 vulture
 build 5 supply_depot 80
 defensebuild_gg 2 vulture
@@ -2349,9 +2365,9 @@ return
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
-wait_build 14 scv
+wait_build 13 scv
 build 2 supply_depot 80
-wait_build 15 scv
+wait_buildstart 14 scv
 build 2 factory 80
 build 18 scv 80
 wait_build 1 factory
@@ -2362,9 +2378,11 @@ define_max 10 goliath
 expand 1 std_expo
 farms_timing
 build 24 scv 80
+wait_buildstart 20 scv
 build 4 supply_depot 80
 train 1 goliath
 upgrade 1 t_vehicle_weapon 70
+build 3 factory 70
 train 2 goliath
 build 5 supply_depot 80
 train 4 goliath
