@@ -143,6 +143,9 @@ define_max 2 nuclear_missile
 return 
 
 :usetup
+unit_avail 13 Set Disabled siege_tank udropsk
+unit_avail 13 Set Disabled ghost udropsk
+unit_avail 13 Set Disabled marine udropsk
 define_max 60 scv
 define_max 255 marine
 define_max 255 firebat
@@ -439,7 +442,7 @@ goto exp_repeater
 
 :ued_valhallarush
 build 8 scv 80
-wait_buildstart 8 scv
+wait_buildstart 7 scv
 wait 1
 
 deaths 13 Set 1 lurker ued_empair
