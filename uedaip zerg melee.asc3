@@ -671,18 +671,19 @@ wait_buildstart 8 drone
 build 2 overlord 80
 wait_buildstart 2 overlord
 build 12 drone 80
+wait_buildstart 10 drone
+build 1 spawning_pool 90
+wait_buildstart 1 spawning_pool
 wait_buildstart 11 drone
-expand 1 priority_expansion
 max_workers 22
 wait 48
 
 build 14 drone 80
+expand 1 priority_expansion
 wait_buildstart 13 drone
-build 1 spawning_pool 90
 define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
 define_max 4 zergling
-wait_buildstart 1 spawning_pool
 #wait_buildstart 1 extractor
 #call try_town
 aicontrol build_gas
@@ -694,6 +695,7 @@ build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 build 1 extractor 80
 build 2 hatchery 80
+farms_timing
 wait_buildstart 2 hatchery
 build 1 sunken_colony 80
 build 3 overlord 80
@@ -704,7 +706,6 @@ defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
 define_max 10 zergling
 build 16 drone 80
-farms_timing
 defensebuild_gg 2 hydralisk
 defenseuse_gg 3 hydralisk
 defensebuild_ag 2 hydralisk
