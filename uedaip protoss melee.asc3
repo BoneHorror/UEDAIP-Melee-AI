@@ -386,18 +386,20 @@ call resource_waitskip
 attack_do
 attack_clear 
 attack_add 6 dark_templar
-attack_add 6 zealot
+attack_add 4 dragoon
+attack_add 4 hornet
 attack_add 5 scout
 set_attacks 2
 
-train 2 zealot
+train 2 dragoon
 train 2 scout
 train 4 dark_templar
-train 4 zealot
+train 2 hornet
 train 3 scout
 train 6 dark_templar
 train 5 scout
-train 6 zealot
+train 4 dragoon
+train 4 hornet
 wait 500
 target_expansion 
 call resource_waitskip
@@ -487,6 +489,7 @@ build 15 probe 80
 wait_buildstart 14 probe
 build 1 citadel_of_adun 80
 train 2 zealot
+farms_timing
 upgrade 1 p_ground_weapon 70
 build 2 gateway 80
 build 16 probe 80
@@ -496,7 +499,6 @@ train 3 zealot
 build 1 templar_archives 80
 build 3 pylon 80
 wait_buildstart 3 pylon
-farms_timing
 build 18 probe 80
 wait_buildstart 16 probe
 train 4 zealot
@@ -512,13 +514,13 @@ defensebuild_gg 1 dark_templar
 defenseuse_gg 1 dark_templar
 train 2 dark_templar
 expand 1 exp_noguard
+train 4 dark_templar
 defensebuild_gg 1 revenant
 defenseuse_gg 1 revenant
 define_max 12 zealot
 enemyowns_jump science_vessel d_o_r
 enemyowns_jump lurker d_o_r
 enemyowns_jump observer d_o_r
-build 1 photon_cannon 80
 wait_force 4 dark_templar
 attack_add 5 zealot
 attack_add 4 dark_templar
@@ -526,6 +528,7 @@ attack_prepare
 wait 90
 
 train 2 revenant
+build 1 photon_cannon 80
 attack_timeout 90
 attack_do
 attack_clear
@@ -576,6 +579,7 @@ build 1 forge 80
 build 15 probe 80
 wait_buildstart 14 probe
 build 1 citadel_of_adun 80
+farms_timing
 train 2 zealot
 upgrade 1 p_ground_weapon 70
 build 2 gateway 80
