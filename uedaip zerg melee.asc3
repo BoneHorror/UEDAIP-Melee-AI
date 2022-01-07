@@ -137,7 +137,9 @@ max_workers 22
 wait 48
 
 build 14 drone 80
-wait_buildstart 13 drone
+wait_buildstart 11 drone
+wait 128
+
 build 1 spawning_pool 90
 random_call 16 rush_subroutine_earlyground
 wait_buildstart 1 spawning_pool
@@ -308,7 +310,7 @@ expand 1 priority_expansion
 #call try_town
 random_call 16 rush_subroutine_earlyground
 build 13 drone 80
-wait_buildstart 11 drone
+wait_buildstart 10 drone
 build 1 lair 110
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
@@ -321,7 +323,7 @@ build 2 hatchery 80
 build 14 drone 80
 train 6 zergling
 build 15 drone 80
-wait_buildstart 13 drone
+wait_buildstart 12 drone
 train 8 zergling
 build 16 drone 80
 build 3 overlord 80
@@ -392,7 +394,7 @@ wait_buildstart 1 spawning_pool
 aicontrol build_gas
 build 1 lair 110
 build 16 drone 80
-wait_buildstart 14 drone
+wait_buildstart 11 drone
 build 3 overlord 130
 wait_buildstart 3 overlord
 build 1 hydralisk_den 80
@@ -400,7 +402,7 @@ build 2 hatchery 80
 farms_notiming
 build 19 drone 80
 upgrade 1 overlord_capacity 90
-wait_buildstart 17 drone
+wait_buildstart 13 drone
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
 build 1 evolution_chamber 80
@@ -473,13 +475,13 @@ wait_buildstart 1 spawning_pool
 aicontrol build_gas
 build 1 lair 110
 build 16 drone 80
-wait_buildstart 14 drone
+wait_buildstart 11 drone
 build 3 overlord 130
 wait_buildstart 3 overlord
 build 1 hydralisk_den 85
 build 2 hatchery 80
 build 19 drone 80
-wait_buildstart 15 drone
+wait_buildstart 12 drone
 upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
 defensebuild_gg 1 zergling
@@ -553,7 +555,7 @@ wait_buildstart 3 overlord
 build 1 hydralisk_den 80
 build 2 hatchery 80
 build 19 drone 80
-wait_buildstart 17 drone
+wait_buildstart 14 drone
 upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
 defensebuild_gg 1 zergling
@@ -619,11 +621,11 @@ defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
 build 16 drone 80
 farms_timing
-wait_buildstart 14 drone
+wait_buildstart 11 drone
 build 2 hatchery 80
 build 1 lair 110
 build 19 drone 80
-wait_buildstart 16 drone
+wait_buildstart 12 drone
 build 3 hatchery 80
 expand 1 priority_expansion
 build 1 evolution_chamber 80
@@ -680,7 +682,7 @@ wait 48
 
 build 14 drone 80
 expand 1 priority_expansion
-wait_buildstart 13 drone
+wait_buildstart 12 drone
 define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
 define_max 4 zergling
@@ -690,7 +692,7 @@ aicontrol build_gas
 multirun earlydef_panic
 defenseuse_gg 1 zergling
 build 15 drone 80
-wait_buildstart 13 drone
+wait_buildstart 12 drone
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 build 1 extractor 80
@@ -938,7 +940,7 @@ build 1 extractor 80
 wait 48
 
 build 13 drone 80
-wait_buildstart 13 drone
+wait_buildstart 10 drone
 build 1 spawning_pool 95
 wait_buildstart 1 spawning_pool
 random_call 16 rush_subroutine_earlyground
@@ -949,7 +951,7 @@ defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
 wait_buildstart 1 lair
 build 16 drone 80
-wait_buildstart 14 drone
+wait_buildstart 11 drone
 build 2 creep_colony 80
 build 3 overlord 80
 wait_buildstart 3 overlord
