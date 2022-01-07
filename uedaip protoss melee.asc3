@@ -62,6 +62,7 @@ wait_rand 1 2
 multirun panic_obs
 wait 115
 
+multirun rush_panic
 groundmap_jump ground_picker
 #never run this now
 random_jump 128 robotics_force
@@ -863,23 +864,31 @@ build 3 pylon 80
 wait_buildstart 3 pylon
 build 17 probe 80
 wait_buildstart 15 probe
-train 4 zealot
-wait_force 2 zealot
+define_max 6 dragoon
+train 1 dragoon
 attack_add 1 zealot
 attack_prepare
 build 2 gateway 80
 wait_buildstart 2 gateway
+attack_timeout 20
 build 18 probe 80
 wait_buildstart 16 probe
-train 5 zealot
-build 1 robotics_facility 80
-train 6 zealot
-build 4 pylon 80
-wait_buildstart 4 pylon
 train 2 dragoon
+upgrade 1 dragoon_range 70
 defensebuild_gg 1 dragoon
 defenseuse_gg 1 dragoon
+build 1 robotics_facility 80
+train 4 dragoon
+build 4 pylon 80
+wait_buildstart 4 pylon
 build 1 forge 80
+train 6 dragoon
+attack_clear
+set_attacks 1
+wait 16
+
+attack_add 6 dragoon
+target_expansion
 wait_buildstart 1 forge
 build 5 pylon 80
 wait_buildstart 5 pylon
@@ -889,17 +898,20 @@ upgrade 1 p_plating 70
 build 1 stargate 80
 wait_buildstart 1 stargate
 build 2 robotics_facility 80
-define_max 6 dragoon
+define_max 8 dragoon
 define_max 6 hornet
+train 2 hornet
+train 2 dragoon
 train 4 hornet
+train 4 dragoon
 wait_force 4 dragoon
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
+attack_do
 attack_clear 
 attack_add 4 hornet
 attack_add 4 dragoon
 attack_prepare 
-upgrade 1 dragoon_range 70
 panic exp_noguard
 expand 2 std_expansion
 define_max 12 zealot
@@ -1124,6 +1136,7 @@ build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
 wait_buildstart 12 probe
+farms_timing
 train 1 zealot
 defenseuse_gg 2 zealot
 capt_expand 
@@ -1155,31 +1168,37 @@ attack_prepare
 expand 1 std_expansion
 build 18 probe 80
 wait_buildstart 16 probe
-train 12 zealot
-build 1 assimilator 80
-wait_buildstart 1 assimilator
-build 1 cybernetics_core 80
-train 12 zealot
-build 4 pylon 80
-wait_buildstart 4 pylon
-train 14 zealot
-build 5 pylon 80
-wait_buildstart 5 pylon
-farms_timing 
-wait_build 1 cybernetics_core
-upgrade 1 dragoon_range 70
-build 1 citadel_of_adun 80
-build 5 gateway 80
-define_max 8 dragoon
-train 10 zealot
-wait_force 6 dragoon
-build 1 robotics_facility 80
-wait_buildstart 1 robotics_facility
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
+train 6 zealot
+build 1 cybernetics_core 80
+build 1 assimilator 80
+wait_buildstart 1 assimilator
+train 10 zealot
+build 4 pylon 80
+wait_buildstart 4 pylon
+wait_build 1 cybernetics_core
+define_max 4 dragoon
+defensebuild_gg 1 dragoon
+defenseuse_gg 1 dragoon
+defensebuild_ag 1 dragoon
+defenseuse_ag 1 dragoon
+upgrade 1 dragoon_range 70
+train 2 dragoon
+build 5 pylon 80
+wait_buildstart 5 pylon
+build 1 citadel_of_adun 80
+build 5 gateway 80
+define_max 9 dragoon
+train 8 zealot
+train 8 dragoon
+wait_force 8 dragoon
+build 1 robotics_facility 80
+wait_buildstart 1 robotics_facility
+attack_do
 attack_clear 
-attack_add 10 zealot
-attack_add 6 dragoon
+attack_add 8 zealot
+attack_add 8 dragoon
 attack_prepare 
 panic std_expansion
 upgrade 1 zealot_speed 70
@@ -1420,6 +1439,7 @@ build 1 assimilator 50
 max_workers 21
 wait 500
 
+multirun rush_panic_exp
 multirun worker_decay
 get_oldpeons 6
 wait 3500
@@ -1477,6 +1497,7 @@ build 1 assimilator 50
 max_workers 21
 wait 500
 
+multirun rush_panic_exp
 multirun prodGetter
 multirun worker_decay
 get_oldpeons 6
@@ -2250,3 +2271,36 @@ wait_build 1 pylon
 resources 13 Add Ore 150 ge_skip
 stop
 
+:rush_panic
+wait 50
+
+time_jump 14 rowk_skip
+resources 13 AtMost Ore 1050 rush_panic
+guard_all
+build 2 gateway 100
+build 1 forge 100
+wait_build 1 forge
+build 3 photon_cannon 80
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+wait 4500
+
+build 6 photon_cannon 80
+goto rowk_skip
+
+:rush_panic_exp
+wait 50
+
+deaths 13 AtLeast 1 bunker rowk_skip
+time_jump 30 rowk_skip
+resources 13 AtMost Ore 1850 rush_panic_exp
+deaths 13 Set 1 bunker rowk_skip
+guard_all
+build 1 gateway 120
+build 1 forge 120
+defensebuild_gg 2 zealot
+defenseuse_gg 2 zealot
+wait_build 1 forge
+build 2 photon_cannon 80
+build 2 gateway 80
+goto rowk_skip
