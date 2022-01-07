@@ -2741,8 +2741,6 @@ target_expansion
 call resource_waitskip
 goto TMLo
 
-
-
 :dominion_air
 build 1 command_center 150
 wait_buildstart 1 command_center
@@ -2763,10 +2761,10 @@ build 1 barracks 80
 wait_buildstart 1 barracks
 capt_expand 
 build 11 scv 80
-wait_buildstart 11 scv
+wait_buildstart 10 scv
 build 1 refinery 80
 build 12 scv 80
-wait_buildstart 12 scv
+wait_buildstart 11 scv
 define_max 8 marine
 define_max 2 dropship
 groundmap_jump doma_earlydo
@@ -2801,7 +2799,7 @@ defensebuild_gg 2 marine
 defenseuse_gg 2 marine
 defenseuse_ag 1 marine
 build 14 scv 80
-wait_buildstart 14 scv
+wait_buildstart 12 scv
 farms_timing
 train 2 marine
 build 15 scv 80
@@ -2814,23 +2812,20 @@ wait_buildstart 1 bunker
 define_max 12 marine
 train 3 marine
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 14 scv
 build 2 barracks 80
 wait_buildstart 2 barracks
 train 6 marine
-build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 3 supply_depot 80
 wait_buildstart 3 supply_depot
-train 7 marine
 build 17 scv 80
-wait_buildstart 17 scv
+wait_buildstart 15 scv
 build 1 starport 80
 wait_buildstart 1 starport
 defenseclear_gg 
 call t_defaults
 define_max 8 wraith
-train 8 marine
 build 1 academy 80
 wait_buildstart 1 academy
 race_jump fire_skip get_fire fire_skip
@@ -2843,31 +2838,34 @@ defenseuse_gg 1 firebat
 build 1 machine_shop 100
 wait_buildstart 1 machine_shop
 build 18 scv 80
-wait_buildstart 18 scv
-train 10 marine
-train 1 wraith
-build 19 scv 80
-wait_buildstart 19 scv
-build 4 supply_depot 80
-wait_buildstart 4 supply_depot
+wait_buildstart 16 scv
+train 8 marine
 build 2 starport 80
 wait_buildstart 2 starport
+train 1 wraith
+train 1 siege_tank
+build 19 scv 80
+wait_buildstart 17 scv
+build 4 supply_depot 80
+wait_buildstart 4 supply_depot
 random_call 83 earlycloak
 define_max 15 marine
-train 12 marine
-train 2 wraith
+train 10 marine
+train 3 wraith
 random_jump 128 doma_skiptiming
-train 1 siege_tank
+train 2 siege_tank
+train 12 marine
+train 5 wraith
 train 14 marine
-attack_add 12 marine
-attack_add 2 wraith
-attack_add 1 siege_tank
+attack_add 14 marine
+attack_add 5 wraith
+attack_add 2 siege_tank
 attack_prepare
 :doma_skiptiming
 build 3 barracks 80
 wait_buildstart 3 barracks
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 18 scv
 
 define_max 16 marine
 define_max 2 vulture
