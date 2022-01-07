@@ -2438,6 +2438,11 @@ stop
 #other code in-between
 
 :rush_subroutine_earlyground
+multirun eg_do
+return
+#multirun instead of separate block so that we dont waste time here
+
+:eg_do
 #use rush that checks for a small amount of ground defense - rush 5 checks if target owns OVER 6 marines / 2 rines + bunker / 6 ZGS / over 3 zealots
 rush 5 skip_earlyground
 #proceed into a small ling attack since we didn't see ground defense
@@ -2455,8 +2460,8 @@ build 2 hatchery 80
 attack_do
 attack_clear
 :skip_earlyground
-#return from subroutine
-return
+#cancel exec
+stop
 
 :sub_hatch
 player_need 2 hatchery
