@@ -35,17 +35,17 @@ idle_orders 10 16 1 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|hig
 idle_orders 10 16 2 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
 idle_orders 10 16 1 wraith 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
 idle_orders 10 16 3 wraith 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
-idle_orders 10 16 1 wraith 192 devourer|battlecruiser|carrier 150 Health(LessThan 20)
-idle_orders 10 16 2 wraith 192 devourer|battlecruiser|carrier 160 Health(LessThan 40)
-idle_orders 10 16 3 wraith 192 devourer|battlecruiser|carrier 170 Health(LessThan 60)
-idle_orders 10 16 4 wraith 192 devourer|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 16 1 wraith 192 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 16 2 wraith 192 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 16 3 wraith 192 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 16 4 wraith 192 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
 idle_orders 10 16 1 wraith 192 shuttle|observer|overlord 60 Health(LessThan 20)
 idle_orders 10 16 1 goliath 192 group_men 60 Health(LessThan 11)
 idle_orders 10 16 1 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
 idle_orders 10 16 2 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
 idle_orders 10 16 1 vulture 192 group_men 60 Health(LessThan 5)
-idle_orders 10 16 1 battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
-idle_orders 10 16 2 battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+idle_orders 10 16 1 hnorad|battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 16 2 hnorad|battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
 idle_orders 142 256 1 valhalla 1024 zergling|zealot 50 incombat|count(AtLeast 4 48 14)
 idle_orders 142 256 1 valhalla 1024 hydralisk|dark_templar 50 incombat|count(AtLeast 3 48 14)
 idle_orders 142 512 1 valhalla 2048 lurker|revenant|reaver 80 incombat|count(AtLeast 2 48 14)
@@ -127,7 +127,7 @@ define_max 2 dropship
 :tdropsk
 define_max 60 scv
 define_max 12 ghost
-define_max 6 battlecruiser
+define_max 6 hnorad
 define_max 4 science_vessel
 define_max 10 goliath
 define_max 255 medic
@@ -159,7 +159,7 @@ define_max 1 dropship
 :udropsk
 define_max 255 siege_tank
 define_max 255 ghost
-define_max 255 battlecruiser
+define_max 255 hnorad
 define_max 255 science_vessel
 define_max 255 goliath
 define_max 16 heavy_marine
@@ -185,7 +185,7 @@ idle_orders 142 64 1 valhalla 256 zergling|zealot|marine|heavy_marine 50 incomba
 idle_orders 142 64 1 valhalla 256 hydralisk|dark_templar|dragoon|firebat|tesla_trooper|high_templar|ghost|phantom 50 incombat|count(AtLeast 3 48 14)
 idle_orders 142 128 1 valhalla 256 lurker|revenant|reaver|scorpion|death_knight|goliath 80 incombat|count(AtLeast 2 48 14)
 idle_orders 142 128 1 valhalla 256 mutalisk|scout|corsair|skywing|wraith 60 incombat|count(AtLeast 2 48 14)
-idle_orders 142 128 1 valhalla 256 carrier|devourer|guardian|ultralisk|infested_terran|valhalla|battlecruiser|archon 40 incombat
+idle_orders 142 128 1 valhalla 256 carrier|devourer|guardian|ultralisk|infested_terran|valhalla|hnorad|battlecruiser|archon 40 incombat
 stop
 
 :ctech_lockdown
@@ -193,7 +193,7 @@ wait 16
 
 tech_jump 13 Exactly lockdown 0 ctech_lockdown
 idle_orders 115 32 1 phantom 210 group_men 50 Hp(GreaterThanPercent 50)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
-idle_orders 115 32 1 phantom 280 carrier|reaver|battlecruiser|siege_tank|panzer|valhalla 80 Hp(GreaterThanPercent 20)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
+idle_orders 115 32 1 phantom 280 carrier|reaver|hnorad|battlecruiser|siege_tank|panzer|valhalla 80 Hp(GreaterThanPercent 20)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
 stop
 
 :ctech_resto
@@ -2600,16 +2600,16 @@ call resource_waitskip
 tech yamato_gun 70
 place_guard science_vessel 0
 tech personnel_cloaking 70
-defensebuild_gg 2 battlecruiser
-defensebuild_ag 2 battlecruiser
-defensebuild_ga 1 battlecruiser
-defensebuild_aa 1 battlecruiser
+defensebuild_gg 2 hnorad
+defensebuild_ag 2 hnorad
+defensebuild_ga 1 hnorad
+defensebuild_aa 1 hnorad
 defensebuild_gg 2 ghost
 defensebuild_ag 2 ghost
-defenseuse_gg 2 battlecruiser
-defenseuse_ag 2 battlecruiser
-defenseuse_ga 1 battlecruiser
-defenseuse_aa 1 battlecruiser
+defenseuse_gg 2 hnorad
+defenseuse_ag 2 hnorad
+defenseuse_ga 1 hnorad
+defenseuse_aa 1 hnorad
 defenseuse_gg 2 ghost
 defenseuse_ag 2 ghost
 upgrade 1 t_ship_weapon 70
@@ -2673,7 +2673,7 @@ define_max 20 siege_tank
 define_max 20 vulture
 define_max 255 firebat
 define_max 4 ghost
-define_max 4 battlecruiser
+define_max 4 hnorad
 define_max 255 wraith
 attack_do
 attack_clear 
@@ -2704,11 +2704,11 @@ notowns_jump physics_lab TMPu
 attack_do
 attack_clear
 attack_add 1 science_vessel
-attack_add 2 battlecruiser
+attack_add 2 hnorad
 attack_add 10 vulture
 attack_add 10 goliath
 set_attacks 2
-train 2 battlecruiser
+train 2 hnorad
 train 10 vulture
 train 1 science_vessel
 train 10 goliath
@@ -2728,13 +2728,13 @@ call resource_waitskip
 attack_do
 attack_clear
 attack_add 1 science_vessel
-attack_add 3 battlecruiser
+attack_add 3 hnorad
 attack_add 14 siege_tank
 attack_add 14 goliath
 train 1 science_vessel
-train 1 battlecruiser
+train 1 hnorad
 train 10 siege_tank
-train 3 battlecruiser
+train 3 hnorad
 train 14 goliath
 train 14 siege_tank
 target_expansion 
@@ -3037,7 +3037,7 @@ define_max 255 goliath
 define_max 6 siege_tank
 define_max 255 firebat
 define_max 2 ghost
-define_max 7 battlecruiser
+define_max 7 hnorad
 define_max 14 wraith
 attack_do
 attack_clear 
@@ -3068,11 +3068,11 @@ notowns_jump physics_lab DPu
 attack_do
 attack_clear
 attack_add 1 science_vessel
-attack_add 4 battlecruiser
+attack_add 4 hnorad
 set_attacks 2
 train 2 science_vessel
-train 4 battlecruiser
-wait_force 4 battlecruiser
+train 4 hnorad
+wait_force 4 hnorad
 target_expansion 
 call resource_waitskip
 
@@ -3107,12 +3107,12 @@ call resource_waitskip
 attack_do
 attack_clear
 attack_add 1 science_vessel
-attack_add 6 battlecruiser
+attack_add 6 hnorad
 attack_add 10 wraith
 train 2 science_vessel
-train 6 battlecruiser
+train 6 hnorad
 train 10 wraith
-wait_force 3 battlecruiser
+wait_force 3 hnorad
 target_expansion 
 call resource_waitskip
 goto DLo
