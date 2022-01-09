@@ -2614,8 +2614,12 @@ defenseuse_gg 2 ghost
 defenseuse_ag 2 ghost
 upgrade 1 t_ship_weapon 70
 tech lockdown 70
-wait 2250
+call resource_waitskip
 
+idle_orders 113 96 2 hnorad 192 ultralisk|devourer|spore_colony|hnorad|battlecruiser|missile_turret|carrier|scout|valkyrie 80 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 288 photon_cannon|bunker|sunken_colony 70 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 192 lurker|mutalisk|guardian|reaver|archon|siege_tank|wraith|panzer 50 InCombat|Health(GreaterThanPercent 80)
+idle_orders 113 96 1 hnorad 256 dark_archon|science_vessel|arbiter 30 InCombat|Health(GreaterThanPercent 75)
 upgrade 1 battlecruiser_mana 70
 upgrade 2 t_ship_weapon 70
 upgrade 1 t_ship_plating 70
@@ -2961,6 +2965,10 @@ wait_buildstart 2 science_facility
 upgrade 3 t_ship_weapon 70
 call resource_waitskip
 
+idle_orders 113 96 2 hnorad 192 ultralisk|devourer|spore_colony|hnorad|battlecruiser|missile_turret|carrier|scout|valkyrie 80 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 288 photon_cannon|bunker|sunken_colony 70 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 192 lurker|mutalisk|guardian|reaver|archon|siege_tank|wraith|panzer 50 InCombat|Health(GreaterThanPercent 80)
+idle_orders 113 96 1 hnorad 256 dark_archon|science_vessel|arbiter 30 InCombat|Health(GreaterThanPercent 75)
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
 multirun iniBTurret
