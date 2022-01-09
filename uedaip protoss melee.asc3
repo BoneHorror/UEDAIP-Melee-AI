@@ -27,22 +27,23 @@ idle_orders 10 64 1 dragoon 192 group_men 100 Health(LessThan 15)
 idle_orders 10 64 2 dragoon 192 group_men 105 Health(LessThan 35)
 idle_orders 10 64 1 dragoon 192 infested_terran|dark_archon|defiler 130 Health(LessThan 20)
 idle_orders 10 64 1 dragoon 192 lurker|queen 120 Health(LessThan 20)
+idle_orders 10 16 1 archon 128 group_men 50 InCombat
 idle_orders 10 64 1 archon 160 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 150 count(AtLeast 3 48 14)
 idle_orders 10 16 1 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
 idle_orders 10 16 2 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
 idle_orders 10 16 1 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
 idle_orders 10 16 3 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
-idle_orders 10 16 1 scout|corsair 192 devourer|battlecruiser|carrier 150 Health(LessThan 20)
-idle_orders 10 16 2 scout|corsair 192 devourer|battlecruiser|carrier 160 Health(LessThan 40)
-idle_orders 10 16 3 scout|corsair 192 devourer|battlecruiser|carrier 170 Health(LessThan 60)
-idle_orders 10 16 4 scout|corsair 192 devourer|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 16 1 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 16 2 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 16 3 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 16 4 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
 idle_orders 10 16 1 scout|corsair 192 shuttle|observer|overlord 60 Health(LessThan 20)
 idle_orders 10 16 1 revenant 192 mutalisk|scout|corsair|scourge|wraith 110 count(AtLeast 4 60 14)
 idle_orders 10 16 3 revenant 192 mutalisk|scout|corsair|scourge|wraith 135 count(AtLeast 4 60 14)
-idle_orders 10 16 1 revenant 192 devourer|battlecruiser|carrier 150 count(AtLeast 3 60 14)
-idle_orders 10 16 2 revenant 192 devourer|battlecruiser|carrier 160 count(AtLeast 3 60 14)
-idle_orders 10 16 3 revenant 192 devourer|battlecruiser|carrier 170 count(AtLeast 3 60 14)
-idle_orders 10 16 4 revenant 192 devourer|battlecruiser|carrier 190 count(AtLeast 3 60 14)
+idle_orders 10 16 1 revenant 192 devourer|hnorad|battlecruiser|carrier 150 count(AtLeast 3 60 14)
+idle_orders 10 16 2 revenant 192 devourer|hnorad|battlecruiser|carrier 160 count(AtLeast 3 60 14)
+idle_orders 10 16 3 revenant 192 devourer|hnorad|battlecruiser|carrier 170 count(AtLeast 3 60 14)
+idle_orders 10 16 4 revenant 192 devourer|hnorad|battlecruiser|carrier 190 count(AtLeast 3 60 14)
 idle_orders 10 16 1 revenant 192 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
 idle_orders 10 16 1 revenant 192 group_men 80 count(AtLeast 5 60 14)
 idle_orders 10 16 1 revenant 192 group_men 90 count(AtLeast 7 60 14)
@@ -651,7 +652,7 @@ attack_prepare
 panic exp_noguard
 train 4 dark_templar
 define_max 8 dark_templar
-idle_orders 184 64 1 dark_archon 612 queen|science_vessel|battlecruiser|valhalla|dark_archon 40 energy(GreaterThanPercent,66)
+idle_orders 184 64 1 dark_archon 612 queen|science_vessel|hnorad|battlecruiser|valhalla|dark_archon 40 energy(GreaterThanPercent,66)
 idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 energy(GreaterThanPercent,50)
 do_morph 1 dark_archon
 tech mind_control 70
@@ -667,11 +668,11 @@ defensebuild_gg 2 zealot
 defensebuild_aa 1 corsair
 defenseuse_aa 1 corsair
 train 5 revenant
-idle_orders 182 780 1 dark_archon 912 ultralisk|battlecruiser|valhalla|carrier|arbiter 30 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 ultralisk|hnorad|battlecruiser|valhalla|carrier|arbiter 30 health(GreaterThanPercent,66)
 idle_orders 182 780 1 dark_archon 912 lurker|siege_tank|panzer 20 health(GreaterThanPercent,66)
 idle_orders 182 780 1 dark_archon 912 queen|science_vessel|phantom 20 health(GreaterThanPercent,66)
 idle_orders 182 780 1 dark_archon 912 defiler|high_templar 10 health(GreaterThanPercent,66)
-idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser 80 incombat|health(GreaterThanPercent,50)
+idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser|hnorad 80 incombat|health(GreaterThanPercent,50)
 idle_orders 182 16 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
 define_max 4 corsair
 train 1 corsair
@@ -1346,7 +1347,15 @@ attack_add 4 archon
 set_attacks 2
 
 train 8 zealot
-train 8 high_templar
+train 5 high_templar
+do_morph 4 archon
+wait 250
+
+train 5 high_templar
+do_morph 4 archon
+wait 150
+
+train 4 high_templar
 do_morph 4 archon
 target_expansion 
 call resource_waitskip
@@ -1361,9 +1370,18 @@ set_attacks 2
 
 train 2 scout
 train 8 zealot
-train 8 high_templar
 do_morph 4 archon
+wait 250
+
+train 3 scout
+train 9 zealot
+train 5 high_templar
+do_morph 4 archon
+wait 150
+
 train 4 scout
+train 4 high_templar
+do_morph 4 archon
 train 10 zealot
 wait 500
 target_expansion 
@@ -1385,14 +1403,23 @@ set_attacks 2
 train 2 harbiter
 train 10 zealot
 train 1 reaver
-train 8 high_templar
+train 6 high_templar
 train 14 zealot
 do_morph 4 archon
 train 2 reaver
+train 6 high_templar
 train 2 harbiter
+do_morph 5 archon
 train 19 zealot
+train 6 high_templar
+wait 150
+
 do_morph 6 archon
 train 28 zealot
+train 5 high_templar
+wait 150
+
+do_morph 6 archon
 target_expansion 
 
 call resource_waitskip
