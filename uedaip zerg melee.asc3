@@ -50,8 +50,10 @@ idle_orders 10 16 3 guardian 224 group_men 90 Health(LessThan 60)
 idle_orders 10 16 5 guardian 224 group_men 110 Health(LessThan 100)
 idle_orders 10 16 1 devourer 128 group_men 60 Health(LessThan 30)
 idle_orders 10 16 2 devourer 128 group_men 70 Health(LessThan 50)
-#idle_orders 11 12 3 lurker 192 Any 60 InCombat|WithoutUnitFlags(Air)
-#idle_orders 11 12 3 lurker 192 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
+idle_orders 11 120 1 lurker 192 Any 20 WithoutUnitFlags(Air)
+idle_orders 11 120 1 lurker 192 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
+idle_orders 11 120 1 lurker 192 Any 60 InCombat|WithoutUnitFlags(Air)
+idle_orders 11 120 1 lurker 192 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
 idle_orders 10 16 1 zergling 192 infested_terran 60 InCombat
 idle_orders 10 16 9 zergling 224 panzer|death_knight|medic|siege_tank|goliath|revenant|dragoon|reaver|dark_archon|defiler 70 InCombat
 idle_orders 10 16 1 hydralisk 192 group_men 80 Health(LessThan 8)
