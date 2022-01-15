@@ -13,6 +13,7 @@ build 5 probe 100
 max_force 800
 supply 13 Set 260 Max marine Protoss supply_ensure
 #under_attack 0
+idle_orders disablebuiltin 0 0 0 0 0 0 0
 idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)
 idle_orders 10 16 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
 idle_orders 10 16 1 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 90 Health(LessThan 12)
@@ -115,7 +116,93 @@ defenseuse_ga 2 scout
 defenseuse_ga 1 carrier
 defenseuse_ga 2 scout
 defenseuse_ga 1 hornet
+multirun ptech_storm
+multirun ptech_stasis
+multirun ptech_recall
+multirun ptech_mael
+multirun ptech_feedback
+multirun ptech_mindcontrol
+multirun ptech_dweb
 return 
+
+:ptech_storm
+wait 16
+
+tech_jump 13 Exactly psionic_storm 0 ptech_storm
+idle_orders 142 256 1 high_templar 1324 ultralisk|devourer|carrier|hnorad|battlecruiser|valkyrie|science_vessel|arbiter|reaver|panzer|siege_tank 50 incombat|count(AtLeast 2 60 14)
+idle_orders 142 128 1 high_templar 1024 hydralisk|mutalisk|guardian|wraith|scout|corsair|marine|heavy_marine|tesla_trooper|drone|probe|scv|medic|firebat|goliath|vulture|dragoon|zealot|high_templar 80 incombat|count(AtLeast 4 60 14)
+idle_orders 142 128 1 high_templar 1024 group_men 60 incombat|count(AtLeast 5 60 14)
+idle_orders 142 128 1 high_templar 1024 group_men 40 incombat|count(AtLeast 3 40 14)
+idle_orders 142 128 1 high_templar 192 group_men 40 Deathrattle
+stop
+
+:ptech_stasis
+wait 16
+
+tech_jump 13 Exactly stasis_field 0 ptech_stasis
+idle_orders 147 1024 1 arbiter 1536 archon|ultralisk|battlecruiser|hnorad 40 incombat
+idle_orders 147 1024 1 arbiter 1536 carrier|guardian|devourer|valhalla 50 incombat
+idle_orders 147 1024 1 arbiter 1536 dark_templar|hydralisk|dragoon|zealot|mutalisk|scourge|corsair|wraith|skywing|valkyrie 30 incombat|count(AtLeast 2 48 13)
+idle_orders 147 1024 1 arbiter 1536 dark_archon|archon|queen|defiler|ghost|science_vessel|phantom 30 incombat
+idle_orders 147 1024 1 arbiter 1536 reaver|infested_terran|siege_tank|lurker|panzer|death_knight 50 incombat|count(AtLeast 2 48 13)
+idle_orders 147 1024 1 arbiter 536 group_men 60 incombat|count(AtLeast 5 60 14)
+idle_orders 147 0 0 arbiter 256 group_men 80 deathrattle
+idle_orders 147 1024 1 harbiter 736 archon|ultralisk|battlecruiser|hnorad 40 incombat
+idle_orders 147 1024 1 harbiter 736 carrier|guardian|devourer|valhalla 50 incombat
+idle_orders 147 1024 1 harbiter 736 dark_templar|hydralisk|dragoon|zealot|mutalisk|scourge|corsair|wraith|skywing|valkyrie 30 incombat|count(AtLeast 2 48 13)
+idle_orders 147 1024 1 harbiter 736 dark_archon|archon|queen|defiler|ghost|science_vessel|phantom 30 incombat
+idle_orders 147 1024 1 harbiter 736 reaver|infested_terran|siege_tank|lurker|panzer|death_knight 50 incombat|count(AtLeast 2 48 13)
+idle_orders 147 1024 1 harbiter 336 group_men 60 incombat|count(AtLeast 5 60 14)
+idle_orders 147 0 0 harbiter 256 group_men 80 deathrattle
+stop
+
+:ptech_recall
+wait 16
+
+tech_jump 13 Exactly recall 0 ptech_recall
+idle_orders 137 16 1 arbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
+idle_orders 137 16 1 arbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
+idle_orders 137 16 1 arbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
+idle_orders 137 16 1 harbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
+idle_orders 137 16 1 harbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
+idle_orders 137 16 1 harbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
+stop
+
+:ptech_mael
+wait 16
+
+tech_jump 13 Exactly maelstrom 0 ptech_mael
+idle_orders 186 882 1 dark_archon 1024 group_men 80 incombat|count(AtLeast 2 60 14)|unitflags(organic)
+idle_orders 186 0 1 dark_archon 256 group_men 90 unitflags(organic)|deathrattle
+stop
+
+:ptech_feedback
+idle_orders 184 64 1 dark_archon 612 queen|science_vessel|hnorad|battlecruiser|valhalla|dark_archon 40 Energy(GreaterThanPercent,66)|Self(Energy(GreaterThan 85))
+idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 Energy(GreaterThanPercent,50)|Self(Energy(GreaterThan 145))
+idle_orders 184 0 1 dark_archon 256 group_men 80 Energy(GreaterThan,2)|Deathrattle
+stop
+
+:ptech_mindcontrol
+wait 16
+
+tech_jump 13 Exactly mind_control 0 ptech_mindcontrol
+idle_orders 182 780 1 dark_archon 912 ultralisk|hnorad|battlecruiser|valhalla|carrier|arbiter 30 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 lurker|siege_tank|panzer 20 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 queen|science_vessel|phantom 20 health(GreaterThanPercent,66)
+idle_orders 182 780 1 dark_archon 912 defiler|high_templar 10 health(GreaterThanPercent,66)
+idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser|hnorad 80 incombat|health(GreaterThanPercent,50)
+idle_orders 182 16 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
+idle_orders 182 0 1 dark_archon 256 group_men 80 deathrattle
+stop
+
+:ptech_dweb
+wait 16
+
+tech_jump 13 Exactly disruption_web 0 ptech_dweb
+idle_orders 181 440 1 corsair 338 group_men 80 incombat|count(AtLeast 3 60 14)|WithoutUnitFlags(Air)
+idle_orders 181 280 1 corsair 512 sunken_colony|spore_colony|lurker|photon_cannon|bunker|missile_turret|siege_tank|reaver|panzer 70 incombat
+idle_orders 181 0 1 corsair 188 group_men 80 deathrattle|WithoutUnitFlags(Air)
+stop
 
 :ground_picker
 race_jump vst vsz vsp
@@ -652,8 +739,6 @@ attack_prepare
 panic exp_noguard
 train 4 dark_templar
 define_max 8 dark_templar
-idle_orders 184 64 1 dark_archon 612 queen|science_vessel|hnorad|battlecruiser|valhalla|dark_archon 40 energy(GreaterThanPercent,66)
-idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 energy(GreaterThanPercent,50)
 do_morph 1 dark_archon
 tech mind_control 40
 train 3 revenant
@@ -668,12 +753,6 @@ defensebuild_gg 2 zealot
 defensebuild_aa 1 corsair
 defenseuse_aa 1 corsair
 train 5 revenant
-idle_orders 182 780 1 dark_archon 912 ultralisk|hnorad|battlecruiser|valhalla|carrier|arbiter 30 health(GreaterThanPercent,66)
-idle_orders 182 780 1 dark_archon 912 lurker|siege_tank|panzer 20 health(GreaterThanPercent,66)
-idle_orders 182 780 1 dark_archon 912 queen|science_vessel|phantom 20 health(GreaterThanPercent,66)
-idle_orders 182 780 1 dark_archon 912 defiler|high_templar 10 health(GreaterThanPercent,66)
-idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser|hnorad 80 incombat|health(GreaterThanPercent,50)
-idle_orders 182 16 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
 define_max 4 corsair
 train 1 corsair
 train 1 shuttle
@@ -729,9 +808,6 @@ define_max 1 observer
 upgrade 2 p_plasma_shield 40
 tech disruption_web 40
 upgrade 1 dark_archon_mana 40
-idle_orders 181 440 1 corsair 338 group_men 80 incombat|count(AtLeast 3 60 14)
-idle_orders 181 280 1 corsair 512 sunken_colony|spore_colony|lurker|photon_cannon|bunker|missile_turret|siege_tank|reaver|panzer 70 incombat
-idle_orders 181 0 0 corsair 188 group_men 30 deathrattle
 define_max 2 observer
 build 2 stargate 80
 wait_buildstart 2 stargate
@@ -769,7 +845,6 @@ tech maelstrom 40
 place_guard dark_archon 0
 call resource_waitskip
 
-idle_orders 186 882 1 dark_archon 1024 group_men 80 incombat|count(AtLeast 2 60 14)|unitflags(organic)
 expand 5 exp_noguard
 place_guard dark_archon 0
 :noguard_repeater
