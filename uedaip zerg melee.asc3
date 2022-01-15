@@ -149,50 +149,37 @@ random_call 16 rush_subroutine_earlyground
 wait_buildstart 1 spawning_pool
 #wait_buildstart 1 extractor
 #call try_town
-aicontrol build_gas
+
 multirun earlydef_panic
 defenseuse_gg 1 zergling
+farms_timing
 build 15 drone 80
+wait_buildstart 11 drone
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
-build 1 extractor 80
 build 2 hatchery 80
 wait_buildstart 2 hatchery
 build 1 sunken_colony 80
-build 3 overlord 80
-wait_buildstart 3 overlord
-build 1 hydralisk_den 80
-wait_buildstart 1 hydralisk_den
+build 1 extractor 8
+aicontrol build_gas
 defensebuild_gg 1 zergling
-defensebuild_gg 1 hydralisk
-defenseuse_gg 1 hydralisk
 build 18 drone 80
+wait_buildstart 15 drone
+build 2 creep_colony 80
+wait_buildstart 2 creep_colony
+build 2 sunken_colony 80
 build 1 lair 100
 wait_buildstart 1 lair
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
-build 2 creep_colony 80
-build 3 overlord 110
-build 2 sunken_colony 80
-wait_buildstart 3 overlord
-upgrade 1 zergling_speed 70
-farms_notiming
+upgrade 1 zergling_speed 30
 build 1 evolution_chamber 80
 wait_build 1 lair
-build 1 spire 80
-wait_buildstart 1 spire
 build 4 overlord 80
-defensebuild_gg 2 mutalisk
-defenseuse_gg 3 mutalisk
-defensebuild_ag 2 mutalisk
-defenseuse_ag 2 mutalisk
-defensebuild_aa 2 mutalisk
-defenseuse_aa 4 mutalisk
-expand 2 generic_expansion
-farms_timing
-upgrade 1 z_carapace 70
-upgrade 1 z_flyer_carapace 70
-build 1 queen_nest 80
+expand 2 low_prio
+build 3 creep_colony 80
+wait_buildstart 3 creep_colony
+build 3 sunken_colony 80
 return
 
 :p_spread
@@ -258,7 +245,7 @@ train 6 hydralisk
 wait_build 1 lair
 tech lurker_aspect 90
 build 18 drone 80
-upgrade 1 burrowed_regen 50
+upgrade 1 burrowed_regen 40
 build 4 overlord 80
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
@@ -318,7 +305,7 @@ wait_buildstart 10 drone
 build 1 lair 110
 defensebuild_gg 2 zergling
 defenseuse_gg 4 zergling
-upgrade 1 zergling_speed 70
+upgrade 1 zergling_speed 40
 aicontrol build_gas
 build 1 extractor 80
 #wait_buildstart 1 extractor
@@ -346,7 +333,7 @@ build 18 drone 80
 train 6 mutalisk
 train 14 zergling
 upgrade 1 z_missile_attack 50
-upgrade 1 burrowed_regen 50
+upgrade 1 burrowed_regen 30
 build 4 overlord 60
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 lurker
@@ -633,7 +620,7 @@ wait_buildstart 12 drone
 build 3 hatchery 80
 expand 1 priority_expansion
 build 1 evolution_chamber 80
-upgrade 1 z_missile_attack 70
+upgrade 1 z_missile_attack 50
 wait_build 1 lair
 build 4 overlord 80
 defensebuild_gg 2 hydralisk
@@ -642,7 +629,7 @@ defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
 aicontrol build_gas
 farms_timing
-upgrade 1 hydralisk_speed 60
+upgrade 1 hydralisk_speed 50
 train 15 hydralisk
 build 1 spire 90
 defensebuild_aa 1 mutalisk
@@ -721,14 +708,14 @@ wait_buildstart 2 hatchery
 train 1 hydralisk
 build 1 evolution_chamber 80
 train 3 hydralisk
-upgrade 1 hydralisk_speed 75
+upgrade 1 hydralisk_speed 45
 train 12 hydralisk
 build 3 hatchery 80
-upgrade 1 z_missile_attack 70
+upgrade 1 z_missile_attack 40
 train 18 hydralisk
 expand 2 generic_expansion
 tech burrowing 60
-upgrade 1 hydralisk_range 75
+upgrade 1 hydralisk_range 40
 train 22 hydralisk
 set_attacks 2
 attack_add 22 hydralisk
@@ -742,7 +729,7 @@ define_max 14 zergling
 build 1 lair 110
 wait_buildstart 1 lair
 build 19 drone 80
-upgrade 1 zergling_speed 70
+upgrade 1 zergling_speed 40
 build 5 hatchery 80
 train 8 zergling
 train 12 zergling
@@ -754,7 +741,7 @@ build 21 drone 80
 build 1 lair 80
 train 26 hydralisk
 upgrade 1 z_carapace 50
-upgrade 1 burrowed_regen 50
+upgrade 1 burrowed_regen 30
 build 4 overlord 60
 defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
@@ -765,7 +752,7 @@ tech lurker_aspect 80
 train 45 hydralisk
 attack_add 45 hydralisk
 attack_prepare
-upgrade 2 z_carapace 70
+upgrade 2 z_carapace 50
 attack_do
 attack_clear
 defensebuild_gg 1 hydralisk
@@ -776,16 +763,16 @@ wait_build 1 queen_nest
 multirun late_flood
 build 1 hive 100
 wait_build 1 hive
-upgrade 1 hydralisk_range 75
+upgrade 1 hydralisk_range 45
 build 1 defiler_mound 80
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 expand 2 generic_expansion
 call resource_waitskip
 build 3 evolution_chamber 80
-upgrade 1 z_flyer_carapace 70
-upgrade 2 z_missile_attack 70
-upgrade 1 hydra_attack 60
+upgrade 1 z_flyer_carapace 40
+upgrade 2 z_missile_attack 50
+upgrade 1 hydra_attack 50
 define_max 6 queen
 define_max 34 zergling
 train 2 queen
@@ -798,13 +785,13 @@ defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 expand 4 generic_expansion
-upgrade 1 queen_mana 50
-upgrade 1 overlord_capacity 70
+upgrade 1 queen_mana 35
+upgrade 1 overlord_capacity 40
 tech consume 70
 call resource_waitskip
 define_max 2 defiler
-upgrade 3 z_missile_attack 70
-upgrade 3 z_carapace 70
+upgrade 3 z_missile_attack 40
+upgrade 3 z_carapace 50
 call resource_waitskip
 upgrade 1 ultralisk_speed 70
 call resource_waitskip
@@ -812,9 +799,9 @@ build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
 call resource_waitskip
-upgrade 3 z_melee_attack 60
-upgrade 1 burrowed_regen 60
-upgrade 1 ultralisk_armor 70
+upgrade 3 z_melee_attack 30
+upgrade 1 burrowed_regen 30
+upgrade 1 ultralisk_armor 40
 upgrade 3 z_flyer_carapace 30
 upgrade 1 voracity 30
 build 1 spire 80
@@ -878,8 +865,8 @@ build 1 extractor 80
 #wait_buildstart 1 extractor
 aicontrol build_gas
 farms_timing
-upgrade 1 burrowed_regen 60
-upgrade 1 z_carapace 70
+upgrade 1 burrowed_regen 30
+upgrade 1 z_carapace 40
 tech lurker_aspect 80
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
@@ -895,10 +882,14 @@ train 16 zergling
 train 8 mutalisk
 train 2 lurker
 build 2 evolution_chamber 80
-upgrade 1 z_missile_attack 70
+upgrade 1 z_missile_attack 30
 train 2 lurker
-upgrade 2 z_carapace 70
-upgrade 2 z_flyer_carapace 70
+upgrade 2 z_carapace 30
+upgrade 2 z_flyer_carapace 50
+train 10 zergling
+train 4 mutalisk
+train 20 zergling
+train 7 mutalisk
 train 30 zergling
 train 10 mutalisk
 attack_add 10 mutalisk
@@ -906,8 +897,14 @@ attack_add 2 lurker
 attack_add 30 zergling
 call force_attack
 build 1 queen_nest 80
-upgrade 2 z_carapace 80
+upgrade 2 z_carapace 30
 build 1 spire 80
+train 8 zergling
+train 5 mutalisk
+train 3 hydralisk
+train 20 zergling
+train 3 lurker
+train 6 mutalisk
 train 30 zergling
 train 5 mutalisk
 train 5 hydralisk
@@ -919,9 +916,7 @@ attack_add 10 mutalisk
 call force_attack
 build 1 spire 80
 upgrade 1 overlord_speed 30
-wait 16
-attack_timeout 10
-wait 160
+attack_do
 attack_clear
 goto late_vs_zerg
 
@@ -959,7 +954,8 @@ wait_buildstart 11 drone
 build 2 creep_colony 80
 build 3 overlord 80
 wait_buildstart 3 overlord
-upgrade 1 zergling_speed 70
+upgrade 1 zergling_speed 40
+build 1 hydralisk_den 80
 farms_notiming
 build 17 drone 80
 wait_build 15 drone
@@ -967,22 +963,22 @@ build 2 sunken_colony 80
 build 1 evolution_chamber 80
 expand 2 generic_expansion
 wait_build 1 lair
-build 1 hydralisk_den 80
 build 2 hatchery 80
 wait_buildstart 1 hydralisk_den
 build 3 overlord 60
-defensebuild_gg 2 hydralisk
-defenseuse_gg 3 hydralisk
+defensebuild_gg 1 hydralisk
+defenseuse_gg 2 hydralisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
 farms_timing
-upgrade 1 z_carapace 70
+upgrade 1 z_carapace 50
 tech lurker_aspect 80
-upgrade 1 hydralisk_speed 70
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 3 sunken_colony 80
 call resource_waitskip
+defensebuild_gg 1 lurker
+defenseuse_gg 1 lurker
 expand 4 generic_expansion
 build 3 hatchery 80
 train 6 zergling
@@ -992,32 +988,46 @@ train 7 hydralisk
 train 16 zergling
 train 3 lurker
 build 2 evolution_chamber 80
-upgrade 1 z_missile_attack 70
+upgrade 1 z_missile_attack 35
 train 5 lurker
 train 30 zergling
 attack_add 5 lurker
 attack_add 30 zergling
 call force_attack
 build 1 queen_nest 80
-upgrade 2 z_carapace 70
+upgrade 2 z_carapace 50
 call resource_waitskip
 build 1 spire 80
-train 50 zergling
+train 4 hydralisk
+train 10 zergling
+train 4 lurker
+train 18 zergling
+train 6 hydralisk
+train 24 zergling
+train 6 lurker
+train 10 hydralisk
+train 30 zergling
+train 8 lurker
+train 36 zergling
+train 10 lurker
+train 40 zergling
 train 12 hydralisk
 train 10 lurker
 attack_add 10 lurker
-attack_add 50 zergling
+attack_add 40 zergling
 call force_attack
 build 1 spire 80
 upgrade 1 overlord_speed 30
-wait 16
-attack_timeout 10
-wait 160
+attack_do
 attack_clear
-upgrade 1 burrowed_regen 60
+upgrade 1 burrowed_regen 30
+upgrade 1 hydralisk_speed 50
 goto late_vs_terran
 
 :force_attack
+attack_prepare
+wait 16
+
 eval_harass success_at
 attack_clear
 return
@@ -1055,7 +1065,13 @@ build 1 hatchery 100
 get_oldpeons 1
 :gen_ret
 wait_build 1 hatchery
+time_jump 30 geto_get
+goto geto_get_s
+
+:geto_get
 get_oldpeons 4
+
+:geto_get_s
 max_workers 19
 multirun worker_decay
 build 4 drone 90
@@ -1123,7 +1139,13 @@ build 2 drone 80
 wait_build 2 drone
 build 4 drone 90
 wait_buildstart 4 drone
+time_jump 25 geto_getp
+goto geto_get_sp
+
+:geto_getp
 get_oldpeons 6
+
+:geto_get_sp
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
@@ -1168,14 +1190,22 @@ define_max 12 guardian
 define_max 4 devourer
 define_max 6 scourge
 call expand_opening
+build 1 spire 80
+wait_buildstart 1 spire
+train 14 zergling
 :4pret
 #defensebuild_ag 2 scourge
+defensebuild_gg 1 mutalisk
+defenseuse_gg 1 mutalisk
+defenseuse_gg 1 mutalisk
+defensebuild_aa 1 mutalisk
+defenseuse_aa 1 mutalisk
 defenseuse_ag 2 scourge
 multirun scourge_getter
 defenseuse_aa 2 scourge
 set_attacks 2
 build 2 hatchery 80
-upgrade 1 z_flyer_carapace 75
+upgrade 1 z_flyer_carapace 45
 :es_check_bank
 train 4 mutalisk
 train 8 zergling
@@ -1192,10 +1222,11 @@ attack_do
 attack_clear
 deaths 13 AtLeast 1 valhalla es_skip_check
 deaths 13 Add 1 valhalla es_skip_check
-upgrade 1 z_carapace 70
-build 2 creep_colony 80
+upgrade 1 z_carapace 40
+#build 2 creep_colony 80
 expand 2 generic_expansion
-build 2 sunken_colony 80
+#build 2 sunken_colony 80
+#redundant, ran already in expand_opening subroutine
 resources_jump 600 400 es_check_bank
 :es_skip_check
 set_attacks 9
@@ -1232,11 +1263,11 @@ deaths 13 Add 1 lurker es_pskip
 deaths 13 AtLeast 3 lurker es_pskip
 notowns_jump lurker es_pressure
 :es_pskip
-upgrade 1 burrowed_regen 70
+upgrade 1 burrowed_regen 40
 tech burrowing 60
 expand 2 generic_expansion
-upgrade 2 z_flyer_carapace 75
-upgrade 2 z_carapace 70
+upgrade 2 z_flyer_carapace 45
+upgrade 2 z_carapace 40
 train 12 zergling
 train 4 hydralisk
 train 16 zergling
@@ -1280,10 +1311,9 @@ defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 expand 2 generic_expansion
 build 2 evolution_chamber 80
-upgrade 2 z_flyer_attack 70
+upgrade 2 z_flyer_attack 40
 upgrade 1 z_missile_attack 30
-upgrade 2 z_carapace 70
-call resource_waitskip
+upgrade 2 z_carapace 50
 train 12 zergling
 train 4 hydralisk
 train 16 zergling
@@ -1300,9 +1330,9 @@ call add_scourge
 attack_prepare
 wait 16
 
-upgrade 1 overlord_speed 60
+upgrade 1 overlord_speed 40
+call resource_waitskip
 train 15 mutalisk
-train 12 hydralisk
 attack_do
 attack_clear
 attack_add 15 mutalisk
@@ -1312,6 +1342,7 @@ wait 16
 
 attack_do
 attack_clear
+train 12 hydralisk
 build 1 defiler_mound 80
 build 2 spire 80
 wait_buildstart 2 spire
@@ -1323,7 +1354,7 @@ multirun scourge_getter
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 expand 4 generic_expansion
-upgrade 3 z_carapace 70
+upgrade 3 z_carapace 40
 tech consume 70
 train 6 mutalisk
 train 24 zergling
@@ -1344,9 +1375,9 @@ attack_do
 attack_clear
 build 3 hatchery 80
 call resource_waitskip
-upgrade 2 z_missile_attack 60
-upgrade 2 z_melee_attack 60
-upgrade 2 z_flyer_attack 70
+upgrade 2 z_missile_attack 40
+upgrade 2 z_melee_attack 40
+upgrade 2 z_flyer_attack 50
 train 6 hydralisk
 build 4 hatchery 80
 train 12 mutalisk
@@ -1376,11 +1407,11 @@ attack_clear
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
-upgrade 1 para_symbiosis 70
-upgrade 3 z_melee_attack 70
-upgrade 3 z_flyer_attack 60
-upgrade 3 z_missile_attack 60
-upgrade 3 z_flyer_carapace 70
+upgrade 1 para_symbiosis 40
+upgrade 3 z_melee_attack 40
+upgrade 3 z_flyer_attack 30
+upgrade 3 z_missile_attack 30
+upgrade 3 z_flyer_carapace 50
 tech plague 60
 upgrade 1 defiler_mana 50
 multirun exp_repeater
@@ -1459,10 +1490,10 @@ defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 expand 2 generic_expansion
 build 2 evolution_chamber 80
-upgrade 2 z_flyer_carapace 70
-upgrade 2 z_flyer_attack 60
+upgrade 2 z_flyer_carapace 50
+upgrade 2 z_flyer_attack 40
 upgrade 1 z_missile_attack 30
-upgrade 2 z_carapace 70
+upgrade 2 z_carapace 40
 train 12 zergling
 train 4 hydralisk
 train 16 zergling
@@ -1479,7 +1510,7 @@ call add_scourge
 attack_prepare
 wait 16
 
-upgrade 1 overlord_speed 60
+upgrade 1 overlord_speed 50
 train 9 mutalisk
 train 6 hydralisk
 attack_do
@@ -1525,8 +1556,8 @@ wait 16
 attack_do
 attack_clear
 
-upgrade 3 z_carapace 70
-upgrade 1 voracity 70
+upgrade 3 z_carapace 50
+upgrade 1 voracity 50
 tech consume 70
 train 3 ultralisk
 train 24 zergling
@@ -1549,10 +1580,10 @@ attack_clear
 build 3 hatchery 80
 train 3 ultralisk
 call resource_waitskip
-upgrade 1 ultralisk_speed 70
-upgrade 2 z_missile_attack 60
-upgrade 2 z_melee_attack 70
-upgrade 2 z_flyer_attack 70
+upgrade 1 ultralisk_speed 40
+upgrade 2 z_missile_attack 30
+upgrade 2 z_melee_attack 40
+upgrade 2 z_flyer_attack 40
 train 6 hydralisk
 build 4 hatchery 80
 train 6 lurker
@@ -1576,11 +1607,11 @@ attack_clear
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
-upgrade 1 ultralisk_armor 75
-upgrade 3 z_melee_attack 75
-upgrade 3 z_flyer_attack 65
-upgrade 3 z_missile_attack 65
-upgrade 3 z_flyer_carapace 75
+upgrade 1 ultralisk_armor 45
+upgrade 3 z_melee_attack 45
+upgrade 3 z_flyer_attack 35
+upgrade 3 z_missile_attack 35
+upgrade 3 z_flyer_carapace 45
 random_jump 150 terran_noguard
 build 2 spire 80
 wait_buildstart 2 spire
@@ -1626,7 +1657,7 @@ train 5 guardian
 attack_add 15 mutalisk
 attack_add 5 guardian
 target_expansion
-wait 2033
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -1702,11 +1733,10 @@ attack_clear
 train 10 mutalisk
 train 20 zergling
 call resource_waitskip
-train 25 mutalisk
-train 40 zergling
-attack_add 15 mutalisk
+train 20 mutalisk
+attack_add 20 mutalisk
 target_expansion
-wait 2033
+call resource_waitskip
 
 attack_do
 attack_clear
@@ -1717,21 +1747,26 @@ attack_add 40 zergling
 attack_add 1 defiler
 call add_scourge
 target_expansion
-train 5 mutalisk
+train 3 hydralisk
+train 3 lurker
 train 12 zergling
 train 8 ultralisk
+train 6 hydralisk
+train 6 lurker
 train 2 defiler
 train 24 zergling
 train 2 queen
-train 20 hydralisk
+train 9 hydralisk
+train 32 zergling
+train 9 lurker
+train 40 zergling
 attack_do
 attack_clear
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
-attack_add 24 zergling
-attack_add 20 hydralisk
+attack_add 40 zergling
 attack_add 8 ultralisk
-attack_add 3 lurker
+attack_add 9 lurker
 attack_add 1 queen
 attack_add 1 defiler
 attack_do
@@ -1755,10 +1790,10 @@ defenseuse_gg 1 mutalisk
 define_max 10 zergling
 expand 2 generic_expansion
 build 3 evolution_chamber 80
-upgrade 1 z_carapace 70
-upgrade 1 z_flyer_carapace 70
-upgrade 1 z_flyer_attack 70
-upgrade 2 z_missile_attack 60
+upgrade 1 z_carapace 30
+upgrade 1 z_flyer_carapace 40
+upgrade 1 z_flyer_attack 40
+upgrade 2 z_missile_attack 30
 define_max 6 queen
 train 6 hydralisk
 train 6 mutalisk
@@ -1802,16 +1837,16 @@ wait 16
 attack_do
 attack_clear
 define_max 18 zergling
-upgrade 2 z_carapace 50
-upgrade 2 z_flyer_carapace 70
-upgrade 2 z_flyer_attack 70
-upgrade 1 hydra_attack 60
-upgrade 1 para_symbiosis 60
+upgrade 2 z_carapace 30
+upgrade 2 z_flyer_carapace 40
+upgrade 2 z_flyer_attack 40
+upgrade 1 hydra_attack 50
+upgrade 1 para_symbiosis 40
 call resource_waitskip
 build 1 ultralisk_cavern 80
 expand 4 generic_expansion
 tech spawn_broodling 70
-upgrade 1 queen_mana 50
+upgrade 1 queen_mana 35
 tech consume 70
 call resource_waitskip
 train 22 mutalisk
@@ -1830,7 +1865,7 @@ attack_do
 attack_clear
 call resource_waitskip
 upgrade 1 ultralisk_speed 50
-upgrade 3 z_missile_attack 70
+upgrade 3 z_missile_attack 40
 train 36 hydralisk
 set_attacks 2
 attack_add 36 hydralisk
@@ -1849,10 +1884,10 @@ build 4 creep_colony 80
 build 2 spore_colony 80
 expand 5 generic_expansion
 upgrade 1 ultralisk_armor 30
-upgrade 3 z_melee_attack 70
-upgrade 3 z_carapace 70
-upgrade 3 z_flyer_attack 70
-upgrade 3 z_flyer_carapace 70
+upgrade 3 z_melee_attack 40
+upgrade 3 z_carapace 40
+upgrade 3 z_flyer_attack 50
+upgrade 3 z_flyer_carapace 50
 build 1 ultralisk_cavern 80
 tech plague 60
 multirun exp_repeater
@@ -1923,7 +1958,18 @@ define_max 8 guardian
 define_max 8 devourer
 define_max 6 scourge
 call expand_opening
-upgrade 1 z_missile_attack 60
+build 1 spire 80
+wait_buildstart 1 spire
+defensebuild_gg 1 mutalisk
+defenseuse_gg 1 mutalisk
+defenseuse_gg 1 mutalisk
+defensebuild_aa 1 mutalisk
+defenseuse_aa 1 mutalisk
+defenseuse_ag 2 scourge
+multirun scourge_getter
+defenseuse_aa 2 scourge
+train 10 zergling
+upgrade 1 z_missile_attack 50
 set_attacks 2
 attack_add 10 zergling
 attack_prepare
@@ -1951,8 +1997,8 @@ attack_do
 attack_clear
 deaths 13 AtLeast 1 arbiter pm_skip_check
 deaths 13 Add 1 arbiter pm_skip_check
-upgrade 1 z_flyer_carapace 70
-upgrade 1 z_carapace 70
+upgrade 1 z_flyer_carapace 50
+upgrade 1 z_carapace 50
 build 2 creep_colony 80
 build 2 sunken_colony 80
 expand 2 generic_expansion
@@ -2006,11 +2052,11 @@ deaths 13 AtLeast 3 lurker pm_pskip
 notowns_jump lurker pm_pressure
 :pm_pskip
 tech spawn_broodling 70
-upgrade 1 burrowed_regen 70
+upgrade 1 burrowed_regen 40
 tech burrowing 60
 expand 2 generic_expansion
-upgrade 2 z_flyer_attack 70
-upgrade 2 z_carapace 70
+upgrade 2 z_flyer_attack 50
+upgrade 2 z_carapace 50
 train 2 queen
 train 12 zergling
 train 14 hydralisk
@@ -2038,21 +2084,21 @@ wait 1500
 goto pm_loop
 
 :late_vs_protoss
+upgrade 1 hydralisk_range 45
 build 1 queen_nest 100
 wait_build 1 queen_nest
 build 1 hive 100
-upgrade 1 overlord_speed 60
-upgrade 1 hydralisk_range 75
+upgrade 1 overlord_speed 40
 build 1 defiler_mound 80
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 expand 2 generic_expansion
 build 3 evolution_chamber 80
-upgrade 1 z_flyer_carapace 70
-upgrade 1 z_flyer_attack 60
-upgrade 2 z_missile_attack 70
-upgrade 2 z_carapace 70
-upgrade 1 hydra_attack 60
+upgrade 1 z_flyer_carapace 30
+upgrade 1 z_flyer_attack 30
+upgrade 2 z_missile_attack 50
+upgrade 2 z_carapace 35
+upgrade 1 hydra_attack 50
 define_max 6 queen
 train 4 hydralisk
 train 16 hydralisk
@@ -2102,7 +2148,7 @@ defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 expand 4 generic_expansion
-upgrade 1 queen_mana 50
+upgrade 1 queen_mana 35
 tech consume 70
 train 44 hydralisk
 attack_add 44 hydralisk
@@ -2111,16 +2157,16 @@ attack_prepare
 wait 16
 
 train 6 ultralisk
-upgrade 3 z_melee_attack 60
-upgrade 3 z_carapace 70
+upgrade 3 z_melee_attack 35
+upgrade 3 z_carapace 40
 train 3 defiler
 attack_do
 attack_clear
 build 3 hatchery 80
 call resource_waitskip
 train 6 ultralisk
-upgrade 1 ultralisk_speed 70
-upgrade 3 z_missile_attack 70
+upgrade 1 ultralisk_speed 40
+upgrade 3 z_missile_attack 40
 train 6 hydralisk
 train 6 lurker
 train 8 ultralisk
@@ -2146,9 +2192,9 @@ build 4 hatchery 80
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
-upgrade 1 ultralisk_armor 70
-upgrade 3 z_flyer_attack 60
-upgrade 3 z_flyer_carapace 70
+upgrade 1 ultralisk_armor 40
+upgrade 3 z_flyer_attack 30
+upgrade 3 z_flyer_carapace 40
 build 1 spire 80
 wait_build 1 spire
 build 1 greater_spire 110
@@ -2228,7 +2274,7 @@ wait_train 1 queen
 
 idle_orders 27 13 1 queen 1532 command_center 80 health(LessThanPercent,66)
 multirun it_wait
-tech spawn_broodling 60
+tech spawn_broodling 40
 wait 1500
 
 defenseuse_gg 1 broodling
@@ -2244,7 +2290,8 @@ idle_orders 121 8 1 queen 312 drone|scv 15 Health(GreaterThanPercent 95)
 idle_orders 121 8 1 queen 312 broodling 3 Health(GreaterThanPercent 95)
 idle_orders 121 8 1 queen 312 group_men 40 deathrattle
 wait_train 2 queen
-tech ensnare 50
+tech ensnare 40
+upgrade 1 overlord_capacity 40
 wait 1500
 
 idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)
@@ -2254,10 +2301,15 @@ idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|dragoon|corsair|scout|d
 idle_orders 146 0 1 queen 1024 reaver|dark_archon|archon|devourer|guardian|hnorad|battlecruiser|valhalla|carrier|arbiter 70 WithoutSpellEffects(Ensnare)|Count(AtLeast 1 64 14)|RandomRate(160 540)
 idle_orders 146 8 1 queen 312 group_men 30 deathrattle
 wait_train 3 queen
-upgrade 1 queen_mana 60
-upgrade 1 overlord_capacity 50
+upgrade 1 queen_mana 40
 upgrade 1 overlord_sight 30
-wait 4800
+wait 480
+
+wait_upgrades
+wait_train 6 queen
+upgrade 1 bone_mastery 30
+defenseuse_gg 2 broodling
+wait 15000
 
 stop
 
@@ -2297,12 +2349,16 @@ goto it_reinforce
 wait 13500
 
 wait_train 20 zergling
-upgrade 1 zergling_speed 50
+wait 2500
+
+upgrade 1 zergling_speed 40
 upgrade 1 z_melee_attack 40
 wait_train 44 zergling
 wait_build 1 hive
+wait 2500
+
 upgrade 3 z_melee_attack 40
-upgrade 1 zergling_attack 50
+upgrade 1 zergling_attack 40
 stop
 
 :check_hydralisks
@@ -2310,19 +2366,19 @@ wait 11500
 
 multirun lateral_check
 wait_train 20 hydralisk
-upgrade 1 hydralisk_speed 50
+upgrade 1 hydralisk_speed 40
 wait_train 30 hydralisk
-upgrade 1 hydralisk_range 50
+upgrade 1 hydralisk_range 40
 wait_train 40 hydralisk
 wait_build 1 hive
-upgrade 1 hydra_attack 50
+upgrade 1 hydra_attack 40
 upgrade 3 z_missile_attack 40
 stop
 
 :lateral_check
 wait_build 1 hive
 wait_train 3 lurker
-upgrade 1 lurker_speed 70
+upgrade 1 lurker_speed 40
 wait 480
 
 stop
@@ -2356,20 +2412,26 @@ stop
 wait 25000
 
 wait_train 3 devourer
-upgrade 1 para_symbiosis 50
+wait 2500
+
+upgrade 1 para_symbiosis 30
 stop
 
 :check_ultra
 wait 12500
 
 wait_train 4 ultralisk
-upgrade 1 ultralisk_armor 50
+wait 2500
+
+upgrade 1 ultralisk_armor 30
 wait_train 5 ultralisk
-upgrade 1 ultralisk_speed 50
+upgrade 1 ultralisk_speed 30
 wait_train 8 ultralisk
+wait 2500
+
 upgrade 3 z_melee_attack 40
 wait_build 1 defiler_mound
-upgrade 1 voracity 50
+upgrade 1 voracity 40
 stop
 
 :supply_ensure
@@ -2559,34 +2621,50 @@ goto scourge_getter
 wait 4500
 
 wait_train 5 mutalisk
-upgrade 1 z_flyer_carapace 60
+wait 2500
+
+upgrade 1 z_flyer_carapace 30
 wait_train 12 mutalisk
-upgrade 2 z_flyer_carapace 60
+wait 2500
+
+upgrade 2 z_flyer_carapace 30
 wait_train 3 guardian
-upgrade 2 z_flyer_attack 60
+wait 2500
+
+upgrade 2 z_flyer_attack 30
 stop
 
 :basic_melee
 wait 1500
 
 wait_train 16 zergling
-upgrade 1 z_melee_attack 60
+wait 2500
+
+upgrade 1 z_melee_attack 30
 wait_train 30 zergling
-upgrade 2 z_melee_attack 60
-upgrade 1 z_carapace 60
+wait 2500
+
+upgrade 2 z_melee_attack 30
+upgrade 1 z_carapace 30
 wait_train 4 ultralisk
-upgrade 2 z_carapace 60
+wait 2500
+
+upgrade 2 z_carapace 30
 stop
 
 :basic_ranged
 wait 3000
 
 wait_train 10 hydralisk
-upgrade 1 z_missile_attack 60
-upgrade 1 z_carapace 60
+wait 2500
+
+upgrade 1 z_missile_attack 30
+upgrade 1 z_carapace 30
 wait_train 30 hydralisk
-upgrade 2 z_melee_attack 60
-upgrade 2 z_carapace 60
+wait 2500
+
+upgrade 2 z_melee_attack 30
+upgrade 2 z_carapace 30
 stop
 
 :rush_panic
