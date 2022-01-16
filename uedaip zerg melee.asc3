@@ -310,22 +310,19 @@ aicontrol build_gas
 build 1 extractor 80
 #wait_buildstart 1 extractor
 train 2 zergling
-build 2 hatchery 80
 build 14 drone 80
 wait_buildstart 11 drone
 train 6 zergling
+build 2 hatchery 80
+build 1 lair 90
+wait_buildstart 1 lair
 build 15 drone 80
 wait_buildstart 12 drone
 train 8 zergling
 build 16 drone 80
-build 3 overlord 80
-wait_buildstart 3 overlord
-build 1 lair 90
-wait_buildstart 1 lair
-farms_notiming
+farms_timing
 build 17 drone 80
 wait_buildstart 13 drone
-build 1 hydralisk_den 80
 build 1 evolution_chamber 80
 build 1 creep_colony 80
 build 1 sunken_colony 80
@@ -335,6 +332,13 @@ build 18 drone 80
 wait_buildstart 14 drone
 train 10 zergling
 train 1 mutalisk
+random_jump 128 mtl_flat
+upgrade 1 z_flyer_carapace 50
+goto mtl_flar
+
+:mtl_flat
+upgrade 1 z_flyer_attack 50
+:mtl_flar
 defensebuild_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
@@ -345,9 +349,6 @@ multirun scourge_getter
 defenseuse_aa 2 scourge
 train 6 mutalisk
 train 20 zergling
-upgrade 1 z_missile_attack 50
-upgrade 1 burrowed_regen 30
-build 4 overlord 60
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 lurker
 defensebuild_gg 1 lurker
@@ -366,6 +367,7 @@ wait 16
 attack_do
 attack_clear
 build 1 queen_nest 80
+upgrade 1 burrowed_regen 30
 goto late_muta
 
 :hydra_island
@@ -873,7 +875,6 @@ wait_build 1 lair
 build 1 hydralisk_den 80
 build 2 hatchery 80
 wait_buildstart 2 hatchery
-build 3 overlord 60
 build 1 extractor 80
 #wait_buildstart 1 extractor
 aicontrol build_gas
