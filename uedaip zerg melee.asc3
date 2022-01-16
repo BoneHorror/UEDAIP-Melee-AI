@@ -2283,7 +2283,7 @@ goto protoss_loop
 define_max 7 infested_terran
 wait 7500
 
-idle_orders 120 0 1 queen 1024 overlord|observer|science_vessel|defiler 30 WithoutSpellEffects(Parasite)|RandomRate(280 820)
+idle_orders 120 0 1 queen 1024 overlord|observer|science_vessel|defiler|skywing|dropship|shuttle|arbiter|valhalla|defiler|queen|ghost 30 WithoutSpellEffects(Parasite)|RandomRate(280 820)
 wait_train 1 queen
 
 idle_orders 27 13 1 queen 1532 command_center 80 health(LessThanPercent,66)
