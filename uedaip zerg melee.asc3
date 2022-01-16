@@ -1203,11 +1203,11 @@ define_max 12 lurker
 define_max 12 guardian
 define_max 4 devourer
 define_max 6 scourge
+:4pret
 call expand_opening
 build 1 spire 80
 wait_buildstart 1 spire
 train 14 zergling
-:4pret
 #defensebuild_ag 2 scourge
 defensebuild_gg 1 mutalisk
 defenseuse_gg 1 mutalisk
