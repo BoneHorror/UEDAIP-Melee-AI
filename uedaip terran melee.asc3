@@ -149,6 +149,8 @@ idle_orders 141 83 1 science_vessel 1256 siege_tank|panzer 40 own|allied|notenem
 idle_orders 141 83 1 science_vessel 1256 hnorad|battlecruiser 80 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 10)
 idle_orders 141 83 1 science_vessel 663 group_men 5 own|allied|notenemies|incombat|Health(LessThanPercent 35)|Health(GreaterThanPercent 10)
 multirun ttech_lockdown
+multirun emp_io
+multirun irradiate_io
 return 
 
 :usetup
@@ -185,6 +187,7 @@ defenseuse_gg 1 ghost
 multirun ctech_storm
 multirun ctech_lockdown
 multirun ctech_resto
+multirun ctech_flare
 return
 
 :ctech_storm
@@ -221,6 +224,15 @@ idle_orders Restoration 33 1 medic 256 Group_Men 55 NotEnemies|Own|Allied|Self(E
 idle_orders Restoration 33 1 medic 256 Group_Men 50 NotEnemies|Own|Allied|Self(Energy(GreaterThan 65))|SpellEffects(Plague)
 idle_orders Restoration 33 1 medic 256 Group_Men 45 NotEnemies|Own|Allied|Self(Energy(GreaterThan 90))|SpellEffects(Lockdown)
 idle_orders Restoration 33 1 medic 256 Group_Men 35 NotEnemies|Own|Allied|Self(Energy(GreaterThan 95))|SpellEffects(Maelstrom)
+stop
+
+:ctech_flare
+wait 16
+
+tech_jump 13 Exactly optical_flare 0 ctech_flare
+idle_orders 185 256 1 medic 1024 queen|defiler|overlord|lurker|infested_terran|skywing|observer|science_vessel|valhalla|arbiter|hnorad|battlecruiser|ghost|siege_tank 30 WithoutSpellEffects(Blind)
+idle_orders 185 32 1 medic 256 queen|defiler|overlord|lurker|infested_terran|skywing|observer|science_vessel|valhalla|arbiter|hnorad|battlecruiser|ghost|siege_tank 70 WithoutSpellEffects(Blind)|InCombat
+idle_orders 185 0 1 medic 256 group_men 80 WithoutSpellEffects(Blind)|Deathrattle
 stop
 
 :supply_fix
@@ -364,6 +376,7 @@ define_max 14 heavy_marine
 train 13 heavy_marine
 train 5 tesla_trooper
 define_max 16 heavy_marine
+tech optical_flare 40
 train 15 heavy_marine
 panic std_expo
 attack_do 
@@ -784,9 +797,7 @@ wait_buildstart 1 machine_shop
 define_max 3 panzer
 build 2 engineering_bay 80
 wait_buildstart 2 engineering_bay
-upgrade 1 medic_mana 40
-
-
+tech optical_flare 30
 build 1 armory 80
 wait 48
 define_max 18 heavy_marine
@@ -1222,14 +1233,15 @@ place_guard phantom 0
 multirun iniBTurret
 expand 3 std_expo
 
-defensebuild_gg 2 phantom
-defensebuild_ag 2 phantom
-defenseuse_gg 2 phantom
-defenseuse_ag 2 phantom
+defensebuild_gg 1 phantom
+defensebuild_ag 1 phantom
+defenseuse_gg 1 phantom
+defenseuse_ag 1 phantom
 upgrade 1 p_plasma_shield 40
 upgrade 1 safety_protocols 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
+tech restoration 40
 tech lockdown 40
 call resource_waitskip
 
@@ -1243,6 +1255,7 @@ call resource_waitskip
 upgrade 1 ghost_sight 40
 expand 4 std_expo
 
+tech optical_flare 30
 upgrade 1 staballoy 40
 upgrade 2 p_plasma_shield 40
 build 4 barracks 80
@@ -1985,9 +1998,7 @@ multirun iniBTurret
 tech lockdown 80
 expand 3 std_expo
 tech emp_shockwave 80
-call emp_io
 tech irradiate 80
-call irradiate_io
 place_guard science_vessel 0
 tech personnel_cloaking 40
 defensebuild_gg 2 ghost
@@ -2040,9 +2051,7 @@ upgrade 3 t_infantry_weapon 40
 upgrade 1 battlecruiser_mana 40
 tech spider_mines 40
 tech irradiate 40
-call irradiate_io
 tech emp_shockwave 40
-call emp_io
 tech lockdown 40
 build 2 starport 80
 wait_buildstart 2 starport
@@ -2608,10 +2617,8 @@ multirun iniBTurret
 tech lockdown 30
 expand 3 std_expo
 tech emp_shockwave 30
-call emp_io
 upgrade 1 vademecum 40
 tech irradiate 40
-call irradiate_io
 call resource_waitskip
 tech yamato_gun 40
 place_guard science_vessel 0
@@ -2641,9 +2648,7 @@ upgrade 2 t_ship_weapon 40
 upgrade 1 t_ship_plating 40
 upgrade 1 science_aura 40
 tech irradiate 40
-call irradiate_io
 tech emp_shockwave 40
-call emp_io
 define_max 2 dropship
 upgrade 3 t_vehicle_plating 40
 expand 3 std_expo
@@ -2680,9 +2685,7 @@ call resource_waitskip
 
 tech spider_mines 40
 tech irradiate 40
-call irradiate_io
 tech emp_shockwave 40
-call emp_io
 tech lockdown 40
 build 3 starport 80
 wait_build 3 starport
@@ -2995,10 +2998,8 @@ multirun iniBTurret
 tech lockdown 30
 expand 3 std_expo
 tech emp_shockwave 65
-call emp_io
 upgrade 1 vademecum 40
 tech irradiate 65
-call irradiate_io
 call resource_waitskip
 
 place_guard science_vessel 0
@@ -3045,7 +3046,6 @@ upgrade 3 t_vehicle_weapon 40
 upgrade 3 t_infantry_armor 40
 expand 6 std_expo
 tech emp_shockwave 40
-call emp_io
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
 upgrade 3 t_infantry_weapon 40
@@ -3053,7 +3053,6 @@ upgrade 1 battlecruiser_mana 40
 call resource_waitskip
 
 tech irradiate 40
-call irradiate_io
 tech lockdown 40
 build 5 starport 80
 wait_buildstart 5 starport
@@ -3749,18 +3748,27 @@ build 1 comsat_station 100
 stop
 
 :irradiate_io
+wait 16
+
+tech_jump 13 Exactly irradiate 0 irradiate_io
 idle_orders 143 160 1 science_vessel 1312 infested_terran|lurker|guardian|queen|defiler|devourer|dark_templar|medic|ghost|phantom 120 Health(GreaterThan 50)|WithoutSpellEffects(Irradiate)
 idle_orders 143 160 1 science_vessel 1312 hydralisk|mutalisk|zealot|scv|drone|ultralisk 60 Health(GreaterThan 50)|WithoutSpellEffects(Irradiate)
 idle_orders Move 48 1 vulture 160 zergling|lurker|hydralisk|ultralisk|zealot|dark_templar|marine|heavy_marine|medic|high_templar|drone|scv 255 Health(GreaterThanPercent 20)|InCombat|Self(SpellEffects(Irradiate))
-idle_orders Move 16 1 wraith 192 mutalisk|overlord|ghost|zealot|high_templar|dark_templar|phantom|medic 255 Health(GreaterThanPercent 30)|InCombat|count(AtLeast 2 120 3)|Self(SpellEffects(Irradiate))
+idle_orders 143 480 1 science_vessel 216 wraith 150 Health(GreaterThan 100)|WithoutSpellEffects(Irradiate)|InCombat|Own|NotEnemies|count(AtLeast 5 160 14)|Self(Energy(GreaterThan 149))
+idle_orders 143 480 1 science_vessel 216 vulture 150 Health(GreaterThan 50)|WithoutSpellEffects(Irradiate)|InCombat|Own|NotEnemies|count(AtLeast 4 226 14)|Self(Energy(GreaterThan 149))
+idle_orders 141 320 1 science_vessel 312 wraith 5 own|allied|notenemies|SpellEffects(Irradiate)|Self(Energy(GreaterThan 190))
+idle_orders Move 16 1 wraith 192 mutalisk|overlord|ghost|zealot|high_templar|dark_templar|phantom|medic 255 Health(GreaterThanPercent 30)|InCombat|count(AtLeast 2 120 14)|Self(SpellEffects(Irradiate))
 idle_orders Move 16 1 wraith 226 guardian|devourer 255 Health(GreaterThanPercent 20)|InCombat|Self(SpellEffects(Irradiate))
-idle_orders Move 16 1 wraith 192 zergling|hydralisk|marine|firebat|heavy_marine|tesla_trooper 255 Health(GreaterThanPercent 40)|InCombat|count(AtLeast 3 120 3)|Self(SpellEffects(Irradiate))
-return
+idle_orders Move 16 1 wraith 192 zergling|hydralisk|marine|firebat|heavy_marine|tesla_trooper 255 Health(GreaterThanPercent 40)|InCombat|count(AtLeast 3 120 14)|Self(SpellEffects(Irradiate))
+stop
 
 :emp_io
+wait 16
+
+tech_jump 13 Exactly emp_shockwave 0 emp_io
 idle_orders 122 226 1 science_vessel 338 Group_Men 50 InCombat|Count(AtLeast 2 60 14)|Energy(GreaterThan 200)
 idle_orders 122 128 1 science_vessel 512 Group_Men 60 InCombat|Count(AtLeast 2 60 14)|Shields(GreaterThan 300)
-return
+stop
 
 :sciv_evaluator
 wait_train 2 science_vessel
