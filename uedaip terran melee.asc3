@@ -1394,7 +1394,7 @@ call resource_waitskip
 goto MLo
 
 :ScorpMech
-define_max 10 heavy_marine
+define_max 18 heavy_marine
 define_max 255 tesla_trooper
 define_max 4 medic
 define_max 7 panzer
