@@ -331,7 +331,10 @@ wait_buildstart 18 scv
 define_max 14 heavy_marine
 define_max 10 tesla_trooper
 build 1 engineering_bay 80
+train 4 heavy_marine
+wait_buildstart 1 engineering_bay
 train 12 heavy_marine
+upgrade 1 t_infantry_weapon 40
 train 1 tesla_trooper
 defensebuild_gg 2 tesla_trooper
 defensebuild_gg 2 heavy_marine
@@ -344,7 +347,6 @@ train 3 tesla_trooper
 train 2 medic
 build 3 barracks 80
 wait_buildstart 3 barracks
-upgrade 1 t_infantry_weapon 40
 train 6 tesla_trooper
 wait_force 6 heavy_marine
 wait_force 8 tesla_trooper
@@ -388,7 +390,7 @@ attack_add 4 tesla_trooper
 attack_prepare
 build 1 starport 80
 wait_buildstart 1 starport
-tech restoration 40
+tech restoration 30
 multirun UED_EMPAtk
 define_max 18 heavy_marine
 train 18 heavy_marine
@@ -424,8 +426,9 @@ upgrade 1 t_vehicle_weapon 40
 define_max 2 dropship
 expand 3 std_expo
 upgrade 1 ghost_sight 40
-expand 4 std_expo
-upgrade 1 t_vehicle_plating 40
+call resource_waitskip
+
+upgrade 1 t_vehicle_plating 35
 upgrade 2 p_plasma_shield 40
 build 5 barracks 80
 wait_build 5 barracks
@@ -437,7 +440,9 @@ upgrade 1 t_ship_plating 40
 upgrade 2 t_vehicle_weapon 40
 upgrade 2 t_vehicle_plating 40
 upgrade 1 safety_protocols 40
-expand 5 std_expo
+call resource_waitskip
+
+expand 4 std_expo
 upgrade 2 t_ship_plating 40
 define_max 4 valhalla
 place_guard valhalla 0
@@ -449,6 +454,8 @@ call resource_waitskip
 build 2 machine_shop 100
 upgrade 3 t_vehicle_plating 40
 upgrade 3 p_plasma_shield 40
+call resource_waitskip
+
 expand 6 std_expo
 defensebuild_ga 1 valhalla
 defensebuild_aa 1 valhalla
@@ -463,7 +470,7 @@ wait_buildstart 2 starport
 call resource_waitskip
 build 2 control_tower 100
 wait_buildstart 2 control_tower
-upgrade 3 t_ship_plating 40
+upgrade 3 t_ship_plating 30
 build 3 starport 80
 wait_buildstart 3 starport
 build 3 control_tower 100
@@ -568,7 +575,7 @@ wait 16
 attack_timeout 16
 attack_do
 attack_clear
-upgrade 2 p_plasma_shield 30
+upgrade 2 p_plasma_shield 35
 multirun added_vals
 return
 
@@ -1877,7 +1884,7 @@ train 12 marine
 build 1 academy 80
 wait_buildstart 1 academy
 train 14 marine
-tech stim_packs 40
+tech stim_packs 50
 attack_clear
 attack_add 12 marine
 attack_prepare 
@@ -1924,7 +1931,7 @@ define_max 8 goliath
 define_max 2 siege_tank
 define_max 18 marine
 train 18 marine
-upgrade 1 hospitals 60
+upgrade 1 hospitals 35
 build 2 factory 80
 tech siege_mode 80
 train 1 siege_tank
@@ -1941,6 +1948,7 @@ define_max 4 siege_tank
 train 4 firebat
 upgrade 1 t_vehicle_weapon 40
 train 2 siege_tank
+upgrade 1 t_infantry_armor 40
 define_max 22 marine
 train 22 marine
 train 4 goliath
@@ -1957,7 +1965,7 @@ attack_add 8 firebat
 attack_add 4 goliath
 attack_add 3 siege_tank
 attack_prepare
-upgrade 1 t_vehicle_plating 40
+upgrade 1 t_vehicle_plating 35
 build 1 starport 80
 wait_buildstart 1 starport
 multirun firegol_ter
@@ -1971,6 +1979,8 @@ train 4 siege_tank
 define_max 2 dropship
 train 1 dropship
 check_transports 
+build 2 engineering_bay 80
+wait_buildstart 2 engineering_bay
 build 2 armory 80
 wait_buildstart 2 armory
 defensebuild_gg 2 siege_tank
@@ -1978,24 +1988,25 @@ defenseuse_gg 2 siege_tank
 wait_force 1 dropship
 expand 1 std_expo
 wait 48
-upgrade 1 t_infantry_armor 40
+
 train 5 siege_tank
-upgrade 2 t_vehicle_weapon 40
+
 build 1 science_facility 80
 wait_buildstart 1 science_facility
-upgrade 1 t_ship_weapon 40
+upgrade 1 t_ship_weapon 30
 build 4 factory 80
 build 3 machine_shop 100
 wait_buildstart 4 factory
+upgrade 2 t_infantry_weapon 40
+upgrade 2 t_vehicle_weapon 35
+upgrade 2 t_infantry_armor 40
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
 upgrade 1 adv_mechanics 35
-upgrade 3 t_vehicle_weapon 40
 place_guard ghost 0
 place_guard ghost 2
-upgrade 2 t_infantry_weapon 40
 multirun iniBTurret
-tech lockdown 80
+tech lockdown 40
 expand 3 std_expo
 tech emp_shockwave 80
 tech irradiate 80
@@ -2005,7 +2016,6 @@ defensebuild_gg 2 ghost
 defensebuild_ag 2 ghost
 defenseuse_gg 2 ghost
 defenseuse_ag 2 ghost
-tech lockdown 40
 upgrade 1 hospitals 40
 define_max 2 dropship
 upgrade 2 t_vehicle_plating 40
@@ -2013,7 +2023,10 @@ expand 3 std_expo
 wait 1500
 
 call resource_waitskip
-upgrade 1 t_ship_plating 40
+upgrade 3 t_infantry_weapon 40
+upgrade 3 t_infantry_armor 40
+upgrade 3 t_vehicle_weapon 35
+upgrade 1 t_ship_plating 30
 upgrade 1 ghost_sight 40
 defensebuild_ag 2 goliath
 defenseuse_ag 2 goliath
@@ -2023,44 +2036,35 @@ wait 1500
 call resource_waitskip
 build 4 machine_shop 100
 wait_buildstart 4 machine_shop
-upgrade 3 t_infantry_weapon 40
-upgrade 2 t_infantry_armor 40
-upgrade 2 t_ship_plating 40
+
+upgrade 2 t_ship_plating 30
 call resource_waitskip
 
-upgrade 1 ghost_mana 40
-upgrade 3 t_vehicle_weapon 40
+upgrade 1 ghost_mana 35
+upgrade 3 t_vehicle_weapon 35
 build 2 armory 80
 wait_buildstart 2 armory
-upgrade 3 t_vehicle_plating 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_vehicle_plating 35
+
 expand 5 std_expo
 wait 1500
 
 call resource_waitskip
-upgrade 3 t_vehicle_plating 40
-upgrade 3 t_ship_plating 40
-upgrade 3 t_vehicle_weapon 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_vehicle_plating 30
+upgrade 3 t_ship_plating 30
+upgrade 3 t_vehicle_weapon 30
 call resource_waitskip
 
 expand 6 std_expo
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
-upgrade 3 t_infantry_weapon 40
-upgrade 1 battlecruiser_mana 40
-tech spider_mines 40
-tech irradiate 40
-tech emp_shockwave 40
-tech lockdown 40
+upgrade 1 battlecruiser_mana 30
 build 2 starport 80
 wait_buildstart 2 starport
 call resource_waitskip
 
 build 2 control_tower 100
 wait_buildstart 2 control_tower
-upgrade 1 t_ship_weapon 40
-
 :exp_repeater
 wait 8500
 expand 9 std_expo
@@ -2504,32 +2508,28 @@ attack_add 10 marine
 attack_add 1 siege_tank
 attack_add 2 vulture
 target_expansion 
-build 3 barracks 80
-wait_buildstart 3 barracks
 build 20 scv 80
 wait_buildstart 20 scv
 build 1 academy 80
 wait_buildstart 1 academy
 define_max 16 marine
 define_max 7 vulture
-train 12 marine
 train 2 vulture
+build 1 armory 80
 build 1 engineering_bay 80
 wait_buildstart 1 engineering_bay
-upgrade 1 marine_range 40
+upgrade 1 marine_range 30
 farms_timing 
 build 2 machine_shop 100
 tech siege_mode 40
 define_max 4 siege_tank
 upgrade 1 hospitals 40
-build 3 barracks 80
-wait_buildstart 3 barracks
-build 1 armory 80
 tech spider_mines 40
 upgrade 1 t_infantry_weapon 40
 upgrade 1 t_vehicle_weapon 40
 upgrade 1 t_vehicle_plating 50
 train 2 siege_tank
+upgrade 1 t_vehicle_weapon 40
 build 3 factory 80
 expand 2 std_expo
 defensebuild_gg 2 goliath
@@ -2556,15 +2556,11 @@ attack_add 7 goliath
 train 4 siege_tank
 attack_add 4 siege_tank
 target_expansion
-define_max 18 marine
 define_max 6 siege_tank
 define_max 10 goliath
 build 3 machine_shop 100
 upgrade 1 vulture_speed 40
 build 1 starport 80
-define_max 20 marine
-upgrade 1 t_ship_weapon 40
-define_max 22 marine
 build 2 armory 80
 wait_buildstart 2 armory
 panic std_expo
@@ -2573,17 +2569,19 @@ attack_clear
 build 1 science_facility 80
 wait_buildstart 1 science_facility
 build 5 factory 80
+train 2 marine
 train 4 goliath
-train 10 marine
+train 4 marine
+upgrade 1 t_vehicle_plating 40
 train 2 siege_tank
 upgrade 1 adv_mechanics 40
 train 6 goliath
+train 6 marine
 train 4 siege_tank
 train 10 goliath
 attack_add 10 goliath
 attack_add 4 siege_tank
 attack_prepare
-upgrade 1 t_vehicle_plating 40
 multirun TM_atk
 build 1 control_tower 100
 wait_buildstart 1 control_tower
@@ -2594,27 +2592,32 @@ defensebuild_gg 2 siege_tank
 defenseuse_gg 2 siege_tank
 wait_force 1 dropship
 expand 3 std_expo
-
 wait 48
 
 upgrade 2 t_vehicle_plating 40
-upgrade 1 t_infantry_armor 40
-tech stim_packs 40
+upgrade 1 t_infantry_armor 30
+tech stim_packs 30
 build 2 starport 80
 wait 1833
 
-build 2 control_tower 100
-upgrade 2 t_infantry_weapon 40
-upgrade 1 wraith_mana 40
+build 2 control_tower 80
+call resource_waitskip
+
+upgrade 2 t_infantry_weapon 30
 build 2 science_facility 80
 wait_buildstart 2 science_facility
 upgrade 3 t_vehicle_weapon 40
-wait 2400
+upgrade 1 science_aura 40
+call resource_waitskip
+wait 633
 
+upgrade 3 t_vehicle_plating 40
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
 multirun iniBTurret
+call resource_waitskip
 tech lockdown 30
+call resource_waitskip
 expand 3 std_expo
 tech emp_shockwave 30
 upgrade 1 vademecum 40
@@ -2622,74 +2625,60 @@ tech irradiate 40
 call resource_waitskip
 tech yamato_gun 40
 place_guard science_vessel 0
-tech personnel_cloaking 40
-defensebuild_gg 2 hnorad
-defensebuild_ag 2 hnorad
+tech personnel_cloaking 30
+defensebuild_gg 1 hnorad
+defensebuild_ag 1 hnorad
 defensebuild_ga 1 hnorad
 defensebuild_aa 1 hnorad
-defensebuild_gg 2 ghost
-defensebuild_ag 2 ghost
-defenseuse_gg 2 hnorad
-defenseuse_ag 2 hnorad
+defensebuild_gg 1 ghost
+defensebuild_ag 1 ghost
+defenseuse_gg 1 hnorad
+defenseuse_ag 1 hnorad
 defenseuse_ga 1 hnorad
 defenseuse_aa 1 hnorad
-defenseuse_gg 2 ghost
-defenseuse_ag 2 ghost
-upgrade 1 t_ship_weapon 40
-tech lockdown 40
+defenseuse_gg 1 ghost
+defenseuse_ag 1 ghost
+upgrade 1 t_ship_weapon 30
 call resource_waitskip
 
 idle_orders 113 96 2 hnorad 192 ultralisk|devourer|spore_colony|hnorad|battlecruiser|missile_turret|carrier|scout|valkyrie 80 InCombat|Health(GreaterThanPercent 75)
 idle_orders 113 96 1 hnorad 288 photon_cannon|bunker|sunken_colony 70 InCombat|Health(GreaterThanPercent 75)
 idle_orders 113 96 1 hnorad 192 lurker|mutalisk|guardian|reaver|archon|siege_tank|wraith|panzer 50 InCombat|Health(GreaterThanPercent 80)
 idle_orders 113 96 1 hnorad 256 dark_archon|science_vessel|arbiter 30 InCombat|Health(GreaterThanPercent 75)
-upgrade 1 battlecruiser_mana 40
-upgrade 2 t_ship_weapon 40
-upgrade 1 t_ship_plating 40
-upgrade 1 science_aura 40
-tech irradiate 40
-tech emp_shockwave 40
+upgrade 1 battlecruiser_mana 35
+upgrade 2 t_ship_weapon 30
+upgrade 1 t_ship_plating 30
 define_max 2 dropship
-upgrade 3 t_vehicle_plating 40
 expand 3 std_expo
 call resource_waitskip
 upgrade 1 ghost_sight 40
 expand 4 std_expo
 call resource_waitskip
-upgrade 3 t_ship_weapon 40
-upgrade 2 t_ship_plating 40
-build 4 machine_shop 100
+upgrade 3 t_ship_weapon 30
+upgrade 2 t_ship_plating 30
+build 4 machine_shop 80
 wait_buildstart 4 machine_shop
-upgrade 3 t_infantry_weapon 40
-upgrade 2 t_infantry_armor 40
+upgrade 3 t_infantry_weapon 30
+upgrade 2 t_infantry_armor 30
 build 3 barracks 80
-wait_buildstart 4 barracks
-upgrade 1 ghost_mana 40
-upgrade 3 t_vehicle_weapon 40
+wait_buildstart 3 barracks
+upgrade 1 ghost_mana 30
 call resource_waitskip
 
-upgrade 3 t_ship_plating 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_ship_plating 30
+upgrade 3 t_infantry_armor 30
 expand 5 std_expo
 wait 3500
 
-
-upgrade 3 t_vehicle_plating 40
-upgrade 3 t_ship_plating 40
-upgrade 3 t_vehicle_weapon 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_ship_plating 30
+upgrade 3 t_infantry_armor 30
 expand 6 std_expo
-upgrade 3 t_infantry_weapon 40
-upgrade 1 battlecruiser_mana 40
+upgrade 3 t_infantry_weapon 30
 call resource_waitskip
 
-tech spider_mines 40
-tech irradiate 40
-tech emp_shockwave 40
-tech lockdown 40
 build 3 starport 80
 wait_build 3 starport
-build 3 control_tower 100
+build 3 control_tower 80
 wait_buildstart 3 control_tower
 goto exp_repeater
 
@@ -2755,17 +2744,26 @@ call resource_waitskip
 attack_do
 attack_clear
 attack_add 1 science_vessel
-attack_add 3 hnorad
+attack_add 2 hnorad
 attack_add 14 siege_tank
 attack_add 14 goliath
 train 1 science_vessel
 train 1 hnorad
 train 10 siege_tank
-train 3 hnorad
+train 2 hnorad
 train 14 goliath
 train 14 siege_tank
 target_expansion 
 call resource_waitskip
+attack_do
+attack_clear
+attack_add 10 vulture
+train 10 vulture
+target_expansion
+wait 16
+
+attack_do
+attack_clear
 goto TMLo
 
 :dominion_air
@@ -2790,6 +2788,7 @@ capt_expand
 build 11 scv 80
 wait_buildstart 10 scv
 build 1 refinery 80
+aicontrol build_gas
 build 12 scv 80
 wait_buildstart 11 scv
 define_max 8 marine
@@ -2830,7 +2829,6 @@ wait_buildstart 12 scv
 farms_timing
 train 2 marine
 build 15 scv 80
-aicontrol build_gas
 wait_buildstart 1 refinery
 build 1 factory 80
 wait_buildstart 1 factory
@@ -2869,6 +2867,7 @@ wait_buildstart 16 scv
 train 8 marine
 build 2 starport 80
 wait_buildstart 2 starport
+build 1 armory 80
 train 1 wraith
 train 1 siege_tank
 build 19 scv 80
@@ -2877,6 +2876,8 @@ build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 random_call 83 earlycloak
 define_max 15 marine
+upgrade 1 marine_range 30
+upgrade 1 t_ship_weapon 40
 train 10 marine
 train 3 wraith
 random_jump 128 doma_skiptiming
@@ -2893,7 +2894,6 @@ build 3 barracks 80
 wait_buildstart 3 barracks
 build 20 scv 80
 wait_buildstart 18 scv
-
 define_max 16 marine
 define_max 2 vulture
 train 12 marine
@@ -2902,7 +2902,6 @@ defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
 build 1 engineering_bay 80
 wait_buildstart 1 engineering_bay
-upgrade 1 marine_range 40
 defensebuild_gg 2 marine
 defensebuild_ag 2 marine
 defenseuse_gg 2 marine
@@ -2912,10 +2911,9 @@ define_max 2 siege_tank
 build 3 starport 80
 wait_buildstart 3 starport
 build 1 control_tower 100
-upgrade 1 hospitals 40
-build 1 armory 80
-upgrade 1 t_infantry_weapon 40
-tech cloaking_field 80
+upgrade 1 hospitals 35
+upgrade 1 t_infantry_weapon 35
+tech cloaking_field 70
 define_max 10 wraith
 train 2 wraith
 train 2 marine
@@ -2933,21 +2931,19 @@ attack_add 6 wraith
 attack_prepare 
 defensebuild_gg 2 wraith
 defenseuse_gg 2 wraith
-define_max 18 marine
-build 1 armory 80
-wait_buildstart 1 armory
-define_max 20 marine
-upgrade 1 t_ship_weapon 40
+build 2 armory 80
+wait_buildstart 2 armory
+upgrade 2 t_ship_weapon 40
 define_max 22 marine
 build 2 control_tower 100
 build 4 starport 80
-build 2 armory 80
 panic std_expo
 attack_do 
 attack_clear 
 define_max 14 wraith
 build 1 science_facility 80
 wait_buildstart 1 science_facility
+upgrade 1 t_ship_plating 40
 build 4 barracks 80
 wait_buildstart 4 barracks
 train 4 wraith
@@ -2960,11 +2956,10 @@ train 18 marine
 attack_add 14 marine
 attack_add 8 wraith
 attack_prepare
-upgrade 1 t_ship_plating 40
+
 multirun dom_atk
 build 3 control_tower 100
 wait_buildstart 3 control_tower
-upgrade 2 t_ship_weapon 40
 upgrade 2 t_ship_plating 40
 train 8 wraith
 build 1 physics_lab 100
@@ -2975,14 +2970,15 @@ wait_force 1 dropship
 expand 3 std_expo
 
 wait 48
-upgrade 1 t_infantry_armor 40
+upgrade 1 t_infantry_armor 30
 place_guard ghost 2
 tech stim_packs 40
 call resource_waitskip
 
 tech yamato_gun 40
-upgrade 2 t_infantry_weapon 40
+upgrade 2 t_infantry_weapon 30
 upgrade 1 wraith_mana 40
+upgrade 1 science_aura 40
 build 2 science_facility 80
 wait_buildstart 2 science_facility
 upgrade 3 t_ship_weapon 40
@@ -2997,16 +2993,19 @@ wait_buildstart 1 covert_ops
 multirun iniBTurret
 tech lockdown 30
 expand 3 std_expo
+upgrade 3 t_ship_plating 40
 tech emp_shockwave 65
-upgrade 1 vademecum 40
+upgrade 1 vademecum 35
 tech irradiate 65
 call resource_waitskip
 
 place_guard science_vessel 0
-tech personnel_cloaking 40
+tech personnel_cloaking 30
 defensebuild_ag 2 ghost
 defenseuse_ag 2 ghost
 tech lockdown 40
+call resource_waitskip
+
 build 2 armory 80
 wait_buildstart 2 armory
 build 4 control_tower 100
@@ -3015,9 +3014,9 @@ wait 1250
 
 call resource_waitskip
 upgrade 1 battlecruiser_mana 40
-upgrade 2 t_vehicle_weapon 40
+upgrade 2 t_vehicle_weapon 30
 define_max 2 dropship
-upgrade 2 t_vehicle_plating 40
+upgrade 2 t_vehicle_plating 30
 expand 3 std_expo
 call resource_waitskip
 
@@ -3026,34 +3025,28 @@ defenseuse_ag 2 goliath
 expand 4 std_expo
 call resource_waitskip
 
-upgrade 1 science_aura 40
-upgrade 3 t_infantry_weapon 40
-upgrade 2 t_infantry_armor 40
-upgrade 2 t_ship_plating 40
-upgrade 1 ghost_mana 40
-upgrade 3 t_vehicle_weapon 40
+upgrade 3 t_infantry_weapon 30
+upgrade 2 t_infantry_armor 30
+upgrade 1 ghost_mana 30
+upgrade 3 t_vehicle_weapon 30
 call resource_waitskip
 
-upgrade 1 ghost_sight 40
-upgrade 3 t_vehicle_plating 40
-upgrade 3 t_infantry_armor 40
+upgrade 1 ghost_sight 30
+upgrade 3 t_vehicle_plating 30
+upgrade 3 t_infantry_armor 30
 expand 5 std_expo
 call resource_waitskip
 
-upgrade 3 t_vehicle_plating 40
-upgrade 3 t_ship_plating 40
-upgrade 3 t_vehicle_weapon 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_vehicle_plating 30
+upgrade 3 t_vehicle_weapon 30
+upgrade 3 t_infantry_armor 30
 expand 6 std_expo
 tech emp_shockwave 40
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
-upgrade 3 t_infantry_weapon 40
-upgrade 1 battlecruiser_mana 40
+upgrade 3 t_infantry_weapon 30
 call resource_waitskip
 
-tech irradiate 40
-tech lockdown 40
 build 5 starport 80
 wait_buildstart 5 starport
 build 5 control_tower 100
