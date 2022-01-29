@@ -657,14 +657,13 @@ wait_buildstart 3 pylon
 build 18 probe 80
 wait_buildstart 16 probe
 train 4 zealot
-defensebuild_ag 2 revenant
-defenseuse_ag 2 revenant
 train 1 revenant
 build 20 probe 80
 wait_buildstart 18 probe
 train 6 zealot
-train 2 revenant
 train 1 dark_templar
+defensebuild_ag 2 revenant
+defenseuse_ag 2 revenant
 defensebuild_gg 1 dark_templar
 defenseuse_gg 1 dark_templar
 train 2 dark_templar
@@ -1037,8 +1036,6 @@ wait_buildstart 5 pylon
 farms_timing 
 upgrade 1 p_plasma_shield 40
 upgrade 1 p_plating 40
-build 1 stargate 80
-wait_buildstart 1 stargate
 build 2 robotics_facility 80
 define_max 8 dragoon
 define_max 6 hornet
@@ -1066,6 +1063,8 @@ build 3 robotics_facility 80
 wait_buildstart 3 robotics_facility
 call p_defaults
 defensebuild_gg 2 zealot
+build 1 stargate 80
+wait_buildstart 1 stargate
 train 5 dragoon
 train 1 reaver
 upgrade 1 scarab_damage 40
@@ -2280,8 +2279,8 @@ stop
 :resource_waitskip
 wait 16
 
-resources_jump 1033 785 waitskip_do
-wait 1499
+resources_jump 1033 885 waitskip_do
+wait 1699
 
 :waitskip_do
 return
