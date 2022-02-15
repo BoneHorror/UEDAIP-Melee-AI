@@ -108,6 +108,8 @@ wait 120
 
 multirun comsat_evaluator
 multirun sciv_evaluator
+guard_all
+creep 4
 groundmap_jump t_groundmap
 random_jump 128 ued_AirNoRush
 goto dominion_air
@@ -1820,7 +1822,7 @@ defenseuse_ag 1 marine
 capt_expand 
 build 12 scv 80
 wait_buildstart 11 scv
-expand 2 std_expo
+expand 1 std_expo
 train 2 marine
 build 13 scv 80
 wait_buildstart 12 scv
@@ -2437,7 +2439,7 @@ build 13 scv 80
 wait_buildstart 11 scv
 random_call 128 2fac_timing
 train 2 marine
-expand 2 std_expo
+expand 1 std_expo
 farms_timing
 train 4 marine
 build 1 factory 80

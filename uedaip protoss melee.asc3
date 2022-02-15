@@ -76,6 +76,8 @@ multirun ptech_dweb
 wait 112
 
 multirun rush_panic
+guard_all
+creep 4
 groundmap_jump ground_picker
 #never run this now
 random_jump 128 robotics_force
@@ -2035,7 +2037,6 @@ build 2 gateway 80
 train 2 dragoon
 defensebuild_gg 1 dragoon
 defenseuse_gg 1 dragoon
-expand 2 exp_noguard
 build 5 pylon 80
 wait_buildstart 5 pylon
 farms_timing
@@ -2046,6 +2047,7 @@ train 4 zealot
 attack_add 4 zealot
 attack_add 4 scout
 attack_prepare
+expand 2 exp_noguard
 build 3 stargate 80
 wait_buildstart 3 stargate
 define_max 6 dragoon
