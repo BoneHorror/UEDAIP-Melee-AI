@@ -83,6 +83,8 @@ race_jump gen_spread gen_muta gen_bust
 build 5 drone 110
 wait 115
 
+guard_all
+creep 4
 random_jump 128 early_spread
 goto late_spread
 
@@ -91,6 +93,8 @@ random_jump 64 4pool
 build 5 drone 110
 wait 115
 
+guard_all
+creep 3
 random_jump 35 is_this_zvp
 goto mutaling
 
@@ -98,6 +102,8 @@ goto mutaling
 build 5 drone 110
 wait 115
 
+guard_all
+creep 4
 random_jump 53 p_spread
 random_jump 79 p_muta
 goto p_bust
@@ -605,6 +611,7 @@ define_max 22 guardian
 define_max 24 devourer
 define_max 6 scourge
 multirun worker_decay
+random_call 64 early_bust
 build 6 drone 110
 wait_build 5 drone
 build 9 drone 80
@@ -688,8 +695,9 @@ max_workers 22
 wait 48
 
 build 14 drone 80
-expand 1 priority_expansion
 wait_buildstart 12 drone
+expand 1 priority_expansion
+wait_buildstart 13 drone
 define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
 define_max 4 zergling
@@ -699,18 +707,18 @@ aicontrol build_gas
 multirun earlydef_panic
 defenseuse_gg 1 zergling
 build 15 drone 80
+build 1 extractor 80
 wait_buildstart 12 drone
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
-build 1 extractor 80
-build 2 hatchery 80
 farms_timing
+build 1 hydralisk_den 80
+wait_buildstart 1 hydralisk_den
+build 2 hatchery 80
 wait_buildstart 2 hatchery
 build 1 sunken_colony 80
 build 3 overlord 80
 wait_buildstart 3 overlord
-build 1 hydralisk_den 80
-wait_buildstart 1 hydralisk_den
 defensebuild_gg 2 zergling
 defenseuse_gg 2 zergling
 define_max 10 zergling
@@ -719,8 +727,6 @@ defensebuild_gg 2 hydralisk
 defenseuse_gg 3 hydralisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
-build 2 hatchery 100
-wait_buildstart 2 hatchery
 train 1 hydralisk
 build 1 evolution_chamber 80
 train 3 hydralisk
@@ -746,14 +752,16 @@ build 1 lair 110
 wait_buildstart 1 lair
 build 19 drone 80
 upgrade 1 zergling_speed 40
-build 5 hatchery 80
 train 8 zergling
 train 12 zergling
-build 1 creep_colony 80
-build 1 sunken_colony 80
+build 2 creep_colony 80
 build 20 drone 80
+wait_buildstart 16 drone
 build 2 evolution_chamber 80
+build 2 sunken_colony 80
 build 21 drone 80
+wait_buildstart 17 drone
+build 4 hatchery 80
 build 1 lair 80
 train 26 hydralisk
 upgrade 1 z_carapace 50
@@ -851,17 +859,16 @@ farms_timing
 max_workers 22
 aicontrol build_gas
 build 1 extractor 80
-build 2 hatchery 80
-build 15 drone 80
-wait_buildstart 2 hatchery
-wait_buildstart 13 drone
+expand 1 hydra_expansion
+build 13 drone 80
+wait_buildstart 12 drone
 build 1 hydralisk_den 80
 wait_buildstart 1 hydralisk_den
-wait_buildstart 14 drone
+wait_buildstart 13 drone
 farms_notiming
-build 17 drone 80
+build 15 drone 80
 build 3 overlord 80
-wait_buildstart 15 drone
+wait_buildstart 14 drone
 build 1 evolution_chamber 80
 defenseuse_gg 1 zergling
 train 1 hydralisk
@@ -878,12 +885,11 @@ train 8 hydralisk
 build 1 creep_colony 80
 build 1 sunken_colony 80
 defensebuild_gg 1 zergling
-train 15 hydralisk
-attack_add 15 hydralisk
+train 12 hydralisk
+attack_add 12 hydralisk
 attack_prepare
 wait 16
 
-expand 1 generic_expansion
 
 attack_do
 attack_clear
@@ -940,7 +946,8 @@ upgrade 1 z_carapace 40
 tech lurker_aspect 80
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
-build 3 sunken_colony 80
+build 2 sunken_colony 80
+build 1 spore_colony 80
 build 3 hatchery 80
 train 6 zergling
 train 3 mutalisk
@@ -1157,6 +1164,16 @@ start_town
 build 1 hatchery 70
 get_oldpeons 1
 wait_buildstart 1 hatchery
+goto gen_ret
+
+:hydra_expansion
+start_town
+build 1 hatchery 80
+get_oldpeons 1
+wait_build 1 hatchery
+get_oldpeons 3
+build 3 drone 80
+wait_train 12 hydralisk
 goto gen_ret
 
 :generic_expansion
