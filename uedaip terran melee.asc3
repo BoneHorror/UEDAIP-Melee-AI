@@ -108,7 +108,7 @@ wait 120
 
 multirun comsat_evaluator
 multirun sciv_evaluator
-guard_all
+#guard_all
 creep 4
 groundmap_jump t_groundmap
 random_jump 128 ued_AirNoRush
@@ -429,8 +429,8 @@ build 5 barracks 80
 wait_build 5 barracks
 build 2 armory 80
 call resource_waitskip
-upgrade 3 t_infantry_weapon 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 60
 upgrade 1 t_ship_plating 40
 upgrade 2 t_vehicle_weapon 40
 upgrade 2 t_vehicle_plating 40
@@ -448,7 +448,7 @@ build 2 factory 80
 call resource_waitskip
 build 2 machine_shop 100
 upgrade 3 t_vehicle_plating 40
-upgrade 3 p_plasma_shield 40
+upgrade 3 p_plasma_shield 60
 call resource_waitskip
 
 expand 6 std_expo
@@ -858,10 +858,10 @@ wait_build 4 barracks
 build 2 armory 80
 call resource_waitskip
 
-upgrade 3 t_infantry_weapon 40
-upgrade 3 t_infantry_armor 40
+upgrade 3 t_infantry_weapon 70
+upgrade 3 t_infantry_armor 60
 upgrade 1 t_ship_plating 40
-upgrade 3 t_vehicle_weapon 40
+upgrade 3 t_vehicle_weapon 50
 upgrade 2 t_vehicle_plating 40
 expand 5 std_expo
 upgrade 2 t_ship_plating 40
@@ -874,7 +874,7 @@ call resource_waitskip
 
 build 2 machine_shop 100
 upgrade 3 t_vehicle_plating 40
-upgrade 3 p_plasma_shield 40
+upgrade 3 p_plasma_shield 55
 expand 6 std_expo
 defensebuild_ga 1 valhalla
 defensebuild_aa 1 valhalla
@@ -1680,8 +1680,8 @@ upgrade 3 t_infantry_weapon 40
 upgrade 3 t_infantry_armor 40
 call resource_waitskip
 upgrade 1 t_vehicle_plating 40
-upgrade 3 t_ship_weapon 40
-upgrade 3 t_ship_plating 40
+upgrade 3 t_ship_weapon 60
+upgrade 3 t_ship_plating 50
 expand 5 std_expo
 upgrade 2 t_vehicle_plating 40
 define_max 7 valhalla
@@ -1690,7 +1690,7 @@ train 1 valhalla
 tech psionic_storm 80
 call resource_waitskip
 
-upgrade 3 p_plasma_shield 40
+upgrade 3 p_plasma_shield 55
 expand 6 std_expo
 defensebuild_ga 1 valhalla
 defensebuild_aa 1 valhalla
@@ -1975,7 +1975,6 @@ expand 1 std_expo
 wait 48
 
 train 5 siege_tank
-
 build 1 science_facility 80
 wait_buildstart 1 science_facility
 upgrade 1 t_ship_weapon 30
@@ -2008,9 +2007,9 @@ expand 3 std_expo
 wait 1500
 
 call resource_waitskip
-upgrade 3 t_infantry_weapon 40
-upgrade 3 t_infantry_armor 40
-upgrade 3 t_vehicle_weapon 35
+upgrade 3 t_infantry_weapon 60
+upgrade 3 t_infantry_armor 50
+upgrade 3 t_vehicle_weapon 60
 upgrade 1 t_ship_plating 30
 upgrade 1 ghost_sight 40
 defensebuild_ag 2 goliath
@@ -2026,7 +2025,6 @@ upgrade 2 t_ship_plating 30
 call resource_waitskip
 
 upgrade 1 ghost_mana 35
-upgrade 3 t_vehicle_weapon 35
 build 2 armory 80
 wait_buildstart 2 armory
 upgrade 3 t_vehicle_plating 35
@@ -2037,7 +2035,6 @@ wait 1500
 call resource_waitskip
 upgrade 3 t_vehicle_plating 30
 upgrade 3 t_ship_plating 30
-upgrade 3 t_vehicle_weapon 30
 call resource_waitskip
 
 expand 6 std_expo
@@ -2155,7 +2152,7 @@ build 1 academy 80
 build 15 scv 80
 wait_buildstart 13 scv
 build 3 barracks 80
-tech stim_packs 40
+tech stim_packs 60
 train 14 marine
 build 17 scv 60
 train 23 marine
@@ -2355,7 +2352,7 @@ build 3 supply_depot 80
 wait_buildstart 1 machine_shop
 define_max 10 vulture
 train 3 vulture
-upgrade 1 vulture_speed 40
+upgrade 1 vulture_speed 50
 farms_timing
 build 24 scv 80
 wait_buildstart 20 scv
@@ -2396,7 +2393,7 @@ build 24 scv 80
 wait_buildstart 20 scv
 build 4 supply_depot 80
 train 1 goliath
-upgrade 1 t_vehicle_weapon 40
+upgrade 1 t_vehicle_weapon 50
 build 3 factory 40
 train 2 goliath
 build 5 supply_depot 80
@@ -2587,12 +2584,14 @@ build 2 control_tower 80
 call resource_waitskip
 
 upgrade 2 t_infantry_weapon 30
-upgrade 3 t_vehicle_weapon 40
+upgrade 3 t_vehicle_weapon 70
+random_jump 135 scia_mec_skip
 upgrade 1 science_aura 40
+:scia_mec_skip
 call resource_waitskip
 wait 633
 
-upgrade 3 t_vehicle_plating 40
+upgrade 3 t_vehicle_plating 60
 
 multirun iniBTurret
 call resource_waitskip
@@ -2965,8 +2964,10 @@ call resource_waitskip
 tech yamato_gun 40
 upgrade 2 t_infantry_weapon 30
 upgrade 1 wraith_mana 40
+random_jump 115 scia_air_skip
 upgrade 1 science_aura 40
-upgrade 3 t_ship_weapon 40
+:scia_air_skip
+upgrade 3 t_ship_weapon 70
 call resource_waitskip
 
 idle_orders 113 96 2 hnorad 192 ultralisk|devourer|spore_colony|hnorad|battlecruiser|missile_turret|carrier|scout|valkyrie 80 InCombat|Health(GreaterThanPercent 75)
@@ -2977,7 +2978,7 @@ idle_orders 113 96 1 hnorad 256 dark_archon|science_vessel|arbiter 30 InCombat|H
 multirun iniBTurret
 
 expand 3 std_expo
-upgrade 3 t_ship_plating 40
+upgrade 3 t_ship_plating 60
 tech emp_shockwave 35
 upgrade 1 vademecum 35
 tech irradiate 65
@@ -2993,7 +2994,7 @@ wait_buildstart 4 control_tower
 wait 1250
 
 call resource_waitskip
-upgrade 1 battlecruiser_mana 40
+upgrade 1 battlecruiser_mana 50
 upgrade 2 t_vehicle_weapon 30
 define_max 2 dropship
 upgrade 2 t_vehicle_plating 30
@@ -3761,7 +3762,9 @@ wait 150
 
 call resource_waitskip
 #bionanites
+random_jump 160 skip_auraeval
 upgrade 1 science_aura 40
+:skip_auraeval
 wait 480
 
 stop
