@@ -1562,7 +1562,7 @@ build 1 control_tower 100
 attack_add 8 heavy_marine
 attack_add 1 panzer
 attack_prepare 
-upgrade 1 goliath_range 40
+upgrade 1 goliath_range 70
 build 2 starport 80
 wait_buildstart 2 starport
 build 2 control_tower 100
@@ -1612,7 +1612,7 @@ attack_add 4 skywing
 attack_prepare
 build 2 armory 80
 wait_buildstart 2 armory
-upgrade 2 goliath_range 40
+upgrade 2 goliath_range 55
 build 1 armory 80
 wait 48
 define_max 18 heavy_marine
