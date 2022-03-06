@@ -282,20 +282,20 @@ defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
 capt_expand 
 build 14 scv 80
-wait_buildstart 13 scv
+wait_buildstart 12 scv
 train 2 heavy_marine
 build 15 scv 80
-wait_buildstart 14 scv
+wait_buildstart 13 scv
 build 2 supply_depot 80
 wait_buildstart 2 supply_depot
 build 2 barracks 80
 train 3 heavy_marine
 build 16 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 train 4 heavy_marine
 build 17 scv 80
 build 1 refinery 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 5 heavy_marine
@@ -303,8 +303,6 @@ aicontrol build_gas
 wait_buildstart 1 refinery
 build 3 barracks 80
 wait_buildstart 3 barracks
-build 16 scv 80
-wait_buildstart 16 scv
 build 3 supply_depot 80
 wait_buildstart 3 supply_depot
 train 6 heavy_marine
@@ -690,6 +688,58 @@ target_expansion
 call resource_waitskip
 goto ELo
 
+:emp_timing
+build 10 scv 80
+wait_buildstart 8 scv
+build 1 supply_depot 80
+build 12 scv 80
+wait_buildstart 9 scv
+build 1 barracks 80
+wait_buildstart 1 barracks
+define_max 2 heavy_marine
+define_max 8 tesla_trooper
+build 1 refinery 80
+build 13 scv 80
+wait_buildstart 11 scv
+train 1 heavy_marine
+defensebuild_gg 1 heavy_marine
+defensebuild_ag 1 heavy_marine
+defenseuse_gg 1 heavy_marine
+defenseuse_ag 1 heavy_marine
+capt_expand 
+build 14 scv 80
+build 2 barracks 80
+wait_buildstart 12 scv
+build 1 academy 80
+build 15 scv 80
+wait_buildstart 13 scv
+build 2 supply_depot 80
+wait_buildstart 2 supply_depot
+defensebuild_gg 1 tesla_trooper
+defenseuse_gg 1 tesla_trooper
+build 16 scv 80
+wait_buildstart 14 scv
+train 2 tesla_trooper
+upgrade 1 thunder_boosters 60
+build 17 scv 80
+wait_buildstart 15 scv
+aicontrol build_gas
+build 3 supply_depot 80
+train 4 tesla_trooper
+expand 1 std_expo
+wait_buildstart 3 supply_depot
+build 4 supply_depot 80
+build 18 scv 80
+wait_buildstart 16 scv
+train 8 tesla_trooper
+attack_add 8 tesla_trooper
+attack_prepare 
+wait 150
+
+attack_do
+attack_clear
+return
+
 :ued_latebio
 random_jump 45 ued_AirStart
 build 8 scv 80
@@ -699,6 +749,7 @@ build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
+random_call 64 emp_timing
 build 13 scv 80
 wait_buildstart 11 scv
 random_jump 128 ulb_skiprush
@@ -745,7 +796,7 @@ define_max 8 heavy_marine
 train 6 heavy_marine
 defenseclear_gg 
 build 18 scv 80
-wait_buildstart 18 scv
+wait_buildstart 17 scv
 build 2 factory 80
 wait_buildstart 2 factory
 train 7 heavy_marine
@@ -889,8 +940,7 @@ wait_buildstart 2 starport
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 upgrade 3 t_ship_plating 40
-upgrade 1 t_ship_weapon 30
-upgrade 2 t_ship_weapon 30
+upgrade 1 goliath_range 40
 goto exp_repeater
 
 
@@ -1119,11 +1169,11 @@ farms_timing
 train 3 heavy_marine
 wait_buildstart 1 factory
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 17 scv 80
 build 2 barracks 80
 build 1 machine_shop 100
-wait_buildstart 17 scv
+wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 4 heavy_marine
@@ -1131,10 +1181,10 @@ define_max 9 heavy_marine
 aicontrol build_gas
 train 6 heavy_marine
 build 18 scv 80
-wait_buildstart 18 scv
+wait_buildstart 17 scv
 train 7 heavy_marine
 build 19 scv 80
-wait_buildstart 19 scv
+wait_buildstart 18 scv
 define_max 2 panzer
 multirun iniBTurret
 train 1 panzer
@@ -1291,9 +1341,6 @@ wait_buildstart 2 starport
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 upgrade 3 t_ship_plating 40
-upgrade 1 t_ship_weapon 30
-upgrade 2 t_ship_weapon 30
-upgrade 3 t_ship_weapon 30
 goto exp_repeater
 
 
@@ -1597,7 +1644,6 @@ upgrade 1 safety_protocols 40
 upgrade 1 t_infantry_weapon 40
 train 4 skywing
 train 10 heavy_marine
-upgrade 1 t_ship_weapon 40
 build 3 starport 80
 wait_buildstart 3 starport
 build 3 control_tower 100
@@ -1645,7 +1691,6 @@ call resource_waitskip
 train 1 panzer
 build 1 covert_ops 100
 wait_buildstart 1 covert_ops
-upgrade 2 t_ship_weapon 40
 upgrade 2 t_ship_plating 40
 place_guard phantom 0
 multirun iniBTurret
@@ -1680,7 +1725,6 @@ upgrade 3 t_infantry_weapon 40
 upgrade 3 t_infantry_armor 40
 call resource_waitskip
 upgrade 1 t_vehicle_plating 40
-upgrade 3 t_ship_weapon 60
 upgrade 3 t_ship_plating 50
 expand 5 std_expo
 upgrade 2 t_vehicle_plating 40
@@ -1839,12 +1883,12 @@ build 1 bunker 80
 wait_buildstart 1 bunker
 train 5 marine
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 barracks 80
 wait_buildstart 2 barracks
 train 6 marine
 build 16 scv 80
-wait_buildstart 16 scv
+wait_buildstart 15 scv
 build 3 supply_depot 80
 wait_buildstart 3 supply_depot
 train 7 marine
@@ -1857,12 +1901,12 @@ call t_defaults
 train 8 marine
 build 3 barracks 80
 build 18 scv 80
-wait_buildstart 18 scv
+wait_buildstart 17 scv
 build 2 bunker 80
 wait_buildstart 2 bunker
 train 10 marine
 build 19 scv 80
-wait_buildstart 19 scv
+wait_buildstart 18 scv
 build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 train 12 marine
@@ -1876,7 +1920,7 @@ attack_prepare
 build 4 barracks 80
 wait_buildstart 4 barracks
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 19 scv
 build 1 factory 80
 wait_buildstart 1 factory
 define_max 16 marine
@@ -2445,7 +2489,7 @@ build 14 scv 80
 wait_buildstart 12 scv
 aicontrol build_gas
 build 15 scv 80
-wait_buildstart 15 scv
+wait_buildstart 14 scv
 build 2 barracks 80
 wait_buildstart 2 barracks
 build 16 scv 80
@@ -2457,7 +2501,7 @@ call t_defaults
 train 6 marine
 train 1 vulture
 build 18 scv 80
-wait_buildstart 18 scv
+wait_buildstart 17 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
 train 7 marine
@@ -2468,7 +2512,7 @@ define_max 14 marine
 define_max 2 siege_tank
 build 2 factory 80
 build 19 scv 80
-wait_buildstart 19 scv
+wait_buildstart 18 scv
 build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 train 2 vulture
@@ -2489,7 +2533,7 @@ attack_add 1 siege_tank
 attack_add 2 vulture
 target_expansion 
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 19 scv
 build 1 academy 80
 wait_buildstart 1 academy
 define_max 16 marine
