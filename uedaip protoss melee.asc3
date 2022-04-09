@@ -187,7 +187,7 @@ stop
 wait 16
 
 tech_jump 13 Exactly maelstrom 0 ptech_mael
-idle_orders 186 882 1 dark_archon 1024 group_men 80 incombat|count(AtLeast 2 60 14)|unitflags(organic)
+idle_orders 186 882 1 dark_archon 1024 group_men 80 incombat|count(AtLeast 2 60 14)|unitflags(organic)|Self(Energy(GreaterThanPercent 50))
 idle_orders 186 0 1 dark_archon 256 group_men 90 unitflags(organic)|deathrattle
 stop
 
@@ -422,7 +422,6 @@ build 1 observatory 80
 wait_buildstart 1 observatory
 build 1 robotics_support_bay 80
 wait_buildstart 1 robotics_support_bay
-expand 3 std_expansion
 defensebuild_gg 1 dark_templar
 defensebuild_ga 1 hornet
 upgrade 1 observer_speed 40
@@ -1111,7 +1110,6 @@ upgrade 2 p_plating 40
 build 1 observatory 80
 wait_buildstart 1 observatory
 build 1 robotics_support_bay 80
-expand 3 exp_noguard
 wait_buildstart 1 robotics_support_bay
 defensebuild_gg 1 reaver
 define_max 1 observer
@@ -1131,7 +1129,7 @@ upgrade 1 p_air_weapon 40
 defensebuild_gg 1 scout
 defensebuild_aa 1 scout
 train 1 scout
-expand 2 std_expansion
+expand 3 exp_noguard
 train 2 scout
 build 1 fleet_beacon 80
 build 4 robotics_facility 80
@@ -1139,7 +1137,6 @@ wait_buildstart 1 fleet_beacon
 train 3 scout
 upgrade 1 observer_speed 40
 upgrade 1 shuttle_speed 40
-expand 3 exp_noguard
 build 1 templar_archives 80
 multirun random_owk
 call resource_waitskip
@@ -2096,7 +2093,6 @@ defensebuild_gg 1 reaver
 upgrade 1 p_ground_weapon 30
 multirun cannons
 upgrade 1 p_plating 40
-expand 3 exp_noguard
 upgrade 1 observer_speed 30
 upgrade 1 scout_speed 40
 build 1 citadel_of_adun 80

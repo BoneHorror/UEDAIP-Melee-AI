@@ -809,7 +809,6 @@ defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
-expand 4 generic_expansion
 upgrade 1 queen_mana 35
 upgrade 1 overlord_capacity 40
 tech consume 70
@@ -822,7 +821,7 @@ upgrade 1 ultralisk_speed 70
 call resource_waitskip
 build 4 creep_colony 80
 build 2 spore_colony 80
-expand 4 generic_expansion
+expand 3 generic_expansion
 call resource_waitskip
 upgrade 3 z_melee_attack 30
 upgrade 1 burrowed_regen 30
@@ -1467,7 +1466,7 @@ wait_buildstart 2 spire
 build 1 greater_spire 110
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
-expand 4 generic_expansion
+expand 3 generic_expansion
 upgrade 3 z_carapace 40
 tech consume 70
 train 6 mutalisk
@@ -2265,7 +2264,7 @@ defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
-expand 4 generic_expansion
+expand 3 generic_expansion
 upgrade 1 queen_mana 35
 tech consume 70
 train 44 hydralisk
@@ -2387,7 +2386,7 @@ goto protoss_loop
 define_max 7 infested_terran
 wait 7500
 
-idle_orders 120 0 1 queen 1024 overlord|observer|science_vessel|defiler|skywing|dropship|shuttle|arbiter|valhalla|defiler|queen|ghost 30 WithoutSpellEffects(Parasite)|RandomRate(280 820)
+idle_orders 120 0 1 queen 1024 overlord|observer|science_vessel|defiler|skywing|dropship|shuttle|arbiter|valhalla|defiler|queen|ghost 30 WithoutSpellEffects(Parasite)|RandomRate(280 820)|Self(Energy(GreaterThanPercent 50))
 wait_train 1 queen
 
 idle_orders 27 13 1 queen 1532 command_center 80 health(LessThanPercent,66)
@@ -2396,27 +2395,27 @@ tech spawn_broodling 60
 wait 1500
 
 defenseuse_gg 1 broodling
-idle_orders 121 8 1 queen 312 zergling|marine 5 Health(GreaterThanPercent 85)
+idle_orders 121 8 1 queen 312 zergling|marine 5 Health(GreaterThanPercent 85)|Self(Energy(GreaterThanPercent 75))
 idle_orders 121 8 1 queen 312 hydralisk|firebat|medic|heavy_marine 40 Health(GreaterThanPercent 85)
 idle_orders 121 8 1 queen 312 lurker|siege_tank|death_knight 70 Health(GreaterThanPercent 25)
 idle_orders 121 8 1 queen 312 ultralisk|36|panzer 120 Health(GreaterThanPercent 25)
-idle_orders 121 8 1 queen 312 zealot|vulture|scorpion 30 Health(GreaterThanPercent 45)
+idle_orders 121 8 1 queen 312 zealot|vulture|scorpion 30 Health(GreaterThanPercent 45)|Self(Energy(GreaterThanPercent 55))
 idle_orders 121 8 1 queen 312 dragoon|goliath|phantom 60 Health(GreaterThanPercent 45)
 idle_orders 121 8 1 queen 312 high_templar|ghost 70 Health(GreaterThanPercent 65)
 idle_orders 121 8 1 queen 312 dark_templar|tesla_trooper 50 Health(GreaterThanPercent 55)
 idle_orders 121 8 1 queen 312 drone|scv 15 Health(GreaterThanPercent 95)
-idle_orders 121 8 1 queen 312 broodling 3 Health(GreaterThanPercent 95)
+idle_orders 121 8 1 queen 312 broodling 3 Health(GreaterThanPercent 95)|Self(Energy(GreaterThanPercent 85))
 idle_orders 121 8 1 queen 312 group_men 40 deathrattle
 wait_train 2 queen
 tech ensnare 60
 upgrade 1 overlord_capacity 40
 wait 1500
 
-idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)
-idle_orders 146 0 1 queen 1024 group_men 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(80 320)
-idle_orders 146 0 1 queen 1024 dragoon|corsair|scout|dark_templar|wraith|ghost|skywing|phantom 40 WithoutSpellEffects(Ensnare)|Count(AtLeast 2 64 14)|RandomRate(160 540)
-idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|dragoon|corsair|scout|dark_archon|devourer|guardian|dark_templar|goliath|siege_tank|revenant|death_knight|panzer 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(160 540)
-idle_orders 146 0 1 queen 1024 reaver|dark_archon|archon|devourer|guardian|hnorad|battlecruiser|valhalla|carrier|arbiter 70 WithoutSpellEffects(Ensnare)|Count(AtLeast 1 64 14)|RandomRate(160 540)
+idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)|Self(Energy(GreaterThanPercent 45))
+idle_orders 146 0 1 queen 1024 group_men 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(80 320)|Self(Energy(GreaterThanPercent 50))
+idle_orders 146 0 1 queen 1024 dragoon|corsair|scout|dark_templar|wraith|ghost|skywing|phantom 40 WithoutSpellEffects(Ensnare)|Count(AtLeast 2 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 55))
+idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|dragoon|corsair|scout|dark_archon|devourer|guardian|dark_templar|goliath|siege_tank|revenant|death_knight|panzer 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 50))
+idle_orders 146 0 1 queen 1024 reaver|dark_archon|archon|devourer|guardian|hnorad|battlecruiser|valhalla|carrier|arbiter 70 WithoutSpellEffects(Ensnare)|Count(AtLeast 1 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 45))
 idle_orders 146 8 1 queen 312 group_men 30 deathrattle
 wait_train 3 queen
 upgrade 1 queen_mana 40

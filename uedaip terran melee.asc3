@@ -1839,6 +1839,8 @@ call resource_waitskip
 goto ALo
 
 :t_groundmap
+#remove next line after testing
+random_jump 250 light_focus
 random_jump 128 UED1
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
@@ -2378,8 +2380,307 @@ target_expansion
 call resource_waitskip
 goto gLo
 
+:light_focus
+build 1 command_center 150
+wait_buildstart 1 command_center
+build 7 scv 130
+deaths 13 Set 7 lurker ued_empair
+wait_buildstart 6 scv
+build 8 scv 80
+wait_buildstart 7 scv
+build 1 supply_depot 80
+wait_buildstart 1 supply_depot
+build 10 scv 80
+wait_buildstart 8 scv
+capt_expand 
+build 11 scv 80
+build 1 refinery 80
+wait_buildstart 1 refinery
+build 1 barracks 80
+wait_buildstart 1 barracks
+build 12 scv 80
+train 1 marine
+defensebuild_gg 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 1 marine
+build 13 scv 80
+wait_buildstart 11 scv
+call t_defaults
+call 2fac_forcevult
+build 1 starport 80
+wait_buildstart 1 starport
+define_max 12 marine
+define_max 10 vulture
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
+train 2 vulture
+capt_expand
+build 2 starport 80
+defensebuild_gg 2 marine
+defensebuild_ag 2 marine
+defenseuse_gg 2 marine
+defenseuse_ag 2 marine
+wait_buildstart 2 starport
+define_max 4 wraith
+defensebuild_gg 1 wraith
+defenseuse_gg 1 wraith
+defensebuild_ag 1 wraith
+defenseuse_ag 1 wraith
+defensebuild_ga 1 wraith
+defenseuse_ga 1 wraith
+defensebuild_aa 1 wraith
+defenseuse_aa 1 wraith
+train 1 siege_tank
+build 1 engineering_bay 80
+wait_buildstart 1 engineering_bay
+farms_timing
+define_max 2 siege_tank
+defensebuild_gg 1 siege_tank
+defenseuse_gg 1 siege_tank
+train 1 wraith
+build 1 armory 80
+multirun vult_avail
+tech spider_mines 50
+train 4 vulture
+build 2 starport 80
+wait_buildstart 2 starport
+build 1 control_tower 100
+upgrade 1 t_vehicle_weapon 50
+define_max 7 wraith
+capt_expand
+train 2 wraith
+train 6 vulture
+build 3 factory 80
+wait_buildstart 3 factory
+tech siege_mode 40
+expand 2 std_expo
+train 1 siege_tank
+train 8 vulture
+train 4 wraith
+attack_do 
+attack_clear 
+set_attacks 2
+attack_add 8 vulture
+tech cloaking_field 30
+target_expansion
+defensebuild_gg 2 wraith
+defenseuse_gg 2 wraith
+build 2 machine_shop 80
+build 2 armory 80
+wait_buildstart 2 armory
+upgrade 1 t_ship_weapon 40
+upgrade 1 t_vehicle_plating 50
+train 6 wraith
+build 2 control_tower 100
+build 3 starport 80
+panic std_expo
+attack_do 
+attack_clear
+capt_expand
+define_max 10 wraith
+define_max 4 goliath
+defensebuild_gg 1 goliath
+defenseuse_gg 1 goliath
+defensebuild_ag 1 goliath
+defenseuse_ag 1 goliath
+attack_add 6 wraith
+target_expansion
+build 1 science_facility 80
+wait_buildstart 1 science_facility
+upgrade 1 t_ship_plating 40
+set_attacks 3
+train 4 vulture
+define_max 20 vulture
+build 3 armory 80
+wait_buildstart 3 armory
+upgrade 1 overclocking 40
+train 4 wraith
+train 8 vulture
+train 6 wraith
+train 20 vulture
+attack_add 20 vulture
+target_expansion
+multirun light_atk
+build 3 control_tower 100
+wait_buildstart 3 control_tower
+upgrade 2 t_vehicle_plating 40
+upgrade 1 adv_mechanics 50
+train 8 wraith
+build 1 physics_lab 100
+check_transports 
+defensebuild_gg 1 siege_tank
+defenseuse_gg 1 siege_tank
+wait_force 1 dropship
+expand 3 std_expo
+
+wait 48
+tech stim_packs 30
+call resource_waitskip
+
+tech yamato_gun 40
+upgrade 2 t_vehicle_weapon 50
+upgrade 1 t_infantry_weapon 30
+upgrade 1 wraith_mana 40
+random_jump 180 scil_air_skip
+upgrade 1 science_aura 40
+:scil_air_skip
+upgrade 2 t_ship_weapon 70
+call resource_waitskip
+
+idle_orders 113 96 2 hnorad 192 ultralisk|devourer|spore_colony|hnorad|battlecruiser|missile_turret|carrier|scout|valkyrie 80 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 288 photon_cannon|bunker|sunken_colony 70 InCombat|Health(GreaterThanPercent 75)
+idle_orders 113 96 1 hnorad 192 lurker|mutalisk|guardian|reaver|archon|siege_tank|wraith|panzer 50 InCombat|Health(GreaterThanPercent 80)
+idle_orders 113 96 1 hnorad 256 dark_archon|science_vessel|arbiter 30 InCombat|Health(GreaterThanPercent 75)
+
+multirun iniBTurret
+
+expand 3 std_expo
+upgrade 3 t_vehicle_plating 60
+tech emp_shockwave 35
+tech irradiate 65
+call resource_waitskip
+
+place_guard science_vessel 0
+call resource_waitskip
+wait 1250
+
+call resource_waitskip
+upgrade 1 battlecruiser_mana 50
+upgrade 3 t_vehicle_weapon 60
+define_max 2 dropship
+upgrade 2 t_ship_plating 60
+expand 4 std_expo
+call resource_waitskip
+
+defensebuild_ag 2 goliath
+defenseuse_ag 2 goliath
+call resource_waitskip
+
+upgrade 3 t_ship_weapon 60
+call resource_waitskip
+
+upgrade 3 t_ship_plating 60
+call resource_waitskip
+
+expand 4 std_expo
+tech emp_shockwave 40
+upgrade 2 t_infantry_weapon 30
+call resource_waitskip
+
+player_need 4 factory
+call resource_waitskip
+build 2 science_facility 80
+wait_buildstart 2 science_facility
+build 1 covert_ops 100
+wait_build 1 covert_ops
+call resource_waitskip
+tech lockdown 30
+tech personnel_cloaking 30
+defensebuild_gg 1 ghost
+defenseuse_gg 1 ghost
+upgrade 1 ghost_sight 30
+goto exp_repeater
+
+:light_atk
+define_max 20 marine
+define_max 255 goliath
+define_max 6 siege_tank
+define_max 255 firebat
+define_max 8 goliath
+define_max 20 vulture
+define_max 2 ghost
+define_max 4 hnorad
+define_max 12 wraith
+attack_do
+attack_clear
+attack_add 8 wraith
+attack_add 2 siege_tank
+attack_add 9 vulture
+set_attacks 2
+
+:LSC
+train 1 siege_tank
+train 3 vulture
+train 6 wraith
+train 2 siege_tank
+train 6 vulture
+train 8 wraith
+train 9 vulture
+target_expansion 
+call resource_waitskip
+notowns_jump science_facility LSC
+attack_do
+attack_clear 
+attack_add 12 vulture
+attack_add 4 goliath
+set_attacks 2
+
+:LPu
+train 12 vulture
+train 4 goliath
+target_expansion 
+call resource_waitskip
+notowns_jump physics_lab LPu
+attack_do
+attack_clear
+attack_add 10 vulture
+attack_add 2 hnorad
+set_attacks 2
+train 2 hnorad
+train 10 vulture
+target_expansion 
+call resource_waitskip
+
+:LLo
+set_attacks 4
+attack_do
+attack_clear 
+attack_add 8 wraith
+train 4 vulture
+train 3 wraith
+train 6 vulture
+train 1 siege_tank
+train 5 wraith
+train 8 vulture
+train 6 wraith
+train 2 siege_tank
+train 10 vulture
+train 8 wraith
+train 12 vulture
+train 3 siege_tank
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear
+attack_add 4 siege_tank
+attack_add 12 vulture
+train 4 siege_tank
+train 12 vulture
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear
+attack_add 1 science_vessel
+attack_add 2 hnorad
+attack_add 4 wraith
+attack_add 12 vulture
+attack_add 6 goliath
+train 1 science_vessel
+train 2 goliath
+train 2 hnorad
+train 4 goliath
+train 8 vulture
+train 2 wraith
+train 6 goliath
+train 4 wraith
+train 12 vulture
+target_expansion 
+call resource_waitskip
+goto LLo
+
 :2fac_timing
 random_jump 128 2fac_gol
+:2fac_forcevult
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
@@ -2405,7 +2706,9 @@ build 5 supply_depot 80
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
 train 7 vulture
+deaths 13 Exactly 7 lurker skip_spider
 tech spider_mines 40
+:skip_spider
 train 8 vulture
 expand 1 std_expo
 attack_add 8 vulture
@@ -3423,6 +3726,7 @@ deaths 13 Exactly 5 lurker exp_comsat2n
 deaths 13 Exactly 3 lurker exp_comsat3
 deaths 13 Exactly 4 lurker exp_comsat4
 deaths 13 Exactly 6 lurker exp_comsat5n
+deaths 13 Exactly 7 lurker exp_comsat6
 player_need 1 covert_ops
 place_guard ghost 0
 place_guard ghost 2
@@ -3483,6 +3787,52 @@ build 2 starport 80
 wait_build 2 starport
 build 2 control_tower 100
 goto defRout054
+
+:exp_comsat6
+build 1 comsat_station 80
+call random_sciv_guard
+build 1 starport 80
+wait_build 1 starport
+build 1 control_tower 100
+build 1 factory 80
+wait_build 1 factory
+build 1 machine_shop 100
+goto defRout054
+
+:vult_avail
+wait 160
+
+resources 13 AtLeast Ore 200 ve1
+resources 13 AtLeast Ore 600 ve2
+resources 13 AtLeast Ore 1200 ve3
+goto vult_avail
+
+:ve1
+train 1 vulture
+wait 300
+
+train 3 vulture
+wait 550
+
+goto vult_avail
+
+:ve2
+train 3 vulture
+wait 350
+
+train 6 vulture
+wait 650
+
+goto vult_avail
+
+:ve3
+train 6 vulture
+wait 500
+
+train 12 vulture
+wait 950
+
+goto vult_avail
 
 :ec_star
 build 1 starport 80
