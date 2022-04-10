@@ -355,7 +355,7 @@ train 2 dragoon
 wait_buildstart 1 forge
 build 5 pylon 80
 wait_buildstart 5 pylon
-build 4 gateway 80
+build 3 gateway 80
 farms_timing 
 upgrade 1 p_ground_weapon 40
 train 4 dragoon
@@ -369,38 +369,40 @@ attack_clear
 attack_add 10 dragoon
 attack_prepare 
 panic std_expansion
-train 6 zealot
+train 3 zealot
 define_max 12 zealot
-build 1 templar_archives 80
-wait_buildstart 1 templar_archives
-train 3 dragoon
+train 1 corsair
 build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
 call p_defaults
 defensebuild_gg 2 zealot
 defensebuild_aa 1 corsair
-train 5 dragoon
+train 5 zealot
 upgrade 1 zealot_speed 40
 define_max 2 corsair
+define_max 2 revenant
+build 4 gateway 80
+train 2 revenant
 train 1 corsair
 train 1 shuttle
-upgrade 2 p_ground_weapon 40
 check_transports 
-train 4 dragoon
+train 4 zealot
 attack_do
 attack_clear
+build 1 templar_archives 80
+wait_buildstart 1 templar_archives
 attack_add 1 corsair
 attack_prepare
 wait 16
 
-attack_timeout 10
+attack_timeout 18
 defensebuild_gg 1 dragoon
 defensebuild_ag 2 dragoon
 defensebuild_gg 1 revenant
 defensebuild_ag 2 revenant
 train 2 revenant
 expand 2 std_expansion
-upgrade 1 p_plasma_shield 40
+upgrade 2 p_ground_weapon 50
 define_max 10 zealot
 train 5 dragoon
 multirun MixedAttacks
@@ -409,14 +411,15 @@ place_guard high_templar 0
 defensebuild_gg 1 archon
 defensebuild_ag 2 archon
 build 2 forge 80
-tech psionic_storm 80
 train 7 dragoon
+tech psionic_storm 80
 train 8 dragoon
-upgrade 3 p_ground_weapon 60
+upgrade 1 p_plasma_shield 40
 define_max 2 shuttle
 multirun cannons
+call resource_waitskip
 upgrade 1 one_with_khala 40
-upgrade 2 p_armor 40
+upgrade 3 p_ground_weapon 60
 upgrade 2 p_plating 40
 build 1 observatory 80
 wait_buildstart 1 observatory
@@ -428,9 +431,10 @@ upgrade 1 observer_speed 40
 upgrade 1 shuttle_speed 40
 define_max 1 observer
 upgrade 2 p_plasma_shield 40
+upgrade 2 p_armor 40
 define_max 2 observer
-build 1 stargate 80
-wait_buildstart 1 stargate
+build 2 stargate 80
+wait_buildstart 2 stargate
 upgrade 1 observer_sight 40
 defensebuild_gg 1 reaver
 define_max 3 observer
@@ -440,29 +444,27 @@ call resource_waitskip
 upgrade 3 p_armor 50
 upgrade 3 p_plating 40
 train 1 scout
+build 1 shield_battery 80
 defensebuild_ga 1 scout
 defensebuild_ag 2 scout
 expand 3 std_expansion
-build 2 stargate 80
-wait_buildstart 2 stargate
 train 2 scout
-build 1 fleet_beacon 80
 build 2 robotics_facility 80
-wait_buildstart 1 fleet_beacon
-train 3 scout
 call resource_waitskip
 
 upgrade 2 one_with_khala 40
 upgrade 1 templar_mana 40
-upgrade 1 scout_speed 40
-build 3 stargate 80
+build 1 fleet_beacon 80
+wait_buildstart 1 fleet_beacon
+train 3 scout
 tech disruption_web 40
 defensebuild_aa 1 scout
 defensebuild_gg 1 scout
-wait_buildstart 3 stargate
-upgrade 1 scout_sight 40
+call resource_waitskip
+upgrade 1 scout_speed 40
 tech mind_control 40
 train 1 carrier
+build 2 shield_battery 80
 expand 3 std_expansion
 build 1 arbiter_tribunal 80
 wait_buildstart 1 arbiter_tribunal
@@ -470,6 +472,10 @@ upgrade 3 p_plasma_shield 40
 upgrade 2 p_air_weapon 40
 place_guard arbiter 0
 tech stasis_field 80
+call resource_waitskip
+
+upgrade 1 scout_sight 40
+build 3 stargate 80
 call resource_waitskip
 
 expand 4 std_expansion
@@ -547,11 +553,16 @@ attack_add 4 hornet
 attack_add 5 scout
 set_attacks 2
 
+train 1 hornet
+train 1 scout
 train 2 dragoon
 train 2 scout
 train 4 dark_templar
 train 2 hornet
 train 3 scout
+train 5 dark_templar
+train 3 hornet
+train 4 scout
 train 6 dark_templar
 train 5 scout
 train 4 dragoon
