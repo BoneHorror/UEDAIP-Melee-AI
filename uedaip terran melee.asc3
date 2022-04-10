@@ -1839,9 +1839,8 @@ call resource_waitskip
 goto ALo
 
 :t_groundmap
-#remove next line after testing
-random_jump 250 light_focus
 random_jump 128 UED1
+random_jump 12 light_focus
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
 
@@ -2445,9 +2444,8 @@ train 4 vulture
 build 2 starport 80
 wait_buildstart 2 starport
 build 1 control_tower 100
-upgrade 1 t_vehicle_weapon 50
+upgrade 1 t_vehicle_weapon 60
 define_max 7 wraith
-capt_expand
 train 2 wraith
 train 6 vulture
 build 3 factory 80
@@ -2468,15 +2466,14 @@ defenseuse_gg 2 wraith
 build 2 machine_shop 80
 build 2 armory 80
 wait_buildstart 2 armory
-upgrade 1 t_ship_weapon 40
-upgrade 1 t_vehicle_plating 50
+upgrade 1 t_ship_weapon 60
+upgrade 1 t_vehicle_plating 60
 train 6 wraith
 build 2 control_tower 100
 build 3 starport 80
 panic std_expo
 attack_do 
 attack_clear
-capt_expand
 define_max 10 wraith
 define_max 4 goliath
 defensebuild_gg 1 goliath
@@ -2487,13 +2484,13 @@ attack_add 6 wraith
 target_expansion
 build 1 science_facility 80
 wait_buildstart 1 science_facility
-upgrade 1 t_ship_plating 40
+upgrade 1 t_ship_plating 60
 set_attacks 3
 train 4 vulture
 define_max 20 vulture
 build 3 armory 80
 wait_buildstart 3 armory
-upgrade 1 overclocking 40
+upgrade 1 overclocking 50
 train 4 wraith
 train 8 vulture
 train 6 wraith
@@ -2503,7 +2500,7 @@ target_expansion
 multirun light_atk
 build 3 control_tower 100
 wait_buildstart 3 control_tower
-upgrade 2 t_vehicle_plating 40
+upgrade 2 t_vehicle_plating 60
 upgrade 1 adv_mechanics 50
 train 8 wraith
 build 1 physics_lab 100
@@ -2518,7 +2515,7 @@ tech stim_packs 30
 call resource_waitskip
 
 tech yamato_gun 40
-upgrade 2 t_vehicle_weapon 50
+upgrade 2 t_vehicle_weapon 60
 upgrade 1 t_infantry_weapon 30
 upgrade 1 wraith_mana 40
 random_jump 180 scil_air_skip
@@ -2569,28 +2566,18 @@ call resource_waitskip
 
 player_need 4 factory
 call resource_waitskip
-build 2 science_facility 80
-wait_buildstart 2 science_facility
-build 1 covert_ops 100
-wait_build 1 covert_ops
-call resource_waitskip
-tech lockdown 30
-tech personnel_cloaking 30
-defensebuild_gg 1 ghost
-defenseuse_gg 1 ghost
-upgrade 1 ghost_sight 30
 goto exp_repeater
 
 :light_atk
 define_max 20 marine
 define_max 255 goliath
-define_max 6 siege_tank
+define_max 8 siege_tank
 define_max 255 firebat
-define_max 8 goliath
+define_max 10 goliath
 define_max 20 vulture
-define_max 2 ghost
+define_max 255 ghost
 define_max 4 hnorad
-define_max 12 wraith
+define_max 14 wraith
 attack_do
 attack_clear
 attack_add 8 wraith
@@ -2612,12 +2599,12 @@ notowns_jump science_facility LSC
 attack_do
 attack_clear 
 attack_add 12 vulture
-attack_add 4 goliath
+attack_add 6 goliath
 set_attacks 2
 
 :LPu
 train 12 vulture
-train 4 goliath
+train 6 goliath
 target_expansion 
 call resource_waitskip
 notowns_jump physics_lab LPu
@@ -2635,7 +2622,6 @@ call resource_waitskip
 set_attacks 4
 attack_do
 attack_clear 
-attack_add 8 wraith
 train 4 vulture
 train 3 wraith
 train 6 vulture
@@ -2647,23 +2633,26 @@ train 2 siege_tank
 train 10 vulture
 train 8 wraith
 train 12 vulture
-train 3 siege_tank
-target_expansion 
-call resource_waitskip
-attack_do
-attack_clear
-attack_add 4 siege_tank
-attack_add 12 vulture
 train 4 siege_tank
+attack_add 6 siege_tank
+attack_add 12 vulture
+train 6 siege_tank
 train 12 vulture
 target_expansion 
 call resource_waitskip
 attack_do
 attack_clear
+attack_add 10 wraith
+train 10 wraith
+target_expansion 
+call resource_waitskip
+attack_do
+attack_clear
+call resource_waitskip
 attack_add 1 science_vessel
 attack_add 2 hnorad
 attack_add 4 wraith
-attack_add 12 vulture
+attack_add 16 vulture
 attack_add 6 goliath
 train 1 science_vessel
 train 2 goliath
@@ -2673,7 +2662,7 @@ train 8 vulture
 train 2 wraith
 train 6 goliath
 train 4 wraith
-train 12 vulture
+train 16 vulture
 target_expansion 
 call resource_waitskip
 goto LLo
