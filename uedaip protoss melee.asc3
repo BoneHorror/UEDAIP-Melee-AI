@@ -13,6 +13,9 @@ build 5 probe 100
 max_force 800
 supply 13 Set 260 Max marine Protoss supply_ensure
 #under_attack 0
+aicontrol global_disable_spell_focus
+aicontrol global_disable_acid_spore_focus
+aicontrol global_disable_carrier_focus
 idle_orders disablebuiltin 0 0 0 0 0 0 0
 idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)
 idle_orders 10 16 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
@@ -320,7 +323,6 @@ build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
 wait_buildstart 11 probe
-expand 1 std_expansion
 train 1 zealot
 defenseuse_gg 2 zealot
 capt_expand 
@@ -328,26 +330,29 @@ build 14 probe 80
 wait_buildstart 12 probe
 build 2 gateway 80
 wait_buildstart 2 gateway
+train 2 zealot
 build 15 probe 80
 wait_buildstart 13 probe
-train 3 zealot
-attack_add 3 zealot
+train 5 zealot
+attack_add 5 zealot
 attack_prepare
+expand 1 std_expansion
 build 16 probe 80
 wait_buildstart 14 probe
 build 3 pylon 80
 wait_buildstart 3 pylon
-build 1 cybernetics_core 80
+build 1 cybernetics_core 130
 build 17 probe 80
 wait_buildstart 15 probe
 build 18 probe 80
 wait_buildstart 16 probe
 train 5 zealot
+build 4 pylon 80
 build 1 assimilator 80
 wait_buildstart 1 assimilator
-build 4 pylon 80
 wait_buildstart 4 pylon
-build 1 forge 80
+build 1 forge 100
+wait_buildstart 1 forge
 define_max 4 dragoon
 wait_build 1 cybernetics_core
 upgrade 1 dragoon_range 40
@@ -359,7 +364,6 @@ build 3 gateway 80
 farms_timing 
 upgrade 1 p_ground_weapon 40
 train 4 dragoon
-build 1 stargate 80
 build 1 citadel_of_adun 80
 define_max 12 dragoon
 wait_force 10 dragoon
@@ -371,13 +375,16 @@ attack_prepare
 panic std_expansion
 train 3 zealot
 define_max 12 zealot
-train 1 corsair
 build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
 call p_defaults
 defensebuild_gg 2 zealot
+defensebuild_gg 2 dragoon
+defensebuild_ag 1 dragoon
 defensebuild_aa 1 corsair
 train 5 zealot
+build 1 stargate 80
+wait_buildstart 1 stargate
 upgrade 1 zealot_speed 40
 define_max 2 corsair
 define_max 2 revenant
@@ -396,8 +403,6 @@ attack_prepare
 wait 16
 
 attack_timeout 18
-defensebuild_gg 1 dragoon
-defensebuild_ag 2 dragoon
 defensebuild_gg 1 revenant
 defensebuild_ag 2 revenant
 train 2 revenant
@@ -406,14 +411,12 @@ upgrade 2 p_ground_weapon 50
 define_max 10 zealot
 train 5 dragoon
 multirun MixedAttacks
-train 6 dragoon
 place_guard high_templar 0
 defensebuild_gg 1 archon
 defensebuild_ag 2 archon
 build 2 forge 80
-train 7 dragoon
+wait_build 2 forge
 tech psionic_storm 80
-train 8 dragoon
 upgrade 1 p_plasma_shield 40
 define_max 2 shuttle
 multirun cannons
@@ -433,8 +436,6 @@ define_max 1 observer
 upgrade 2 p_plasma_shield 40
 upgrade 2 p_armor 40
 define_max 2 observer
-build 2 stargate 80
-wait_buildstart 2 stargate
 upgrade 1 observer_sight 40
 defensebuild_gg 1 reaver
 define_max 3 observer
@@ -450,20 +451,19 @@ defensebuild_ag 2 scout
 expand 3 std_expansion
 train 2 scout
 build 2 robotics_facility 80
+wait_build 2 robotics_facility
 call resource_waitskip
 
+upgrade 1 scarab_damage 40
 upgrade 2 one_with_khala 40
 upgrade 1 templar_mana 40
-build 1 fleet_beacon 80
-wait_buildstart 1 fleet_beacon
 train 3 scout
 tech disruption_web 40
 defensebuild_aa 1 scout
 defensebuild_gg 1 scout
 call resource_waitskip
-upgrade 1 scout_speed 40
+
 tech mind_control 40
-train 1 carrier
 build 2 shield_battery 80
 expand 3 std_expansion
 build 1 arbiter_tribunal 80
@@ -474,8 +474,10 @@ place_guard arbiter 0
 tech stasis_field 80
 call resource_waitskip
 
-upgrade 1 scout_sight 40
-build 3 stargate 80
+build 3 robotics_facility 80
+wait_buildstart 3 robotics_facility
+build 1 fleet_beacon 80
+wait_build 1 fleet_beacon
 call resource_waitskip
 
 expand 4 std_expansion
@@ -487,14 +489,15 @@ upgrade 1 carrier_capacity 40
 upgrade 3 p_air_weapon 40
 train 1 carrier
 tech maelstrom 40
+upgrade 1 scout_speed 40
 call resource_waitskip
 
 place_guard arbiter 0
 call resource_waitskip
 
+upgrade 1 scout_sight 40
 expand 5 std_expansion
 upgrade 1 arbiter_mana 40
-upgrade 1 scarab_damage 40
 upgrade 1 dark_archon_mana 50
 place_guard dark_archon 0
 :exp_repeater
@@ -507,25 +510,25 @@ goto exp_repeater
 define_max 14 zealot
 define_max 7 revenant
 define_max 20 dragoon
-define_max 3 carrier
+define_max 2 carrier
 define_max 10 dark_templar
 define_max 1 dark_archon
 define_max 5 high_templar
 define_max 4 archon
-define_max 7 scout
-define_max 2 reaver
+define_max 6 scout
+define_max 6 reaver
 define_max 8 hornet
 define_max 3 corsair
 attack_do
 attack_clear 
 attack_add 6 zealot
-attack_add 4 dragoon
+attack_add 7 dragoon
 attack_add 4 revenant
 set_attacks 2
 
 :def009
 train 6 zealot
-train 4 dragoon
+train 7 dragoon
 train 4 revenant
 target_expansion 
 call resource_waitskip
@@ -535,37 +538,52 @@ attack_clear
 attack_add 8 zealot
 attack_add 4 dragoon
 attack_add 2 archon
+attack_add 2 scout
 set_attacks 2
+wait 300
 
-train 4 high_templar
+train 1 scout
+train 4 zealot
+train 2 high_templar
+do_morph 1 archon
+train 2 scout
 train 8 zealot
+train 4 high_templar
+do_morph 2 archon
 train 4 dragoon
 do_morph 2 archon
 target_expansion 
+train 2 dark_templar
 call resource_waitskip
-
+do_morph 1 dark_archon
+notowns_jump robotics_support_bay def009
 :def010
 attack_do
 attack_clear 
 attack_add 6 dark_templar
-attack_add 4 dragoon
+attack_add 8 dragoon
 attack_add 4 hornet
-attack_add 5 scout
+attack_add 4 scout
+attack_add 2 reaver
 set_attacks 2
 
+train 1 reaver
 train 1 hornet
 train 1 scout
-train 2 dragoon
+train 3 dragoon
 train 2 scout
 train 4 dark_templar
 train 2 hornet
+train 5 dragoon
+train 2 reaver
 train 3 scout
 train 5 dark_templar
 train 3 hornet
+train 7 dragoon
 train 4 scout
 train 6 dark_templar
-train 5 scout
-train 4 dragoon
+train 2 reaver
+train 8 dragoon
 train 4 hornet
 wait 500
 target_expansion 
@@ -579,7 +597,7 @@ attack_do
 attack_clear 
 attack_add 14 zealot
 attack_add 4 dragoon
-attack_add 2 reaver
+attack_add 4 reaver
 attack_add 2 archon
 attack_add 2 carrier
 attack_add 4 dark_templar
@@ -587,13 +605,13 @@ attack_add 2 corsair
 set_attacks 2
 train 2 corsair
 train 2 carrier
-train 1 reaver
+train 2 reaver
 train 4 high_templar
 train 8 zealot
 do_morph 2 archon
 train 4 dragoon
 train 4 high_templar
-train 2 reaver
+train 4 reaver
 train 14 zealot
 do_morph 4 archon
 target_expansion 
@@ -604,16 +622,25 @@ attack_clear
 attack_add 16 dragoon
 attack_add 4 revenant
 attack_add 4 dark_templar
-attack_add 3 carrier
-attack_add 6 scout
-train 2 carrier
+attack_add 1 dark_archon
+attack_add 4 scout
+attack_add 2 reaver
+train 2 high_templar
 train 7 dragoon
-train 3 carrier
+do_morph 1 archon
 train 10 dragoon
-train 3 scout
+train 2 dark_templar
+train 1 reaver
+train 2 scout
+train 4 high_templar
+do_morph 1 dark_archon
 train 4 revenant
-train 6 scout
+do_morph 2 archon
+train 4 scout
+train 2 reaver
 train 4 dark_templar
+do_morph 2 archon
+do_morph 1 dark_archon
 target_expansion 
 call resource_waitskip
 goto def011
@@ -680,7 +707,6 @@ defensebuild_gg 1 dark_templar
 defenseuse_gg 1 dark_templar
 train 2 dark_templar
 expand 1 exp_noguard
-train 4 dark_templar
 defensebuild_gg 1 revenant
 defenseuse_gg 1 revenant
 define_max 12 zealot
@@ -689,7 +715,7 @@ enemyowns_jump lurker d_o_r
 enemyowns_jump observer d_o_r
 wait_force 4 dark_templar
 attack_add 5 zealot
-attack_add 4 dark_templar
+attack_add 2 dark_templar
 attack_prepare
 wait 90
 
@@ -826,7 +852,6 @@ wait_buildstart 1 stargate
 define_max 1 shuttle
 define_max 255 observer
 upgrade 1 p_air_weapon 40
-defensebuild_gg 2 zealot
 defensebuild_aa 1 corsair
 defenseuse_aa 1 corsair
 train 5 revenant
@@ -843,7 +868,9 @@ wait 16
 
 attack_timeout 10
 defensebuild_gg 1 revenant
+defenseuse_gg 1 revenant
 defensebuild_ag 2 revenant
+defenseuse_ag 2 revenant
 train 2 revenant
 expand 2 exp_noguard
 upgrade 1 p_plasma_shield 40
@@ -1017,47 +1044,44 @@ build 3 pylon 80
 wait_buildstart 3 pylon
 build 17 probe 80
 wait_buildstart 15 probe
-define_max 6 dragoon
+define_max 8 dragoon
 train 1 dragoon
-attack_add 1 zealot
-attack_prepare
 build 2 gateway 80
 wait_buildstart 2 gateway
-attack_timeout 20
 build 18 probe 80
 wait_buildstart 16 probe
 train 2 dragoon
 upgrade 1 dragoon_range 40
 defensebuild_gg 1 dragoon
 defenseuse_gg 1 dragoon
-build 1 robotics_facility 80
 train 4 dragoon
 build 4 pylon 80
 wait_buildstart 4 pylon
-build 1 forge 80
-train 6 dragoon
-attack_clear
+farms_timing
+train 8 dragoon
+build 1 robotics_facility 80
 set_attacks 1
 wait 16
 
-attack_add 6 dragoon
+attack_add 8 dragoon
 target_expansion
+build 1 forge 80
 wait_buildstart 1 forge
 build 5 pylon 80
 wait_buildstart 5 pylon
-farms_timing 
 upgrade 1 p_plasma_shield 40
 upgrade 1 p_plating 40
 build 2 robotics_facility 80
-define_max 8 dragoon
-define_max 6 hornet
-train 2 hornet
-train 2 dragoon
+wait_buildstart 2 robotics_facility
+define_max 9 dragoon
+define_max 8 hornet
 train 4 hornet
-train 4 dragoon
-wait_force 4 dragoon
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
+build 1 robotics_support_bay 80
+wait_buildstart 1 robotics_support_bay
+train 2 dragoon
+train 8 hornet
 attack_do
 attack_clear 
 attack_add 4 hornet
@@ -1066,8 +1090,6 @@ attack_prepare
 panic exp_noguard
 expand 2 std_expansion
 define_max 12 zealot
-build 1 robotics_support_bay 80
-wait_buildstart 1 robotics_support_bay
 define_max 1 shuttle
 check_transports
 train 3 dragoon
@@ -1092,7 +1114,7 @@ attack_add 1 corsair
 attack_prepare
 wait 16
 
-attack_timeout 10
+attack_timeout 15
 defensebuild_gg 1 dragoon
 defensebuild_ag 2 dragoon
 defensebuild_gg 1 revenant
@@ -1113,7 +1135,6 @@ build 2 forge 80
 train 7 dragoon
 train 8 dragoon
 upgrade 1 p_ground_weapon 40
-
 define_max 2 shuttle
 multirun cannons
 upgrade 2 p_armor 40
@@ -1170,6 +1191,8 @@ call resource_waitskip
 train 1 carrier
 upgrade 1 reaver_capacity 40
 upgrade 3 p_air_weapon 40
+wait 850
+
 train 1 carrier
 upgrade 3 p_ground_weapon 40
 expand 5 std_expansion
@@ -1214,6 +1237,8 @@ attack_add 10 dragoon
 attack_add 3 reaver
 set_attacks 2
 
+train 1 reaver
+train 4 dragoon
 train 3 reaver
 train 10 dragoon
 target_expansion 
@@ -1360,6 +1385,8 @@ train 3 dragoon
 
 call p_defaults
 defensebuild_gg 3 zealot
+defensebuild_gg 2 dragoon
+defensebuild_ag 2 dragoon
 train 5 dragoon
 build 1 observatory 80
 wait_buildstart 1 observatory
@@ -1375,13 +1402,13 @@ train 4 dragoon
 train 1 observer
 attack_do
 attack_clear
-defensebuild_gg 2 dragoon
-defensebuild_ag 2 dragoon
+wait 16
+
 attack_add 1 scout
 attack_prepare
 wait 16
 
-attack_timeout 10
+attack_timeout 18
 defensebuild_gg 1 scout
 defensebuild_ag 2 scout
 defensebuild_aa 1 scout
@@ -1675,13 +1702,19 @@ multirun expo_probes
 multirun tech_prog1
 multirun tech_prog2_cannon
 multirun sb_checker
+wait_build 1 nexus
 build 1 assimilator 50
 max_workers 21
 wait 500
 
 multirun rush_panic_exp
-multirun prodGetter
 multirun worker_decay
+:eloop_cyber
+wait 80
+
+notowns_jump cybernetics_core eloop_cyber
+resources 13 AtLeast_Wait Ore 500 eloop_cyber
+multirun prodGetter
 time_jump 25 geto_gets
 goto def015
 
@@ -1711,6 +1744,7 @@ goto def018
 
 
 :tech_prog1
+wait_build 1 nexus
 notowns_jump gateway def019
 goto def020
 
@@ -1813,14 +1847,33 @@ goto def039
 
 
 :prodGetter
+deaths 13 Exactly 1 lurker randomf
 deaths 13 Exactly 2 lurker robof
 build 1 stargate 80
+wait_build 1 stargate
 build 1 gateway 80
 goto def042
 
 :robof
 build 1 robotics_facility 80
+wait_build 1 robotics_facility
 build 1 gateway 80
+stop
+
+:randomf
+build 1 gateway 80
+wait_build 1 gateway
+random_jump 128 r_robo
+build 1 stargate 80
+goto r_wrap
+
+:r_robo
+build 1 robotics_facility 80
+:r_wrap
+wait 650
+
+player_need 2 stargate
+wait 1500
 stop
 
 :def042
@@ -1872,6 +1925,7 @@ goto def049
 player_need 1 forge
 build 1 photon_cannon 80
 wait_build 1 photon_cannon
+wait_build 1 nexus
 build 2 pylon 80
 wait_build 2 pylon
 build 2 photon_cannon 80
@@ -1923,7 +1977,11 @@ stop
 
 :expo_probes
 wait_build 1 nexus
-build 6 probe 100
+build 1 probe 100
+get_oldpeons 3
+wait_build 1 probe
+build 6 probe 80
+get_oldpeons 6
 wait_buildstart 6 probe
 build 8 probe 80
 wait_buildstart 8 probe
@@ -2024,6 +2082,8 @@ build 3 pylon 80
 wait_buildstart 3 pylon
 build 17 probe 80
 wait_buildstart 17 probe
+defensebuild_gg 1 dragoon
+defensebuild_ag 1 dragoon
 build 1 stargate 80
 wait_force 2 zealot
 build 2 stargate 80
@@ -2286,8 +2346,8 @@ stop
 :resource_waitskip
 wait 16
 
-resources_jump 1033 885 waitskip_do
-wait 1699
+resources_jump 1033 785 waitskip_do
+wait 1299
 
 :waitskip_do
 return
@@ -2433,6 +2493,9 @@ wait_build 1 robotics_facility
 build 1 observatory 90
 wait_build 1 observatory
 train 1 observer
+check_transports
+wait 1500
+
 stop
 
 :grand_exchange

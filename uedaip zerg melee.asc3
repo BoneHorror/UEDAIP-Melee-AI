@@ -12,6 +12,9 @@ capt_expand
 transports_off
 farms_notiming
 #under_attack 0
+aicontrol global_disable_spell_focus
+aicontrol global_disable_acid_spore_focus
+aicontrol global_disable_carrier_focus
 supply 13 Set 250 Max 0 Zerg normal_select
 build 1 hatchery 150
 build 4 drone 130
@@ -764,6 +767,7 @@ train 26 hydralisk
 upgrade 1 z_carapace 50
 upgrade 1 burrowed_regen 30
 build 4 overlord 60
+upgrade 1 overlord_speed 60
 defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
@@ -802,7 +806,6 @@ define_max 6 queen
 define_max 34 zergling
 train 2 queen
 train 32 zergling
-upgrade 1 overlord_speed 60
 call resource_waitskip
 build 1 ultralisk_cavern 80
 defensebuild_ag 1 defiler
