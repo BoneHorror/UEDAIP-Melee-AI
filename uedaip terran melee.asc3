@@ -3131,8 +3131,9 @@ build 1 starport 80
 wait_build 1 starport
 build 1 control_tower 80
 wait_build 1 control_tower
-defensebuild_gg 1 wraith
-defenseuse_gg 1 wraith
+#defensebuild_gg 1 wraith
+#defenseuse_gg 1 wraith
+#handle in branches because this is shared code
 define_max 7 dropship
 check_transports
 train 1 dropship
