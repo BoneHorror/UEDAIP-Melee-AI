@@ -17,6 +17,8 @@ aicontrol global_disable_spell_focus
 aicontrol global_disable_acid_spore_focus
 aicontrol global_disable_carrier_focus
 idle_orders disablebuiltin 0 0 0 0 0 0 0
+idle_orders RechargeShieldsUnit 480 3 Group_Men 1024 shield_battery 30 NotEnemies|Own|Self(Shields(LessThanPercent 25))
+idle_orders RechargeShieldsUnit 240 3 Group_Men 1024 shield_battery 40 NotEnemies|Own|Self(Shields(LessThanPercent 25))|Self(Order(Guard))
 idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)
 idle_orders 10 16 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
 idle_orders 10 16 1 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 90 Health(LessThan 12)
