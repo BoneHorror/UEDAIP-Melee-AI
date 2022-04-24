@@ -2780,7 +2780,6 @@ random_call 128 2fac_timing
 train 2 marine
 expand 1 std_expo
 farms_timing
-train 4 marine
 build 1 factory 80
 wait_buildstart 1 factory
 build 14 scv 80
@@ -2788,24 +2787,26 @@ wait_buildstart 12 scv
 aicontrol build_gas
 build 15 scv 80
 wait_buildstart 14 scv
+random_jump 128 mb_skip
 build 2 barracks 80
 wait_buildstart 2 barracks
+:mb_skip
 build 16 scv 80
 build 3 supply_depot 80
 wait_buildstart 3 supply_depot
 build 17 scv 80
 defenseclear_gg 
 call t_defaults
-train 6 marine
+train 3 marine
 train 1 vulture
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
 build 18 scv 80
 wait_buildstart 17 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
-train 7 marine
-defensebuild_gg 2 vulture
-defenseuse_gg 2 vulture
-define_max 3 vulture
+train 3 marine
+define_max 4 vulture
 define_max 14 marine
 define_max 2 siege_tank
 build 2 factory 80
@@ -2815,19 +2816,22 @@ build 4 supply_depot 80
 wait_buildstart 4 supply_depot
 train 2 vulture
 build 1 machine_shop 100
+build 2 barracks 80
+wait_buildstart 2 barracks
 defensebuild_gg 2 siege_tank
 defenseuse_gg 2 siege_tank
-train 8 marine
+train 4 marine
+tech siege_mode 40
 defensebuild_gg 2 marine
 defensebuild_ag 2 marine
 defenseuse_gg 2 marine
 defenseuse_ag 2 marine
-train 1 siege_tank
+train 2 siege_tank
 train 10 marine
 train 2 vulture
 set_attacks 2
 attack_add 10 marine
-attack_add 1 siege_tank
+attack_add 2 siege_tank
 attack_add 2 vulture
 target_expansion 
 build 20 scv 80
@@ -2843,9 +2847,7 @@ wait_buildstart 1 engineering_bay
 upgrade 1 marine_range 30
 farms_timing 
 build 2 machine_shop 100
-tech siege_mode 40
 define_max 4 siege_tank
-upgrade 1 hospitals 40
 tech spider_mines 40
 upgrade 1 t_infantry_weapon 40
 upgrade 1 t_vehicle_weapon 40
@@ -2880,6 +2882,7 @@ attack_add 4 siege_tank
 target_expansion
 define_max 6 siege_tank
 define_max 10 goliath
+upgrade 1 hospitals 30
 build 3 machine_shop 100
 upgrade 1 vulture_speed 40
 build 1 starport 80
@@ -3757,6 +3760,7 @@ build 1 machine_shop 100
 goto defRout054
 
 :exp_comsat2n
+notowns_jump comsat_station exp_comsat2
 random_jump 158 exp_comsat2
 build 1 nuclear_silo 80
 call random_sciv_guard
@@ -3767,6 +3771,7 @@ build 1 machine_shop 100
 goto defRout054
 
 :exp_comsat5n
+notowns_jump comsat_station exp_comsat5
 random_jump 158 exp_comsat5
 build 1 nuclear_silo 80
 call random_sciv_guard
@@ -4131,6 +4136,27 @@ resources 13 Add Ore 150 ge_skip
 stop
 
 :comsat_evaluator
+multirun panic_obs
+wait_build 1 academy
+if_owned comsat_station cms_skp
+build 1 comsat_station 100
+:cms_skp
+wait_build 1 engineering_bay
+build 1 missile_turret 80
+wait_build 1 missile_turret
+stop
+
+:panic_obs
+wait 16
+
+enemyowns_jump lurker obs_get
+enemyowns_jump dark_templar obs_get
+enemyowns_jump revenant obs_get
+enemyowns_jump wraith obs_get
+goto panic_obs
+
+:obs_get
+build 1 academy 80
 wait_build 1 academy
 build 1 comsat_station 100
 wait_build 1 engineering_bay
