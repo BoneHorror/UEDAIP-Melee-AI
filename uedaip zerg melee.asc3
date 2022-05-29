@@ -1193,6 +1193,7 @@ wait_buildstart 4 drone
 build 8 drone 80
 wait_buildstart 8 drone
 build 12 drone 80
+region_size 1 small_expo
 multirun rush_panic_exp
 wait_buildstart 12 drone
 :expo_def_min
@@ -1227,6 +1228,14 @@ build 2 hatchery 80
 :exp_loop
 wait 1500
 
+goto exp_loop
+
+:small_expo
+build 2 creep_colony 70
+wait_build 1 creep_colony
+build 1 spore_colony 80
+wait_build 2 creep_colony
+build 1 sunken_colony 80
 goto exp_loop
 
 :worker_decay

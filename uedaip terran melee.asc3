@@ -3530,6 +3530,7 @@ wait 300
 
 max_workers 21
 multirun worker_decay
+region_size 1 small_expo
 :defRout022
 notowns_jump barracks defRout023
 goto defRout024
@@ -3750,6 +3751,12 @@ goto defRout069
 player_need 1 science_facility
 stop
 
+:small_expo
+build 2 missile_turret 80
+:se_loop
+wait 1500
+
+goto se_loop
 
 :prodGetter
 resources 13 AtLeast_Wait Ore 400 defRout017
