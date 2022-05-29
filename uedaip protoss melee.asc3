@@ -69,6 +69,7 @@ multirun start_cheat
 wait_rand 2 3
 
 multirun panic_obs
+multirun late_cash
 wait_rand 1 2
 
 multirun ptech_storm
@@ -2057,12 +2058,15 @@ wait 960
 
 attack_do
 attack_clear
-wait 15500
+wait 11500
 
 :it_loop
+train 5 shuttle
 wait 3720
 
 train 7 shuttle
+wait 1250
+
 goto it_loop
 
 :skytoss_earlydo
@@ -2087,9 +2091,6 @@ wait_buildstart 17 probe
 defensebuild_gg 1 dragoon
 defensebuild_ag 1 dragoon
 build 1 stargate 80
-wait_force 2 zealot
-build 2 stargate 80
-wait_buildstart 2 stargate
 build 18 probe 80
 wait_buildstart 18 probe
 build 2 photon_cannon 80
@@ -2103,11 +2104,15 @@ defensebuild_ga 1 scout
 defensebuild_aa 1 scout
 wait_buildstart 4 pylon
 build 2 gateway 80
+train 1 dragoon
+build 2 stargate 80
+wait_buildstart 2 stargate
 train 2 dragoon
 defensebuild_gg 1 dragoon
 defenseuse_gg 1 dragoon
 build 5 pylon 80
 wait_buildstart 5 pylon
+panic exp_noguard
 farms_timing
 build 1 robotics_facility 80
 upgrade 1 p_plasma_shield 40
@@ -2123,12 +2128,11 @@ define_max 6 dragoon
 build 1 fleet_beacon 80
 wait_force 4 dragoon
 upgrade 1 dragoon_range 40
-panic exp_noguard
 define_max 10 zealot
 build 1 observatory 80
 wait_buildstart 1 observatory
 define_max 2 observer
-define_max 4 carrier
+define_max 2 carrier
 check_transports
 train 1 carrier
 upgrade 2 p_air_weapon 40
@@ -2148,13 +2152,15 @@ build 1 shield_battery 80
 upgrade 2 p_plasma_shield 40
 define_max 3 corsair
 upgrade 1 carrier_capacity 40
-train 3 carrier
-train 5 scout
+train 2 carrier
+train 6 scout
 wait_force 2 carrier
+wait 240
+
 attack_do
 attack_clear
 attack_add 2 carrier
-attack_add 5 scout
+attack_add 6 scout
 attack_prepare
 expand 2 exp_noguard
 multirun STAttacks
@@ -2173,7 +2179,6 @@ build 5 stargate 80
 wait_buildstart 5 stargate
 build 3 gateway 80
 call resource_waitskip
-
 upgrade 1 zealot_speed 30
 upgrade 3 p_air_weapon 60
 upgrade 2 p_ground_weapon 30
@@ -2226,12 +2231,12 @@ goto noguard_repeater
 define_max 12 zealot
 define_max 255 revenant
 define_max 6 dragoon
-define_max 7 carrier
+define_max 6 carrier
 define_max 255 dark_templar
 define_max 255 dark_archon
 define_max 1 high_templar
 define_max 255 archon
-define_max 20 scout
+define_max 18 scout
 define_max 2 reaver
 define_max 255 hornet
 define_max 2 harbiter
@@ -2246,7 +2251,7 @@ set_attacks 2
 train 3 carrier
 train 6 zealot
 wait_force 3 carrier
-wait 96
+wait 240
 
 target_expansion 
 call resource_waitskip
@@ -2270,7 +2275,7 @@ set_attacks 2
 train 3 carrier
 train 9 scout
 wait_force 3 carrier
-wait 96
+wait 240
 
 target_expansion 
 call resource_waitskip
@@ -2295,7 +2300,7 @@ train 2 reaver
 train 8 zealot
 train 10 scout
 wait_force 2 carrier
-wait 96
+wait 240
 
 target_expansion 
 
@@ -2305,11 +2310,11 @@ attack_clear
 attack_add 7 carrier
 attack_add 6 corsair
 attack_add 1 harbiter
-train 7 carrier
+train 6 carrier
 train 1 harbiter
 train 6 corsair
-wait_force 7 carrier
-wait 96
+wait_force 6 carrier
+wait 240
 
 target_expansion 
 call resource_waitskip
@@ -2318,8 +2323,8 @@ attack_do
 attack_clear
 wait 500
 
-attack_add 18 scout
-train 18 scout
+attack_add 16 scout
+train 16 scout
 target_expansion 
 call resource_waitskip
 goto STLo
@@ -2563,3 +2568,38 @@ wait_build 1 forge
 build 2 photon_cannon 80
 build 2 gateway 80
 goto rowk_skip
+
+:late_cash
+wait 3000
+
+multirun delayed_mining
+:late_cash_loop
+wait 50
+
+time_jump 28 lc_small
+goto late_cash_loop
+
+:lc_small
+wait 200
+
+resources 13 Add Ore 2 late_cash
+resources 13 Add Gas 1 late_cash
+time_jump 45 lc_big
+goto lc_small
+
+:lc_big
+wait 166
+
+resources 13 Add Ore 5 late_cash
+resources 13 Add Gas 2 late_cash
+goto lc_big
+
+:delayed_mining
+upgrade_jump 13 Set 74 1 late_cash
+wait 19750
+
+upgrade_jump 13 Set 74 2 late_cash
+wait 28350
+
+upgrade_jump 13 Set 74 1 late_cash
+stop

@@ -112,6 +112,7 @@ wait 120
 
 multirun comsat_evaluator
 multirun sciv_evaluator
+multirun late_cash
 #guard_all
 creep 4
 groundmap_jump t_groundmap
@@ -192,24 +193,39 @@ multirun ctech_storm
 multirun ctech_lockdown
 multirun ctech_resto
 multirun ctech_flare
+multirun ctech_hallu
 return
 
 :ctech_storm
 wait 16
 
-idle_orders 142 64 1 valhalla 256 zergling|zealot|marine|heavy_marine 50 incombat|count(AtLeast 4 48 14)
-idle_orders 142 64 1 valhalla 256 hydralisk|dark_templar|dragoon|firebat|tesla_trooper|high_templar|ghost|phantom 50 incombat|count(AtLeast 3 48 14)
-idle_orders 142 128 1 valhalla 256 lurker|revenant|reaver|scorpion|death_knight|goliath 80 incombat|count(AtLeast 2 48 14)
-idle_orders 142 128 1 valhalla 256 mutalisk|scout|corsair|skywing|wraith 60 incombat|count(AtLeast 2 48 14)
-idle_orders 142 128 1 valhalla 256 carrier|devourer|guardian|ultralisk|infested_terran|valhalla|hnorad|battlecruiser|archon 40 incombat
+tech_jump 13 Exactly psionic_storm 0 ctech_storm
+idle_orders 142 64 1 valhalla 356 zergling|zealot|marine|heavy_marine 50 incombat|count(AtLeast 4 48 14)
+idle_orders 142 64 1 valhalla 356 hydralisk|dark_templar|dragoon|firebat|tesla_trooper|high_templar|ghost|phantom 50 incombat|count(AtLeast 3 48 14)
+idle_orders 142 128 1 valhalla 356 lurker|revenant|reaver|scorpion|death_knight|goliath 80 incombat|count(AtLeast 2 48 14)
+idle_orders 142 128 1 valhalla 356 mutalisk|scout|corsair|skywing|wraith 60 incombat|count(AtLeast 2 48 14)
+idle_orders 142 128 1 valhalla 356 carrier|devourer|guardian|ultralisk|infested_terran|valhalla|hnorad|battlecruiser|archon 40 incombat
+stop
+
+:ctech_hallu
+wait 16
+
+tech_jump 13 Exactly hallucination 0 ctech_hallu
+idle_orders 148 64 1 valhalla 512 valhalla|panzer|dropship|skywing|valkyrie|death_knight|panzer 60 own|allied|notenemies|incombat
+idle_orders 148 64 1 valhalla 512 heavy_marine|tesla_trooper|scorpion|scv|medic 40 own|allied|notenemies|incombat
+idle_orders 148 64 1 valhalla 512 ultralisk|guardian|arbiter|devourer|archon|battlecruiser|carrier|siege_tank|lurker|panzer|defiler 50 incombat
 stop
 
 :ctech_lockdown
 wait 16
 
-tech_jump 13 Exactly lockdown 0 ctech_lockdown
-idle_orders 115 32 1 phantom 210 group_men 50 Hp(GreaterThanPercent 50)|Self(InCombat)|Self(Energy(GreaterThan 100))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
-idle_orders 115 32 1 phantom 280 carrier|reaver|hnorad|battlecruiser|siege_tank|panzer|valhalla 80 Hp(GreaterThanPercent 20)|Self(InCombat)|Self(Energy(GreaterThan 80))|UnitFlags(Mechanical)|WithoutSpellEffects(Lockdown)
+tech_jump 13 Exactly ensnare 0 ctech_lockdown
+idle_orders 146 0 1 phantom 356 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)|Self(Energy(GreaterThanPercent 45))
+idle_orders 146 0 1 phantom 356 group_men 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(80 320)|Self(Energy(GreaterThanPercent 50))
+idle_orders 146 0 1 phantom 356 dragoon|corsair|scout|dark_templar|wraith|ghost|skywing|phantom 40 WithoutSpellEffects(Ensnare)|Count(AtLeast 2 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 55))
+idle_orders 146 0 1 phantom 356 zealot|zergling|hydralisk|dragoon|corsair|scout|dark_archon|devourer|guardian|dark_templar|goliath|siege_tank|revenant|death_knight|panzer 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 50))
+idle_orders 146 0 1 phantom 356 reaver|dark_archon|archon|devourer|guardian|hnorad|battlecruiser|valhalla|carrier|arbiter 70 WithoutSpellEffects(Ensnare)|Count(AtLeast 1 64 14)|RandomRate(160 540)|Self(Energy(GreaterThanPercent 45))
+idle_orders 146 8 1 phantom 256 group_men 30 deathrattle
 stop
 
 :ttech_lockdown
@@ -412,7 +428,7 @@ defenseuse_ag 2 phantom
 upgrade 1 p_plasma_shield 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
-tech lockdown 40
+tech ensnare 40
 build 1 armory 80
 wait_buildstart 1 armory
 call resource_waitskip
@@ -446,7 +462,7 @@ define_max 4 valhalla
 place_guard valhalla 0
 upgrade 1 staballoy 40
 train 1 valhalla
-tech psionic_storm 80
+tech psionic_storm 70
 build 2 factory 80
 call resource_waitskip
 build 2 machine_shop 100
@@ -469,6 +485,7 @@ call resource_waitskip
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 upgrade 3 t_ship_plating 30
+tech hallucination 50
 build 3 starport 80
 wait_buildstart 3 starport
 build 3 control_tower 100
@@ -898,7 +915,7 @@ upgrade 1 p_plasma_shield 40
 upgrade 1 t_vehicle_plating 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
-tech lockdown 40
+tech ensnare 40
 call resource_waitskip
 
 defensebuild_gg 2 panzer
@@ -947,6 +964,7 @@ wait_buildstart 2 starport
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 upgrade 3 t_ship_plating 40
+tech hallucination 30
 upgrade 1 goliath_range 40
 goto exp_repeater
 
@@ -1295,7 +1313,7 @@ upgrade 1 safety_protocols 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
 tech restoration 40
-tech lockdown 40
+tech ensnare 40
 call resource_waitskip
 
 defensebuild_gg 2 death_knight
@@ -1327,7 +1345,7 @@ upgrade 2 t_ship_plating 40
 define_max 2 valhalla
 place_guard valhalla 0
 train 1 valhalla
-tech psionic_storm 80
+tech psionic_storm 70
 build 4 factory 80
 call resource_waitskip
 
@@ -1348,6 +1366,7 @@ wait_buildstart 2 starport
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 upgrade 3 t_ship_plating 40
+tech hallucination 30
 goto exp_repeater
 
 
@@ -1710,7 +1729,7 @@ defenseuse_ag 2 phantom
 upgrade 1 p_plasma_shield 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
-tech lockdown 40
+tech ensnare 40
 call resource_waitskip
 
 defensebuild_gg 2 death_knight
@@ -4213,4 +4232,39 @@ upgrade 1 science_aura 40
 :skip_auraeval
 wait 480
 
+stop
+
+:late_cash
+wait 3000
+
+multirun delayed_mining
+:late_cash_loop
+wait 50
+
+time_jump 28 lc_small
+goto late_cash_loop
+
+:lc_small
+wait 200
+
+resources 13 Add Ore 2 late_cash
+resources 13 Add Gas 1 late_cash
+time_jump 45 lc_big
+goto lc_small
+
+:lc_big
+wait 166
+
+resources 13 Add Ore 5 late_cash
+resources 13 Add Gas 2 late_cash
+goto lc_big
+
+:delayed_mining
+upgrade_jump 13 Set 74 1 late_cash
+wait 19750
+
+upgrade_jump 13 Set 74 2 late_cash
+wait 28350
+
+upgrade_jump 13 Set 74 1 late_cash
 stop
