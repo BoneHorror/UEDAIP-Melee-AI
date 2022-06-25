@@ -14,43 +14,43 @@ defaultbuild_off
 default_min 0
 build 5 scv 100
 farms_notiming
-max_force 800
+max_force 1500
 supply 13 Set 250 Max marine Terran t_groundmap
 #under_attack 0
 aicontrol global_disable_spell_focus
 aicontrol global_disable_acid_spore_focus
 aicontrol global_disable_carrier_focus
 idle_orders DisableBuiltin 0 0 0 0 0 0 0
-idle_orders 10 16 1 marine|ghost 160 group_men 80 Health(LessThan 6)
-idle_orders 10 16 1 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 6)
-idle_orders 10 16 1 marine|ghost 160 sunken_colony|photon_cannon 90 Health(LessThan 6)
-idle_orders 10 16 3 marine|ghost 160 group_men 90 Health(LessThan 15)
-idle_orders 10 16 3 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 15)
-idle_orders 10 16 3 marine|ghost 160 sunken_colony|photon_cannon 100 Health(LessThan 12)
-idle_orders 10 16 5 marine|ghost 160 group_men 95 Health(LessThan 30)
-idle_orders 10 16 5 marine|ghost 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 30)
-idle_orders 10 16 5 marine|ghost 160 sunken_colony|photon_cannon|bunker 105 Health(LessThan 21)
-idle_orders 10 64 1 siege_tank 256 sunken_colony|photon_cannon|bunker 110 Health(LessThan 73)
-idle_orders 10 64 1 siege_tank 256 group_men 100 Health(LessThan 36)
-idle_orders 10 64 2 siege_tank 256 group_men 105 Health(LessThan 73)
-idle_orders 10 64 1 siege_tank 256 infested_terran|dark_archon|defiler|archon 130 Health(LessThan 80)
-idle_orders 10 64 1 siege_tank 256 lurker|defiler|high_templar 120 Health(LessThan 50)
-idle_orders 10 64 1 siege_tank 300 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 120 count(AtLeast 3 48 14)
+idle_orders 10 16 1 marine|ghost 192 group_men 80 Health(LessThan 6)
+idle_orders 10 16 1 marine|ghost 192 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 6)
+idle_orders 10 16 1 marine|ghost 192 sunken_colony|photon_cannon 90 Health(LessThan 6)
+idle_orders 10 16 3 marine|ghost 192 group_men 90 Health(LessThan 15)
+idle_orders 10 16 3 marine|ghost 192 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 15)
+idle_orders 10 16 3 marine|ghost 192 sunken_colony|photon_cannon 100 Health(LessThan 12)
+idle_orders 10 16 5 marine|ghost 192 group_men 95 Health(LessThan 30)
+idle_orders 10 16 5 marine|ghost 192 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 30)
+idle_orders 10 16 5 marine|ghost 192 sunken_colony|photon_cannon|bunker 105 Health(LessThan 21)
+idle_orders 10 64 1 siege_tank 288 sunken_colony|photon_cannon|bunker 110 Health(LessThan 73)
+idle_orders 10 64 1 siege_tank 288 group_men 100 Health(LessThan 36)
+idle_orders 10 64 2 siege_tank 288 group_men 105 Health(LessThan 73)
+idle_orders 10 64 1 siege_tank 288 infested_terran|dark_archon|defiler|archon 130 Health(LessThan 80)
+idle_orders 10 64 1 siege_tank 288 lurker|defiler|high_templar 120 Health(LessThan 50)
+idle_orders 10 64 1 siege_tank 330 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 120 count(AtLeast 3 48 14)
 idle_orders 10 16 1 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
 idle_orders 10 16 2 firebat 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
-idle_orders 10 16 1 wraith 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
-idle_orders 10 16 3 wraith 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
-idle_orders 10 16 1 wraith 192 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
-idle_orders 10 16 2 wraith 192 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
-idle_orders 10 16 3 wraith 192 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
-idle_orders 10 16 4 wraith 192 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
-idle_orders 10 16 1 wraith 192 shuttle|observer|overlord 60 Health(LessThan 20)
-idle_orders 10 16 1 goliath 192 group_men 60 Health(LessThan 11)
-idle_orders 10 16 1 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
-idle_orders 10 16 2 goliath 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
-idle_orders 10 16 1 vulture 192 group_men 60 Health(LessThan 5)
-idle_orders 10 16 1 hnorad|battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
-idle_orders 10 16 2 hnorad|battlecruiser|goliath 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+idle_orders 10 16 1 wraith 210 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
+idle_orders 10 16 3 wraith 210 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
+idle_orders 10 16 1 wraith 210 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 16 2 wraith 210 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 16 3 wraith 210 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 16 4 wraith 210 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 16 1 wraith 210 shuttle|observer|overlord 60 Health(LessThan 20)
+idle_orders 10 16 1 goliath 224 group_men 60 Health(LessThan 11)
+idle_orders 10 16 1 goliath 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
+idle_orders 10 16 2 goliath 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
+idle_orders 10 16 1 vulture 224 group_men 60 Health(LessThan 5)
+idle_orders 10 16 1 hnorad|battlecruiser|goliath 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 16 2 hnorad|battlecruiser|goliath 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
 idle_orders 142 256 1 valhalla 1024 zergling|zealot 50 incombat|count(AtLeast 4 48 14)
 idle_orders 142 256 1 valhalla 1024 hydralisk|dark_templar 50 incombat|count(AtLeast 3 48 14)
 idle_orders 142 512 1 valhalla 2048 lurker|revenant|reaver 80 incombat|count(AtLeast 2 48 14)
@@ -70,21 +70,26 @@ idle_orders 92 64 3 marine 168 bunker 90 Own|NotEnemies|Self(InCombat)
 idle_orders 92 64 1 ghost 168 bunker 90 Own|NotEnemies|Self(InCombat)
 idle_orders 92 64 1 firebat 168 bunker 90 Own|NotEnemies|Self(InCombat)
 #UED-specific idle orders to enter bunkers since UED units wont do it automatically
-idle_orders 10 16 1 heavy_marine|tesla_trooper 160 group_men 80 Health(LessThan 12)
-idle_orders 10 16 1 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 120 Health(LessThan 12)
-idle_orders 10 16 1 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 90 Health(LessThan 24)
-idle_orders 10 16 3 heavy_marine|tesla_trooper 160 group_men 90 Health(LessThan 36)
-idle_orders 10 16 3 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 130 Health(LessThan 36)
-idle_orders 10 16 3 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 100 Health(LessThan 24)
-idle_orders 10 16 5 heavy_marine|tesla_trooper 160 group_men 95 Health(LessThan 65)
-idle_orders 10 16 5 heavy_marine|tesla_trooper 160 infested_terran|queen|dark_archon|defiler|lurker 135 Health(LessThan 65)
-idle_orders 10 16 5 heavy_marine|tesla_trooper 160 sunken_colony|photon_cannon 105 Health(LessThan 55)
-idle_orders 10 16 1 phantom|panzer 256 sunken_colony|photon_cannon 110 Health(LessThan 73)
-idle_orders 10 16 1 phantom|panzer 256 group_men 100 Health(LessThan 36)
-idle_orders 10 16 2 phantom|panzer 256 group_men 105 Health(LessThan 73)
-idle_orders 10 16 1 phantom|panzer 256 infested_terran|dark_archon|defiler 130 Health(LessThan 80)
-idle_orders 10 16 1 phantom|panzer 256 lurker|queen 120 Health(LessThan 50)
-idle_orders 10 16 1 panzer 300 zergling|zealot|hydralisk|dark_templar 120 count(AtLeast 3 48 14)
+idle_orders 10 16 1 heavy_marine|tesla_trooper 192 group_men 80 Health(LessThan 12)
+idle_orders 10 16 1 heavy_marine|tesla_trooper 192 infested_terran|queen|dark_archon|defiler|lurker 120 Health(LessThan 12)
+idle_orders 10 16 1 heavy_marine|tesla_trooper 192 sunken_colony|photon_cannon 90 Health(LessThan 24)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 192 group_men 90 Health(LessThan 36)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 192 infested_terran|queen|dark_archon|defiler|lurker 130 Health(LessThan 36)
+idle_orders 10 16 3 heavy_marine|tesla_trooper 192 sunken_colony|photon_cannon 100 Health(LessThan 24)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 192 group_men 95 Health(LessThan 65)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 192 infested_terran|queen|dark_archon|defiler|lurker 135 Health(LessThan 65)
+idle_orders 10 16 5 heavy_marine|tesla_trooper 192 sunken_colony|photon_cannon 105 Health(LessThan 55)
+idle_orders 10 16 1 phantom 288 sunken_colony|photon_cannon 110 Health(LessThan 73)
+idle_orders 10 16 1 phantom 288 group_men 100 Health(LessThan 36)
+idle_orders 10 16 2 phantom 288 group_men 105 Health(LessThan 73)
+idle_orders 10 16 1 phantom 288 infested_terran|dark_archon|defiler 130 Health(LessThan 80)
+idle_orders 10 16 1 phantom 288 lurker|queen 120 Health(LessThan 50)
+idle_orders 10 16 1 panzer 210 sunken_colony|photon_cannon 110 Health(LessThan 73)
+idle_orders 10 16 1 panzer 210 group_men 100 Health(LessThan 36)
+idle_orders 10 16 2 panzer 210 group_men 105 Health(LessThan 73)
+idle_orders 10 16 1 panzer 210 infested_terran|dark_archon|defiler 130 Health(LessThan 80)
+idle_orders 10 16 1 panzer 210 lurker|queen 120 Health(LessThan 50)
+idle_orders 10 16 1 panzer 210 zergling|zealot|hydralisk|dark_templar 120 count(AtLeast 3 48 14)
 idle_orders 10 16 1 firebat 128 zergling|zealot|hydralisk|dark_templar 110 count(AtLeast 2 24 14)
 idle_orders 10 16 2 firebat 128 zergling|zealot|hydralisk|dark_templar 130 count(AtLeast 2 24 14)
 idle_orders 10 16 1 skywing|valkyrie|valhalla 224 mutalisk|scout|corsair|scourge 110 count(AtLeast 4 60 14)
@@ -96,9 +101,9 @@ idle_orders 10 16 4 skywing|valkyrie|valhalla 300 devourer 190 count(AtLeast 3 6
 idle_orders 10 16 1 skywing|valkyrie|valhalla 224 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
 idle_orders 10 16 1 skywing|valhalla 224 group_men 80 count(AtLeast 5 60 14)
 idle_orders 10 16 1 skywing|valhalla 224 group_men 90 count(AtLeast 7 60 14)
-idle_orders 10 16 1 death_knight 192 ultralisk|dark_archon|reaver|sunken_colony|lurker 90 Health(GreaterThanPercent 50)
-idle_orders 10 16 1 death_knight 192 ultralisk|dark_archon|reaver|sunken_colony|lurker 100 Health(GreaterThanPercent 80)
-idle_orders 10 16 2 death_knight 224 ultralisk|dark_archon|reaver|sunken_colony|lurker 130 Health(GreaterThanPercent 70)
+idle_orders 10 16 1 death_knight 224 ultralisk|dark_archon|reaver|sunken_colony|lurker 90 Health(GreaterThanPercent 50)
+idle_orders 10 16 1 death_knight 224 ultralisk|dark_archon|reaver|sunken_colony|lurker 100 Health(GreaterThanPercent 80)
+idle_orders 10 16 2 death_knight 255 ultralisk|dark_archon|reaver|sunken_colony|lurker 130 Health(GreaterThanPercent 70)
 idle_orders 10 16 1 scorpion 192 group_men 60 Health(LessThan 24)
 idle_orders 10 16 1 scorpion 192 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 24)
 idle_orders 10 16 2 scorpion 224 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 48)
@@ -134,7 +139,7 @@ define_max 2 dropship
 
 :tdropsk
 define_max 60 scv
-define_max 12 ghost
+define_max 8 ghost
 define_max 6 hnorad
 define_max 4 science_vessel
 define_max 10 goliath
@@ -2237,7 +2242,7 @@ define_max 40 marine
 define_max 20 goliath
 define_max 12 siege_tank
 define_max 30 firebat
-define_max 12 ghost
+define_max 9 ghost
 attack_do
 attack_clear 
 attack_add 8 goliath
@@ -2279,14 +2284,14 @@ notowns_jump covert_ops defRout018
 attack_do
 attack_clear
 attack_add 12 marine
-attack_add 10 ghost
+attack_add 7 ghost
 attack_add 20 firebat
 attack_add 4 siege_tank
 set_attacks 2
 train 12 marine
 train 4 siege_tank
 train 10 firebat
-train 10 ghost
+train 7 ghost
 train 20 firebat
 target_expansion 
 call resource_waitskip
@@ -2297,8 +2302,8 @@ attack_do
 attack_clear 
 attack_add 30 marine
 attack_add 20 firebat
-attack_add 10 ghost
-train 10 ghost
+attack_add 7 ghost
+train 7 ghost
 train 20 firebat
 train 30 marine
 target_expansion 
@@ -2325,7 +2330,7 @@ define_max 50 marine
 define_max 12 goliath
 define_max 12 siege_tank
 define_max 6 firebat
-define_max 24 ghost
+define_max 18 ghost
 attack_do
 attack_clear 
 attack_add 8 goliath
@@ -2364,13 +2369,13 @@ notowns_jump covert_ops gCo
 attack_do
 attack_clear
 attack_add 22 marine
-attack_add 20 ghost
+attack_add 14 ghost
 attack_add 4 siege_tank
 set_attacks 2
-train 10 ghost
+train 7 ghost
 train 12 marine
 train 2 siege_tank
-train 20 ghost
+train 14 ghost
 train 4 siege_tank
 train 22 marine
 target_expansion 
@@ -2381,25 +2386,25 @@ set_attacks 2
 attack_do
 attack_clear 
 attack_add 40 marine
-attack_add 20 ghost
-train 10 ghost
+attack_add 16 ghost
+train 8 ghost
 train 20 marine
-train 20 ghost
+train 16 ghost
 train 40 marine
 target_expansion 
 call resource_waitskip
 attack_do
 attack_clear 
-attack_add 12 ghost
+attack_add 8 ghost
 attack_add 12 goliath
 attack_add 8 siege_tank
 train 6 goliath
-train 6 ghost
+train 4 ghost
 train 10 goliath
-train 10 ghost
+train 6 ghost
 train 12 goliath
 train 3 siege_tank
-train 12 ghost
+train 8 ghost
 train 8 siege_tank
 target_expansion 
 call resource_waitskip
@@ -3042,7 +3047,7 @@ define_max 30 goliath
 define_max 20 siege_tank
 define_max 20 vulture
 define_max 255 firebat
-define_max 4 ghost
+define_max 3 ghost
 define_max 4 hnorad
 define_max 255 wraith
 attack_do
@@ -4088,12 +4093,12 @@ wait 50
 
 deaths 13 AtMost 12 scv dp_checker
 #under_attack 1
-max_force 800
+max_force 1500
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 scv dp_retain
-max_force 1200
+max_force 2000
 #under_attack 0
 goto dp_checker
 
@@ -4254,7 +4259,7 @@ goto late_cash_loop
 :lc_small
 wait 200
 
-resources 13 Add Ore 2 late_cash
+resources 13 Add Ore 3 late_cash
 resources 13 Add Gas 1 late_cash
 time_jump 45 lc_big
 goto lc_small
@@ -4262,7 +4267,7 @@ goto lc_small
 :lc_big
 wait 166
 
-resources 13 Add Ore 5 late_cash
+resources 13 Add Ore 6 late_cash
 resources 13 Add Gas 2 late_cash
 goto lc_big
 
