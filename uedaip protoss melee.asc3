@@ -10,7 +10,7 @@ farms_notiming
 defaultbuild_off
 default_min 0
 build 5 probe 100
-max_force 800
+max_force 1500
 supply 13 Set 260 Max marine Protoss supply_ensure
 #under_attack 0
 aicontrol global_disable_spell_focus
@@ -31,6 +31,7 @@ idle_orders 10 16 5 zealot|dark_templar|scout 160 sunken_colony|photon_cannon|bu
 idle_orders 10 64 1 dragoon 192 sunken_colony|photon_cannon|bunker 110 Health(LessThan 20)
 idle_orders 10 64 1 dragoon 192 group_men 100 Health(LessThan 15)
 idle_orders 10 64 2 dragoon 192 group_men 105 Health(LessThan 35)
+idle_orders 10 64 4 dragoon 224 group_men 115 Health(LessThan 60)
 idle_orders 10 64 1 dragoon 192 infested_terran|dark_archon|defiler 130 Health(LessThan 20)
 idle_orders 10 64 1 dragoon 192 lurker|queen 120 Health(LessThan 20)
 idle_orders 10 16 1 archon 128 group_men 50 InCombat
@@ -53,12 +54,13 @@ idle_orders 10 16 4 revenant 192 devourer|hnorad|battlecruiser|carrier 190 count
 idle_orders 10 16 1 revenant 192 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
 idle_orders 10 16 1 revenant 192 group_men 80 count(AtLeast 5 60 14)
 idle_orders 10 16 1 revenant 192 group_men 90 count(AtLeast 7 60 14)
-idle_orders 10 16 1 hornet 192 group_men 60 Health(LessThan 11)
-idle_orders 10 16 1 hornet 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 12)
-idle_orders 10 16 2 hornet 192 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
-idle_orders 10 16 1 hornet 192 group_men 60 Health(LessThan 5)
-idle_orders 10 16 1 scout|corsair|dragoon 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
-idle_orders 10 16 2 scout|corsair|dragoon 160 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+idle_orders 10 16 1 hornet 224 group_men 60 Health(LessThan 11)
+idle_orders 10 16 1 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 80 Health(LessThan 12)
+idle_orders 10 16 2 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
+idle_orders 10 16 4 hornet 232 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 110 Health(LessThan 44)
+idle_orders 10 16 1 hornet 224 group_men 60 Health(LessThan 5)
+idle_orders 10 16 1 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 16 2 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
 wait_rand 2 3
 
 multirun supply_ensure
@@ -84,8 +86,10 @@ wait 112
 multirun rush_panic
 #guard_all
 creep 4
+#TEST
+#random_jump 250 skytoss
 groundmap_jump ground_picker
-#never run this now
+#air map below
 random_jump 128 robotics_force
 goto skytoss
 
@@ -2117,6 +2121,8 @@ defensebuild_ag 2 scout
 defensebuild_ga 1 scout
 defensebuild_aa 1 scout
 wait_buildstart 4 pylon
+#TEST
+#random_jump 250 mystery_special
 random_jump 128 mystery_special
 build 2 gateway 80
 train 1 dragoon
@@ -2350,23 +2356,29 @@ train 1 dragoon
 build 2 stargate 80
 wait_buildstart 2 stargate
 train 2 dragoon
+train 1 scout
 defensebuild_gg 1 dragoon
 defenseuse_gg 1 dragoon
 build 5 pylon 80
 wait_buildstart 5 pylon
 panic exp_noguard
 farms_timing
-build 1 citadel_of_adun 80
+train 2 scout
 upgrade 1 p_plasma_shield 40
 train 4 scout
 set_attacks 1
+train 2 dragoon
+train 2 zealot
 attack_add 4 scout
+attack_add 2 dragoon
+attack_add 2 zealot
 target_expansion
-expand 2 exp_noguard
+expand 1 exp_noguard
+build 1 citadel_of_adun 80
+wait_buildstart 1 citadel_of_adun
 build 3 stargate 80
 wait_buildstart 3 stargate
 define_max 4 revenant
-build 1 fleet_beacon 80
 train 2 revenant
 upgrade 1 dragoon_range 40
 define_max 10 zealot
@@ -2377,25 +2389,23 @@ check_transports
 upgrade 1 one_with_khala 70
 train 2 corsair
 upgrade 2 p_air_weapon 40
-upgrade 1 scout_sight 60
 train 2 scout
+expand 2 exp_noguard
 defensebuild_gg 2 zealot
 defensebuild_ag 1 corsair
 defensebuild_aa 1 corsair
 define_max 3 corsair
-build 4 stargate 80
 build 1 observatory 80
 wait_buildstart 1 observatory
 defensebuild_aa 1 corsair
 defensebuild_ag 2 corsair
-wait_buildstart 4 stargate
 build 3 photon_cannon 80
 wait_buildstart 3 photon_cannon
 build 1 shield_battery 80
 upgrade 2 p_plasma_shield 40
 define_max 3 corsair
 train 2 corsair
-upgrade 1 scout_speed 60
+
 train 8 scout
 wait 240
 
@@ -2404,6 +2414,10 @@ attack_clear
 attack_add 2 corsair
 attack_add 8 scout
 attack_prepare
+build 1 fleet_beacon 80
+build 3 gateway 80
+wait_buildstart 3 gateway
+upgrade 1 scout_sight 60
 expand 2 exp_noguard
 multirun MSAttacks
 build 1 robotics_support_bay 80
@@ -2413,13 +2427,13 @@ call resource_waitskip
 defensebuild_gg 1 reaver
 upgrade 1 p_ground_weapon 30
 multirun cannons
+build 4 stargate 80
+wait_buildstart 4 stargate
 upgrade 1 p_plating 40
 upgrade 1 observer_speed 30
 tech disruption_web 60
 build 1 citadel_of_adun 80
-build 5 stargate 80
-wait_buildstart 5 stargate
-build 3 gateway 80
+upgrade 1 scout_speed 60
 call resource_waitskip
 upgrade 1 zealot_speed 30
 upgrade 3 p_air_weapon 60
@@ -2432,7 +2446,6 @@ upgrade 2 p_plating 40
 defensebuild_gg 1 scout
 defensebuild_aa 1 scout
 train 4 scout
-build 1 templar_archives 80
 upgrade 2 one_with_khala 70
 train 6 scout
 upgrade 1 observer_sight 30
@@ -2440,20 +2453,20 @@ train 8 scout
 expand 3 exp_noguard
 call resource_waitskip
 
-tech psionic_storm 40
+build 1 templar_archives 80
 upgrade 1 corsair_mana 50
-build 1 arbiter_tribunal 80
-wait_buildstart 1 arbiter_tribunal
 upgrade 2 p_armor 40
 upgrade 3 p_plating 60
 upgrade 1 scarab_damage 30
 upgrade 3 p_ground_weapon 60
 call resource_waitskip
 
+build 1 arbiter_tribunal 80
+wait_buildstart 1 arbiter_tribunal
 train 1 harbiter
 tech stasis_field 70
 place_guard harbiter 0
-upgrade 1 arbiter_mana 40
+
 expand 4 exp_noguard
 call resource_waitskip
 
@@ -2461,6 +2474,7 @@ upgrade 1 reaver_capacity 30
 place_guard arbiter 0
 expand 5 exp_noguard
 
+upgrade 1 arbiter_mana 40
 upgrade 1 corsair_mana 40
 goto noguard_repeater
 
@@ -2492,12 +2506,14 @@ call resource_waitskip
 notowns_jump citadel_of_adun MSRe
 attack_do
 attack_clear 
+define_max 3 revenant
 attack_add 8 scout
 attack_add 2 corsair
 set_attacks 2
 
 train 8 scout
 train 2 corsair
+define_max 14 revenant
 target_expansion 
 call resource_waitskip
 
@@ -2604,12 +2620,12 @@ wait 50
 
 deaths 13 AtMost 12 probe dp_checker
 #under_attack 1
-max_force 800
+max_force 1500
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 probe dp_retain
-max_force 1200
+max_force 2000
 #under_attack 0
 goto dp_checker
 
@@ -2818,7 +2834,7 @@ goto late_cash_loop
 :lc_small
 wait 200
 
-resources 13 Add Ore 2 late_cash
+resources 13 Add Ore 3 late_cash
 resources 13 Add Gas 1 late_cash
 time_jump 45 lc_big
 goto lc_small
@@ -2826,7 +2842,7 @@ goto lc_small
 :lc_big
 wait 166
 
-resources 13 Add Ore 5 late_cash
+resources 13 Add Ore 6 late_cash
 resources 13 Add Gas 2 late_cash
 goto lc_big
 
