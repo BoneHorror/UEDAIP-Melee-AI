@@ -158,6 +158,8 @@ wait_buildstart 11 drone
 wait 128
 
 build 1 spawning_pool 125
+wait_buildstart 12 drone
+build 1 extractor 80
 random_call 16 rush_subroutine_earlyground
 wait_buildstart 1 spawning_pool
 #wait_buildstart 1 extractor
@@ -167,29 +169,25 @@ multirun earlydef_panic
 defenseuse_gg 1 zergling
 farms_timing
 build 15 drone 80
-wait_buildstart 11 drone
+wait_buildstart 12 drone
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
-build 2 hatchery 80
-wait_buildstart 2 hatchery
 build 1 sunken_colony 80
-build 1 extractor 8
 aicontrol build_gas
 defensebuild_gg 1 zergling
 build 18 drone 80
+build 1 lair 100
 wait_buildstart 15 drone
+wait_buildstart 1 lair
+upgrade 1 zergling_speed 50
 build 2 creep_colony 80
 wait_buildstart 2 creep_colony
 build 2 sunken_colony 80
-build 1 lair 100
-wait_buildstart 1 lair
 defensebuild_gg 2 zergling
-defenseuse_gg 2 zergling
-upgrade 1 zergling_speed 30
+defenseuse_gg 1 zergling
 build 1 evolution_chamber 80
 wait_build 1 lair
 build 4 overlord 80
-expand 2 low_prio
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 3 sunken_colony 80
@@ -329,6 +327,7 @@ build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 build 1 sunken_colony 80
 train 6 zergling
+build 1 spire 75
 build 2 hatchery 80
 build 15 drone 80
 wait_buildstart 12 drone
@@ -339,6 +338,7 @@ wait_build 1 lair
 build 1 spire 110
 build 17 drone 80
 wait_buildstart 13 drone
+build 2 lair 80
 build 1 evolution_chamber 80
 build 18 drone 80
 wait_buildstart 14 drone
@@ -814,7 +814,7 @@ defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 upgrade 1 queen_mana 35
-upgrade 1 overlord_capacity 40
+upgrade 1 overlord_capacity 60
 tech consume 70
 call resource_waitskip
 define_max 2 defiler
@@ -994,7 +994,7 @@ attack_add 10 zergling
 attack_add 3 mutalisk
 call force_attack
 build 1 spire 80
-upgrade 1 overlord_speed 30
+upgrade 1 overlord_speed 50
 attack_do
 attack_clear
 goto late_vs_zerg
@@ -1105,7 +1105,7 @@ attack_add 2 lurker
 attack_add 10 zergling
 call force_attack
 build 1 spire 80
-upgrade 1 overlord_speed 30
+upgrade 1 overlord_speed 50
 attack_do
 attack_clear
 upgrade 1 burrowed_regen 30
@@ -1460,7 +1460,7 @@ call add_scourge
 attack_prepare
 wait 16
 
-upgrade 1 overlord_speed 40
+upgrade 1 overlord_speed 50
 call resource_waitskip
 train 15 mutalisk
 attack_do
@@ -2224,7 +2224,7 @@ upgrade 1 hydralisk_range 45
 build 1 queen_nest 100
 wait_build 1 queen_nest
 build 1 hive 100
-upgrade 1 overlord_speed 40
+upgrade 1 overlord_speed 50
 build 1 defiler_mound 80
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
@@ -2427,7 +2427,7 @@ idle_orders 121 8 1 queen 312 broodling 3 Health(GreaterThanPercent 95)|Self(Ene
 idle_orders 121 8 1 queen 312 group_men 40 deathrattle
 wait_train 2 queen
 tech ensnare 60
-upgrade 1 overlord_capacity 40
+upgrade 1 overlord_capacity 60
 wait 1500
 
 idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)|Self(Energy(GreaterThanPercent 45))
@@ -2681,16 +2681,16 @@ time_jump 50 late_gas_detour
 goto ge_init
 
 :late_gas_detour
-resources 13 AtMost Gas 1199 ge_init
-resources 13 AtLeast Ore 2200 ge_init
+resources 13 AtMost Gas 1100 ge_init
+resources 13 AtLeast Ore 1500 ge_init
 resources 13 Subtract Gas 200 ge_init
 resources 13 Add Ore 266 ge_init
 goto ge_init
 
 :ge_gas
 resources 13 AtLeast Gas 600 ge_skip
-resources 13 AtMost Ore 1099 ge_skip
-resources 13 Subtract Ore 170 ge_skip
+resources 13 AtMost Ore 899 ge_skip
+resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
 return
 
@@ -2698,7 +2698,7 @@ return
 resources 13 AtMost Gas 599 ge_skip
 resources 13 AtLeast Ore 1100 ge_skip
 resources 13 Subtract Gas 100 ge_skip
-resources 13 Add Ore 133 ge_skip
+resources 13 Add Ore 150 ge_skip
 return
 
 :ge_skip
@@ -2724,7 +2724,11 @@ stop
 wait_build 2 overlord
 
 resources 13 Add Ore 150 ge_skip
-stop
+:mp_helper
+wait 1500
+
+help_iftrouble
+goto mp_helper
 
 :delayed_panic
 wait_rand 6500 10500
