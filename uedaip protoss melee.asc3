@@ -331,13 +331,14 @@ build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
 wait_buildstart 11 probe
+build 2 gateway 80
+wait_buildstart 2 gateway
 train 1 zealot
 defenseuse_gg 2 zealot
 capt_expand 
 build 14 probe 80
 wait_buildstart 12 probe
-build 2 gateway 80
-wait_buildstart 2 gateway
+
 train 2 zealot
 build 15 probe 80
 wait_buildstart 13 probe
@@ -347,9 +348,9 @@ attack_prepare
 expand 1 std_expansion
 build 16 probe 80
 wait_buildstart 14 probe
+build 1 cybernetics_core 130
 build 3 pylon 80
 wait_buildstart 3 pylon
-build 1 cybernetics_core 130
 build 17 probe 80
 wait_buildstart 15 probe
 build 18 probe 80
@@ -363,12 +364,12 @@ build 1 forge 100
 wait_buildstart 1 forge
 define_max 4 dragoon
 wait_build 1 cybernetics_core
-upgrade 1 dragoon_range 40
+upgrade 1 dragoon_range 50
 train 2 dragoon
 wait_buildstart 1 forge
 build 5 pylon 80
-wait_buildstart 5 pylon
 build 3 gateway 80
+wait_buildstart 5 pylon
 farms_timing 
 upgrade 1 p_ground_weapon 40
 train 4 dragoon
@@ -2758,7 +2759,7 @@ wait 1500
 stop
 
 :grand_exchange
-wait_rand 160 210
+wait_rand 150 210
 
 call ge_gas
 call ge_mins
@@ -2766,16 +2767,16 @@ goto grand_exchange
 
 :ge_gas
 resources 13 AtLeast Gas 600 ge_skip
-resources 13 AtMost Ore 1499 ge_skip
-resources 13 Subtract Ore 170 ge_skip
+resources 13 AtMost Ore 1399 ge_skip
+resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
 return
 
 :ge_mins
 resources 13 AtMost Gas 599 ge_skip
-resources 13 AtLeast Ore 1500 ge_skip
+resources 13 AtLeast Ore 1300 ge_skip
 resources 13 Subtract Gas 100 ge_skip
-resources 13 Add Ore 133 ge_skip
+resources 13 Add Ore 150 ge_skip
 return
 
 :ge_skip
@@ -2785,7 +2786,11 @@ return
 wait_build 1 pylon
 
 resources 13 Add Ore 150 ge_skip
-stop
+:mp_helper
+wait 1500
+
+help_iftrouble
+goto mp_helper
 
 :rush_panic
 wait 50

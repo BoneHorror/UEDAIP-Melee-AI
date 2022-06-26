@@ -4146,7 +4146,7 @@ max_workers 255
 stop
 
 :grand_exchange
-wait_rand 175 230
+wait_rand 155 225
 
 call ge_gas
 call ge_mins
@@ -4154,16 +4154,16 @@ goto grand_exchange
 
 :ge_gas
 resources 13 AtLeast Gas 600 ge_skip
-resources 13 AtMost Ore 1499 ge_skip
-resources 13 Subtract Ore 170 ge_skip
+resources 13 AtMost Ore 1199 ge_skip
+resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
 return
 
 :ge_mins
-resources 13 AtMost Gas 599 ge_skip
-resources 13 AtLeast Ore 1500 ge_skip
+resources 13 AtMost Gas 799 ge_skip
+resources 13 AtLeast Ore 1400 ge_skip
 resources 13 Subtract Gas 100 ge_skip
-resources 13 Add Ore 133 ge_skip
+resources 13 Add Ore 150 ge_skip
 return
 
 :ge_skip
@@ -4173,7 +4173,11 @@ return
 wait_build 1 supply_depot
 
 resources 13 Add Ore 150 ge_skip
-stop
+:mp_helper
+wait 1500
+
+help_iftrouble
+goto mp_helper
 
 :comsat_evaluator
 multirun panic_obs
