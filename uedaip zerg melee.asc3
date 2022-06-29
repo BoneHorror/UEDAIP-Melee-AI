@@ -46,6 +46,7 @@ multirun basic_air
 multirun late_cash
 idle_orders 10 16 9 mutalisk 180 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 90 Health(LessThan 82)
 idle_orders 10 16 5 mutalisk 168 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 80 Health(LessThan 41)
+idle_orders 10 16 5 mutalisk 200 drone|scv|probe 100 0
 idle_orders 10 16 3 mutalisk 168 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 70 Health(LessThan 27)
 idle_orders 10 16 1 mutalisk 144 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 60 Health(LessThan 9)
 idle_orders 10 16 2 mutalisk 144 bunker|missile_turret|photon_cannon|spore_colony 100 Health(LessThan 18)
@@ -56,10 +57,12 @@ idle_orders 10 16 3 guardian 260 group_men 90 Health(LessThan 60)
 idle_orders 10 16 5 guardian 272 group_men 110 Health(LessThan 100)
 idle_orders 10 16 1 devourer 145 group_men 60 Health(LessThan 30)
 idle_orders 10 16 2 devourer 145 group_men 70 Health(LessThan 50)
+idle_orders 10 16 2 lurker 192 drone|scv|probe 100 Count(AtLeast 2 40 14)
 idle_orders 11 120 1 lurker 192 Any 20 WithoutUnitFlags(Air)
 idle_orders 11 120 1 lurker 192 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
 idle_orders 11 120 1 lurker 192 Any 60 InCombat|WithoutUnitFlags(Air)
 idle_orders 11 120 1 lurker 192 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
+idle_orders 10 16 2 zergling 100 drone|scv|probe 100 0
 idle_orders 10 16 1 zergling 192 infested_terran 60 InCombat
 idle_orders 10 16 3 zergling 120 panzer|death_knight|medic|siege_tank|goliath|revenant|dragoon|reaver|dark_archon|defiler 10 InCombat
 idle_orders 10 16 9 zergling 224 panzer|death_knight|medic|siege_tank|goliath|revenant|dragoon|reaver|dark_archon|defiler 70 InCombat
@@ -75,6 +78,7 @@ idle_orders 10 16 7 hydralisk 224 panzer|phantom|ghost|death_knight|hnorad|battl
 idle_orders 10 16 1 scourge 224 mutalisk|scout|corsair|devourer|carrier|valhalla|science_vessel 80 Health(LessThan 140)
 idle_orders 10 16 2 scourge 250 guardian|scout|corsair|devourer|carrier|valhalla|science_vessel 80 Health(LessThan 280)
 idle_orders 10 16 3 scourge 275 devourer|carrier|valhalla|science_vessel|hnorad 80 Health(LessThan 350)
+idle_orders 10 16 3 group_men 400 36|147|148|201 1 NotEnemies
 #select early build, check ground availability
 region_size 1 hydra_island
 groundmap_jump normal_select
