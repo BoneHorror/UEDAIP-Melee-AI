@@ -78,7 +78,7 @@ idle_orders 10 16 7 hydralisk 224 panzer|phantom|ghost|death_knight|hnorad|battl
 idle_orders 10 16 1 scourge 224 mutalisk|scout|corsair|devourer|carrier|valhalla|science_vessel 80 Health(LessThan 140)
 idle_orders 10 16 2 scourge 250 guardian|scout|corsair|devourer|carrier|valhalla|science_vessel 80 Health(LessThan 280)
 idle_orders 10 16 3 scourge 275 devourer|carrier|valhalla|science_vessel|hnorad 80 Health(LessThan 350)
-idle_orders 10 64 4 zergling|hydralisk|mutalisk|ultralisk 600 36|147|148|201 1 NotEnemies|Allied|Count(AtMost 0 10 15)
+idle_orders 10 64 4 zergling|hydralisk|mutalisk|ultralisk 600 36|147|148|201 1 NotEnemies|Allied|Count(Exactly 1 4 11)
 #select early build, check ground availability
 region_size 1 hydra_island
 groundmap_jump normal_select
