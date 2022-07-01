@@ -69,7 +69,7 @@ idle_orders 59 16 1 reaver 192 group_men 80 count(AtLeast 4 75 14)|WithoutUnitFl
 idle_orders 59 16 2 reaver 192 group_men 110 count(AtLeast 6 75 14)|WithoutUnitFlags(Air)
 idle_orders 10 16 1 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
 idle_orders 10 16 2 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
-idle_orders 10 64 4 zealot|dragoon|dark_templar|revenant|archon 600 36|147|148|201 1 NotEnemies|Allied|Count(Exactly 1 4 11)
+idle_orders 10 64 4 zealot|dragoon|dark_templar|revenant|archon 600 36|147|148|assimilator|refinery|extractor|173|174|175|190|200|201|creep_colony|hatchery 1 NotEnemies|Allied|Count(Exactly 1 4 11)|WithoutUnitFlags(Invincible)
 wait_rand 2 3
 
 multirun supply_ensure

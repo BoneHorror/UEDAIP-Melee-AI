@@ -118,7 +118,7 @@ idle_orders 10 16 2 scorpion 224 drone|scv|probe 70 0
 idle_orders 10 16 1 scorpion 192 group_men 60 Health(LessThan 24)|WithoutUnitFlags(Air)
 idle_orders 10 16 1 scorpion 192 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 24)
 idle_orders 10 16 2 scorpion 224 infested_terran|defiler|dark_archon|lurker|dark_templar 90 Health(LessThan 48)
-idle_orders 10 64 4 marine|heavy_marine|vulture|scorpion|siege_tank|panzer|goliath|death_knight|firebat|tesla_trooper 600 36|147|148|201 1 NotEnemies|Allied|Count(Exactly 1 4 11)
+idle_orders 10 64 4 marine|heavy_marine|vulture|scorpion|siege_tank|panzer|goliath|death_knight|firebat|tesla_trooper 600 36|147|148|assimilator|refinery|extractor|173|174|175|190|200|201|creep_colony|hatchery 1 NotEnemies|Allied|Count(Exactly 1 4 11)|WithoutUnitFlags(Invincible)
 wait_rand 1 3
 multirun supply_ensure
 multirun worker_ensure
