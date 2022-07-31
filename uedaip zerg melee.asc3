@@ -57,7 +57,7 @@ idle_orders 10 16 3 guardian 260 group_men 90 Health(LessThan 60)
 idle_orders 10 16 5 guardian 272 group_men 110 Health(LessThan 100)
 idle_orders 10 16 1 devourer 145 group_men 60 Health(LessThan 30)
 idle_orders 10 16 2 devourer 145 group_men 70 Health(LessThan 50)
-idle_orders 10 160 2 lurker 192 drone|scv|probe 100 Count(AtLeast 2 40 14)
+idle_orders 11 160 2 lurker 192 drone|scv|probe 100 Count(AtLeast 2 40 14)
 idle_orders 11 160 1 lurker 192 Any 20 WithoutUnitFlags(Air)
 idle_orders 11 160 1 lurker 192 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
 idle_orders 11 160 1 lurker 192 Any 60 InCombat|WithoutUnitFlags(Air)
@@ -153,41 +153,51 @@ wait_buildstart 8 drone
 build 2 overlord 80
 wait_buildstart 2 overlord
 build 12 drone 80
-wait_buildstart 11 drone
+wait_buildstart 9 drone
+random_call 16 rush_subroutine_earlyground
 expand 1 priority_expansion
 max_workers 22
 wait 48
 
 build 14 drone 80
-wait_buildstart 11 drone
-wait 128
-
 build 1 spawning_pool 125
-wait_buildstart 12 drone
-build 1 extractor 80
-random_call 16 rush_subroutine_earlyground
 wait_buildstart 1 spawning_pool
+build 1 extractor 100
+wait_buildstart 12 drone
+multirun eo_getlair
 #wait_buildstart 1 extractor
 #call try_town
 
 multirun earlydef_panic
 defenseuse_gg 1 zergling
-farms_timing
 build 15 drone 80
-wait_buildstart 12 drone
+wait_buildstart 13 drone
+farms_timing
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
-build 1 sunken_colony 80
 aicontrol build_gas
 defensebuild_gg 1 zergling
-build 18 drone 80
-build 1 lair 100
-wait_buildstart 15 drone
+build 1 sunken_colony 80
+build 15 drone 80
+wait_buildstart 14 drone
 wait_buildstart 1 lair
-upgrade 1 zergling_speed 50
+deaths 13 AtMost 0 medic eo_skip_spire
+wait_build 14 drone
+build 2 creep_colony 80
+wait_build 1 lair
+build 1 spire 80
+wait_buildstart 1 spire
+build 2 sunken_colony 80
+goto eo_skip_c
+
+:eo_skip_spire
 build 2 creep_colony 80
 wait_buildstart 2 creep_colony
 build 2 sunken_colony 80
+:eo_skip_c
+build 18 drone 80
+upgrade 1 zergling_speed 50
+build 2 hatchery 60
 defensebuild_gg 2 zergling
 defenseuse_gg 1 zergling
 build 1 evolution_chamber 80
@@ -197,6 +207,16 @@ build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 3 sunken_colony 80
 return
+
+:eo_getlair
+wait 4
+
+notowns_jump spawning_pool eo_getlair
+resources 13 AtMost Gas 99 eo_getlair
+build 1 lair 100
+wait 300
+
+stop
 
 :p_spread
 define_max 75 drone
@@ -280,6 +300,7 @@ wait 16
 
 attack_do
 attack_clear
+build 2 lair 80
 build 1 spire 80
 build 1 queen_nest 80
 goto pm_check_bank
@@ -349,6 +370,7 @@ build 18 drone 80
 wait_buildstart 14 drone
 train 10 zergling
 train 1 mutalisk
+build 2 lair 80
 random_jump 128 mtl_flat
 upgrade 1 z_flyer_carapace 50
 goto mtl_flar
@@ -662,6 +684,7 @@ aicontrol build_gas
 farms_timing
 upgrade 1 hydralisk_speed 50
 train 15 hydralisk
+build 2 lair 80
 build 1 spire 90
 defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
@@ -768,7 +791,7 @@ build 2 sunken_colony 80
 build 21 drone 80
 wait_buildstart 17 drone
 build 4 hatchery 80
-build 1 lair 80
+build 3 lair 80
 train 26 hydralisk
 upgrade 1 z_carapace 50
 upgrade 1 burrowed_regen 30
@@ -794,6 +817,7 @@ wait_build 1 queen_nest
 multirun late_flood
 build 1 hive 100
 wait_build 1 hive
+build 4 lair 80
 upgrade 1 hydralisk_range 45
 build 1 defiler_mound 80
 defensebuild_gg 1 lurker
@@ -994,6 +1018,7 @@ train 5 lurker
 train 10 mutalisk
 attack_do
 attack_clear
+build 2 lair 80
 attack_add 2 lurker
 attack_add 10 zergling
 attack_add 3 mutalisk
@@ -1024,24 +1049,25 @@ build 9 drone 80
 wait_buildstart 8 drone
 build 2 overlord 100
 wait_build 2 overlord
-build 11 drone 80
+build 10 drone 80
 expand 1 priority_expansion
 wait_buildstart 10 drone
 build 12 drone 80
 wait_build 11 drone
 max_workers 22
-build 1 spawning_pool 125
-wait_buildstart 1 spawning_pool
+build 1 spawning_pool 140
 build 1 extractor 80
+wait_buildstart 1 spawning_pool
 define_max 4 zergling
 wait_buildstart 1 spawning_pool
 random_call 16 rush_subroutine_earlyground
 aicontrol build_gas
-build 12 drone 80
+build 14 drone 80
 wait_buildstart 11 drone
-farms_timing
+wait_buildstart 1 extractor
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
+farms_timing
 build 1 lair 110
 build 1 hydralisk_den 80
 wait_buildstart 1 hydralisk_den
@@ -1050,7 +1076,7 @@ wait_buildstart 1 lair
 build 2 sunken_colony 80
 defensebuild_gg 2 zergling
 defenseuse_gg 2 zergling
-build 14 drone 80
+build 15 drone 80
 wait_buildstart 12 drone
 upgrade 1 zergling_speed 40
 build 16 drone 80
@@ -1146,7 +1172,7 @@ return
 #deaths 13 Set 0 hmutalisk force_attack
 #debug sat_r ForceAttackSucced
 #
-#old force attack code - eval_harass appears to be the same as if_attacking, which makes it useless for what I wanted (attacking poorly defended regions) - we will try harass_factor instead 
+#old force attack code - eval_harass appears to be the same as if_attacking, which makes it useless for what I wanted (attacking poorly defended regions) - I will try harass_factor instead 
 :overflow_hatch1
 wait 50
 
@@ -1266,6 +1292,8 @@ wait_build 1 hatchery
 get_oldpeons 2
 max_workers 21
 multirun worker_decay
+multirun overflow_sunken
+multirun overflow_lair
 build 2 drone 80
 wait_build 2 drone
 build 4 drone 90
@@ -1308,11 +1336,49 @@ player_need 1 evolution_chamber
 build 1 spore_colony 80
 goto expo_macro_min
 
+:overflow_sunken
+wait 16
+
+time_jump 14 void
+resources 13 AtMost Ore 433 overflow_sunken
+build 1 creep_colony 80
+wait_build 1 creep_colony
+build 1 sunken_colony 80
+wait_build 1 sunken_colony
+build 2 creep_colony 80
+wait_build 2 creep_colony
+build 2 sunken_colony 80
+wait 600
+
+stop
+
+:overflow_lair
+wait 16
+
+notowns_jump spawning_pool overflow_lair
+resources 13 AtMost Ore 500 overflow_lair
+resources 13 AtMost Gas 366 overflow_lair
+build 1 lair 80
+wait 2500
+
+:overflow_hive
+wait 16
+
+notowns_jump queen_nest overflow_hive
+resources 13 AtMost Ore 1200 overflow_hive
+resources 13 AtMost Gas 766 overflow_hive
+build 1 hive 80
+wait 500
+
+stop
+
 :early_spread
+deaths 13 Set 1 medic 4pret
+#use medic death as a marker
 define_max 75 drone
 define_max 30 overlord
 define_max 36 mutalisk
-define_max 64 zergling
+define_max 4 zergling
 define_max 12 ultralisk
 define_max 3 defiler
 define_max 24 hydralisk
@@ -1322,30 +1388,43 @@ define_max 4 devourer
 define_max 6 scourge
 :4pret
 call expand_opening
-build 1 spire 80
-wait_buildstart 1 spire
+define_max 32 zergling
+upgrade 1 zergling_speed 80
 train 14 zergling
 #defensebuild_ag 2 scourge
-defensebuild_gg 1 mutalisk
-defenseuse_gg 1 mutalisk
-defenseuse_gg 1 mutalisk
-defensebuild_aa 1 mutalisk
-defenseuse_aa 1 mutalisk
-defenseuse_ag 2 scourge
-multirun scourge_getter
-defenseuse_aa 2 scourge
-set_attacks 2
+defensebuild_gg 2 mutalisk
+defenseuse_gg 2 mutalisk
+defensebuild_aa 2 mutalisk
+defenseuse_aa 2 mutalisk
+defensebuild_ga 1 mutalisk
+defenseuse_ga 1 mutalisk
+set_attacks 1
 build 2 hatchery 80
 upgrade 1 z_flyer_carapace 45
+train 2 mutalisk
+attack_add 14 zergling
+target_expansion
 :es_check_bank
 train 4 mutalisk
-train 8 zergling
-train 7 mutalisk
+deaths 13 AtLeast 1 valhalla es_skipu1
+upgrade 1 z_carapace 40
+:es_skipu1
 train 12 zergling
+train 7 mutalisk
+deaths 13 AtLeast 1 valhalla es_skipu2
+upgrade 2 z_flyer_carapace 45
+:es_skipu2
+train 14 zergling
 train 9 mutalisk
 train 11 mutalisk
+train 20 zergling
+deaths 13 AtLeast 1 valhalla es_skipdo
+attack_do
+attack_clear
+:es_skipdo
+set_attacks 2
 attack_add 11 mutalisk
-attack_add 12 zergling
+attack_add 18 zergling
 target_expansion
 wait 16
 
@@ -1353,22 +1432,30 @@ attack_do
 attack_clear
 deaths 13 AtLeast 1 valhalla es_skip_check
 deaths 13 Add 1 valhalla es_skip_check
-upgrade 1 z_carapace 40
+
 #build 2 creep_colony 80
-expand 2 generic_expansion
 #build 2 sunken_colony 80
 #redundant, ran already in expand_opening subroutine
+wait 350
+
 resources_jump 600 400 es_check_bank
 :es_skip_check
-set_attacks 9
+build 2 lair 80
+multirun scourge_getter
+defenseuse_ag 2 scourge
+defenseuse_aa 2 scourge
+set_attacks 3
+upgrade 1 z_melee_attack 35
 build 1 hydralisk_den 80
 tech lurker_aspect 70
+define_max 50 zergling
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_gg 1 lurker
 defenseuse_gg 2 lurker
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
+expand 2 generic_expansion
 multirun train_lurker
 :es_pressure
 train 20 zergling
@@ -1379,12 +1466,16 @@ train 36 zergling
 train 10 mutalisk
 train 40 zergling
 attack_add 10 mutalisk
-target_expansion
+attack_prepare
+wait 16
+
+attack_timeout 60
 wait 16
 
 attack_do
 attack_clear
-attack_add 20 zergling
+multirun train_lurker
+attack_add 35 zergling
 target_expansion
 wait 16
 
@@ -1394,10 +1485,8 @@ deaths 13 Add 1 lurker es_pskip
 deaths 13 AtLeast 3 lurker es_pskip
 notowns_jump lurker es_pressure
 :es_pskip
-upgrade 1 burrowed_regen 40
 tech burrowing 60
 expand 2 generic_expansion
-upgrade 2 z_flyer_carapace 45
 upgrade 2 z_carapace 40
 train 12 zergling
 train 4 hydralisk
@@ -1415,6 +1504,8 @@ wait 16
 
 attack_do
 attack_clear
+upgrade 1 burrowed_regen 40
+define_max 64 zergling
 goto late_vs_terran
 
 :train_lurker
@@ -2136,6 +2227,7 @@ wait 16
 
 attack_do
 attack_clear
+build 2 lair 80
 deaths 13 AtLeast 1 arbiter pm_skip_check
 deaths 13 Add 1 arbiter pm_skip_check
 upgrade 1 z_flyer_carapace 50
@@ -2645,6 +2737,7 @@ stop
 #other code in-between
 
 :rush_subroutine_earlyground
+build 1 spawning_pool 100
 multirun eg_do
 return
 #multirun instead of separate block so that we dont waste time here
@@ -2678,7 +2771,7 @@ goto sub_return
 wait 2650
 
 :ge_init
-wait_rand 100 145
+wait_rand 10 45
 
 call ge_gas
 call ge_mins
@@ -2693,10 +2786,18 @@ resources 13 Add Ore 266 ge_init
 goto ge_init
 
 :ge_gas
+resources 13 AtLeast Ore 3500 late_min_check
 resources 13 AtLeast Gas 600 ge_skip
 resources 13 AtMost Ore 899 ge_skip
 resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
+return
+
+:late_min_check
+resources 13 AtLeast Gas 2000 ge_skip
+resources 13 AtMost Ore 3899 ge_skip
+resources 13 Subtract Ore 450 ge_skip
+resources 13 Add Gas 300 ge_skip
 return
 
 :ge_mins
