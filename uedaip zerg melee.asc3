@@ -718,15 +718,18 @@ build 8 drone 80
 wait_buildstart 7 drone
 build 2 overlord 80
 build 9 drone 85
+wait 166
+
 expand 1 priority_expansion
-wait_build 2 overlord
+wait_buildstart 2 overlord
+build 1 spawning_pool 100
+wait_buildstart 1 spawning_pool
 build 10 drone 80
 wait_buildstart 10 drone
 max_workers 22
-build 1 spawning_pool 80
-wait_buildstart 1 spawning_pool
 build 13 drone 80
-wait_buildstart 11 drone
+wait_buildstart 10 drone
+build 1 extractor 80
 define_max 10 zergling
 random_call 16 rush_subroutine_earlyground
 define_max 4 zergling
@@ -736,8 +739,8 @@ aicontrol build_gas
 multirun earlydef_panic
 defenseuse_gg 1 zergling
 build 14 drone 80
-build 1 extractor 80
-wait_buildstart 12 drone
+build 2 hatchery 70
+wait_buildstart 11 drone
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 farms_timing
