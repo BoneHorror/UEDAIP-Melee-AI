@@ -524,33 +524,34 @@ build 12 scv 80
 wait_buildstart 11 scv
 expand 1 std_expo
 build 13 scv 80
+build 1 barracks 70
+wait_buildstart 1 barracks
 wait_buildstart 10 scv
 capt_expand 
-build 1 barracks 80
-wait_buildstart 1 barracks
 build 14 scv 80
+build 2 barracks 80
 wait_buildstart 12 scv
 build 1 refinery 80
+train 1 heavy_marine
+build 1 bunker 80
+wait_buildstart 1 bunker
 defensebuild_gg 2 heavy_marine
 defensebuild_ag 2 heavy_marine
 defenseuse_gg 2 heavy_marine
 defenseuse_ag 2 heavy_marine
-train 2 heavy_marine
 build 15 scv 80
 wait_buildstart 14 scv
 farms_timing
-train 3 heavy_marine
+train 2 heavy_marine
 build 16 scv 80
 wait_buildstart 13 scv
-train 4 heavy_marine
 build 17 scv 80
 build 1 factory 80
+train 4 heavy_marine
 wait_buildstart 15 scv
-build 1 bunker 80
-wait_buildstart 1 bunker
-train 5 heavy_marine
 aicontrol build_gas
 build 1 starport 80
+train 5 heavy_marine
 define_max 4 scorpion
 defensebuild_gg 2 scorpion
 defenseuse_gg 2 scorpion
