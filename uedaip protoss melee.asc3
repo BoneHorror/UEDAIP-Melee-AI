@@ -2558,8 +2558,8 @@ train 7 revenant
 train 6 zealot
 wait 240
 
-target_expansion 
-
+attack_prepare
+#normal prepare to vary between targets
 call resource_waitskip
 attack_do
 attack_clear 
