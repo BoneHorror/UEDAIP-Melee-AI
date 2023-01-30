@@ -19,56 +19,58 @@ aicontrol global_disable_carrier_focus
 idle_orders disablebuiltin 0 0 0 0 0 0 0
 idle_orders RechargeShieldsUnit 480 3 Group_Men 1024 shield_battery 30 NotEnemies|Own|Self(Shields(LessThanPercent 25))
 idle_orders RechargeShieldsUnit 240 3 Group_Men 1024 shield_battery 40 NotEnemies|Own|Self(Shields(LessThanPercent 25))|Self(Order(Guard))
-idle_orders 10 16 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)|WithoutUnitFlags(Air)
-idle_orders 10 16 1 dark_templar 192 drone|scv|probe 100 0
-idle_orders 10 16 2 zealot 160 drone|scv|probe 100 0
-idle_orders 10 16 3 scout 192 drone|scv|probe 90 0
-idle_orders 10 16 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
-idle_orders 10 16 1 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 90 Health(LessThan 12)
-idle_orders 10 16 3 zealot|dark_templar|scout 160 group_men 90 Health(LessThan 33)|WithoutUnitFlags(Air)
-idle_orders 10 16 3 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 33)
-idle_orders 10 16 3 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 100 Health(LessThan 24)
-idle_orders 10 16 5 zealot|dark_templar|scout 160 group_men 95 Health(LessThan 60)|WithoutUnitFlags(Air)
-idle_orders 10 16 5 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 60)
-idle_orders 10 16 5 zealot|dark_templar|scout 160 sunken_colony|photon_cannon|bunker 105 Health(LessThan 45)
+idle_orders 10 32 1 zealot|dark_templar|scout 160 group_men 80 Health(LessThan 14)|WithoutUnitFlags(Air)
+idle_orders 10 32 1 dark_templar 192 drone|scv|probe 100 0
+idle_orders 10 32 2 zealot 160 drone|scv|probe 100 0
+idle_orders 10 32 3 scout 192 drone|scv|probe 90 0
+idle_orders 10 32 1 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 120 Health(LessThan 14)
+idle_orders 10 32 1 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 90 Health(LessThan 12)
+idle_orders 10 32 3 zealot|dark_templar|scout 160 group_men 90 Health(LessThan 33)|WithoutUnitFlags(Air)
+idle_orders 10 32 3 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 130 Health(LessThan 33)
+idle_orders 10 32 3 zealot|dark_templar|scout 160 sunken_colony|photon_cannon 100 Health(LessThan 24)
+idle_orders 10 32 5 zealot|dark_templar|scout 160 group_men 95 Health(LessThan 60)|WithoutUnitFlags(Air)
+idle_orders 10 32 5 zealot|dark_templar|scout 160 infested_terran|queen|dark_archon|defiler|lurker|ghost|high_templar|siege_tank 135 Health(LessThan 60)
+idle_orders 10 32 5 zealot|dark_templar|scout 160 sunken_colony|photon_cannon|bunker 105 Health(LessThan 45)
 idle_orders 10 64 1 dragoon 192 sunken_colony|photon_cannon|bunker 110 Health(LessThan 20)
 idle_orders 10 64 1 dragoon 192 group_men 100 Health(LessThan 15)
 idle_orders 10 64 2 dragoon 192 group_men 105 Health(LessThan 35)
 idle_orders 10 64 4 dragoon 224 group_men 115 Health(LessThan 60)
 idle_orders 10 64 1 dragoon 192 infested_terran|dark_archon|defiler 130 Health(LessThan 20)
 idle_orders 10 64 1 dragoon 192 lurker|queen 120 Health(LessThan 20)
-idle_orders 10 16 1 archon 128 group_men 50 InCombat
+idle_orders 10 32 1 archon 128 group_men 50 InCombat
 idle_orders 10 64 1 archon 160 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine|firebat 150 count(AtLeast 3 48 14)
-idle_orders 10 16 1 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
-idle_orders 10 16 2 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
-idle_orders 10 16 1 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
-idle_orders 10 16 3 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
-idle_orders 10 16 1 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
-idle_orders 10 16 2 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
-idle_orders 10 16 3 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
-idle_orders 10 16 4 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
-idle_orders 10 16 1 scout|corsair 192 shuttle|observer|overlord 60 Health(LessThan 20)
-idle_orders 10 16 1 revenant 192 mutalisk|scout|corsair|scourge|wraith 110 count(AtLeast 4 60 14)
-idle_orders 10 16 3 revenant 192 mutalisk|scout|corsair|scourge|wraith 135 count(AtLeast 4 60 14)
-idle_orders 10 16 1 revenant 192 devourer|hnorad|battlecruiser|carrier 150 count(AtLeast 3 60 14)
-idle_orders 10 16 2 revenant 192 devourer|hnorad|battlecruiser|carrier 160 count(AtLeast 3 60 14)
-idle_orders 10 16 3 revenant 192 devourer|hnorad|battlecruiser|carrier 170 count(AtLeast 3 60 14)
-idle_orders 10 16 4 revenant 192 devourer|hnorad|battlecruiser|carrier 190 count(AtLeast 3 60 14)
-idle_orders 10 16 1 revenant 192 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
-idle_orders 10 16 2 revenant 192 group_men 80 count(AtLeast 3 64 14)
-idle_orders 10 16 2 revenant 192 group_men 95 count(AtLeast 5 64 14)
-idle_orders 10 16 2 revenant 212 scv|probe|drone 90 count(AtLeast 2 64 14)
-idle_orders 10 16 2 revenant 212 scv|probe|drone 110 count(AtLeast 4 64 14)
-idle_orders 10 16 1 hornet 224 group_men 60 Health(LessThan 11)
-idle_orders 10 16 1 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 80 Health(LessThan 12)
-idle_orders 10 16 2 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
-idle_orders 10 16 4 hornet 232 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 110 Health(LessThan 44)
-idle_orders 10 16 1 hornet 224 group_men 60 Health(LessThan 5)
-idle_orders 59 16 1 reaver 192 group_men 50 count(AtLeast 2 75 14)|WithoutUnitFlags(Air)
-idle_orders 59 16 1 reaver 192 group_men 80 count(AtLeast 4 75 14)|WithoutUnitFlags(Air)
-idle_orders 59 16 2 reaver 192 group_men 110 count(AtLeast 6 75 14)|WithoutUnitFlags(Air)
-idle_orders 10 16 1 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
-idle_orders 10 16 2 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
+idle_orders 10 32 1 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 110 count(AtLeast 2 24 14)
+idle_orders 10 32 2 archon 128 zergling|zealot|hydralisk|dark_templar|ghost|high_templar|marine 130 count(AtLeast 2 24 14)
+idle_orders 10 32 1 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 110 Health(LessThan 20)
+idle_orders 10 32 3 scout|corsair 192 mutalisk|scout|corsair|scourge|wraith 135 Health(LessThan 60)
+idle_orders 10 32 1 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 150 Health(LessThan 20)
+idle_orders 10 32 2 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 160 Health(LessThan 40)
+idle_orders 10 32 3 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 170 Health(LessThan 60)
+idle_orders 10 32 4 scout|corsair 192 devourer|hnorad|battlecruiser|carrier 190 Health(LessThan 80)
+idle_orders 10 32 1 scout|corsair 192 shuttle|observer|overlord 60 Health(LessThan 20)
+idle_orders 10 32 1 revenant 192 mutalisk|scout|corsair|scourge|wraith 110 count(AtLeast 4 60 14)
+idle_orders 10 32 3 revenant 192 mutalisk|scout|corsair|scourge|wraith 135 count(AtLeast 4 60 14)
+idle_orders 10 32 1 revenant 192 devourer|hnorad|battlecruiser|carrier 150 count(AtLeast 3 60 14)
+idle_orders 10 32 2 revenant 192 devourer|hnorad|battlecruiser|carrier 160 count(AtLeast 3 60 14)
+idle_orders 10 32 3 revenant 192 devourer|hnorad|battlecruiser|carrier 170 count(AtLeast 3 60 14)
+idle_orders 10 32 4 revenant 192 devourer|hnorad|battlecruiser|carrier 190 count(AtLeast 3 60 14)
+idle_orders 10 32 1 revenant 192 shuttle|observer|overlord 60 count(AtLeast 3 60 14)
+idle_orders 10 32 2 revenant 192 group_men 80 count(AtLeast 3 64 14)
+idle_orders 10 32 2 revenant 192 group_men 95 count(AtLeast 5 64 14)
+idle_orders 10 32 2 revenant 212 scv|probe|drone 90 count(AtLeast 2 64 14)
+idle_orders 10 32 2 revenant 212 scv|probe|drone 110 count(AtLeast 4 64 14)
+idle_orders 10 32 1 hornet 224 group_men 60 Health(LessThan 11)
+idle_orders 10 32 1 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 80 Health(LessThan 12)
+idle_orders 10 32 2 hornet 224 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 90 Health(LessThan 22)
+idle_orders 10 32 4 hornet 232 infested_terran|defiler|dark_archon|lurker|dark_templar|ghost|siege_tank 110 Health(LessThan 44)
+idle_orders 10 32 1 hornet 224 group_men 60 Health(LessThan 5)
+idle_orders 59 80 1 reaver 192 group_men 50 count(AtLeast 2 75 14)|WithoutUnitFlags(Air)
+idle_orders 59 80 1 reaver 192 group_men 80 count(AtLeast 4 75 14)|WithoutUnitFlags(Air)
+idle_orders 59 1024 1 reaver 4096 probe|drone|scv 90 count(AtLeast 2 75 14)|RandomRate(6400 12036)
+idle_orders 59 1024 1 reaver 4096 probe|drone|scv 120 count(AtLeast 4 75 14)|RandomRate(6400 12036)
+idle_orders 59 80 2 reaver 192 group_men 110 count(AtLeast 6 75 14)|WithoutUnitFlags(Air)
+idle_orders 10 32 1 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 80 Health(LessThan 30)
+idle_orders 10 32 2 scout|corsair|dragoon 192 mutalisk|scout|corsair|scourge|devourer|carrier|arbiter 90 Health(LessThan 60)
 idle_orders 10 64 4 zealot|dragoon|dark_templar|revenant|archon 600 36|147|148|assimilator|refinery|extractor|173|174|175|190|200|201|creep_colony|hatchery 1 NotEnemies|Allied|Count(Exactly 1 4 11)|WithoutUnitFlags(Invincible)
 wait_rand 2 3
 
@@ -194,12 +196,12 @@ stop
 wait 16
 
 tech_jump 13 Exactly recall 0 ptech_recall
-idle_orders 137 16 1 arbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
-idle_orders 137 16 1 arbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
-idle_orders 137 16 1 arbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
-idle_orders 137 16 1 harbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
-idle_orders 137 16 1 harbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
-idle_orders 137 16 1 harbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
+idle_orders 137 32 1 arbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
+idle_orders 137 32 1 arbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
+idle_orders 137 32 1 arbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
+idle_orders 137 32 1 harbiter 65535 carrier 80 incombat|health(LessThan,200)|own|NotEnemies
+idle_orders 137 32 1 harbiter 65535 reaver 60 incombat|health(LessThan,85)|own|NotEnemies
+idle_orders 137 32 1 harbiter 65535 archon 70 incombat|health(LessThan,120)|own|NotEnemies
 stop
 
 :ptech_mael
@@ -224,8 +226,8 @@ idle_orders 182 780 1 dark_archon 912 ultralisk|hnorad|battlecruiser|valhalla|ca
 idle_orders 182 780 1 dark_archon 912 lurker|siege_tank|panzer 20 health(GreaterThanPercent,66)
 idle_orders 182 780 1 dark_archon 912 queen|science_vessel|phantom 20 health(GreaterThanPercent,66)
 idle_orders 182 780 1 dark_archon 912 defiler|high_templar 10 health(GreaterThanPercent,66)
-idle_orders 182 16 1 dark_archon 256 ultralisk|battlecruiser|hnorad 80 incombat|health(GreaterThanPercent,50)
-idle_orders 182 16 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
+idle_orders 182 32 1 dark_archon 256 ultralisk|battlecruiser|hnorad 80 incombat|health(GreaterThanPercent,50)
+idle_orders 182 32 1 dark_archon 256 lurker|siege_tank|valkyrie|guardian|devourer 30 incombat|health(GreaterThanPercent,80)
 idle_orders 182 0 1 dark_archon 256 group_men 80 deathrattle
 multirun foreign_casters
 stop
@@ -252,17 +254,17 @@ idle_orders 122 226 1 science_vessel 338 Group_Men 50 InCombat|Count(AtLeast 2 6
 idle_orders 122 128 1 science_vessel 512 Group_Men 60 InCombat|Count(AtLeast 2 60 14)|Shields(GreaterThan 300)
 idle_orders 120 0 1 queen 1024 overlord|observer|science_vessel|defiler|skywing|dropship|shuttle|arbiter|valhalla|defiler|queen|ghost 30 WithoutSpellEffects(Parasite)|RandomRate(280 820)
 idle_orders 27 13 1 queen 1532 command_center 80 health(LessThanPercent,66)
-idle_orders 121 8 1 queen 312 zergling|marine 5 Health(GreaterThanPercent 85)
-idle_orders 121 8 1 queen 312 hydralisk|firebat|medic|heavy_marine 40 Health(GreaterThanPercent 85)
-idle_orders 121 8 1 queen 312 lurker|siege_tank|death_knight 70 Health(GreaterThanPercent 25)
-idle_orders 121 8 1 queen 312 ultralisk|36|panzer 120 Health(GreaterThanPercent 25)
-idle_orders 121 8 1 queen 312 zealot|vulture|scorpion 30 Health(GreaterThanPercent 45)
-idle_orders 121 8 1 queen 312 dragoon|goliath|phantom 60 Health(GreaterThanPercent 45)
-idle_orders 121 8 1 queen 312 high_templar|ghost 70 Health(GreaterThanPercent 65)
-idle_orders 121 8 1 queen 312 dark_templar|tesla_trooper 50 Health(GreaterThanPercent 55)
-idle_orders 121 8 1 queen 312 drone|scv 15 Health(GreaterThanPercent 95)
-idle_orders 121 8 1 queen 312 broodling 3 Health(GreaterThanPercent 95)
-idle_orders 121 8 1 queen 312 group_men 40 deathrattle
+idle_orders 121 32 1 queen 312 zergling|marine 5 Health(GreaterThanPercent 85)
+idle_orders 121 32 1 queen 312 hydralisk|firebat|medic|heavy_marine 40 Health(GreaterThanPercent 85)
+idle_orders 121 32 1 queen 312 lurker|siege_tank|death_knight 70 Health(GreaterThanPercent 25)
+idle_orders 121 32 1 queen 312 ultralisk|36|panzer 120 Health(GreaterThanPercent 25)
+idle_orders 121 32 1 queen 312 zealot|vulture|scorpion 30 Health(GreaterThanPercent 45)
+idle_orders 121 32 1 queen 312 dragoon|goliath|phantom 60 Health(GreaterThanPercent 45)
+idle_orders 121 32 1 queen 312 high_templar|ghost 70 Health(GreaterThanPercent 65)
+idle_orders 121 32 1 queen 312 dark_templar|tesla_trooper 50 Health(GreaterThanPercent 55)
+idle_orders 121 32 1 queen 312 drone|scv 15 Health(GreaterThanPercent 95)
+idle_orders 121 32 1 queen 312 broodling 3 Health(GreaterThanPercent 95)
+idle_orders 121 32 1 queen 312 group_men 40 deathrattle
 idle_orders 146 0 1 queen 1024 zealot|zergling|hydralisk|marine|vulture|heavy_marine|scorpion 50 WithoutSpellEffects(Ensnare)|Count(AtLeast 4 64 14)|RandomRate(80 320)
 idle_orders 146 0 1 queen 1024 group_men 60 WithoutSpellEffects(Ensnare)|Count(AtLeast 5 64 14)|RandomRate(80 320)
 idle_orders 146 0 1 queen 1024 dragoon|corsair|scout|dark_templar|wraith|ghost|skywing|phantom 40 WithoutSpellEffects(Ensnare)|Count(AtLeast 2 64 14)|RandomRate(160 540)
@@ -277,8 +279,8 @@ idle_orders 144 64 1 defiler 512 skywing|death_knight|scorpion|wraith|science_ve
 idle_orders 144 64 1 defiler 512 hnorad|battlecruiser|valhalla|carrier|arbiter|devourer|guardian|ultralisk 115 incombat|count(AtLeast 2 120 14)
 idle_orders 144 64 1 defiler 512 hnorad|battlecruiser|valhalla|carrier|arbiter|ultralisk 80 incombat
 idle_orders 144 64 1 defiler 512 heavy_marine|medic|ghost|phantom|marine|firebat|vulture|zealot|hydralisk|mutalisk|revenant|dark_templar|high_templar 55 incombat|count(AtLeast 4 120 14)
-idle_orders Consume 16 1 defiler 512 zergling 70 NotEnemies|Own|Health(LessThanPercent 80)|Self(Energy(LessThanPercent 50))
-idle_orders Consume 16 1 defiler 512 broodling 70 NotEnemies|Own|Health(LessThanPercent 100)|Self(Energy(LessThanPercent 50))
+idle_orders Consume 32 1 defiler 512 zergling 70 NotEnemies|Own|Health(LessThanPercent 80)|Self(Energy(LessThanPercent 50))
+idle_orders Consume 32 1 defiler 512 broodling 70 NotEnemies|Own|Health(LessThanPercent 100)|Self(Energy(LessThanPercent 50))
 multirun check_it
 stop
 
@@ -347,7 +349,6 @@ defenseuse_gg 2 zealot
 capt_expand 
 build 14 probe 80
 wait_buildstart 12 probe
-
 train 2 zealot
 build 15 probe 80
 wait_buildstart 13 probe
