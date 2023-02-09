@@ -2804,9 +2804,9 @@ resources 13 Add Gas 300 ge_skip
 return
 
 :ge_mins
-resources 13 AtMost Gas 599 ge_skip
+resources 13 AtMost Gas 799 ge_skip
 resources 13 AtLeast Ore 1100 ge_skip
-resources 13 Subtract Gas 100 ge_skip
+resources 13 Subtract Gas 80 ge_skip
 resources 13 Add Ore 150 ge_skip
 return
 
