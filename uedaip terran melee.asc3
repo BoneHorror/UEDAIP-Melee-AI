@@ -2828,13 +2828,18 @@ build 14 scv 80
 wait_buildstart 12 scv
 aicontrol build_gas
 build 15 scv 80
-wait_buildstart 14 scv
+wait_buildstart 13 scv
 random_jump 128 mb_skip
 build 2 barracks 80
+build 16 scv 80
+build 3 supply_depot 80
 wait_buildstart 2 barracks
 :mb_skip
 build 16 scv 80
 build 3 supply_depot 80
+wait_buildstart 14 scv
+train 1 vulture
+build 2 factory 80
 wait_buildstart 3 supply_depot
 build 17 scv 80
 defenseclear_gg 
@@ -2843,40 +2848,39 @@ train 3 marine
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
 build 18 scv 80
-wait_buildstart 17 scv
+wait_buildstart 16 scv
 build 1 bunker 80
 wait_buildstart 1 bunker
-train 3 marine
 define_max 4 vulture
 define_max 14 marine
 define_max 2 siege_tank
-build 2 factory 80
 build 19 scv 80
-wait_buildstart 18 scv
+build 2 barracks 80
+wait_buildstart 17 scv
 build 4 supply_depot 80
 wait_buildstart 4 supply_depot
-train 2 vulture
 build 1 machine_shop 100
-build 2 barracks 80
 wait_buildstart 2 barracks
+train 2 vulture
+train 5 marine
 defensebuild_gg 2 siege_tank
 defenseuse_gg 2 siege_tank
-train 4 marine
 tech siege_mode 40
+wait_buildstart 18 scv
 defensebuild_gg 2 marine
 defensebuild_ag 2 marine
 defenseuse_gg 2 marine
 defenseuse_ag 2 marine
 train 2 siege_tank
-train 10 marine
+train 6 marine
 train 2 vulture
-set_attacks 2
-attack_add 10 marine
+set_attacks 1
+prep_down 3 4 marine
 attack_add 2 siege_tank
 attack_add 2 vulture
-target_expansion 
+attack_prepare
 build 20 scv 80
-wait_buildstart 19 scv
+wait_buildstart 18 scv
 build 1 academy 80
 wait_buildstart 1 academy
 define_max 16 marine
