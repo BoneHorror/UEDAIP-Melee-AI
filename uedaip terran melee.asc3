@@ -132,6 +132,9 @@ multirun sciv_evaluator
 multirun late_cash
 #guard_all
 creep 4
+:recurse
+deaths 13 Set 1000 176 recurse_set
+multirun recurse_set
 groundmap_jump t_groundmap
 random_jump 128 ued_AirNoRush
 goto dominion_air
@@ -3541,11 +3544,26 @@ attack_do
 attack_clear
 return
 
+:recurse_set
+wait 50
+
+deaths 13 Set 1000 176 recurse_set
+#set a high number of mineral patch 1 deaths, that won't reasonably be removed as long as the AI has like 10 expos tops (but aim for semi-smooth removal from 5 expos)
+goto recurse_set
+
+:recurse_subtract
+wait 50
+
+deaths 13 Subtract 25 176 recurse_subtract
+deaths 13 Exactly 0 176 recurse
+goto recurse_subtract
+
 :std_expo
 start_town 
 build 1 command_center 130
 get_oldpeons 1
 wait_build 1 command_center
+multirun recurse_subtract
 build 1 refinery 50
 multirun exp_workers
 wait 300

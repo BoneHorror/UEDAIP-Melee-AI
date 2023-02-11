@@ -81,6 +81,9 @@ idle_orders 10 32 3 scourge 275 devourer|carrier|valhalla|science_vessel|hnorad 
 idle_orders 10 64 4 zergling|hydralisk|mutalisk|ultralisk 600 36|147|148|assimilator|refinery|extractor|173|174|175|190|200|201 1 NotEnemies|Allied|Count(Exactly 1 4 11)|WithoutUnitFlags(Invincible)|Health(LessThan 10)
 idle_orders 10 1040 1 zergling 2000 command_center 1 NotEnemies|Allied|Count(Exactly 1 4 11)|WithoutUnitFlags(Invincible)|Health(GreaterThanPercent 40)
 #select early build, check ground availability
+:recurse
+deaths 13 Set 1000 176 recurse_set
+multirun recurse_set
 region_size 1 hydra_island
 groundmap_jump normal_select
 #island_select
@@ -1215,6 +1218,7 @@ start_town
 build 1 hatchery 100
 get_oldpeons 1
 :gen_ret
+multirun recurse_subtract
 wait_build 1 hatchery
 time_jump 30 geto_get
 goto geto_get_s
@@ -1287,6 +1291,20 @@ wait 2800
 max_workers 255
 stop
 
+:recurse_set
+wait 50
+
+deaths 13 Set 1000 176 recurse_set
+#set a high number of mineral patch 1 deaths, that won't reasonably be removed as long as the AI has like 10 expos tops (but aim for semi-smooth removal from 5 expos)
+goto recurse_set
+
+:recurse_subtract
+wait 50
+
+deaths 13 Subtract 25 176 recurse_subtract
+deaths 13 Exactly 0 176 recurse
+goto recurse_subtract
+
 :priority_expansion
 start_town
 build 1 hatchery 120
@@ -1299,6 +1317,7 @@ multirun overflow_sunken
 multirun overflow_lair
 build 2 drone 80
 wait_build 2 drone
+multirun recurse_subtract
 build 4 drone 90
 wait_buildstart 4 drone
 time_jump 25 geto_getp
