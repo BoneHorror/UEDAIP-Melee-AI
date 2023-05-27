@@ -168,13 +168,13 @@ define_max 255 panzer
 define_max 255 scorpion
 define_max 255 skywing
 define_max 2 nuclear_missile
-idle_orders 141 83 1 science_vessel 1256 firebat|marine|ghost|heavy_marine|medic|tesla_trooper 10 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 50)|Self(Energy(GreaterThan 149))
-idle_orders 141 83 1 science_vessel 1256 goliath|phantom|death_knight 20 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 99))
-idle_orders 141 83 1 science_vessel 1256 vulture|scorpion 15 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 149))
-idle_orders 141 83 1 science_vessel 1256 wraith|dropship|skywing|valkyrie 20 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 149))
-idle_orders 141 83 1 science_vessel 1256 siege_tank|panzer 40 own|allied|notenemies|incombat|Health(LessThanPercent 70)|Health(GreaterThanPercent 30)
-idle_orders 141 83 1 science_vessel 1256 hnorad|battlecruiser 80 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 10)
-idle_orders 141 83 1 science_vessel 663 group_men 5 own|allied|notenemies|incombat|Health(LessThanPercent 35)|Health(GreaterThanPercent 10)
+idle_orders 141 83 1 science_vessel 1256 firebat|marine|ghost|heavy_marine|medic|tesla_trooper 10 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 50)|Self(Energy(GreaterThan 149))|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 1256 goliath|phantom|death_knight 20 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 99))|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 1256 vulture|scorpion 15 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 149))|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 1256 wraith|dropship|skywing|valkyrie 20 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 30)|Self(Energy(GreaterThan 149))|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 1256 siege_tank|panzer 40 own|allied|notenemies|incombat|Health(LessThanPercent 70)|Health(GreaterThanPercent 30)|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 1256 hnorad|battlecruiser 80 own|allied|notenemies|incombat|Health(LessThanPercent 75)|Health(GreaterThanPercent 10)|WithoutSpellEffects(Matrix)
+idle_orders 141 83 1 science_vessel 663 group_men 5 own|allied|notenemies|incombat|Health(LessThanPercent 35)|Health(GreaterThanPercent 10)|WithoutSpellEffects(Matrix)
 multirun ttech_lockdown
 multirun emp_io
 multirun irradiate_io
