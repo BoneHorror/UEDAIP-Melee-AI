@@ -1174,6 +1174,7 @@ build 2 stargate 80
 wait_buildstart 2 stargate
 upgrade 1 robotics_speed 40
 build 3 gateway 80
+call resource_waitskip
 upgrade 2 p_ground_weapon 40
 upgrade 1 observer_sight 40
 define_max 3 observer
@@ -1182,13 +1183,11 @@ upgrade 3 p_plating 60
 upgrade 1 p_air_weapon 40
 defensebuild_gg 1 scout
 defensebuild_aa 1 scout
-train 1 scout
 expand 3 exp_noguard
-train 2 scout
+call resource_waitskip
 build 1 fleet_beacon 80
 build 4 robotics_facility 80
 wait_buildstart 1 fleet_beacon
-train 3 scout
 upgrade 1 observer_speed 40
 upgrade 1 shuttle_speed 40
 build 1 templar_archives 80
