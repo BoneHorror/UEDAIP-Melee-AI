@@ -882,7 +882,6 @@ upgrade 1 vulture_speed 40
 upgrade 1 t_infantry_weapon 40
 train 10 heavy_marine
 train 3 scorpion
-call check_antirush
 wait_force 10 heavy_marine
 wait_force 3 scorpion
 attack_do 
@@ -1188,7 +1187,6 @@ defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
 train 6 scorpion
 attack_add 6 scorpion
-call check_antirush
 attack_prepare
 train 2 heavy_marine
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -1255,7 +1253,6 @@ attack_do
 attack_clear
 attack_add 8 heavy_marine
 attack_add 1 panzer
-call check_antirush
 attack_prepare 
 build 2 factory 80
 wait_buildstart 2 factory
@@ -2778,7 +2775,6 @@ tech spider_mines 40
 train 8 vulture
 expand 1 std_expo
 attack_add 8 vulture
-call check_antirush
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
 #this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
 attack_do
@@ -2911,7 +2907,6 @@ set_attacks 1
 prep_down 3 4 marine
 attack_add 2 siege_tank
 attack_add 2 vulture
-call check_antirush
 attack_prepare
 build 20 scv 80
 wait_buildstart 18 scv
@@ -3171,7 +3166,6 @@ attack_do
 attack_clear
 attack_add 10 vulture
 train 10 vulture
-call check_antirush
 target_expansion
 wait 16
 
@@ -3312,7 +3306,6 @@ train 14 marine
 attack_add 14 marine
 attack_add 5 wraith
 attack_add 2 siege_tank
-call check_antirush
 attack_prepare
 :doma_skiptiming
 build 3 barracks 80
@@ -3575,7 +3568,6 @@ wait_build 1 control_tower
 tech cloaking_field 90
 train 7 wraith
 attack_add 7 wraith
-call check_antirush
 attack_prepare
 wait 150
 
