@@ -356,6 +356,7 @@ train 2 zealot
 build 15 probe 80
 wait_buildstart 13 probe
 train 5 zealot
+call check_antirush
 attack_add 5 zealot
 attack_prepare
 expand 1 std_expansion
@@ -736,6 +737,7 @@ enemyowns_jump science_vessel d_o_r
 enemyowns_jump lurker d_o_r
 enemyowns_jump observer d_o_r
 wait_force 4 dark_templar
+call check_antirush
 attack_add 5 zealot
 attack_add 2 dark_templar
 attack_prepare
@@ -818,6 +820,7 @@ build 20 probe 80
 wait_buildstart 18 probe
 train 4 zealot
 train 6 revenant
+call check_antirush
 attack_add 3 zealot
 attack_add 6 revenant
 attack_prepare
@@ -1297,6 +1300,7 @@ train 1 carrier
 train 10 hornet
 train 2 carrier
 train 16 hornet
+call check_antirush
 wait_force 2 carrier
 target_expansion 
 
@@ -1310,6 +1314,7 @@ train 10 hornet
 train 8 dragoon
 train 6 reaver
 train 16 dragoon
+call check_antirush
 attack_prepare
 call resource_waitskip
 goto RLo
@@ -1359,6 +1364,7 @@ upgrade 1 p_ground_weapon 40
 train 7 zealot
 build 4 pylon 80
 train 12 zealot
+call check_antirush
 attack_add 12 zealot
 attack_prepare
 expand 1 std_expansion
@@ -1617,6 +1623,7 @@ train 5 high_templar
 wait 150
 
 do_morph 6 archon
+call check_antirush
 target_expansion 
 
 call resource_waitskip
@@ -1633,6 +1640,7 @@ train 3 scout
 train 14 dragoon
 train 6 scout
 train 20 dragoon
+call check_antirush
 target_expansion 
 call resource_waitskip
 goto KhaLo
@@ -2168,6 +2176,7 @@ build 1 robotics_facility 80
 upgrade 1 p_plasma_shield 40
 train 4 scout
 train 4 zealot
+call check_antirush
 attack_add 4 zealot
 attack_add 4 scout
 attack_prepare
@@ -2352,6 +2361,7 @@ train 10 scout
 wait_force 2 carrier
 wait 240
 
+call check_antirush
 target_expansion 
 
 call resource_waitskip
@@ -2366,6 +2376,7 @@ train 6 corsair
 wait_force 6 carrier
 wait 240
 
+call check_antirush
 target_expansion 
 call resource_waitskip
 
@@ -2577,6 +2588,7 @@ train 7 revenant
 train 6 zealot
 wait 240
 
+call check_antirush
 attack_prepare
 #normal prepare to vary between targets
 call resource_waitskip
@@ -2595,6 +2607,7 @@ train 10 scout
 train 6 revenant
 wait 240
 
+call check_antirush
 target_expansion 
 call resource_waitskip
 
@@ -2606,6 +2619,7 @@ attack_add 12 scout
 attack_add 4 corsair
 train 12 scout
 train 4 corsair
+call check_antirush
 target_expansion 
 call resource_waitskip
 goto MSLo
@@ -2813,7 +2827,7 @@ return
 :start_cheat
 wait_build 1 pylon
 
-resources 13 Add Ore 150 ge_skip
+resources 13 Add Ore 60 ge_skip
 :mp_helper
 wait 1500
 
@@ -2888,3 +2902,8 @@ wait 28350
 
 upgrade_jump 13 Set 74 1 late_cash
 stop
+
+:check_antirush
+wait_secure
+#print free_to_attack
+return
