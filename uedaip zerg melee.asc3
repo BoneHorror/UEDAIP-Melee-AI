@@ -3099,10 +3099,10 @@ stop
 
 :ar_timelimit
 deaths 13 Set 0 188 ar_loop
-wait 1000
+wait_rand 625 850
 
 deaths 13 Exactly 1 188 ar_other_done
-wait 1000
+wait_rand 625 850
 
 deaths 13 Exactly 1 188 ar_other_done
 deaths 13 Set 0 187 ar_loop
