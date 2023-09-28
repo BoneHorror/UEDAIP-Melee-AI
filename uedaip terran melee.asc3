@@ -882,6 +882,7 @@ upgrade 1 vulture_speed 40
 upgrade 1 t_infantry_weapon 40
 train 10 heavy_marine
 train 3 scorpion
+call check_antirush
 wait_force 10 heavy_marine
 wait_force 3 scorpion
 attack_do 
@@ -1187,6 +1188,7 @@ defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
 train 6 scorpion
 attack_add 6 scorpion
+call check_antirush
 attack_prepare
 train 2 heavy_marine
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -1253,6 +1255,7 @@ attack_do
 attack_clear
 attack_add 8 heavy_marine
 attack_add 1 panzer
+call check_antirush
 attack_prepare 
 build 2 factory 80
 wait_buildstart 2 factory
@@ -2775,6 +2778,7 @@ tech spider_mines 40
 train 8 vulture
 expand 1 std_expo
 attack_add 8 vulture
+call check_antirush
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
 #this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
 attack_do
@@ -2907,6 +2911,7 @@ set_attacks 1
 prep_down 3 4 marine
 attack_add 2 siege_tank
 attack_add 2 vulture
+call check_antirush
 attack_prepare
 build 20 scv 80
 wait_buildstart 18 scv
@@ -3166,6 +3171,7 @@ attack_do
 attack_clear
 attack_add 10 vulture
 train 10 vulture
+call check_antirush
 target_expansion
 wait 16
 
@@ -3306,6 +3312,7 @@ train 14 marine
 attack_add 14 marine
 attack_add 5 wraith
 attack_add 2 siege_tank
+call check_antirush
 attack_prepare
 :doma_skiptiming
 build 3 barracks 80
@@ -3568,6 +3575,7 @@ wait_build 1 control_tower
 tech cloaking_field 90
 train 7 wraith
 attack_add 7 wraith
+call check_antirush
 attack_prepare
 wait 150
 
@@ -4352,6 +4360,41 @@ upgrade_jump 13 Set 74 1 late_cash
 stop
 
 :check_antirush
-wait_secure
+deaths 13 AtLeast 1 187 ar_simplified
+#if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
+deaths 13 Set 1 187 ar_loop
+#set 1 khaydarin crystal formation death and don't release until it's removed
+multirun ar_secure
+multirun ar_timelimit
+:ar_loop
+wait 16
+
+deaths 13 Exactly 1 187 ar_loop
 #print free_to_attack
+return
+
+:ar_secure
+deaths 13 Set 0 188 ar_loop
+#vespene geyser death used between ar_ waits to communicate if we're done with waiting
+wait_secure
+deaths 13 Exactly 1 188 ar_other_done
+deaths 13 Set 0 187 ar_loop
+deaths 13 Set 1 188 ar_loop
+:ar_other_done
+stop
+
+:ar_timelimit
+deaths 13 Set 0 188 ar_loop
+wait 1000
+
+deaths 13 Exactly 1 188 ar_other_done
+wait 1000
+
+deaths 13 Exactly 1 188 ar_other_done
+deaths 13 Set 0 187 ar_loop
+deaths 13 Set 1 188 ar_loop
+stop
+
+:ar_simplified
+wait_secure
 return

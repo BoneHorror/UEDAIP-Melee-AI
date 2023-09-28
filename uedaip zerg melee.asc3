@@ -3074,6 +3074,42 @@ upgrade_jump 13 Set 74 1 late_cash
 stop
 
 :check_antirush
-wait_secure
+deaths 13 AtLeast 1 187 ar_simplified
+#if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
+deaths 13 Set 1 187 ar_loop
+#set 1 khaydarin crystal formation death and don't release until it's removed
+multirun ar_secure
+multirun ar_timelimit
+:ar_loop
+wait 16
+
+deaths 13 Exactly 1 187 ar_loop
 #print free_to_attack
 return
+
+:ar_secure
+deaths 13 Set 0 188 ar_loop
+#vespene geyser death used between ar_ waits to communicate if we're done with waiting
+wait_secure
+deaths 13 Exactly 1 188 ar_other_done
+deaths 13 Set 0 187 ar_loop
+deaths 13 Set 1 188 ar_loop
+:ar_other_done
+stop
+
+:ar_timelimit
+deaths 13 Set 0 188 ar_loop
+wait 1000
+
+deaths 13 Exactly 1 188 ar_other_done
+wait 1000
+
+deaths 13 Exactly 1 188 ar_other_done
+deaths 13 Set 0 187 ar_loop
+deaths 13 Set 1 188 ar_loop
+stop
+
+:ar_simplified
+wait_secure
+return
+
