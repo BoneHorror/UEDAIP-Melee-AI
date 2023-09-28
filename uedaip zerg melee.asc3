@@ -17,7 +17,7 @@ aicontrol global_disable_acid_spore_focus
 aicontrol global_disable_carrier_focus
 supply 13 Set 250 Max 0 Zerg normal_select
 build 1 hatchery 150
-build 4 drone 130
+build 4 drone 150
 build 1 overlord 130
 multirun overflow_hatch1
 idle_orders DisableBuiltin 0 0 0 0 0 0 0
@@ -130,16 +130,17 @@ wait_build 1 spawning_pool
 farms_notiming
 call check_antirush
 train 6 zergling
-attack_add 8 zergling
+attack_add 7 zergling
 attack_prepare
 attack_timeout 45
+defenseuse_gg 1 zergling
 train 8 zergling
 build 5 drone 80
 build 6 drone 80
 build 2 overlord 50
-wait_buildstart 6 drone
+wait_buildstart 5 drone
 build 7 drone 80
-wait_buildstart 7 drone
+wait_buildstart 6 drone
 farms_timing
 attack_do
 attack_clear
@@ -184,6 +185,7 @@ defensebuild_gg 1 zergling
 build 1 sunken_colony 80
 build 15 drone 80
 wait_buildstart 14 drone
+build 1 lair 100
 wait_buildstart 1 lair
 deaths 13 AtMost 0 medic eo_skip_spire
 wait_build 14 drone
@@ -697,8 +699,8 @@ defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
 wait_upgrades
-call check_antirush
 attack_add 15 hydralisk
+call check_antirush
 attack_prepare
 wait 16
 
@@ -1414,8 +1416,12 @@ define_max 12 lurker
 define_max 12 guardian
 define_max 4 devourer
 define_max 6 scourge
-:4pret
 call expand_opening
+goto 4skip
+
+:4pret
+build 1 spire 80
+:4skip
 define_max 32 zergling
 upgrade 1 zergling_speed 80
 train 14 zergling
@@ -3110,6 +3116,6 @@ deaths 13 Set 1 188 ar_loop
 stop
 
 :ar_simplified
-wait_secure
+wait_rand 333 750
 return
 
