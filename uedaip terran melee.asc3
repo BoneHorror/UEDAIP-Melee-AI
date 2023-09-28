@@ -4396,5 +4396,5 @@ deaths 13 Set 1 188 ar_loop
 stop
 
 :ar_simplified
-wait_secure
+wait_rand 333 750
 return
