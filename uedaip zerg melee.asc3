@@ -1684,7 +1684,6 @@ train 2 scourge
 train 10 mutalisk
 call resource_waitskip
 train 34 zergling
-train 50 zergling
 train 3 hydralisk
 train 4 lurker
 train 50 zergling
@@ -1898,19 +1897,19 @@ train 20 zergling
 call resource_waitskip
 train 3 defiler
 train 6 mutalisk
-train 5 hydralisk
+train 4 hydralisk
 train 2 scourge
 train 4 ultralisk
-train 34 zergling
+train 30 zergling
 train 2 queen
-train 50 zergling
-train 3 hydralisk
+train 42 zergling
 train 4 lurker
+train 6 ultralisk
 train 50 zergling
 attack_add 4 lurker
 attack_add 50 zergling
 attack_add 2 queen
-attack_add 4 ultralisk
+attack_add 6 ultralisk
 call add_scourge
 attack_do
 attack_clear
@@ -1928,9 +1927,11 @@ call resource_waitskip
 
 attack_do
 attack_clear
+train 4 ultralisk
 train 1 defiler
 train 2 scourge
 train 40 zergling
+attack_add 4 ultralisk
 attack_add 40 zergling
 attack_add 1 defiler
 call add_scourge
