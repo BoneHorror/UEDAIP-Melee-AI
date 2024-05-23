@@ -149,10 +149,15 @@ creep 4
 deaths 13 Set 1000 176 recurse_set
 multirun recurse_set
 groundmap_jump t_groundmap
+deaths 13 Exactly 1 177 on_rec_skipuedair
 random_jump 128 ued_AirNoRush
+deaths 13 Exactly 2 177 ued_AirNoRush
+:on_rec_skipuedair
 goto dominion_air
 
 :t_defaults
+#use mineral field #2 death to control whether we're locked into Terran (1) or UED (2) for recursion
+deaths 13 Set 1 177 recurse
 define_max 8 siege_tank
 define_max 7 vulture
 define_max 8 wraith
@@ -194,6 +199,8 @@ multirun irradiate_io
 return 
 
 :usetup
+#use mineral field #2 death to control whether we're locked into Terran (1) or UED (2) for recursion
+deaths 13 Set 2 177 recurse
 unit_avail 13 Set Disabled siege_tank udropsk
 unit_avail 13 Set Disabled ghost udropsk
 unit_avail 13 Set Disabled marine udropsk
@@ -301,7 +308,7 @@ attack_add 4 heavy_marine
 attack_add 2 tesla_trooper
 return
 
-:UED1
+:UED_selection
 defaultbuild_off
 build 1 command_center 150
 wait_buildstart 1 command_center
@@ -1922,7 +1929,10 @@ call resource_waitskip
 goto ALo
 
 :t_groundmap
-random_jump 128 UED1
+deaths 13 Exactly 1 177 on_rec_skipuedground
+random_jump 128 UED_selection
+deaths 13 Exactly 2 177 UED_selection
+:on_rec_skipuedground
 random_jump 12 light_focus
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
