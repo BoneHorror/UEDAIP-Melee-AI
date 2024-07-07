@@ -609,6 +609,7 @@ defenseuse_ag 1 valhalla
 defenseuse_ga 1 valhalla
 defenseuse_aa 1 valhalla
 upgrade 1 p_plasma_shield 40
+tech spider_mines 40
 train 2 valhalla
 build 3 starport 80
 train 10 heavy_marine
@@ -920,6 +921,8 @@ wait_buildstart 2 engineering_bay
 tech optical_flare 30
 build 1 armory 80
 wait 48
+
+tech spider_mines 40
 define_max 18 heavy_marine
 build 3 factory 80
 train 12 heavy_marine
@@ -1018,6 +1021,7 @@ goto exp_repeater
 
 
 :UED_BioScorpAt
+tech spider_mines 40
 define_max 50 heavy_marine
 define_max 255 tesla_trooper
 define_max 7 medic
@@ -1203,6 +1207,7 @@ farms_timing
 build 24 scv 80
 wait_buildstart 20 scv
 train 4 scorpion
+tech spider_mines 40
 build 5 supply_depot 80
 defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
@@ -1543,6 +1548,7 @@ define_max 2 valkyrie
 define_max 8 skywing
 define_max 14 death_knight
 upgrade 1 vulture_speed 40
+tech spider_mines 40
 defensebuild_gg 2 scorpion
 defenseuse_gg 2 scorpion
 call resource_waitskip
@@ -2770,6 +2776,7 @@ goto LLo
 :2fac_timing
 random_jump 128 2fac_gol
 :2fac_forcevult
+expand 1 std_expo
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
@@ -2810,6 +2817,7 @@ train 9 vulture
 return
 
 :2fac_gol
+expand 1 std_expo
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
