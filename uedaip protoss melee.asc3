@@ -2116,9 +2116,11 @@ attack_clear
 wait 11500
 
 :it_loop
+define_max 7 shuttle
 train 5 shuttle
 wait 3720
 
+define_max 7 shuttle
 train 7 shuttle
 wait 1250
 
