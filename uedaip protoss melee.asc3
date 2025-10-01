@@ -875,7 +875,7 @@ wait_buildstart 1 robotics_facility
 build 1 stargate 80
 wait_buildstart 1 stargate
 define_max 1 shuttle
-define_max 255 observer
+define_max 1 observer
 upgrade 1 p_air_weapon 40
 defensebuild_aa 1 corsair
 defenseuse_aa 1 corsair
