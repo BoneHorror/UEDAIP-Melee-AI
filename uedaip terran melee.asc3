@@ -1938,7 +1938,7 @@ deaths 13 Exactly 1 177 on_rec_skipuedground
 random_jump 128 UED_selection
 deaths 13 Exactly 2 177 UED_selection
 :on_rec_skipuedground
-random_jump 12 light_focus
+random_jump 13 light_focus
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
 
@@ -2508,13 +2508,20 @@ build 13 scv 80
 wait_buildstart 11 scv
 call t_defaults
 call 2fac_forcevult
+do_morph 10 vulture
 build 1 starport 80
 wait_buildstart 1 starport
 define_max 12 marine
 define_max 10 vulture
-defensebuild_gg 2 vulture
-defenseuse_gg 2 vulture
-train 2 vulture
+#vulture defense always done in 2fac vult here
+#defensebuild_gg 2 vulture
+#defenseuse_gg 2 vulture
+notowns_jump vulture skip_vult_atk
+rush 6 skip_vult_atk
+set_attacks 1
+attack_add 6 vulture
+target_expansion
+:skip_vult_atk
 capt_expand
 build 2 starport 80
 defensebuild_gg 2 marine
@@ -2543,6 +2550,7 @@ build 1 armory 80
 multirun vult_avail
 tech spider_mines 50
 train 4 vulture
+attack_clear
 build 2 starport 80
 wait_buildstart 2 starport
 build 1 control_tower 100
@@ -2776,43 +2784,53 @@ goto LLo
 random_jump 128 2fac_gol
 :2fac_forcevult
 expand 1 std_expo
+define_max 2 marine
 build 1 factory 80
 wait_buildstart 1 factory
 build 15 scv 80
+define_max 3 marine
 wait_build 13 scv
 build 2 supply_depot 80
 wait_build 15 scv
+define_max 4 marine
 build 2 factory 80
-build 18 scv 80
+build 17 scv 80
 wait_build 1 factory
 train 1 vulture
-build 21 scv 80
+build 19 scv 80
 build 1 machine_shop 100
 build 3 supply_depot 80
-wait_buildstart 1 machine_shop
 define_max 10 vulture
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
 train 3 vulture
+wait_buildstart 1 machine_shop
 upgrade 1 vulture_speed 50
 farms_timing
 build 24 scv 80
 wait_buildstart 20 scv
 train 5 vulture
+build 21 scv 80
 build 5 supply_depot 80
-defensebuild_gg 2 vulture
-defenseuse_gg 2 vulture
 train 7 vulture
 deaths 13 Exactly 7 lurker skip_spider
 tech spider_mines 40
 :skip_spider
-train 8 vulture
-expand 1 std_expo
 attack_add 8 vulture
+attack_prepare
 call check_antirush
+
+expand 2 std_expo
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
 #this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
+build 1 starport 80
+build 1 engineering_bay 80
+build 1 missile_turret 80
+do_morph 4 marine
+train 8 vulture
+do_morph 1 siege_tank
 attack_do
 attack_clear
-train 9 vulture
 return
 
 :2fac_gol
