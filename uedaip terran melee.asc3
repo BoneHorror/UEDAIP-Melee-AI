@@ -3574,8 +3574,8 @@ train 14 marine
 train 10 wraith
 train 16 marine
 train 3 siege_tank
-resources_jump 13 AtMost 2500 Ore islandloop_skiptank
-resources_jump 13 AtMost 500 Gas islandloop_skiptank
+resources 13 AtMost Ore 2500 islandloop_skiptank
+resources 13 AtMost Gas 500 islandloop_skiptank
 attack_add 4 siege_tank
 train 4 siege_tank
 :islandloop_skiptank
@@ -3587,8 +3587,8 @@ attack_clear
 attack_add 4 siege_tank
 attack_add 20 marine
 train 4 siege_tank
-resources_jump 13 AtMost 3000 Ore islandloop_skipbc
-resources_jump 13 AtMost 1200 Gas islandloop_skipbc
+resources 13 AtMost Ore 3000 islandloop_skipbc
+resources 13 AtMost Gas 1200 islandloop_skipbc
 attack_add 2 hnorad
 train 2 hnorad
 :islandloop_skipbc
