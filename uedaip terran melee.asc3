@@ -35,10 +35,12 @@ multirun sciv_evaluator
 multirun late_cash
 #guard_all
 creep 4
+
 :recurse
 deaths 13 Set 1000 176 recurse_set
 multirun recurse_set
 groundmap_jump t_groundmap
+
 deaths 13 Exactly 1 177 on_rec_skipuedair
 random_jump 128 ued_AirNoRush
 deaths 13 Exactly 2 177 ued_AirNoRush
@@ -1945,8 +1947,10 @@ call resource_waitskip
 goto ALo
 
 :t_groundmap
+#You can set unit 177 (Mineral Field 2) deaths for this (current) player to 1 map-side to force AI into Terran
 deaths 13 Exactly 1 177 on_rec_skipuedground
 random_jump 128 UED_selection
+#You can also set unit 177 deaths to 2 to force AI into selecting UED
 deaths 13 Exactly 2 177 UED_selection
 :on_rec_skipuedground
 random_jump 13 light_focus
@@ -3077,8 +3081,8 @@ wait 633
 upgrade 3 t_vehicle_plating 60
 
 multirun iniBTurret
-call resource_waitskip
 
+call resource_waitskip
 call resource_waitskip
 expand 3 std_expo
 tech emp_shockwave 30
@@ -3155,10 +3159,10 @@ goto exp_repeater
 define_max 20 marine
 define_max 30 goliath
 define_max 20 siege_tank
-define_max 20 vulture
+define_max 14 vulture
 define_max 255 firebat
 define_max 3 ghost
-define_max 4 hnorad
+define_max 3 hnorad
 define_max 255 wraith
 attack_do
 attack_clear 
