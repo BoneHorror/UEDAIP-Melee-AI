@@ -424,6 +424,10 @@ attack_add 6 heavy_marine
 attack_add 8 tesla_trooper
 random_call 65 emp_allin
 attack_prepare
+place_guard medic 0
+place_guard heavy_marine 0
+place_guard heavy_marine 0
+place_guard tesla_trooper 1
 build 1 machine_shop 100
 wait_buildstart 1 machine_shop
 define_max 3 panzer
@@ -608,7 +612,7 @@ build 19 scv 80
 wait_buildstart 16 scv
 train 9 heavy_marine
 train 2 scorpion
-
+place_guard scorpion 0
 define_max 4 valhalla
 define_max 40 heavy_marine
 define_max 8 scorpion
@@ -820,6 +824,7 @@ wait 150
 
 attack_do
 attack_clear
+place_guard tesla_trooper 0
 return
 
 :ued_latebio
@@ -915,6 +920,10 @@ upgrade 1 vulture_speed 40
 upgrade 1 t_infantry_weapon 40
 train 10 heavy_marine
 train 3 scorpion
+place_guard medic 0
+place_guard heavy_marine 0
+place_guard heavy_marine 0
+place_guard scorpion 1
 call check_antirush
 wait_force 10 heavy_marine
 wait_force 3 scorpion
@@ -1232,6 +1241,7 @@ train 2 heavy_marine
 #this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
 attack_do
 attack_clear
+place_guard scorpion 2
 return
 
 :ubm_quickgas
@@ -1313,6 +1323,10 @@ farms_timing
 train 2 panzer
 train 2 medic
 build 3 barracks 80
+place_guard medic 0
+place_guard heavy_marine 0
+place_guard heavy_marine 0
+place_guard panzer 2
 wait_buildstart 3 barracks
 build 1 armory 80
 wait_buildstart 1 armory
@@ -1723,6 +1737,8 @@ define_max 14 heavy_marine
 build 1 engineering_bay 80
 train 1 panzer
 define_max 8 skywing
+place_guard skywing 2
+place_guard skywing 1
 train 2 skywing
 train 12 heavy_marine
 train 1 medic
@@ -2089,6 +2105,8 @@ defenseuse_ag 2 goliath
 define_max 20 marine
 define_max 12 firebat
 define_max 4 siege_tank
+place_guard goliath 0
+place_guard goliath 2
 train 4 firebat
 upgrade 1 t_vehicle_weapon 40
 train 2 siege_tank
@@ -2318,6 +2336,8 @@ train 23 marine
 attack_add 23 marine
 call check_antirush
 attack_prepare
+place_guard marine 1
+place_guard marine 2
 return
 
 :firegol_ter
@@ -2576,6 +2596,9 @@ train 6 vulture
 build 3 factory 80
 wait_buildstart 3 factory
 tech siege_mode 40
+place_guard siege_tank 0
+place_guard wraith 1
+place_guard wraith 2
 expand 2 std_expo
 train 1 siege_tank
 train 8 vulture
@@ -2883,6 +2906,7 @@ attack_add 8 goliath
 call check_antirush
 attack_do
 attack_clear
+place_guard goliath 2
 return
 
 :t_mech
@@ -3050,6 +3074,8 @@ attack_add 10 goliath
 attack_add 4 siege_tank
 attack_prepare
 multirun TM_atk
+place_guard goliath 1
+place_guard siege_tank 0
 build 1 control_tower 100
 wait_buildstart 1 control_tower
 upgrade 2 t_vehicle_weapon 40
@@ -3341,12 +3367,19 @@ defenseuse_aa 1 wraith
 define_max 8 wraith
 build 1 academy 80
 wait_buildstart 1 academy
-race_jump fire_skip get_fire fire_skip
+race_jump fire_skip get_fire some_fire
+
+:some_fire
+define_max 3 firebat
+defensebuild_gg 1 firebat
+defenseuse_gg 1 firebat
+goto fire_skip
 
 :get_fire
 define_max 10 firebat
 defensebuild_gg 1 firebat
 defenseuse_gg 1 firebat
+place_guard firebat 1
 :fire_skip
 build 1 machine_shop 100
 wait_buildstart 1 machine_shop
@@ -3387,6 +3420,8 @@ define_max 16 marine
 define_max 2 vulture
 train 12 marine
 train 4 wraith
+place_guard wraith 2
+place_guard wraith 0
 defensebuild_gg 2 vulture
 defenseuse_gg 2 vulture
 build 1 engineering_bay 80
@@ -3464,6 +3499,7 @@ place_guard ghost 2
 tech stim_packs 40
 call resource_waitskip
 
+place_guard hnorad 0
 tech yamato_gun 40
 upgrade 2 t_infantry_weapon 30
 upgrade 1 wraith_mana 40
@@ -3681,7 +3717,11 @@ build 1 refinery 50
 deaths 13 AtLeast 4 lurker expo_skip_ued_guards
 place_guard heavy_marine 0
 place_guard heavy_marine 0
+goto expo_skip_terran_guards
 :expo_skip_ued_guards
+place_guard marine 0
+place_guard marine 0
+:expo_skip_terran_guards
 multirun exp_workers
 wait 300
 
