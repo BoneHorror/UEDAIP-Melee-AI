@@ -433,6 +433,8 @@ expand 2 std_expansion
 upgrade 2 p_ground_weapon 50
 define_max 10 zealot
 train 5 dragoon
+place_guard revenant 2
+place_guard dragoon 0
 multirun MixedAttacks
 place_guard high_templar 0
 defensebuild_gg 1 archon
@@ -723,13 +725,13 @@ train 1 revenant
 build 20 probe 80
 wait_buildstart 18 probe
 train 6 zealot
+expand 1 exp_noguard
 train 1 dark_templar
 defensebuild_ag 2 revenant
 defenseuse_ag 2 revenant
 defensebuild_gg 1 dark_templar
 defenseuse_gg 1 dark_templar
 train 2 dark_templar
-expand 1 exp_noguard
 defensebuild_gg 1 revenant
 defenseuse_gg 1 revenant
 define_max 12 zealot
@@ -805,6 +807,7 @@ wait_build 14 probe
 define_max 8 revenant
 train 3 zealot
 train 1 revenant
+expand 1 exp_noguard
 build 3 pylon 80
 wait_buildstart 3 pylon
 farms_timing
@@ -815,7 +818,6 @@ defenseuse_gg 1 revenant
 defensebuild_ag 2 revenant
 defenseuse_ag 2 revenant
 train 3 revenant
-expand 1 exp_noguard
 build 20 probe 80
 wait_buildstart 18 probe
 train 4 zealot
@@ -880,6 +882,7 @@ upgrade 1 p_air_weapon 40
 defensebuild_aa 1 corsair
 defenseuse_aa 1 corsair
 train 5 revenant
+place_guard revenant 0
 define_max 4 corsair
 train 1 corsair
 train 1 shuttle
@@ -1084,6 +1087,7 @@ build 4 pylon 80
 wait_buildstart 4 pylon
 farms_timing
 train 8 dragoon
+place_guard dragoon 0
 build 1 robotics_facility 80
 set_attacks 1
 wait 16
@@ -1118,6 +1122,8 @@ define_max 12 zealot
 define_max 1 shuttle
 check_transports
 train 3 dragoon
+place_guard hornet 1
+place_guard hornet 2
 build 3 robotics_facility 80
 wait_buildstart 3 robotics_facility
 call p_defaults
@@ -1395,6 +1401,8 @@ define_max 9 dragoon
 train 8 zealot
 train 8 dragoon
 wait_force 8 dragoon
+place_guard dragoon 1
+place_guard dragoon 2
 build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
 attack_do
@@ -1905,28 +1913,36 @@ goto def039
 
 
 :prodGetter
+wait 33
+
+resources 13 AtMost Ore 999 prodGetter
+resources 13 AtMost Gas 200 prodGetter
 deaths 13 Exactly 1 lurker randomf
 deaths 13 Exactly 2 lurker robof
 build 1 stargate 80
 wait_build 1 stargate
+place_guard scout 0
 build 1 gateway 80
 goto def042
 
 :robof
 build 1 robotics_facility 80
 wait_build 1 robotics_facility
+place_guard dragoon 0
 build 1 gateway 80
 stop
 
 :randomf
 build 1 gateway 80
 wait_build 1 gateway
+place_guard zealot 0
 random_jump 128 r_robo
 build 1 stargate 80
 goto r_wrap
 
 :r_robo
 build 1 robotics_facility 80
+place_guard hornet 0
 :r_wrap
 wait 650
 
