@@ -99,7 +99,6 @@ race_jump gen_spread gen_muta gen_bust
 build 5 drone 110
 wait 115
 
-#guard_all
 creep 4
 random_jump 128 early_spread
 goto late_spread
@@ -109,7 +108,6 @@ random_jump 64 4pool
 build 5 drone 110
 wait 115
 
-#guard_all
 creep 3
 random_jump 35 is_this_zvp
 goto mutaling
@@ -118,7 +116,6 @@ goto mutaling
 build 5 drone 110
 wait 115
 
-#guard_all
 creep 4
 random_jump 53 p_spread
 random_jump 79 p_muta
@@ -226,7 +223,7 @@ wait 300
 stop
 
 :p_spread
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
 define_max 6 zergling
@@ -310,10 +307,13 @@ attack_clear
 build 2 lair 80
 build 1 spire 80
 build 1 queen_nest 80
+place_guard lurker 0
+place_guard zergling 0
+place_guard zergling 0
 goto pm_check_bank
 
 :mutaling
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 30 mutalisk
 define_max 4 zergling
@@ -415,10 +415,13 @@ attack_do
 attack_clear
 build 1 queen_nest 80
 upgrade 1 burrowed_regen 30
+place_guard zergling 0
+place_guard zergling 0
+place_guard mutalisk 1
 goto late_muta
 
 :hydra_island
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
 define_max 6 zergling
@@ -487,6 +490,8 @@ attack_add 25 hydralisk
 attack_prepare
 wait 16
 
+place_guard hydralisk 0
+place_guard hydralisk 1
 goto island_mid
 
 :island_opener
@@ -515,7 +520,7 @@ build 1 lair 110
 return
 
 :muta_island
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
 define_max 6 zergling
@@ -576,6 +581,8 @@ wait 16
 
 upgrade 1 overlord_speed 75
 define_max 60 hydralisk
+place_guard mutalisk 1
+place_guard mutalisk 2
 goto island_mid
 
 :z_transport_wait
@@ -585,7 +592,7 @@ upgrade_jump 13 Exactly overlord_capacity 0 z_transport_wait
 return
 
 :generic_island
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
 define_max 8 zergling
@@ -636,10 +643,12 @@ upgrade 1 z_flyer_attack 60
 build 2 creep_colony 80
 build 2 spore_colony 80
 define_max 60 hydralisk
+place_guard hydralisk 0
+place_guard mutalisk 1
 goto island_mid
 
 :is_this_zvp
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
 define_max 40 zergling
@@ -705,11 +714,14 @@ call check_antirush
 attack_prepare
 wait 16
 
+place_guard hydralisk 0
+place_guard hydralisk 0
+place_guard mutalisk 1
 random_jump 85 p_bust
 goto mutaling
 
 :p_bust
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
 define_max 4 zergling
@@ -789,6 +801,9 @@ wait 150
 
 attack_do
 attack_clear
+place_guard hydralisk 0
+place_guard hydralisk 2
+place_guard hydralisk 1
 build 3 hatchery 80
 define_max 14 zergling
 build 1 lair 110
@@ -937,6 +952,9 @@ wait 16
 
 attack_do
 attack_clear
+place_guard hydralisk 0
+place_guard hydralisk 2
+place_guard hydralisk 1
 return
 
 :late_flood
@@ -1046,7 +1064,7 @@ attack_clear
 goto late_vs_zerg
 
 :late_spread
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 36 mutalisk
 define_max 64 zergling
@@ -1130,6 +1148,10 @@ train 5 lurker
 train 30 zergling
 attack_add 2 lurker
 attack_add 10 zergling
+place_guard lurker 1
+place_guard hydralisk 0
+place_guard zergling 0
+place_guard zergling 0
 call force_attack
 expand 2 generic_expansion
 build 2 evolution_chamber 80
@@ -1137,6 +1159,11 @@ build 1 queen_nest 80
 upgrade 2 z_carapace 50
 call resource_waitskip
 build 1 spire 80
+place_guard lurker 0
+place_guard hydralisk 0
+place_guard hydralisk 0
+place_guard mutalisk 1
+place_guard mutalisk 2
 train 4 hydralisk
 train 10 zergling
 train 4 lurker
@@ -1252,7 +1279,31 @@ wait 50
 
 resources_jump 500 0 expo_def_start
 goto expo_def_min
+
 :expo_def_start
+groundmap_jump expo_def_start_ground
+#island expo
+build 1 creep_colony 80
+wait_build 1 hatchery
+player_need 1 evolution_chamber
+build 1 spore_colony 80
+build 14 drone 80
+wait_buildstart 14 drone
+build 1 extractor 50
+place_guard hydralisk 0
+place_guard scourge 1
+build 2 creep_colony 80
+wait_build 2 creep_colony
+player_need 1 spawning_pool
+build 1 sunken_colony 80
+build 17 drone 80
+wait_buildstart 17 drone
+build 3 creep_colony 80
+wait_build 3 creep_colony
+build 2 spore_colony 80
+goto expo_macro_min
+
+:expo_def_start_ground
 build 1 creep_colony 80
 wait_build 1 hatchery
 player_need 1 spawning_pool
@@ -1282,6 +1333,15 @@ wait 1500
 goto exp_loop
 
 :small_expo
+groundmap_jump se_mixed_turrets
+build 2 creep_colony 70
+wait_build 1 creep_colony
+build 1 spore_colony 80
+wait_build 2 creep_colony
+build 2 spore_colony 80
+goto exp_loop
+
+:se_mixed_turrets
 build 2 creep_colony 70
 wait_build 1 creep_colony
 build 1 spore_colony 80
@@ -1407,11 +1467,11 @@ stop
 :early_spread
 deaths 13 Set 1 medic 4pret
 #use medic death as a marker
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
-define_max 36 mutalisk
+define_max 24 mutalisk
 define_max 4 zergling
-define_max 12 ultralisk
+define_max 8 ultralisk
 define_max 3 defiler
 define_max 24 hydralisk
 define_max 12 lurker
@@ -1980,6 +2040,7 @@ goto terran_loop
 :terran_noguard
 tech plague 60
 upgrade 1 defiler_mana 50
+upgrade 1 voracity 50
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 multirun exp_repeater
@@ -2066,6 +2127,10 @@ train 4 hydralisk
 defensebuild_ag 1 hydralisk
 defenseuse_ag 1 hydralisk
 train 4 mutalisk
+place_guard scourge 0
+place_guard scourge 0
+place_guard mutalisk 1
+place_guard mutalisk 2
 wait_build 1 queen_nest
 build 1 hive 100
 upgrade 1 hydralisk_range 50
@@ -2238,7 +2303,7 @@ wait 16
 goto island_loop
 
 :p_muta
-define_max 75 drone
+define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
 define_max 64 zergling
@@ -2308,6 +2373,9 @@ defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
 multirun train_lurker
 build 1 queen_nest 80
+place_guard queen 0
+place_guard mutalisk 1
+place_guard mutalisk 2
 #defensebuild_ag 2 scourge
 defenseuse_ag 2 scourge
 multirun scourge_getter
@@ -2999,6 +3067,7 @@ wait 50
 
 time_jump 14 void
 resources 13 AtMost Ore 1050 rush_panic
+#print ZERG_RUSH_PANIC
 guard_all
 build 4 creep_colony 110
 build 2 sunken_colony 80
@@ -3044,6 +3113,7 @@ deaths 13 AtLeast 1 bunker void
 time_jump 30 void
 resources 13 AtMost Ore 3050 rush_panic_exp
 deaths 13 Set 1 bunker void
+#print ZERG_RUSH_PANIC_EXP
 guard_all
 build 1 spawning_pool 120
 build 1 hydralisk_den 120
