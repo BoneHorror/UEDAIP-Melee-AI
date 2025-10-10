@@ -96,7 +96,7 @@ wait 112
 
 multirun rush_panic
 #guard_all
-creep 4
+creep 3
 #TEST
 #random_jump 250 skytoss
 :recurse
@@ -746,6 +746,7 @@ attack_prepare
 wait 90
 
 train 2 revenant
+creep 3
 build 1 photon_cannon 80
 attack_timeout 90
 attack_do
@@ -1672,6 +1673,7 @@ max_workers 21
 multirun worker_decay
 build 1 pylon 80
 wait_build 1 pylon
+creep 3
 build 1 photon_cannon 80
 :se_loop
 wait 1500
@@ -1997,11 +1999,13 @@ goto def049
 
 :def051
 player_need 1 forge
+creep 3
 build 1 photon_cannon 80
 wait_build 1 photon_cannon
 wait_build 1 nexus
 build 2 pylon 80
 wait_build 2 pylon
+creep 4
 build 2 photon_cannon 80
 wait_build 2 photon_cannon
 build 3 pylon 80
@@ -2019,19 +2023,16 @@ groundmap_jump can_con
 goto can_skip
 
 :can_con
-creep 4
+creep 3
 build 2 photon_cannon 80
 wait_build 2 photon_cannon
-creep 3
+creep 4
 build 3 photon_cannon 80
 wait_build 3 photon_cannon
-creep 4
 build 4 photon_cannon 80
 wait_build 4 photon_cannon
-creep 3
 build 5 photon_cannon 80
 wait_build 5 photon_cannon
-creep 4
 build 6 photon_cannon 80
 wait_build 6 photon_cannon
 :can_skip
@@ -2223,6 +2224,7 @@ defensebuild_aa 1 corsair
 defensebuild_ag 2 corsair
 build 4 stargate 80
 wait_buildstart 4 stargate
+creep 4
 build 3 photon_cannon 80
 wait_buildstart 3 photon_cannon
 build 1 shield_battery 80
@@ -2778,6 +2780,7 @@ wait_upgrades
 build 3 gateway 80
 wait_buildstart 3 gateway
 train 7 zealot
+creep 3
 build 1 photon_cannon 80
 train 9 zealot
 build 1 cybernetics_core 80
@@ -2861,6 +2864,7 @@ guard_all
 build 2 gateway 100
 build 1 forge 100
 wait_build 1 forge
+creep 4
 build 3 photon_cannon 80
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
@@ -2882,6 +2886,7 @@ build 1 forge 120
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
 wait_build 1 forge
+creep 3
 build 2 photon_cannon 80
 build 2 gateway 80
 goto rowk_skip

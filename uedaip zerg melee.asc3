@@ -99,7 +99,7 @@ race_jump gen_spread gen_muta gen_bust
 build 5 drone 110
 wait 115
 
-creep 4
+creep 3
 random_jump 128 early_spread
 goto late_spread
 
@@ -108,7 +108,7 @@ random_jump 64 4pool
 build 5 drone 110
 wait 115
 
-creep 3
+creep 4
 random_jump 35 is_this_zvp
 goto mutaling
 
@@ -116,7 +116,7 @@ goto mutaling
 build 5 drone 110
 wait 115
 
-creep 4
+creep 3
 random_jump 53 p_spread
 random_jump 79 p_muta
 goto p_bust
@@ -176,6 +176,7 @@ defenseuse_gg 1 zergling
 build 15 drone 80
 wait_buildstart 13 drone
 farms_timing
+creep 4
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 aicontrol build_gas
@@ -195,6 +196,7 @@ build 2 sunken_colony 80
 goto eo_skip_c
 
 :eo_skip_spire
+creep 3
 build 2 creep_colony 80
 wait_buildstart 2 creep_colony
 build 2 sunken_colony 80
@@ -207,6 +209,7 @@ defenseuse_gg 1 zergling
 build 1 evolution_chamber 80
 wait_build 1 lair
 build 4 overlord 80
+creep 4
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 3 sunken_colony 80
@@ -547,10 +550,12 @@ defenseuse_gg 1 zergling
 wait_build 1 lair
 build 1 spire 110
 wait_buildstart 1 spire
+creep 3
 build 1 creep_colony 80
 build 1 sunken_colony 80
 upgrade 1 overlord_capacity 90
 wait_build 1 spire
+creep 4
 build 2 creep_colony 80
 build 1 spore_colony 80
 defensebuild_gg 1 mutalisk
@@ -763,6 +768,7 @@ defenseuse_gg 1 zergling
 build 14 drone 80
 build 2 hatchery 70
 wait_buildstart 11 drone
+creep 3
 build 1 creep_colony 80
 wait_buildstart 1 creep_colony
 farms_timing
@@ -812,6 +818,7 @@ build 19 drone 80
 upgrade 1 zergling_speed 40
 train 8 zergling
 train 12 zergling
+creep 3
 build 2 creep_colony 80
 build 20 drone 80
 wait_buildstart 16 drone
@@ -881,6 +888,7 @@ upgrade 3 z_carapace 50
 call resource_waitskip
 upgrade 1 ultralisk_speed 70
 call resource_waitskip
+creep 4
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 3 generic_expansion
@@ -1006,6 +1014,7 @@ farms_timing
 upgrade 1 burrowed_regen 30
 upgrade 1 z_carapace 40
 tech lurker_aspect 80
+creep 3
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 2 sunken_colony 80
@@ -1283,6 +1292,7 @@ goto expo_def_min
 :expo_def_start
 groundmap_jump expo_def_start_ground
 #island expo
+creep 4
 build 1 creep_colony 80
 wait_build 1 hatchery
 player_need 1 evolution_chamber
@@ -1292,18 +1302,21 @@ wait_buildstart 14 drone
 build 1 extractor 50
 place_guard hydralisk 0
 place_guard scourge 1
+creep 3
 build 2 creep_colony 80
 wait_build 2 creep_colony
 player_need 1 spawning_pool
 build 1 sunken_colony 80
 build 17 drone 80
 wait_buildstart 17 drone
+creep 4
 build 3 creep_colony 80
 wait_build 3 creep_colony
 build 2 spore_colony 80
 goto expo_macro_min
 
 :expo_def_start_ground
+creep 3
 build 1 creep_colony 80
 wait_build 1 hatchery
 player_need 1 spawning_pool
@@ -1311,6 +1324,7 @@ build 1 sunken_colony 80
 build 16 drone 80
 wait_buildstart 16 drone
 build 1 extractor 50
+creep 4
 build 2 creep_colony 80
 wait_build 2 creep_colony
 build 2 sunken_colony 80
@@ -1334,6 +1348,7 @@ goto exp_loop
 
 :small_expo
 groundmap_jump se_mixed_turrets
+creep 4
 build 2 creep_colony 70
 wait_build 1 creep_colony
 build 1 spore_colony 80
@@ -1342,6 +1357,7 @@ build 2 spore_colony 80
 goto exp_loop
 
 :se_mixed_turrets
+creep 3
 build 2 creep_colony 70
 wait_build 1 creep_colony
 build 1 spore_colony 80
@@ -1412,6 +1428,7 @@ wait 50
 resources_jump 300 0 expo_def_start2
 goto expo_def_min2
 :expo_def_start2
+creep 4
 build 1 creep_colony 80
 wait_build 1 hatchery
 build 1 extractor 50
@@ -1421,6 +1438,7 @@ player_need 1 spawning_pool
 build 1 sunken_colony 80
 build 2 creep_colony 80
 wait_build 2 creep_colony
+creep 3
 build 2 sunken_colony 80
 build 3 creep_colony 80
 wait_build 3 creep_colony
@@ -1433,10 +1451,12 @@ wait 16
 
 time_jump 14 void
 resources 13 AtMost Ore 433 overflow_sunken
+creep 3
 build 1 creep_colony 80
 wait_build 1 creep_colony
 build 1 sunken_colony 80
 wait_build 1 sunken_colony
+creep 4
 build 2 creep_colony 80
 wait_build 2 creep_colony
 build 2 sunken_colony 80
@@ -1725,6 +1745,7 @@ wait 16
 train 1 defiler
 attack_do
 attack_clear
+creep 4
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
@@ -1935,6 +1956,7 @@ wait 16
 train 1 defiler
 attack_do
 attack_clear
+creep 4
 build 5 creep_colony 80
 build 2 spore_colony 80
 upgrade 1 ultralisk_armor 45
@@ -2234,6 +2256,7 @@ train 1 queen
 attack_do
 attack_clear
 call resource_waitskip
+creep 4
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 5 generic_expansion
@@ -2357,6 +2380,7 @@ deaths 13 AtLeast 1 arbiter pm_skip_check
 deaths 13 Add 1 arbiter pm_skip_check
 upgrade 1 z_flyer_carapace 50
 upgrade 1 z_carapace 50
+creep 3
 build 2 creep_colony 80
 build 2 sunken_colony 80
 expand 2 generic_expansion
@@ -2554,6 +2578,7 @@ attack_do
 attack_clear
 call resource_waitskip
 build 4 hatchery 80
+creep 4
 build 4 creep_colony 80
 build 2 spore_colony 80
 expand 4 generic_expansion
@@ -3069,7 +3094,8 @@ time_jump 14 void
 resources 13 AtMost Ore 1050 rush_panic
 #print ZERG_RUSH_PANIC
 guard_all
-build 4 creep_colony 110
+creep 3
+build 2 creep_colony 110
 build 2 sunken_colony 80
 build 1 spawning_pool 120
 build 1 hydralisk_den 120
@@ -3081,6 +3107,8 @@ defensebuild_ag 1 hydralisk
 defenseuse_ag 1 hydralisk
 wait 1500
 
+creep 4
+build 4 creep_colony 110
 enemyowns_jump scout rwrap_spore
 enemyowns_jump wraith rwrap_spore
 enemyowns_jump corsair rwrap_spore
@@ -3097,11 +3125,17 @@ build 3 spore_colony 80
 goto void
 
 :rwrap_spore
+creep 4
 build 2 spore_colony 80
 wait 3000
 
+build 5 creep_colony 80
+wait_build 5 creep_colony
+build 3 spore_colony 80
+build 2 sunken_colony 80
+wait_build 2 sunken_colony
+creep 3
 build 7 creep_colony 80
-wait_build 7 creep_colony
 build 4 spore_colony 80
 build 3 sunken_colony 80
 goto void

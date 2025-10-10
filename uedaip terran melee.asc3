@@ -34,7 +34,7 @@ multirun comsat_evaluator
 multirun sciv_evaluator
 multirun late_cash
 #guard_all
-creep 4
+creep 3
 
 :recurse
 deaths 13 Set 1000 176 recurse_set
@@ -2032,8 +2032,10 @@ train 8 marine
 build 3 barracks 80
 build 18 scv 80
 wait_buildstart 17 scv
+creep 4
 build 2 bunker 80
 wait_buildstart 2 bunker
+creep 3
 train 10 marine
 build 19 scv 80
 wait_buildstart 18 scv
