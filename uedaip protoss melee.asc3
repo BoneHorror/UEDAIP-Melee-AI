@@ -357,8 +357,10 @@ build 15 probe 80
 wait_buildstart 13 probe
 train 5 zealot
 call check_antirush
+rush 11 mixed_skip_zealots
 attack_add 5 zealot
 attack_prepare
+:mixed_skip_zealots
 expand 1 std_expansion
 build 16 probe 80
 wait_buildstart 14 probe
