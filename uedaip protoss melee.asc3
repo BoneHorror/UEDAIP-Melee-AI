@@ -1528,19 +1528,19 @@ goto exp_repeater
 
 
 :KhaAtt
-define_max 40 zealot
+define_max 30 zealot
 define_max 255 revenant
 define_max 20 dragoon
 define_max 255 carrier
 define_max 255 dark_templar
-define_max 25 dark_archon
-define_max 15 high_templar
-define_max 8 archon
-define_max 7 scout
+define_max 255 dark_archon
+define_max 7 high_templar
+define_max 6 archon
+define_max 6 scout
 define_max 3 reaver
 define_max 4 hornet
 define_max 255 corsair
-define_max 3 harbiter
+define_max 2 harbiter
 attack_do
 attack_clear 
 attack_add 8 zealot
