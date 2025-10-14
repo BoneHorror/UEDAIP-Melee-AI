@@ -432,8 +432,9 @@ define_max 6 ultralisk
 define_max 6 defiler
 define_max 60 hydralisk
 define_max 6 lurker
-define_max 22 guardian
-define_max 24 devourer
+define_max 12 mutalisk
+define_max 12 guardian
+define_max 6 devourer
 define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
@@ -530,14 +531,14 @@ return
 :muta_island
 define_max 60 drone
 define_max 30 overlord
-define_max 50 mutalisk
+define_max 20 mutalisk
 define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
 define_max 4 hydralisk
 define_max 6 lurker
-define_max 22 guardian
-define_max 24 devourer
+define_max 12 guardian
+define_max 6 devourer
 define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
@@ -606,14 +607,14 @@ return
 :generic_island
 define_max 60 drone
 define_max 30 overlord
-define_max 50 mutalisk
+define_max 12 mutalisk
 define_max 8 zergling
 define_max 6 ultralisk
 define_max 6 defiler
 define_max 4 hydralisk
 define_max 6 lurker
-define_max 22 guardian
-define_max 24 devourer
+define_max 12 guardian
+define_max 6 devourer
 define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
@@ -2155,6 +2156,16 @@ call resource_waitskip
 goto terran_loopng
 
 :island_mid
+define_max 30 mutalisk
+define_max 12 zergling
+define_max 4 ultralisk
+define_max 5 defiler
+define_max 60 hydralisk
+define_max 6 lurker
+define_max 12 guardian
+define_max 10 devourer
+define_max 14 scourge
+define_max 6 queen
 build 1 queen_nest 80
 build 1 spire 80
 build 1 hydralisk_den 80
@@ -2180,7 +2191,6 @@ upgrade 1 z_carapace 30
 upgrade 1 z_flyer_carapace 40
 upgrade 1 z_flyer_attack 40
 upgrade 2 z_missile_attack 30
-define_max 6 queen
 train 2 scourge
 train 6 hydralisk
 train 6 mutalisk
