@@ -95,6 +95,7 @@ multirun ptech_dweb
 wait 112
 
 multirun rush_panic
+multirun late_check_transports
 #guard_all
 creep 3
 #TEST
@@ -453,6 +454,7 @@ upgrade 3 p_ground_weapon 60
 upgrade 2 p_plating 40
 build 1 observatory 80
 wait_buildstart 1 observatory
+define_max 3 shuttle
 build 1 robotics_support_bay 80
 wait_buildstart 1 robotics_support_bay
 defensebuild_gg 1 dark_templar
@@ -879,7 +881,7 @@ build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
 build 1 stargate 80
 wait_buildstart 1 stargate
-define_max 1 shuttle
+define_max 2 shuttle
 define_max 1 observer
 upgrade 1 p_air_weapon 40
 defensebuild_aa 1 corsair
@@ -923,7 +925,7 @@ build 1 stargate 80
 multirun NerazimAttacks
 train 6 zealot
 upgrade 3 p_ground_weapon 60
-define_max 2 shuttle
+define_max 3 shuttle
 multirun cannons
 upgrade 2 p_armor 40
 defensebuild_ag 2 corsair
@@ -1050,7 +1052,7 @@ wait_buildstart 10 probe
 build 2 pylon 80
 wait_buildstart 2 pylon
 build 13 probe 80
-define_max 2 shuttle
+define_max 3 shuttle
 groundmap_jump robotoss_earlydo
 multirun island_transports
 goto robo_earlyskip
@@ -1122,7 +1124,7 @@ attack_prepare
 panic exp_noguard
 expand 2 std_expansion
 define_max 12 zealot
-define_max 1 shuttle
+define_max 3 shuttle
 check_transports
 train 3 dragoon
 place_guard hornet 1
@@ -1169,7 +1171,6 @@ build 2 forge 80
 train 7 dragoon
 train 8 dragoon
 upgrade 1 p_ground_weapon 40
-define_max 2 shuttle
 multirun cannons
 upgrade 2 p_armor 40
 upgrade 2 p_plating 40
@@ -2194,6 +2195,7 @@ wait_buildstart 5 pylon
 panic exp_noguard
 farms_timing
 build 1 robotics_facility 80
+define_max 3 shuttle
 upgrade 1 p_plasma_shield 40
 train 4 scout
 train 4 zealot
@@ -2554,6 +2556,7 @@ define_max 4 reaver
 define_max 255 hornet
 define_max 2 harbiter
 define_max 8 corsair
+define_max 3 shuttle
 attack_do
 attack_clear 
 attack_add 6 revenant
@@ -2968,3 +2971,8 @@ stop
 wait_rand 333 750
 return
 
+:late_check_transports
+wait_rand 29550 37240
+
+check_transports
+stop
