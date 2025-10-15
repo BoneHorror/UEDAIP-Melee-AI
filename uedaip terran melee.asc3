@@ -1762,6 +1762,7 @@ build 1 science_facility 80
 wait_buildstart 1 science_facility
 upgrade 1 safety_protocols 40
 upgrade 1 t_infantry_weapon 40
+expand 2 std_expo
 train 4 skywing
 train 10 heavy_marine
 build 3 starport 80
