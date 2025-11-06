@@ -33,6 +33,10 @@ wait 120
 multirun comsat_evaluator
 multirun sciv_evaluator
 multirun late_cash
+wait 115
+
+multirun late_check_transports
+multirun max_supply_fallback
 #guard_all
 creep 3
 
@@ -1971,6 +1975,7 @@ random_jump 128 UED_selection
 deaths 13 Exactly 2 177 UED_selection
 :on_rec_skipuedground
 random_jump 13 light_focus
+random_jump 20 dominion_air
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
 
@@ -2913,6 +2918,7 @@ place_guard goliath 2
 return
 
 :t_mech
+random_jump 19 firemech
 build 1 command_center 150
 wait_buildstart 1 command_center
 build 7 scv 130
@@ -4519,3 +4525,23 @@ stop
 :ar_simplified
 wait_rand 333 750
 return
+
+:late_check_transports
+wait_rand 29550 37240
+
+check_transports
+stop
+
+:max_supply_fallback
+wait 1500
+
+supply 13 AtMost 245 Used marine Terran max_supply_fallback
+wait 2250
+
+supply 13 AtMost 245 Used marine Terran max_supply_fallback
+if_attacking max_supply_fallback
+send_suicide 0
+wait 5000
+
+print Debug_Terran_SupplyCap
+goto max_supply_fallback

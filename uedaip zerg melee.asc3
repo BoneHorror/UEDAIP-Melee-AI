@@ -45,6 +45,9 @@ multirun basic_melee
 multirun basic_ranged
 multirun basic_air
 multirun late_cash
+wait_rand 2 3
+
+multirun max_supply_fallback
 idle_orders 10 32 9 mutalisk 180 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 90 Health(LessThan 82)
 idle_orders 10 32 5 mutalisk 168 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 80 Health(LessThan 41)
 idle_orders 10 32 5 mutalisk 200 drone|scv|probe 100 0
@@ -100,29 +103,38 @@ build 5 drone 110
 wait 115
 
 creep 3
+random_jump 4 is_this_zvp
+random_jump 6 mutaling
+random_jump 12 p_muta
+random_jump 85 crazy_zerg
 random_jump 128 early_spread
 goto late_spread
 
 :gen_muta
-random_jump 64 4pool
+random_jump 31 4pool
 build 5 drone 110
 wait 115
 
 creep 4
-random_jump 35 is_this_zvp
+random_jump 8 p_muta
+random_jump 20 early_spread
+random_jump 41 is_this_zvp
 goto mutaling
 
 :gen_bust
+random_jump 2 4pool
 build 5 drone 110
 wait 115
 
 creep 3
-random_jump 53 p_spread
-random_jump 79 p_muta
+random_jump 14 crazy_zerg
+random_jump 57 p_spread
+random_jump 85 p_muta
 goto p_bust
-#openings
+#openings - added some low-chance random ones for variety even if they're not the best fit for matchup
 
 :4pool
+debug_name FourPool
 build 1 spawning_pool 125
 wait_build 1 spawning_pool
 farms_notiming
@@ -147,6 +159,23 @@ random_jump 85 p_spread
 call expand_opening
 goto 4pret
 
+:cz_delayed_evo
+wait_build 14 drone
+build 1 evolution_chamber 80
+wait_build 1 evolution_chamber
+upgrade 1 z_carapace 40
+wait 7500
+
+wait_build 1 lair
+upgrade 2 z_carapace 40
+wait 9000
+
+wait_build 1 hive
+upgrade 3 z_carapace 50
+wait 5000
+
+stop
+
 :expand_opening
 multirun worker_decay
 build 6 drone 110
@@ -157,7 +186,12 @@ build 2 overlord 80
 wait_buildstart 2 overlord
 build 12 drone 80
 wait_buildstart 9 drone
+deaths 13 Exactly 2 medic eo_skip_rush
 random_call 16 rush_subroutine_earlyground
+goto eo_join_post_cz
+:eo_skip_rush
+call cz_delayed_evo
+:eo_join_post_cz
 expand 1 priority_expansion
 max_workers 22
 wait 48
@@ -186,7 +220,8 @@ build 15 drone 80
 wait_buildstart 14 drone
 build 1 lair 100
 wait_buildstart 1 lair
-deaths 13 AtMost 0 medic eo_skip_spire
+deaths 13 Exactly 0 medic eo_skip_spire
+deaths 13 Exactly 2 medic eo_skip_spire
 wait_build 14 drone
 build 2 creep_colony 80
 wait_build 1 lair
@@ -226,6 +261,7 @@ wait 300
 stop
 
 :p_spread
+debug_name PSpread
 define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
@@ -316,6 +352,7 @@ place_guard zergling 0
 goto pm_check_bank
 
 :mutaling
+debug_name Mutaling
 define_max 60 drone
 define_max 30 overlord
 define_max 30 mutalisk
@@ -424,6 +461,7 @@ place_guard mutalisk 1
 goto late_muta
 
 :hydra_island
+debug_name HydraIsland
 define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
@@ -504,6 +542,7 @@ place_guard hydralisk 1
 goto island_mid
 
 :island_opener
+debug_name IslandOpener
 farms_notiming
 wait_build 6 drone
 build 9 drone 80
@@ -529,6 +568,7 @@ build 1 lair 110
 return
 
 :muta_island
+debug_name MutaIsland
 define_max 60 drone
 define_max 30 overlord
 define_max 20 mutalisk
@@ -605,6 +645,7 @@ upgrade_jump 13 Exactly overlord_capacity 0 z_transport_wait
 return
 
 :generic_island
+debug_name GenericIsland
 define_max 60 drone
 define_max 30 overlord
 define_max 12 mutalisk
@@ -661,6 +702,7 @@ place_guard mutalisk 1
 goto island_mid
 
 :is_this_zvp
+debug_name Z_Hydras
 define_max 60 drone
 define_max 30 overlord
 define_max 50 mutalisk
@@ -734,6 +776,7 @@ random_jump 85 p_bust
 goto mutaling
 
 :p_bust
+debug_name P_HydraBust
 define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
@@ -910,6 +953,7 @@ build 1 spire 80
 call resource_waitskip
 tech plague 60
 tech ensnare 50
+expand 4 generic_expansion
 :exp_repeater
 wait_rand 6999 8566
 
@@ -917,6 +961,7 @@ expand 6 generic_expansion
 goto exp_repeater
 
 :early_bust
+debug_name HydraBust
 build 6 drone 110
 wait_build 5 drone
 build 9 drone 80
@@ -1010,6 +1055,7 @@ wait 1333
 return
 
 :late_muta
+debug_name LateMuta
 expand 2 generic_expansion
 wait_build 1 lair
 build 1 hydralisk_den 80
@@ -1069,6 +1115,7 @@ train 5 lurker
 train 10 mutalisk
 attack_do
 attack_clear
+expand 4 generic_expansion
 build 2 lair 80
 attack_add 2 lurker
 attack_add 10 zergling
@@ -1081,6 +1128,7 @@ attack_clear
 goto late_vs_zerg
 
 :late_spread
+debug_name LateSpread
 define_max 60 drone
 define_max 30 overlord
 define_max 36 mutalisk
@@ -1492,6 +1540,291 @@ wait 500
 
 stop
 
+:crazy_zerg
+debug_name CrazyZerg
+define_max 75 drone
+define_max 30 overlord
+define_max 24 mutalisk
+define_max 18 ultralisk
+define_max 8 defiler
+define_max 28 hydralisk
+define_max 15 lurker
+define_max 255 guardian
+define_max 255 devourer
+define_max 6 scourge
+define_max 5 queen
+deaths 13 Set 2 medic 4pret
+call expand_opening
+define_max 8 zergling
+#todo continue
+train 2 zergling
+build 1 spire 100
+build 20 drone 80
+wait_buildstart 16 drone
+build 6 overlord 80
+build 22 drone 80
+wait_buildstart 18 drone
+wait 200
+
+expand 2 generic_expansion
+train 1 mutalisk
+defensebuild_gg 2 mutalisk
+defenseuse_gg 2 mutalisk
+defensebuild_aa 2 mutalisk
+defenseuse_aa 2 mutalisk
+defensebuild_ga 1 mutalisk
+defenseuse_ga 1 mutalisk
+train 11 mutalisk
+upgrade 1 zergling_speed 30
+define_max 32 zergling
+upgrade 1 z_flyer_carapace 45
+set_attacks 1
+attack_add 11 mutalisk
+target_expansion
+wait 300
+
+build 1 hydralisk_den 80
+wait_buildstart 1 hydralisk_den
+build 1 queen_nest 80
+wait_buildstart 1 queen_nest
+train 2 hydralisk
+tech lurker_aspect 40
+defensebuild_gg 2 hydralisk
+defenseuse_gg 1 hydralisk
+defensebuild_ag 2 hydralisk
+defenseuse_ag 2 hydralisk
+attack_do
+attack_clear
+build 1 hive 80
+train 20 zergling
+attack_add 20 zergling
+attack_prepare
+wait 16
+
+train 1 queen
+attack_do
+attack_clear
+defensebuild_gg 1 lurker
+defenseuse_gg 1 lurker
+wait 350
+
+multirun scourge_getter
+defenseuse_ag 2 scourge
+defenseuse_aa 2 scourge
+set_attacks 3
+build 1 ultralisk_cavern 80
+upgrade 1 z_melee_attack 35
+define_max 72 zergling
+expand 2 generic_expansion
+multirun train_lurker
+train 3 hydralisk
+train 18 zergling
+train 14 mutalisk
+train 36 zergling
+attack_add 14 mutalisk
+target_expansion
+wait 300
+
+attack_do
+attack_clear
+build 2 evolution_chamber 80
+upgrade 2 z_flyer_carapace 40
+multirun train_lurker
+train 3 lurker
+attack_add 30 zergling
+attack_add 3 lurker
+target_expansion
+wait 300
+
+attack_do
+attack_clear
+tech burrowing 40
+expand 3 generic_expansion
+train 1 ultralisk
+defensebuild_gg 1 ultralisk
+defenseuse_gg 1 ultralisk
+upgrade 1 ultralisk_armor 40
+build 1 defiler_mound 80
+train 4 ultralisk
+train 12 zergling
+train 16 zergling
+train 2 hydralisk
+train 18 zergling
+train 2 lurker
+train 24 zergling
+train 5 mutalisk
+train 32 zergling
+attack_add 32 zergling
+attack_add 2 lurker
+attack_add 4 ultralisk
+attack_prepare
+wait 16
+
+attack_do
+attack_clear
+defensebuild_ag 1 defiler
+defenseuse_ag 1 defiler
+upgrade 1 voracity 70
+upgrade 1 burrowed_regen 40
+expand 4 generic_expansion
+upgrade 3 z_flyer_carapace 50
+upgrade 1 z_flyer_attack 40
+upgrade 2 z_melee_attack 30
+upgrade 1 zergling_attack 30
+upgrade 1 overlord_speed 50
+train 3 hydralisk
+train 2 defiler
+train 3 lurker
+set_attacks 2
+train 10 ultralisk
+train 3 defiler
+upgrade 1 ultralisk_speed 40
+upgrade 2 z_flyer_attack 40
+upgrade 3 z_melee_attack 40
+upgrade 1 z_missile_attack 30
+attack_add 10 ultralisk
+attack_add 3 defiler
+call check_antirush
+target_expansion
+wait 16
+
+attack_do
+attack_clear
+expand 5 generic_expansion
+train 10 mutalisk
+train 40 zergling
+attack_add 10 mutalisk
+attack_add 2 scourge
+attack_add 40 zergling
+call check_antirush
+target_expansion
+wait 16
+
+attack_do
+attack_clear
+upgrade 3 z_flyer_attack 40
+upgrade 2 z_missile_attack 30
+tech consume 70
+train 4 hydralisk
+train 3 ultralisk
+train 24 zergling
+train 4 lurker
+train 6 ultralisk
+train 44 zergling
+define_max 5 defiler
+train 1 defiler
+attack_add 4 lurker
+attack_add 44 zergling
+attack_add 1 defiler
+attack_add 6 ultralisk
+call check_antirush
+attack_prepare
+wait 16
+
+train 6 mutalisk
+train 3 defiler
+defensebuild_ag 1 defiler
+defenseuse_ag 1 defiler
+attack_do
+attack_clear
+build 3 hatchery 80
+train 3 ultralisk
+call resource_waitskip
+upgrade 3 z_missile_attack 30
+train 6 hydralisk
+build 4 hatchery 80
+train 6 lurker
+train 8 ultralisk
+train 2 queen
+train 2 defiler
+set_attacks 2
+attack_add 6 lurker
+attack_add 2 queen
+attack_add 2 defiler
+attack_add 8 ultralisk
+call add_scourge
+call check_antirush
+target_expansion
+wait 16
+
+
+train 1 defiler
+attack_do
+attack_clear
+creep 4
+build 5 creep_colony 80
+build 2 spore_colony 80
+call resource_waitskip
+expand 5 generic_expansion
+tech plague 60
+upgrade 1 defiler_mana 50
+defensebuild_gg 1 queen
+defenseuse_gg 1 queen
+multirun exp_repeater
+:crazy_loop
+debug_name CrazyLoop
+define_max 6 scourge
+set_attacks 2
+train 20 zergling
+call resource_waitskip
+train 3 defiler
+train 4 hydralisk
+train 4 ultralisk
+train 30 zergling
+train 42 zergling
+train 4 lurker
+train 12 ultralisk
+attack_add 3 defiler
+attack_add 4 lurker
+attack_add 42 zergling
+attack_add 12 ultralisk
+call add_scourge
+attack_prepare
+wait 300
+
+attack_do
+attack_clear
+call resource_waitskip
+train 3 hydralisk
+train 14 mutalisk
+train 30 zergling
+train 1 defiler
+train 40 zergling
+train 3 lurker
+attack_add 14 mutalisk
+attack_add 1 defiler
+attack_add 40 zergling
+attack_add 3 lurker
+call add_scourge
+call check_antirush
+attack_prepare
+wait 300
+
+attack_do
+attack_clear
+call resource_waitskip
+train 8 ultralisk
+train 3 defiler
+attack_add 8 ultralisk
+attack_add 3 defiler
+target_expansion
+wait 300
+
+attack_do
+attack_clear
+train 1 queen
+train 20 mutalisk
+attack_add 20 mutalisk
+attack_add 1 queen
+call add_scourge
+target_expansion
+wait 300
+
+attack_do
+attack_clear
+call resource_waitskip
+goto crazy_loop
+
 :early_spread
 deaths 13 Set 1 medic 4pret
 #use medic death as a marker
@@ -1652,6 +1985,7 @@ attack_add 6 scourge
 return
 
 :late_vs_zerg
+debug_name LateVZ
 build 1 queen_nest 80
 multirun scourge_getter
 defenseuse_ag 2 scourge
@@ -1766,6 +2100,7 @@ tech plague 60
 upgrade 1 defiler_mana 50
 multirun exp_repeater
 :muta_loop
+debug_name MutaLoop
 define_max 6 scourge
 define_max 8 lurker
 define_max 80 zergling
@@ -1840,6 +2175,7 @@ call resource_waitskip
 goto muta_loop
 
 :late_vs_terran
+debug_name LateVT
 define_max 8 lurker
 build 1 queen_nest 80
 defensebuild_gg 1 lurker
@@ -1992,6 +2328,7 @@ defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 multirun exp_repeater
 :terran_loop
+debug_name TerranLoop
 define_max 6 scourge
 set_attacks 2
 train 20 zergling
@@ -2050,8 +2387,7 @@ train 2 queen
 train 20 hydralisk
 attack_do
 attack_clear
-defensebuild_ag 1 defiler
-defenseuse_ag 1 defiler
+call resource_waitskip
 attack_add 24 zergling
 attack_add 20 hydralisk
 attack_add 8 ultralisk
@@ -2142,8 +2478,7 @@ train 6 lurker
 train 40 zergling
 attack_do
 attack_clear
-defensebuild_ag 1 defiler
-defenseuse_ag 1 defiler
+call resource_waitskip
 attack_add 40 zergling
 attack_add 8 ultralisk
 attack_add 6 lurker
@@ -2156,6 +2491,7 @@ call resource_waitskip
 goto terran_loopng
 
 :island_mid
+debug_name IslandMidGame
 define_max 30 mutalisk
 define_max 12 zergling
 define_max 4 ultralisk
@@ -2233,6 +2569,7 @@ defenseuse_gg 1 guardian
 defensebuild_ga 1 guardian
 defenseuse_ga 1 guardian
 defenseuse_ag 1 devourer
+defensebuild_aa 1 mutalisk
 defensebuild_aa 1 devourer
 defenseuse_aa 1 devourer
 train 5 mutalisk
@@ -2308,6 +2645,7 @@ build 1 ultralisk_cavern 80
 tech plague 60
 multirun exp_repeater
 :island_loop
+debug_name IslandLoop
 train 3 queen
 train 10 mutalisk
 call resource_waitskip
@@ -2515,6 +2853,7 @@ wait 1500
 goto pm_loop
 
 :late_vs_protoss
+debug_name LateVP
 upgrade 1 hydralisk_range 45
 build 1 queen_nest 100
 wait_build 1 queen_nest
@@ -2639,6 +2978,7 @@ defensebuild_ga 1 guardian
 defenseuse_ga 1 guardian
 multirun exp_repeater
 :protoss_loop
+debug_name TossLoop
 define_max 80 hydralisk
 define_max 10 lurker
 define_max 10 scourge
@@ -2981,42 +3321,25 @@ goto sub_return
 wait 2650
 
 :ge_init
-wait_rand 10 45
+debug_name GrandExchange
+wait_rand 80 165
 
 call ge_gas
 call ge_mins
-time_jump 50 late_gas_detour
-goto ge_init
-
-:late_gas_detour
-resources 13 AtMost Gas 1100 ge_init
-resources 13 AtLeast Ore 1500 ge_init
-resources 13 Subtract Gas 200 ge_init
-resources 13 Add Ore 266 ge_init
 goto ge_init
 
 :ge_gas
-resources 13 AtLeast Ore 3500 late_min_check
-resources 13 AtLeast Gas 600 ge_skip
-resources 13 AtMost Ore 899 ge_skip
+resources 13 AtLeast Gas 650 ge_skip
+resources 13 AtMost Ore 950 ge_skip
 resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
 return
 
-:late_min_check
-resources 13 AtLeast Gas 2000 ge_skip
-resources 13 AtMost Ore 3899 ge_skip
-resources 13 Subtract Ore 450 ge_skip
-resources 13 Add Gas 300 ge_skip
-return
-
 :ge_mins
-resources 13 AtMost Gas 799 ge_skip
 resources 13 AtLeast Ore 1100 ge_skip
+resources 13 AtMost Gas 850 ge_skip
 resources 13 Subtract Gas 80 ge_skip
 resources 13 Add Ore 150 ge_skip
-return
-
 :ge_skip
 return
 
@@ -3053,6 +3376,7 @@ panic priority_expansion
 stop
 
 :scourge_getter
+debug_name ScourgeGetter
 wait 15
 
 resources 13 AtMost Gas 150 scourge_getter
@@ -3292,6 +3616,7 @@ wait_rand 333 750
 return
 
 :need_detectors
+debug_name DetectorLoop
 wait 50
 
 enemyowns_jump citadel_of_adun detector_get
@@ -3305,3 +3630,19 @@ upgrade 1 overlord_speed 75
 wait 1500
 
 stop
+
+
+:max_supply_fallback
+debug_name SupplyFailsafe
+wait 1500
+
+supply 13 AtMost 245 Used marine Zerg max_supply_fallback
+wait 2250
+
+supply 13 AtMost 245 Used marine Zerg max_supply_fallback
+if_attacking max_supply_fallback
+send_suicide 0
+wait 5000
+
+print Debug_Zerg_SupplyCap
+goto max_supply_fallback

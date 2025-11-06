@@ -96,6 +96,7 @@ wait 112
 
 multirun rush_panic
 multirun late_check_transports
+multirun max_supply_fallback
 #guard_all
 creep 3
 #TEST
@@ -302,15 +303,15 @@ race_jump vst vsz vsp
 
 :vsp
 random_call 60 opener_randomizer
-random_jump 35 dt_casters
-random_jump 37 skytoss
+random_jump 32 dt_casters
+random_jump 38 skytoss
 random_jump 55 robotics_force
 random_jump 97 khalai_squadron
 goto mixed_toss
 
 :vsz
-random_call 75 zealot_opener
-random_jump 7 dt_casters
+random_call 72 zealot_opener
+random_jump 14 dt_casters
 random_jump 33 mixed_toss
 random_jump 85 robotics_force
 random_jump 128 khalai_squadron
@@ -318,7 +319,7 @@ goto skytoss
 
 :vst
 random_call 47 dt_opener
-random_jump 5 khalai_squadron
+random_jump 8 khalai_squadron
 random_jump 51 skytoss
 random_jump 63 dt_casters
 random_jump 97 robotics_force
@@ -2976,3 +2977,18 @@ wait_rand 29550 37240
 
 check_transports
 stop
+
+:max_supply_fallback
+wait 1500
+
+supply 13 AtMost 249 Used marine Protoss max_supply_fallback
+wait 2250
+
+supply 13 AtMost 249 Used marine Protoss max_supply_fallback
+if_attacking max_supply_fallback
+send_suicide 0
+wait 5000
+
+print Debug_Protoss_SupplyCap
+goto max_supply_fallback
+
