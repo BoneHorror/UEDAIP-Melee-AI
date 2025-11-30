@@ -3464,7 +3464,7 @@ upgrade 1 z_carapace 30
 wait_train 30 hydralisk
 wait 2500
 
-upgrade 2 z_melee_attack 30
+upgrade 2 z_missile_attack 30
 upgrade 2 z_carapace 30
 stop
 
