@@ -2833,6 +2833,8 @@ expand 1 std_expo
 define_max 2 marine
 build 1 factory 80
 wait_buildstart 1 factory
+defensebuild_gg 2 vulture
+defenseuse_gg 2 vulture
 build 15 scv 80
 define_max 3 marine
 wait_build 13 scv
@@ -2841,14 +2843,13 @@ wait_build 15 scv
 define_max 4 marine
 build 2 factory 80
 build 17 scv 80
+build 1 bunker 80
 wait_build 1 factory
 train 1 vulture
 build 19 scv 80
 build 1 machine_shop 100
 build 3 supply_depot 80
 define_max 10 vulture
-defensebuild_gg 2 vulture
-defenseuse_gg 2 vulture
 train 3 vulture
 wait_buildstart 1 machine_shop
 upgrade 1 vulture_speed 50
@@ -2886,9 +2887,12 @@ wait_buildstart 1 factory
 build 15 scv 80
 wait_build 13 scv
 build 2 supply_depot 80
+defensebuild_gg 1 vulture
+defenseuse_gg 1 vulture
 wait_buildstart 14 scv
 build 2 factory 80
 build 18 scv 80
+build 1 bunker 80
 wait_build 1 factory
 build 1 armory 80
 build 21 scv 80
