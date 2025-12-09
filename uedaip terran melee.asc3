@@ -1848,7 +1848,7 @@ attack_prepare
 multirun UED_Air
 defensebuild_aa 1 valkyrie
 defenseuse_aa 1 valkyrie
-train 18 heavy_marine
+define_max 5 dropship
 check_transports 
 expand 2 std_expo
 upgrade 1 medic_mana 40
@@ -1875,7 +1875,6 @@ defensebuild_gg 2 death_knight
 defensebuild_ag 2 death_knight
 defenseuse_gg 2 death_knight
 defenseuse_ag 2 death_knight
-define_max 4 dropship
 expand 3 std_expo
 upgrade 1 ghost_sight 40
 expand 4 std_expo
@@ -3402,7 +3401,7 @@ expand 1 std_expo
 wait 15500
 
 :it_loop
-debug_name ITLoop
+debug_name island_transport_loop
 wait 3720
 
 define_max 7 dropship
@@ -3808,7 +3807,7 @@ goto recurse_subtract
 :std_expo
 debug_name StdExpo
 start_town 
-build 1 command_center 130
+build 1 command_center 110
 get_oldpeons 1
 wait_build 1 command_center
 multirun recurse_subtract
