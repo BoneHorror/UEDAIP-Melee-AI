@@ -927,7 +927,7 @@ attack_prepare
 build 3 barracks 80
 wait_buildstart 3 barracks
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 18 scv
 define_max 12 heavy_marine
 build 1 engineering_bay 80
 train 12 heavy_marine
@@ -1341,7 +1341,7 @@ build 2 factory 80
 wait_buildstart 2 factory
 build 2 machine_shop 80
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 18 scv
 define_max 14 heavy_marine
 build 1 engineering_bay 80
 train 1 panzer
@@ -1775,7 +1775,7 @@ build 2 starport 80
 wait_buildstart 2 starport
 build 2 control_tower 100
 build 20 scv 80
-wait_buildstart 20 scv
+wait_buildstart 18 scv
 define_max 14 heavy_marine
 build 1 engineering_bay 80
 train 1 panzer
