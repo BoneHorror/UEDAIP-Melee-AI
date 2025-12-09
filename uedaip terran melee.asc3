@@ -1893,7 +1893,7 @@ expand 4 std_expo
 upgrade 2 t_vehicle_plating 40
 define_max 7 valhalla
 place_guard valhalla 0
-train 1 valhalla
+wait_train 1 valhalla
 tech psionic_storm 80
 call resource_waitskip
 call resource_waitskip
@@ -4262,7 +4262,8 @@ time_jump 20 geto_get
 goto geto_get_s
 
 :geto_get
-debug_name GetoGet
+groundmap_jump geto_get_s
+#this takes too many transport on islands
 get_oldpeons 6
 
 :geto_get_s
