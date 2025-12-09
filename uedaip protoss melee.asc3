@@ -102,6 +102,7 @@ creep 3
 #TEST
 #random_jump 250 skytoss
 :recurse
+debug_name Recurse
 deaths 13 Set 1000 176 recurse_set
 multirun recurse_set
 groundmap_jump ground_picker
@@ -158,6 +159,7 @@ defenseuse_ga 1 hornet
 return 
 
 :ptech_storm
+debug_name PTechStorm
 wait 16
 
 tech_jump 13 Exactly psionic_storm 0 ptech_storm
@@ -169,6 +171,7 @@ idle_orders 142 128 1 high_templar 192 group_men 40 Deathrattle
 stop
 
 :ptech_dweb
+debug_name PTechDWeb
 wait 16
 
 tech_jump 13 Exactly disruption_web 0 ptech_dweb
@@ -178,6 +181,7 @@ idle_orders 181 0 1 corsair 188 group_men 80 deathrattle|WithoutUnitFlags(Air)
 stop
 
 :ptech_stasis
+debug_name PTechStasis
 wait 16
 
 tech_jump 13 Exactly stasis_field 0 ptech_stasis
@@ -198,6 +202,7 @@ idle_orders 147 0 0 harbiter 256 group_men 80 deathrattle
 stop
 
 :ptech_recall
+debug_name PTechRecall
 wait 16
 
 tech_jump 13 Exactly recall 0 ptech_recall
@@ -210,6 +215,7 @@ idle_orders 137 32 1 harbiter 65535 archon 70 incombat|health(LessThan,120)|own|
 stop
 
 :ptech_mael
+debug_name PTechMael
 wait 16
 
 tech_jump 13 Exactly maelstrom 0 ptech_mael
@@ -218,12 +224,14 @@ idle_orders 186 0 1 dark_archon 256 group_men 90 unitflags(organic)|deathrattle
 stop
 
 :ptech_feedback
+debug_name PTechFeedback
 idle_orders 184 64 1 dark_archon 612 queen|science_vessel|hnorad|battlecruiser|valhalla|dark_archon 40 Energy(GreaterThanPercent,66)|Self(Energy(GreaterThan 85))
 idle_orders 184 64 1 dark_archon 612 defiler|ghost|wraith|phantom|high_templar|corsair 30 Energy(GreaterThanPercent,50)|Self(Energy(GreaterThan 145))
 idle_orders 184 0 1 dark_archon 256 group_men 80 Energy(GreaterThan,2)|Deathrattle
 stop
 
 :ptech_mindcontrol
+debug_name PTechMindControl
 wait 16
 
 tech_jump 13 Exactly mind_control 0 ptech_mindcontrol
@@ -238,6 +246,7 @@ multirun foreign_casters
 stop
 
 :foreign_casters
+debug_name ForeignCasters
 idle_orders 141 32 1 science_vessel 1256 group_men 45 own|allied|notenemies|incombat|Health(LessThanPercent 45)|Health(GreaterThanPercent 10)
 idle_orders 185 256 1 medic 1024 queen|defiler|overlord|lurker|infested_terran|skywing|observer|science_vessel|valhalla|arbiter|hnorad|battlecruiser|ghost|siege_tank 30 WithoutSpellEffects(Blind)
 idle_orders 185 32 1 medic 256 queen|defiler|overlord|lurker|infested_terran|skywing|observer|science_vessel|valhalla|arbiter|hnorad|battlecruiser|ghost|siege_tank 70 WithoutSpellEffects(Blind)|InCombat
@@ -290,6 +299,7 @@ multirun check_it
 stop
 
 :check_it
+debug_name CheckIt
 wait 16
 
 notowns_jump infested_command_center check_it
@@ -299,9 +309,11 @@ defenseuse_gg 1 infested_terran
 stop
 
 :ground_picker
+debug_name GroundPicker
 race_jump vst vsz vsp
 
 :vsp
+debug_name VSP
 random_call 60 opener_randomizer
 random_jump 32 dt_casters
 random_jump 38 skytoss
@@ -310,6 +322,7 @@ random_jump 97 khalai_squadron
 goto mixed_toss
 
 :vsz
+debug_name VSZ
 random_call 72 zealot_opener
 random_jump 14 dt_casters
 random_jump 33 mixed_toss
@@ -318,6 +331,7 @@ random_jump 128 khalai_squadron
 goto skytoss
 
 :vst
+debug_name VST
 random_call 47 dt_opener
 random_jump 8 khalai_squadron
 random_jump 51 skytoss
@@ -330,6 +344,7 @@ random_jump 128 zealot_opener
 goto dt_opener
 
 :mixed_toss
+debug_name MixedToss
 build 1 nexus 150
 deaths 13 Set 1 lurker robof
 wait_buildstart 1 nexus
@@ -363,6 +378,7 @@ rush 11 mixed_skip_zealots
 attack_add 5 zealot
 attack_prepare
 :mixed_skip_zealots
+debug_name MixedSkipZealots
 expand 1 std_expansion
 build 16 probe 80
 wait_buildstart 14 probe
@@ -531,12 +547,14 @@ upgrade 1 arbiter_mana 40
 upgrade 1 dark_archon_mana 50
 place_guard dark_archon 0
 :exp_repeater
+debug_name ExpRepeater
 wait 8700
 expand 9 std_expansion
 goto exp_repeater
 
 
 :MixedAttacks
+debug_name MixedAttacks
 define_max 14 zealot
 define_max 7 revenant
 define_max 20 dragoon
@@ -556,13 +574,14 @@ attack_add 7 dragoon
 attack_add 4 revenant
 set_attacks 2
 
-:def009
+:MixAMid
+debug_name MixAMid
 train 6 zealot
 train 7 dragoon
 train 4 revenant
 target_expansion 
 call resource_waitskip
-notowns_jump templar_archives def009
+notowns_jump templar_archives MixAMid
 attack_do
 attack_clear 
 attack_add 8 zealot
@@ -586,8 +605,9 @@ target_expansion
 train 2 dark_templar
 call resource_waitskip
 do_morph 1 dark_archon
-notowns_jump robotics_support_bay def009
-:def010
+notowns_jump robotics_support_bay MixAMid
+:MixALate
+debug_name MixALate
 attack_do
 attack_clear 
 attack_add 6 dark_templar
@@ -619,9 +639,10 @@ wait 500
 target_expansion 
 call resource_waitskip
 
-notowns_jump fleet_beacon def010
+notowns_jump fleet_beacon MixALate
 
-:def011
+:MixALoop
+debug_name MixALoop
 set_attacks 2
 attack_do
 attack_clear 
@@ -673,7 +694,7 @@ do_morph 2 archon
 do_morph 1 dark_archon
 target_expansion 
 call resource_waitskip
-goto def011
+goto MixALoop
 
 :dt_opener
 define_max 7 zealot
@@ -767,6 +788,7 @@ attack_clear
 return
 
 :revenant_alt
+debug_name RevenantAlt
 define_max 7 zealot
 define_max 2 revenant
 define_max 4 dark_templar
@@ -840,6 +862,7 @@ defenseuse_gg 1 dark_templar
 goto dt_return
 
 :dt_casters
+debug_name DTCasters
 random_jump 128 revenant_alt
 call dt_opener
 
@@ -986,12 +1009,14 @@ call resource_waitskip
 expand 5 exp_noguard
 place_guard dark_archon 0
 :noguard_repeater
+debug_name NoguardRepeater
 wait_rand 7999 10500
 
 expand 9 exp_noguard
 goto noguard_repeater
 
 :NerazimAttacks
+debug_name NerazimAttacks
 train 8 zealot
 train 6 revenant
 attack_add 8 zealot
@@ -1034,6 +1059,7 @@ attack_add 4 revenant
 goto NerazimAttacks
 
 :robotics_force
+debug_name RoboticsForce
 build 1 nexus 150
 deaths 13 Set 2 lurker robof
 wait_buildstart 1 nexus
@@ -1046,6 +1072,7 @@ wait_buildstart 8 probe
 groundmap_jump irobos
 build 1 assimilator 80
 :irobos
+debug_name Irobos
 build 1 gateway 80
 wait_buildstart 1 gateway
 build 12 probe 80
@@ -1059,9 +1086,11 @@ multirun island_transports
 goto robo_earlyskip
 
 :robotoss_earlydo
+debug_name RobotossEarlyDo
 expand 1 exp_noguard
 train 1 zealot
 :robo_earlyskip
+debug_name RoboEarlySkip
 build 1 cybernetics_core 80
 defenseuse_gg 2 zealot
 capt_expand 
@@ -1262,6 +1291,7 @@ attack_add 10 hornet
 set_attacks 2
 
 :RRe
+debug_name RRe
 train 10 hornet
 target_expansion 
 call resource_waitskip
@@ -1280,6 +1310,7 @@ target_expansion
 call resource_waitskip
 
 :RPu
+debug_name RPu
 attack_do
 attack_clear
 attack_add 6 zealot
@@ -1301,6 +1332,7 @@ call resource_waitskip
 notowns_jump fleet_beacon RPu
 
 :RLo
+debug_name RLo
 set_attacks 2
 attack_do
 attack_clear 
@@ -1331,6 +1363,7 @@ call resource_waitskip
 goto RLo
 
 :khalai_squadron
+debug_name KhalaiSquadron
 build 1 nexus 150
 deaths 13 Set 1 lurker robof
 wait_buildstart 1 nexus
@@ -1530,6 +1563,7 @@ goto exp_repeater
 
 
 :KhaAtt
+debug_name KhaAtt
 define_max 30 zealot
 define_max 255 revenant
 define_max 20 dragoon
@@ -1550,6 +1584,7 @@ attack_add 8 dragoon
 set_attacks 2
 
 :KhaWa
+debug_name KhaWa
 train 8 zealot
 train 8 dragoon
 target_expansion 
@@ -1577,6 +1612,7 @@ target_expansion
 call resource_waitskip
 
 :KhaPu
+debug_name KhaPu
 attack_do
 attack_clear 
 attack_add 10 zealot
@@ -1608,6 +1644,7 @@ defensebuild_gg 1 harbiter
 defenseuse_gg 1 harbiter
 
 :KhaLo
+debug_name KhaLo
 set_attacks 2
 attack_do
 attack_clear 
@@ -1659,6 +1696,7 @@ call resource_waitskip
 goto KhaLo
 
 :templar_ensure
+debug_name TemplarEnsure
 wait_train 6 high_templar
 
 do_morph 6 archon
@@ -1666,6 +1704,7 @@ wait_rand 133 850
 goto templar_ensure
 
 :da_ensure
+debug_name DAEnsure
 wait_train 7 dark_templar
 
 do_morph 2 dark_archon
@@ -1673,6 +1712,7 @@ wait_rand 133 850
 goto da_ensure
 
 :small_expo
+debug_name SmallExpo
 max_workers 21
 multirun worker_decay
 build 1 pylon 80
@@ -1680,11 +1720,13 @@ wait_build 1 pylon
 creep 3
 build 1 photon_cannon 80
 :se_loop
+debug_name SELoop
 wait 1500
 
 goto se_loop
 
 :exp_noguard
+debug_name ExpNoguard
 start_town 
 build 1 nexus 130
 wait_buildstart 1 nexus
@@ -1704,9 +1746,11 @@ time_jump 20 geto_get
 goto geto_get_s
 
 :geto_get
+debug_name GetoGet
 get_oldpeons 6
 
 :geto_get_s
+debug_name GetoGetS
 wait 3500
 
 deaths 13 Exactly 3 lurker e_ng_air
@@ -1714,13 +1758,16 @@ build 1 gateway 80
 wait 3500
 
 :e_ng_robo
+debug_name ENGRobo
 build 1 robotics_facility 80
 :e_ng_loop
+debug_name ENGLoop
 wait 1500
 
 goto e_ng_loop
 
 :e_ng_air
+debug_name ENGAir
 build 1 stargate 80
 wait 3500
 
@@ -1731,10 +1778,12 @@ wait 3500
 goto e_ng_loop
 
 :sb_checker
+debug_name SBChecker
 wait 3500
 
 random_jump 164 sb_done
 :sb_conditionals
+debug_name SBConditionals
 wait 160
 
 if_owned carrier sb_exec
@@ -1745,11 +1794,14 @@ if_owned harbiter sb_exec
 goto sb_conditionals
 
 :sb_exec
+debug_name SBExec
 build 1 shield_battery 80
 :sb_done
+debug_name SBDone
 stop
 
 :recurse_set
+debug_name RecurseSet
 wait 50
 
 deaths 13 Set 1000 176 recurse_set
@@ -1757,6 +1809,7 @@ deaths 13 Set 1000 176 recurse_set
 goto recurse_set
 
 :recurse_subtract
+debug_name RecurseSubtract
 wait 50
 
 deaths 13 Subtract 25 176 recurse_subtract
@@ -1764,6 +1817,7 @@ deaths 13 Exactly 0 176 recurse
 goto recurse_subtract
 
 :std_expansion
+debug_name StdExpansion
 start_town 
 build 1 nexus 130
 wait_buildstart 1 nexus
@@ -1782,6 +1836,7 @@ wait 500
 multirun rush_panic_exp
 multirun worker_decay
 :eloop_cyber
+debug_name EloopCyber
 wait 80
 
 notowns_jump cybernetics_core eloop_cyber
@@ -1791,6 +1846,7 @@ time_jump 25 geto_gets
 goto def015
 
 :geto_gets
+debug_name GetoGets
 get_oldpeons 6
 
 :def015
@@ -1812,10 +1868,12 @@ wait 4500
 
 :def018
 wait 1500
+
 goto def018
 
 
 :tech_prog1
+debug_name TechProg1
 wait_build 1 nexus
 notowns_jump gateway def019
 goto def020
@@ -1823,6 +1881,7 @@ goto def020
 
 :def019
 wait 500
+
 goto tech_prog1
 
 
@@ -1836,6 +1895,7 @@ goto def023
 
 :def022
 wait 500
+
 goto def021
 
 
@@ -1843,6 +1903,7 @@ goto def021
 player_need 1 cybernetics_core
 
 :def024
+debug_name Def024
 notowns_jump citadel_of_adun def025
 goto def026
 
@@ -1919,6 +1980,7 @@ goto def039
 
 
 :prodGetter
+debug_name ProdGetter
 wait 33
 
 resources 13 AtMost Ore 999 prodGetter
@@ -1932,6 +1994,7 @@ build 1 gateway 80
 goto def042
 
 :robof
+debug_name Robof
 build 1 robotics_facility 80
 wait_build 1 robotics_facility
 place_guard dragoon 0
@@ -1939,6 +2002,7 @@ build 1 gateway 80
 stop
 
 :randomf
+debug_name Randomf
 build 1 gateway 80
 wait_build 1 gateway
 place_guard zealot 0
@@ -1947,9 +2011,11 @@ build 1 stargate 80
 goto r_wrap
 
 :r_robo
+debug_name RRobo
 build 1 robotics_facility 80
 place_guard hornet 0
 :r_wrap
+debug_name RWrap
 wait 650
 
 player_need 2 stargate
@@ -1988,6 +2054,7 @@ goto def048
 
 
 :tech_prog2_cannon
+debug_name TechProg2Cannon
 build 1 pylon 80
 wait_build 1 pylon
 
@@ -2020,6 +2087,7 @@ stop
 
 
 :cannons
+debug_name Cannons
 creep 3
 build 1 photon_cannon 80
 wait_build 1 photon_cannon
@@ -2040,9 +2108,11 @@ wait_build 5 photon_cannon
 build 6 photon_cannon 80
 wait_build 6 photon_cannon
 :can_skip
+debug_name CanSkip
 stop 
 
 :worker_decay
+debug_name WorkerDecay
 wait 10700
 
 max_workers 16
@@ -2055,6 +2125,7 @@ max_workers 255
 stop
 
 :expo_probes
+debug_name ExpoProbes
 wait_build 1 nexus
 build 1 probe 100
 get_oldpeons 3
@@ -2068,9 +2139,11 @@ time_jump 20 geto_gete
 goto geto_get_se
 
 :geto_gete
+debug_name GetoGete
 get_oldpeons 6
 
 :geto_get_se
+debug_name GetoGetSE
 build 10 probe 80
 wait_buildstart 10 probe
 build 12 probe 80
@@ -2086,6 +2159,7 @@ wait_buildstart 21 probe
 stop 
 
 :skytoss
+debug_name Skytoss
 build 1 nexus 150
 deaths 13 Set 3 lurker robof
 wait_buildstart 1 nexus
@@ -2098,6 +2172,7 @@ wait_buildstart 10 probe
 groundmap_jump iskys
 build 1 assimilator 80
 :iskys
+debug_name Iskys
 build 1 gateway 80
 wait_buildstart 1 gateway
 build 12 probe 80
@@ -2116,6 +2191,7 @@ multirun island_transports
 goto skytoss_earlyskip
 
 :island_transports
+debug_name IslandTransports
 wait_build 1 cybernetics_core
 build 1 robotics_facility 80
 wait_build 1 robotics_facility
@@ -2137,6 +2213,7 @@ attack_clear
 wait 11500
 
 :it_loop
+debug_name ITLoop
 define_max 7 shuttle
 train 5 shuttle
 wait 3720
@@ -2148,8 +2225,10 @@ wait 1250
 goto it_loop
 
 :skytoss_earlydo
+debug_name SkytossEarlyDo
 expand 1 exp_noguard
 :skytoss_earlyskip
+debug_name SkytossEarlySkip
 train 1 zealot
 defenseuse_gg 2 zealot
 capt_expand
@@ -2181,8 +2260,6 @@ defensebuild_ag 2 scout
 defensebuild_ga 1 scout
 defensebuild_aa 1 scout
 wait_buildstart 4 pylon
-#TEST
-#random_jump 250 mystery_special
 random_jump 128 mystery_special
 build 2 gateway 80
 train 1 dragoon
@@ -2312,6 +2389,7 @@ upgrade 1 corsair_mana 40
 goto noguard_repeater
 
 :STAttacks
+debug_name STAttacks
 define_max 12 zealot
 define_max 255 revenant
 define_max 6 dragoon
@@ -2332,6 +2410,7 @@ attack_add 3 carrier
 set_attacks 2
 
 :STRe
+debug_name STRe
 train 3 carrier
 train 6 zealot
 wait_force 3 carrier
@@ -2350,6 +2429,7 @@ target_expansion
 call resource_waitskip
 
 :STPu
+debug_name STPu
 attack_do
 attack_clear
 attack_add 3 carrier
@@ -2367,6 +2447,7 @@ call resource_waitskip
 notowns_jump arbiter_tribunal STPu
 
 :STLo
+debug_name STLo
 set_attacks 3
 attack_do
 attack_clear 
@@ -2416,6 +2497,7 @@ call resource_waitskip
 goto STLo
 
 :mystery_special
+debug_name MysterySpecial
 build 2 gateway 80
 train 1 dragoon
 build 2 stargate 80
@@ -2544,6 +2626,7 @@ upgrade 1 corsair_mana 40
 goto noguard_repeater
 
 :MSAttacks
+debug_name MSAttacks
 define_max 12 zealot
 define_max 14 revenant
 define_max 6 dragoon
@@ -2564,6 +2647,7 @@ attack_add 6 revenant
 set_attacks 2
 
 :MSRe
+debug_name MSRe
 train 6 revenant
 wait 240
 
@@ -2584,6 +2668,7 @@ target_expansion
 call resource_waitskip
 
 :MSPu
+debug_name MSPu
 attack_do
 attack_clear
 attack_add 5 revenant
@@ -2600,6 +2685,7 @@ call resource_waitskip
 notowns_jump arbiter_tribunal MSPu
 
 :MSLo
+debug_name MSLo
 set_attacks 3
 attack_do
 attack_clear
@@ -2651,6 +2737,7 @@ call resource_waitskip
 goto MSLo
 
 :supply_ensure
+debug_name SupplyEnsure
 wait 50
 
 resources_jump 650 0 s_ensured
@@ -2661,6 +2748,7 @@ farms_timing
 wait_build 1 robotics_support_bay
 wait_train 2 shuttle
 :transport_ensure
+debug_name TransportEnsure
 wait 50
 
 resources_jump 2500 1000 t_ensured
@@ -2672,6 +2760,7 @@ check_transports
 stop
 
 :resource_waitskip
+debug_name ResourceWaitskip
 wait 16
 
 resources_jump 1033 785 waitskip_do
@@ -2681,6 +2770,7 @@ wait 1299
 return
 
 :defense_panic
+debug_name DefensePanic
 wait_rand 1 3
 
 multirun decrement_workers
@@ -2691,6 +2781,7 @@ deaths 13 AtMost 12 probe dp_checker
 #under_attack 1
 max_force 1500
 :dp_retain
+debug_name DPRetain
 wait 1000
 
 deaths 13 AtLeast 13 probe dp_retain
@@ -2699,6 +2790,7 @@ max_force 2000
 goto dp_checker
 
 :decrement_workers
+debug_name DecrementWorkers
 time_jump 20 dec_2
 wait 500
 
@@ -2707,6 +2799,7 @@ deaths 13 Subtract 1 probe decrement_workers
 goto decrement_workers
 
 :dec_2
+debug_name Dec2
 time_jump 33 dec_3
 wait 333
 
@@ -2715,6 +2808,7 @@ deaths 13 Subtract 2 probe dec_2
 goto dec_2
 
 :dec_3
+debug_name Dec3
 wait 250
 
 deaths 13 AtMost 2 probe dec_3
@@ -2723,10 +2817,12 @@ deaths 13 Subtract 3 probe dec_3
 goto dec_3
 
 :harsh_dec
+debug_name HarshDec
 deaths 13 Set 20 probe dec_3
 return
 
 :worker_ensure
+debug_name WorkerEnsure
 max_workers 24
 wait 22500
 
@@ -2807,6 +2903,7 @@ expand 1 exp_noguard
 return
 
 :panic_obs
+debug_name PanicObs
 wait 16
 
 enemyowns_jump lurker obs_get
@@ -2816,6 +2913,7 @@ enemyowns_jump wraith obs_get
 goto panic_obs
 
 :obs_get
+debug_name ObsGet
 wait_build 1 cybernetics_core
 build 1 robotics_facility 90
 wait_build 1 robotics_facility
@@ -2828,6 +2926,7 @@ wait 1500
 stop
 
 :grand_exchange
+debug_name GrandExchange
 wait_rand 150 210
 
 call ge_gas
@@ -2852,16 +2951,19 @@ return
 return
 
 :start_cheat
+debug_name StartCheat
 wait_build 1 pylon
 
 resources 13 Add Ore 60 ge_skip
 :mp_helper
+debug_name MPHelper
 wait 1500
 
 help_iftrouble
 goto mp_helper
 
 :rush_panic
+debug_name RushPanic
 wait 50
 
 time_jump 14 rowk_skip
@@ -2880,6 +2982,7 @@ build 6 photon_cannon 80
 goto rowk_skip
 
 :rush_panic_exp
+debug_name RushPanicExp
 wait 50
 
 deaths 13 AtLeast 1 bunker rowk_skip
@@ -2898,6 +3001,7 @@ build 2 gateway 80
 goto rowk_skip
 
 :late_cash
+debug_name LateCash
 wait 3000
 
 multirun delayed_mining
@@ -2908,6 +3012,7 @@ time_jump 28 lc_small
 goto late_cash_loop
 
 :lc_small
+debug_name LCSmall
 wait 200
 
 resources 13 Add Ore 3 late_cash
@@ -2916,6 +3021,7 @@ time_jump 45 lc_big
 goto lc_small
 
 :lc_big
+debug_name LCBig
 wait 166
 
 resources 13 Add Ore 6 late_cash
@@ -2923,6 +3029,7 @@ resources 13 Add Gas 2 late_cash
 goto lc_big
 
 :delayed_mining
+debug_name DelayedMining
 upgrade_jump 13 Set 74 1 late_cash
 wait 19750
 
@@ -2933,6 +3040,7 @@ upgrade_jump 13 Set 74 1 late_cash
 stop
 
 :check_antirush
+debug_name CheckAntiRush
 deaths 13 AtLeast 1 187 ar_simplified
 #if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
 deaths 13 Set 1 187 ar_loop
@@ -2940,6 +3048,7 @@ deaths 13 Set 1 187 ar_loop
 multirun ar_secure
 multirun ar_timelimit
 :ar_loop
+debug_name ARLoop
 wait 16
 
 deaths 13 Exactly 1 187 ar_loop
@@ -2947,6 +3056,7 @@ deaths 13 Exactly 1 187 ar_loop
 return
 
 :ar_secure
+debug_name ARSecure
 deaths 13 Set 0 188 ar_loop
 #vespene geyser death used between ar_ waits to communicate if we're done with waiting
 wait_secure
@@ -2954,9 +3064,11 @@ deaths 13 Exactly 1 188 ar_other_done
 deaths 13 Set 0 187 ar_loop
 deaths 13 Set 1 188 ar_loop
 :ar_other_done
+debug_name AROtherDone
 stop
 
 :ar_timelimit
+debug_name ARTimeLimit
 deaths 13 Set 0 188 ar_loop
 wait_rand 625 850
 
@@ -2969,16 +3081,19 @@ deaths 13 Set 1 188 ar_loop
 stop
 
 :ar_simplified
+debug_name ARSimplified
 wait_rand 333 750
 return
 
 :late_check_transports
+debug_name LateCheckTransports
 wait_rand 29550 37240
 
 check_transports
 stop
 
 :max_supply_fallback
+debug_name MaxSupplyFallback
 wait 1500
 
 supply 13 AtMost 249 Used marine Protoss max_supply_fallback
@@ -2991,4 +3106,3 @@ wait 5000
 
 print Debug_Protoss_SupplyCap
 goto max_supply_fallback
-
