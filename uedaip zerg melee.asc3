@@ -2521,23 +2521,22 @@ build 2 evolution_chamber 80
 upgrade 1 z_carapace 30
 upgrade 1 z_flyer_carapace 40
 upgrade 1 z_flyer_attack 40
-upgrade 2 z_missile_attack 30
-train 6 hydralisk
 train 6 mutalisk
-build 1 queen_nest 80
+upgrade 2 z_missile_attack 30
 train 9 mutalisk
+build 1 queen_nest 80
 attack_clear
 attack_add 9 mutalisk
 set_attacks 2
 target_expansion
 wait 16
 
+train 6 hydralisk
 wait_build 1 queen_nest
 call resource_waitskip
 build 1 hive 100
 train 6 hydralisk
 build 1 defiler_mound 80
-train 12 hydralisk
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 defensebuild_gg 1 queen
