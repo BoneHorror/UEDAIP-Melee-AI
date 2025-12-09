@@ -3039,7 +3039,6 @@ upgrade_jump 13 Set 74 1 late_cash
 stop
 
 :check_antirush
-debug_name CheckAntiRush
 deaths 13 AtLeast 1 187 ar_simplified
 #if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
 deaths 13 Set 1 187 ar_loop
@@ -3047,7 +3046,6 @@ deaths 13 Set 1 187 ar_loop
 multirun ar_secure
 multirun ar_timelimit
 :ar_loop
-debug_name ARLoop
 wait 16
 
 deaths 13 Exactly 1 187 ar_loop
@@ -3055,7 +3053,6 @@ deaths 13 Exactly 1 187 ar_loop
 return
 
 :ar_secure
-debug_name ARSecure
 deaths 13 Set 0 188 ar_loop
 #vespene geyser death used between ar_ waits to communicate if we're done with waiting
 wait_secure
@@ -3063,11 +3060,9 @@ deaths 13 Exactly 1 188 ar_other_done
 deaths 13 Set 0 187 ar_loop
 deaths 13 Set 1 188 ar_loop
 :ar_other_done
-debug_name AROtherDone
 stop
 
 :ar_timelimit
-debug_name ARTimeLimit
 deaths 13 Set 0 188 ar_loop
 wait_rand 625 850
 
@@ -3080,7 +3075,6 @@ deaths 13 Set 1 188 ar_loop
 stop
 
 :ar_simplified
-debug_name ARSimplified
 wait_rand 333 750
 return
 
