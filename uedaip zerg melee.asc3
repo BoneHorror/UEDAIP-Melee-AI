@@ -1036,7 +1036,6 @@ train 6 ultralisk
 call resource_waitskip
 attack_do
 attack_clear
-
 train 60 hydralisk
 attack_add 60 hydralisk
 attack_add 4 ultralisk
@@ -2502,10 +2501,8 @@ define_max 12 guardian
 define_max 10 devourer
 define_max 14 scourge
 define_max 6 queen
-build 1 queen_nest 80
 build 1 spire 80
 build 1 hydralisk_den 80
-wait_buildstart 1 queen_nest
 train 4 hydralisk
 defensebuild_ag 1 hydralisk
 defenseuse_ag 1 hydralisk
@@ -2514,8 +2511,6 @@ place_guard scourge 0
 place_guard scourge 0
 place_guard mutalisk 1
 place_guard mutalisk 2
-wait_build 1 queen_nest
-build 1 hive 100
 upgrade 1 hydralisk_range 50
 upgrade 1 hydralisk_speed 50
 defensebuild_gg 1 mutalisk
@@ -2527,18 +2522,19 @@ upgrade 1 z_carapace 30
 upgrade 1 z_flyer_carapace 40
 upgrade 1 z_flyer_attack 40
 upgrade 2 z_missile_attack 30
-train 2 scourge
 train 6 hydralisk
 train 6 mutalisk
+build 1 queen_nest 80
 train 9 mutalisk
 attack_clear
-attack_add 2 scourge
 attack_add 9 mutalisk
 set_attacks 2
 target_expansion
 wait 16
 
+wait_build 1 queen_nest
 call resource_waitskip
+build 1 hive 100
 train 6 hydralisk
 build 1 defiler_mound 80
 train 12 hydralisk
@@ -2572,19 +2568,9 @@ defenseuse_ag 1 devourer
 defensebuild_aa 1 mutalisk
 defensebuild_aa 1 devourer
 defenseuse_aa 1 devourer
-train 5 mutalisk
-train 2 queen
-train 7 mutalisk
-tech ensnare 60
-train 9 mutalisk
 attack_do
 attack_clear
-attack_add 9 mutalisk
-target_expansion
-wait 16
-
-attack_do
-attack_clear
+resources 13 AtLeast_Call Gas 600 island_muta_atk_subroutine
 define_max 18 zergling
 upgrade 2 z_carapace 30
 upgrade 2 z_flyer_carapace 40
@@ -3047,6 +3033,16 @@ attack_do
 attack_clear
 call resource_waitskip
 goto protoss_loop
+
+:island_muta_atk_subroutine
+train 9 mutalisk
+attack_add 9 mutalisk
+target_expansion
+wait 16
+
+attack_do
+attack_clear
+return
 
 :check_queens
 define_max 7 infested_terran
