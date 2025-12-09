@@ -1850,7 +1850,6 @@ defensebuild_aa 1 valkyrie
 defenseuse_aa 1 valkyrie
 define_max 5 dropship
 check_transports 
-expand 2 std_expo
 upgrade 1 medic_mana 40
 call resource_waitskip
 train 1 panzer
@@ -1859,7 +1858,7 @@ wait_buildstart 1 covert_ops
 upgrade 2 t_ship_plating 40
 place_guard phantom 0
 multirun iniBTurret
-expand 3 std_expo
+expand 2 std_expo
 
 defensebuild_gg 1 phantom
 defensebuild_ag 1 phantom
@@ -1875,12 +1874,14 @@ defensebuild_gg 2 death_knight
 defensebuild_ag 2 death_knight
 defenseuse_gg 2 death_knight
 defenseuse_ag 2 death_knight
-expand 3 std_expo
+wait 2500
+
 upgrade 1 ghost_sight 40
-expand 4 std_expo
+expand 3 std_expo
 
 upgrade 1 staballoy 40
 upgrade 2 p_plasma_shield 40
+call resource_waitskip
 call resource_waitskip
 
 upgrade 3 t_infantry_weapon 40
@@ -1888,16 +1889,18 @@ upgrade 3 t_infantry_armor 40
 call resource_waitskip
 upgrade 1 t_vehicle_plating 40
 upgrade 3 t_ship_plating 50
-expand 5 std_expo
+expand 4 std_expo
 upgrade 2 t_vehicle_plating 40
 define_max 7 valhalla
 place_guard valhalla 0
 train 1 valhalla
 tech psionic_storm 80
 call resource_waitskip
+call resource_waitskip
+call resource_waitskip
 
 upgrade 3 p_plasma_shield 55
-expand 6 std_expo
+expand 5 std_expo
 defensebuild_ga 1 valhalla
 defensebuild_aa 1 valhalla
 defensebuild_ag 1 valhalla
