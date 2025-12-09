@@ -1861,10 +1861,10 @@ place_guard phantom 0
 multirun iniBTurret
 expand 3 std_expo
 
-defensebuild_gg 2 phantom
-defensebuild_ag 2 phantom
-defenseuse_gg 2 phantom
-defenseuse_ag 2 phantom
+defensebuild_gg 1 phantom
+defensebuild_ag 1 phantom
+defenseuse_gg 1 phantom
+defenseuse_ag 1 phantom
 upgrade 1 p_plasma_shield 40
 upgrade 2 t_infantry_weapon 40
 upgrade 2 t_infantry_armor 40
@@ -1882,8 +1882,6 @@ expand 4 std_expo
 
 upgrade 1 staballoy 40
 upgrade 2 p_plasma_shield 40
-build 4 barracks 80
-wait_build 4 barracks
 call resource_waitskip
 
 upgrade 3 t_infantry_weapon 40
