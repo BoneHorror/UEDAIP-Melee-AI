@@ -41,6 +41,7 @@ multirun max_supply_fallback
 creep 3
 
 :recurse
+debug_name Recurse
 deaths 13 Set 1000 176 recurse_set
 multirun recurse_set
 groundmap_jump t_groundmap
@@ -250,6 +251,7 @@ multirun ctech_hallu
 return
 
 :ctech_storm
+debug_name UTechStorm
 wait 16
 
 tech_jump 13 Exactly psionic_storm 0 ctech_storm
@@ -261,6 +263,7 @@ idle_orders 142 128 1 valhalla 356 carrier|devourer|guardian|ultralisk|infested_
 stop
 
 :ctech_hallu
+debug_name UTechHallu
 wait 16
 
 tech_jump 13 Exactly hallucination 0 ctech_hallu
@@ -270,6 +273,7 @@ idle_orders 148 64 1 valhalla 512 ultralisk|guardian|arbiter|devourer|archon|bat
 stop
 
 :ctech_lockdown
+debug_name UTechLockdown
 wait 16
 
 tech_jump 13 Exactly ensnare 0 ctech_lockdown
@@ -282,6 +286,7 @@ idle_orders 146 8 1 phantom 256 group_men 30 deathrattle
 stop
 
 :ttech_lockdown
+debug_name TTechLockdown
 wait 16
 
 tech_jump 13 Exactly lockdown 0 ttech_lockdown
@@ -290,6 +295,7 @@ idle_orders 115 32 1 ghost 280 carrier|reaver|hnorad|battlecruiser|siege_tank|pa
 stop
 
 :ctech_resto
+debug_name UTechResto
 wait 16
 
 tech_jump 13 Exactly restoration 0 ctech_lockdown
@@ -300,6 +306,7 @@ idle_orders Restoration 33 1 medic 256 Group_Men 35 NotEnemies|Own|Allied|Self(E
 stop
 
 :ctech_flare
+debug_name UTechFlare
 wait 16
 
 tech_jump 13 Exactly optical_flare 0 ctech_flare
@@ -309,12 +316,14 @@ idle_orders 185 0 1 medic 256 group_men 80 WithoutSpellEffects(Blind)|Deathrattl
 stop
 
 :supply_fix
+debug_name SupplyFix
 wait 16000
 
 farms_timing
 stop
 
 :emp_allin
+debug_name EmpAllin
 train 10 heavy_marine
 train 10 tesla_trooper
 attack_add 4 heavy_marine
@@ -322,6 +331,7 @@ attack_add 2 tesla_trooper
 return
 
 :UED_selection
+debug_name UEDSelection
 defaultbuild_off
 build 1 command_center 150
 wait_buildstart 1 command_center
@@ -333,6 +343,7 @@ multirun ued_detector
 race_jump ued_latebio ued_biomech ued_empair
 
 :ued_empair
+debug_name UEDEmpAir
 random_call 64 ued_valhallarush
 build 8 scv 80
 wait_buildstart 7 scv
@@ -555,6 +566,7 @@ define_max 6 valhalla
 goto exp_repeater
 
 :ued_valhallarush
+debug_name UEDValhallaRush
 build 8 scv 80
 wait_buildstart 7 scv
 wait 1
@@ -666,6 +678,7 @@ attack_add 2 valhalla
 goto added_vals
 
 :UED_EMPAtk
+debug_name UEDEMPAtk
 define_max 34 heavy_marine
 define_max 16 tesla_trooper
 define_max 5 medic
@@ -682,6 +695,7 @@ attack_add 5 medic
 set_attacks 2
 player_need 1 machine_shop
 :EMPPush
+debug_name EMPPush
 train 1 panzer
 train 15 heavy_marine
 train 5 tesla_trooper
@@ -698,6 +712,7 @@ attack_add 10 tesla_trooper
 set_attacks 2
 
 :EPu2
+debug_name EPu2
 train 20 heavy_marine
 train 1 panzer
 train 5 medic
@@ -724,6 +739,7 @@ call resource_waitskip
 notowns_jump covert_ops EPu2
 
 :ELo
+debug_name ELo
 set_attacks 3
 
 attack_do
@@ -778,6 +794,7 @@ call resource_waitskip
 goto ELo
 
 :emp_timing
+debug_name EmpTiming
 build 10 scv 80
 wait_buildstart 8 scv
 build 1 supply_depot 80
@@ -832,6 +849,7 @@ place_guard tesla_trooper 0
 return
 
 :ued_latebio
+debug_name UEDLateBio
 random_jump 45 ued_AirStart
 build 8 scv 80
 wait_buildstart 7 scv
@@ -848,9 +866,11 @@ wait_buildstart 1 barracks
 random_jump 128 ulb_skiprush
 deaths 13 Set 1 arbiter ulb_dorush
 :ulb_skiprush
+debug_name ULBSkipRush
 deaths 13 Exactly 1 arbiter ulb_dorush
 expand 1 std_expo
 :ulb_dorush
+debug_name ULBDorush
 build 1 refinery 80
 wait_buildstart 1 refinery
 build 14 scv 80
@@ -862,6 +882,7 @@ deaths 13 Exactly 0 arbiter ulb_cont
 call ued_2fac
 define_max 4 scorpion
 :ulb_cont
+debug_name ULBCont
 define_max 4 heavy_marine
 build 15 scv 80
 train 2 heavy_marine
@@ -1046,6 +1067,7 @@ goto exp_repeater
 
 
 :UED_BioScorpAt
+debug_name UEDBioScorpAt
 tech spider_mines 40
 define_max 50 heavy_marine
 define_max 255 tesla_trooper
@@ -1086,6 +1108,7 @@ player_need 1 covert_ops
 build 2 starport 80
 build 2 control_tower 100
 :tPu
+debug_name TPu
 attack_add 20 heavy_marine
 attack_add 10 scorpion
 attack_add 3 valkyrie
@@ -1106,6 +1129,7 @@ call resource_waitskip
 
 notowns_jump covert_ops tPu
 :TLo
+debug_name TLo
 set_attacks 3
 
 attack_do
@@ -1165,6 +1189,7 @@ call resource_waitskip
 goto TLo
 
 :legion_allin
+debug_name LegionAllin
 farms_timing
 build 18 scv 80
 train 4 heavy_marine
@@ -1184,6 +1209,7 @@ attack_prepare
 return
 
 :ued_biomech
+debug_name UEDBioMech
 random_jump 67 ued_AirStart
 build 8 scv 80
 wait_buildstart 7 scv
@@ -1207,6 +1233,7 @@ random_call 58 legion_allin
 goto ubm_skiprush
 
 :ued_2fac
+debug_name UED2Fac
 #random_jump 128 ued_2fgol
 build 1 factory 80
 wait_buildstart 1 factory
@@ -1249,6 +1276,7 @@ place_guard scorpion 2
 return
 
 :ubm_quickgas
+debug_name UBMQuickGas
 build 1 refinery 80
 build 13 scv 80
 wait_buildstart 1 refinery
@@ -1263,6 +1291,7 @@ build 15 scv 80
 random_call 128 ued_2fac
 define_max 4 scorpion
 :ubm_skiprush
+debug_name UBMSkipRush
 define_max 4 heavy_marine
 train 2 heavy_marine
 build 1 factory 80
@@ -1460,6 +1489,7 @@ goto exp_repeater
 
 
 :UED_MechBio
+debug_name UEDMechBio
 random_jump 128 ScorpMech
 define_max 30 heavy_marine
 define_max 255 tesla_trooper
@@ -1493,6 +1523,7 @@ target_expansion
 call resource_waitskip
 attack_clear
 :mPu
+debug_name MPu
 attack_add 20 heavy_marine
 attack_add 3 medic
 attack_add 5 panzer
@@ -1514,6 +1545,7 @@ call resource_waitskip
 
 notowns_jump covert_ops mPu
 :MLo
+debug_name MLo
 set_attacks 3
 
 attack_do
@@ -1568,6 +1600,7 @@ call resource_waitskip
 goto MLo
 
 :ScorpMech
+debug_name ScorpMech
 define_max 18 heavy_marine
 define_max 255 tesla_trooper
 define_max 4 medic
@@ -1604,6 +1637,7 @@ target_expansion
 call resource_waitskip
 attack_clear
 :ScPu
+debug_name ScPu
 attack_add 8 scorpion
 attack_add 5 panzer
 attack_add 7 death_knight
@@ -1616,6 +1650,7 @@ call resource_waitskip
 
 notowns_jump covert_ops ScPu
 :ScLo
+debug_name ScLo
 set_attacks 3
 
 attack_do
@@ -1660,9 +1695,11 @@ call resource_waitskip
 goto ScLo
 
 :ued_AirStart
+debug_name UEDAirStart
 call usetup
 random_call 32 ued_valhallarush
 :ued_AirNoRush
+debug_name UEDAirNoRush
 build 8 scv 80
 wait_buildstart 7 scv
 deaths 13 Set 4 lurker ued_empair
@@ -1674,6 +1711,7 @@ call usetup
 groundmap_jump ius
 build 1 refinery 80
 :ius
+debug_name IUS
 build 13 scv 80
 wait_buildstart 12 scv
 define_max 2 dropship
@@ -1682,8 +1720,10 @@ multirun island_transports
 goto ua_earlyskip
 
 :ua_earlydo
+debug_name UAEarlyDo
 expand 1 std_expo
 :ua_earlyskip
+debug_name UAEarlySkip
 build 1 barracks 80
 wait_buildstart 1 barracks
 build 1 factory 80
@@ -1883,6 +1923,7 @@ goto exp_repeater
 
 
 :UED_Air
+debug_name UEDAir
 define_max 30 heavy_marine
 define_max 255 tesla_trooper
 define_max 4 medic
@@ -1915,6 +1956,7 @@ target_expansion
 call resource_waitskip
 attack_clear
 :aPu
+debug_name APu
 attack_add 20 heavy_marine
 attack_add 3 medic
 attack_add 10 skywing
@@ -1932,6 +1974,7 @@ call resource_waitskip
 
 notowns_jump science_facility aPu
 :ALo
+debug_name ALo
 set_attacks 3
 
 attack_do
@@ -1968,18 +2011,21 @@ call resource_waitskip
 goto ALo
 
 :t_groundmap
+debug_name TGroundMap
 #You can set unit 177 (Mineral Field 2) deaths for this (current) player to 1 map-side to force AI into Terran
 deaths 13 Exactly 1 177 on_rec_skipuedground
 random_jump 128 UED_selection
 #You can also set unit 177 deaths to 2 to force AI into selecting UED
 deaths 13 Exactly 2 177 UED_selection
 :on_rec_skipuedground
+debug_name OnRecSkipUEDGround
 random_jump 13 light_focus
 random_jump 20 dominion_air
 random_jump 85 t_mech
 race_jump dominion_air firemech t_mech
 
 :firemech
+debug_name FireMech
 build 1 command_center 150
 wait_buildstart 1 command_center
 #random_call 45 proxy_rax
@@ -2233,6 +2279,7 @@ call resource_waitskip
 build 2 control_tower 100
 wait_buildstart 2 control_tower
 :exp_repeater
+debug_name ExpRepeater
 wait 8500
 expand 9 std_expo
 goto exp_repeater
@@ -2306,6 +2353,7 @@ goto exp_repeater
 #return
 
 :early_bio
+debug_name EarlyBio
 define_max 30 marine
 build 1 barracks 80
 wait_buildstart 1 barracks
@@ -2349,6 +2397,7 @@ place_guard marine 2
 return
 
 :firegol_ter
+debug_name FiregolTer
 random_jump 128 ghost_focus
 define_max 40 marine
 define_max 20 goliath
@@ -2362,6 +2411,7 @@ attack_add 12 firebat
 set_attacks 2
 
 :defRout017
+debug_name DefRout017
 train 2 firebat
 train 2 goliath
 train 6 firebat
@@ -2380,6 +2430,7 @@ attack_add 10 firebat
 set_attacks 2
 
 :defRout018
+debug_name DefRout018
 #random_jump 1 latebio
 #random_jump 1 latemech
 train 6 marine
@@ -2409,6 +2460,7 @@ target_expansion
 call resource_waitskip
 
 :defRout020
+debug_name DefRout020
 set_attacks 2
 attack_do
 attack_clear 
@@ -2438,6 +2490,7 @@ call resource_waitskip
 goto defRout020
 
 :ghost_focus
+debug_name GhostFocus
 define_max 50 marine
 define_max 12 goliath
 define_max 12 siege_tank
@@ -2450,6 +2503,7 @@ attack_add 12 marine
 set_attacks 2
 
 :gFac
+debug_name GFac
 train 2 marine
 train 2 goliath
 train 6 marine
@@ -2467,6 +2521,7 @@ attack_add 8 goliath
 set_attacks 2
 
 :gCo
+debug_name GCo
 train 6 marine
 train 4 siege_tank
 train 12 marine
@@ -2494,6 +2549,7 @@ target_expansion
 call resource_waitskip
 
 :gLo
+debug_name GLo
 set_attacks 2
 attack_do
 attack_clear 
@@ -2525,6 +2581,7 @@ call resource_waitskip
 goto gLo
 
 :light_focus
+debug_name LightFocus
 build 1 command_center 150
 wait_buildstart 1 command_center
 build 7 scv 130
@@ -2725,6 +2782,7 @@ call resource_waitskip
 goto exp_repeater
 
 :light_atk
+debug_name LightAtk
 define_max 20 marine
 define_max 255 goliath
 define_max 8 siege_tank
@@ -2742,6 +2800,7 @@ attack_add 9 vulture
 set_attacks 2
 
 :LSC
+debug_name LSC
 train 1 siege_tank
 train 3 vulture
 train 6 wraith
@@ -2759,6 +2818,7 @@ attack_add 6 goliath
 set_attacks 2
 
 :LPu
+debug_name LPu
 train 12 vulture
 train 6 goliath
 target_expansion 
@@ -2775,6 +2835,7 @@ target_expansion
 call resource_waitskip
 
 :LLo
+debug_name LLo
 set_attacks 4
 attack_do
 attack_clear 
@@ -2827,8 +2888,10 @@ call resource_waitskip
 goto LLo
 
 :2fac_timing
+debug_name TwoFacTiming
 random_jump 128 2fac_gol
 :2fac_forcevult
+debug_name TwoFacForceVult
 expand 1 std_expo
 define_max 2 marine
 build 1 factory 80
@@ -2881,6 +2944,7 @@ attack_clear
 return
 
 :2fac_gol
+debug_name TwoFacGol
 expand 1 std_expo
 build 1 factory 80
 wait_buildstart 1 factory
@@ -2922,6 +2986,7 @@ place_guard goliath 2
 return
 
 :t_mech
+debug_name TMech
 random_jump 19 firemech
 build 1 command_center 150
 wait_buildstart 1 command_center
@@ -2952,6 +3017,7 @@ train 2 marine
 random_jump 212 m_eexpo
 expand 1 std_expo
 :m_eexpo
+debug_name MEexpo
 build 1 factory 80
 wait_buildstart 1 factory
 expand 1 std_expo
@@ -2968,6 +3034,7 @@ build 16 scv 80
 build 3 supply_depot 80
 wait_buildstart 2 barracks
 :mb_skip
+debug_name MBSkip
 build 16 scv 80
 build 3 supply_depot 80
 wait_buildstart 14 scv
@@ -3056,6 +3123,7 @@ train 7 goliath
 attack_add 7 goliath
 
 :gi_continue
+debug_name GIContinue
 train 4 siege_tank
 attack_add 4 siege_tank
 target_expansion
@@ -3114,6 +3182,7 @@ upgrade 3 t_vehicle_weapon 70
 random_jump 135 scia_mec_skip
 upgrade 1 science_aura 40
 :scia_mec_skip
+debug_name SciaMecSkip
 call resource_waitskip
 wait 633
 
@@ -3195,6 +3264,7 @@ upgrade 1 ghost_mana 30
 goto exp_repeater
 
 :TM_atk
+debug_name TMAtk
 define_max 20 marine
 define_max 30 goliath
 define_max 20 siege_tank
@@ -3211,6 +3281,7 @@ attack_add 4 siege_tank
 set_attacks 2
 
 :TMSC
+debug_name TMSC
 train 6 vulture
 train 6 goliath
 train 4 siege_tank
@@ -3224,6 +3295,7 @@ attack_add 8 siege_tank
 set_attacks 2
 
 :TMPu
+debug_name TMPu
 train 10 goliath
 train 8 siege_tank
 target_expansion 
@@ -3244,6 +3316,7 @@ target_expansion
 call resource_waitskip
 
 :TMLo
+debug_name TMLo
 set_attacks 2
 attack_do
 attack_clear
@@ -3282,6 +3355,7 @@ attack_clear
 goto TMLo
 
 :dominion_air
+debug_name DominionAir
 build 1 command_center 150
 wait_buildstart 1 command_center
 build 7 scv 130
@@ -3297,6 +3371,7 @@ wait_buildstart 8 scv
 groundmap_jump ids
 build 1 refinery 80
 :ids
+debug_name IDS
 build 1 barracks 80
 wait_buildstart 1 barracks
 capt_expand 
@@ -3313,6 +3388,7 @@ multirun island_transports
 goto doma_earlyskip
 
 :island_transports
+debug_name IslandTransports
 wait_build 1 factory
 build 1 starport 80
 wait_build 1 starport
@@ -3329,6 +3405,7 @@ expand 1 std_expo
 wait 15500
 
 :it_loop
+debug_name ITLoop
 wait 3720
 
 define_max 7 dropship
@@ -3336,8 +3413,10 @@ train 7 dropship
 goto it_loop
 
 :doma_earlydo
+debug_name DomaEarlyDo
 expand 1 std_expo
 :doma_earlyskip
+debug_name DomaEarlySkip
 train 1 marine
 build 13 scv 80
 defensebuild_gg 2 marine
@@ -3425,6 +3504,7 @@ attack_add 2 siege_tank
 call check_antirush
 attack_prepare
 :doma_skiptiming
+debug_name DomaSkipTiming
 build 3 barracks 80
 wait_buildstart 3 barracks
 build 20 scv 80
@@ -3594,6 +3674,7 @@ upgrade 1 ghost_sight 30
 goto exp_repeater
 
 :dom_atk
+debug_name DomAtk
 define_max 20 marine
 define_max 255 goliath
 define_max 6 siege_tank
@@ -3609,6 +3690,7 @@ attack_add 8 wraith
 set_attacks 2
 
 :DSC
+debug_name DSC
 train 1 siege_tank
 train 10 marine
 train 4 wraith
@@ -3623,6 +3705,7 @@ attack_add 12 wraith
 set_attacks 2
 
 :DPu
+debug_name DPu
 train 12 wraith
 target_expansion 
 call resource_waitskip
@@ -3640,6 +3723,7 @@ call resource_waitskip
 
 define_max 22 wraith
 :DLo
+debug_name DLo
 set_attacks 3
 attack_do
 attack_clear 
@@ -3661,6 +3745,7 @@ resources 13 AtMost Gas 500 islandloop_skiptank
 attack_add 4 siege_tank
 train 4 siege_tank
 :islandloop_skiptank
+debug_name IslandLoopSkipTank
 call check_antirush
 target_expansion 
 call resource_waitskip
@@ -3674,6 +3759,7 @@ resources 13 AtMost Gas 1200 islandloop_skipbc
 attack_add 2 hnorad
 train 2 hnorad
 :islandloop_skipbc
+debug_name IslandLoopSkipBC
 train 20 marine
 call check_antirush
 target_expansion 
@@ -3707,6 +3793,7 @@ attack_clear
 return
 
 :recurse_set
+debug_name RecurseSet
 wait 50
 
 deaths 13 Set 1000 176 recurse_set
@@ -3714,6 +3801,7 @@ deaths 13 Set 1000 176 recurse_set
 goto recurse_set
 
 :recurse_subtract
+debug_name RecurseSubtract
 wait 50
 
 deaths 13 Subtract 25 176 recurse_subtract
@@ -3721,6 +3809,7 @@ deaths 13 Exactly 0 176 recurse
 goto recurse_subtract
 
 :std_expo
+debug_name StdExpo
 start_town 
 build 1 command_center 130
 get_oldpeons 1
@@ -3732,9 +3821,11 @@ place_guard heavy_marine 0
 place_guard heavy_marine 0
 goto expo_skip_terran_guards
 :expo_skip_ued_guards
+debug_name ExpoSkipUEDGuards
 place_guard marine 0
 place_guard marine 0
 :expo_skip_terran_guards
+debug_name ExpoSkipTerranGuards
 multirun exp_workers
 wait 300
 
@@ -3768,6 +3859,7 @@ wait_build 15 scv
 goto prodGetter
 
 :techExpCheck
+debug_name TechExpCheck
 notowns_jump academy defRout029
 goto defRout030
 
@@ -3962,13 +4054,16 @@ player_need 1 science_facility
 stop
 
 :small_expo
+debug_name SmallExpo
 build 2 missile_turret 80
 :se_loop
+debug_name SELoop
 wait 1500
 
 goto se_loop
 
 :prodGetter
+debug_name ProdGetter
 resources 13 AtLeast_Wait Ore 400 defRout017
 deaths 13 Exactly 1 lurker exp_comsat
 deaths 13 Exactly 2 lurker exp_comsat2
@@ -3988,12 +4083,14 @@ wait_buildstart 1 nuclear_silo
 goto defRout054
 
 :exp_comsat
+debug_name ExpComsat
 build 1 comsat_station 80
 call random_sciv_guard
 build 2 barracks 80
 goto defRout054
 
 :exp_comsat2
+debug_name ExpComsat2
 build 1 comsat_station 80
 call random_sciv_guard
 build 1 barracks 80
@@ -4003,6 +4100,7 @@ build 1 machine_shop 100
 goto defRout054
 
 :exp_comsat2n
+debug_name ExpComsat2n
 notowns_jump comsat_station exp_comsat2
 random_jump 158 exp_comsat2
 build 1 nuclear_silo 80
@@ -4014,6 +4112,7 @@ build 1 machine_shop 100
 goto defRout054
 
 :exp_comsat5n
+debug_name ExpComsat5n
 notowns_jump comsat_station exp_comsat5
 random_jump 158 exp_comsat5
 build 1 nuclear_silo 80
@@ -4024,6 +4123,7 @@ build 2 machine_shop 100
 goto defRout054
 
 :exp_comsat5
+debug_name ExpComsat5
 build 1 comsat_station 80
 call random_sciv_guard
 build 2 factory 80
@@ -4032,6 +4132,7 @@ build 2 machine_shop 100
 goto defRout054
 
 :exp_comsat4
+debug_name ExpComsat4
 build 1 comsat_station 80
 call random_sciv_guard
 build 1 starport 80
@@ -4043,6 +4144,7 @@ build 2 control_tower 100
 goto defRout054
 
 :exp_comsat6
+debug_name ExpComsat6
 build 1 comsat_station 80
 call random_sciv_guard
 build 1 starport 80
@@ -4054,6 +4156,7 @@ build 1 machine_shop 100
 goto defRout054
 
 :vult_avail
+debug_name VultAvail
 wait 160
 
 resources 13 AtLeast Ore 200 ve1
@@ -4062,6 +4165,7 @@ resources 13 AtLeast Ore 1200 ve3
 goto vult_avail
 
 :ve1
+debug_name VE1
 train 1 vulture
 wait 300
 
@@ -4071,6 +4175,7 @@ wait 550
 goto vult_avail
 
 :ve2
+debug_name VE2
 train 3 vulture
 wait 350
 
@@ -4080,6 +4185,7 @@ wait 650
 goto vult_avail
 
 :ve3
+debug_name VE3
 train 6 vulture
 wait 500
 
@@ -4089,18 +4195,22 @@ wait 950
 goto vult_avail
 
 :ec_star
+debug_name ECStar
 build 1 starport 80
 wait_build 1 starport
 build 1 control_tower 100
 goto defRout054
 
 :random_sciv_guard
+debug_name RandomScivGuard
 random_jump 158 sciv_pass
 place_guard science_vessel 0
 :sciv_pass
+debug_name ScivPass
 return
 
 :exp_comsat3
+debug_name ExpComsat3
 build 1 comsat_station 80
 call random_sciv_guard
 build 1 factory 80
@@ -4147,14 +4257,17 @@ stop
 
 
 :exp_workers
+debug_name ExpWorkers
 wait_build 1 command_center
 time_jump 20 geto_get
 goto geto_get_s
 
 :geto_get
+debug_name GetoGet
 get_oldpeons 6
 
 :geto_get_s
+debug_name GetoGetS
 build 6 scv 100
 wait_build 6 scv
 build 7 scv 80
@@ -4186,6 +4299,7 @@ wait_build 21 scv
 stop 
 
 :worker_decay
+debug_name WorkerDecay
 wait 10700
 
 max_workers 16
@@ -4198,6 +4312,7 @@ max_workers 255
 stop
 
 :iniTurret
+debug_name IniTurret
 notowns_jump engineering_bay defRout082
 goto smallTurret
 
@@ -4208,6 +4323,7 @@ goto iniTurret
 
 
 :smallTurret
+debug_name SmallTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
 resources 13 AtLeast_Wait Ore 500 defRout017
@@ -4218,21 +4334,26 @@ build 3 missile_turret 80
 wait_build 3 missile_turret
 
 :loopTurret
+debug_name LoopTurret
 wait 1500
+
 goto loopTurret
 
 
 :iniBTurret
+debug_name IniBTurret
 notowns_jump engineering_bay defRout085
 goto bigTurret
 
 
 :defRout085
 wait 500
+
 goto iniBTurret
 
 
 :bigTurret
+debug_name BigTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
 resources 13 AtLeast_Wait Ore 400 defRout017
@@ -4242,6 +4363,7 @@ groundmap_jump bTur_con
 goto loopTurret
 
 :bTur_con
+debug_name BTurCon
 build 3 missile_turret 80
 wait_build 3 missile_turret
 resources 13 AtLeast_Wait Ore 700 defRout017
@@ -4259,47 +4381,56 @@ wait_build 5 missile_turret
 goto loopTurret
 
 :supply_ensure
+debug_name SupplyEnsure
 wait 50
 
 resources_jump 650 0 s_ensured
 goto supply_ensure
 
 :s_ensured
+debug_name SEnsured
 farms_timing
 wait_build 1 science_facility
 wait_build 1 control_tower
 wait_train 2 dropship
 :transport_ensure
+debug_name TransportEnsure
 wait 50
 
 resources_jump 2500 1000 t_ensured
 goto transport_ensure
 
 :t_ensured
+debug_name TEnsured
 define_max 5 dropship
 check_transports
 stop
 
 :resource_waitskip
+debug_name ResourceWaitskip
 wait 320
 
 resources_jump 1400 833 waitskip_do
 wait 1433
 
 :waitskip_do
+debug_name WaitskipDo
 return
 
 :defense_panic
+debug_name DefensePanic
 wait_rand 1 3
 
 multirun decrement_workers
 :dp_checker
+debug_name DPChecker
 wait 50
 
 deaths 13 AtMost 12 scv dp_checker
 #under_attack 1
 max_force 1500
 :dp_retain
+debug_name DPRetain
 wait 1000
 
 deaths 13 AtLeast 13 scv dp_retain
@@ -4308,6 +4439,7 @@ max_force 2000
 goto dp_checker
 
 :decrement_workers
+debug_name DecrementWorkers
 time_jump 20 dec_2
 wait 500
 
@@ -4316,6 +4448,7 @@ deaths 13 Subtract 1 scv decrement_workers
 goto decrement_workers
 
 :dec_2
+debug_name Dec2
 time_jump 33 dec_3
 wait 333
 
@@ -4324,6 +4457,7 @@ deaths 13 Subtract 2 scv dec_2
 goto dec_2
 
 :dec_3
+debug_name Dec3
 wait 250
 
 deaths 13 AtMost 2 scv dec_3
@@ -4332,6 +4466,7 @@ deaths 13 Subtract 3 scv dec_3
 goto dec_3
 
 :ued_detector
+debug_name UEDDetector
 wait_build 1 starport
 defensebuild_gg 1 skywing
 defenseuse_gg 1 skywing
@@ -4340,10 +4475,12 @@ defenseuse_aa 1 skywing
 stop
 
 :harsh_dec
+debug_name HarshDec
 deaths 13 Set 20 scv dec_3
 return
 
 :worker_ensure
+debug_name WorkerEnsure
 max_workers 24
 wait 22500
 
@@ -4351,6 +4488,7 @@ max_workers 255
 stop
 
 :grand_exchange
+debug_name GrandExchange
 wait_rand 155 225
 
 call ge_gas
@@ -4375,27 +4513,32 @@ return
 return
 
 :start_cheat
+debug_name StartCheat
 wait_build 1 supply_depot
 
 resources 13 Add Ore 50 ge_skip
 :mp_helper
+debug_name MPHelper
 wait 1500
 
 help_iftrouble
 goto mp_helper
 
 :comsat_evaluator
+debug_name ComsatEvaluator
 multirun panic_obs
 wait_build 1 academy
 if_owned comsat_station cms_skp
 build 1 comsat_station 100
 :cms_skp
+debug_name CMSSkp
 wait_build 1 engineering_bay
 build 1 missile_turret 80
 wait_build 1 missile_turret
 stop
 
 :panic_obs
+debug_name PanicObs
 wait 16
 
 enemyowns_jump lurker obs_get
@@ -4405,6 +4548,7 @@ enemyowns_jump wraith obs_get
 goto panic_obs
 
 :obs_get
+debug_name ObsGet
 build 1 academy 80
 wait_build 1 academy
 build 1 comsat_station 100
@@ -4414,6 +4558,7 @@ wait_build 1 missile_turret
 stop
 
 :irradiate_io
+debug_name IrradiateIO
 wait 16
 
 tech_jump 13 Exactly irradiate 0 irradiate_io
@@ -4429,6 +4574,7 @@ idle_orders Move 16 1 wraith 192 zergling|hydralisk|marine|firebat|heavy_marine|
 stop
 
 :emp_io
+debug_name EmpIO
 wait 16
 
 tech_jump 13 Exactly emp_shockwave 0 emp_io
@@ -4437,6 +4583,7 @@ idle_orders 122 128 1 science_vessel 512 Group_Men 60 InCombat|Count(AtLeast 2 6
 stop
 
 :sciv_evaluator
+debug_name ScivEvaluator
 wait_train 2 science_vessel
 wait 1500
 
@@ -4451,21 +4598,25 @@ call resource_waitskip
 random_jump 160 skip_auraeval
 upgrade 1 science_aura 40
 :skip_auraeval
+debug_name SkipAuraEval
 wait 480
 
 stop
 
 :late_cash
+debug_name LateCash
 wait 3000
 
 multirun delayed_mining
 :late_cash_loop
+debug_name LateCashLoop
 wait 50
 
 time_jump 28 lc_small
 goto late_cash_loop
 
 :lc_small
+debug_name LCSmall
 wait 200
 
 resources 13 Add Ore 3 late_cash
@@ -4474,6 +4625,7 @@ time_jump 45 lc_big
 goto lc_small
 
 :lc_big
+debug_name LCBig
 wait 166
 
 resources 13 Add Ore 6 late_cash
@@ -4481,6 +4633,7 @@ resources 13 Add Gas 2 late_cash
 goto lc_big
 
 :delayed_mining
+debug_name DelayedMining
 upgrade_jump 13 Set 74 1 late_cash
 wait 19750
 
@@ -4491,6 +4644,7 @@ upgrade_jump 13 Set 74 1 late_cash
 stop
 
 :check_antirush
+debug_name CheckAntiRush
 deaths 13 AtLeast 1 187 ar_simplified
 #if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
 deaths 13 Set 1 187 ar_loop
@@ -4498,6 +4652,7 @@ deaths 13 Set 1 187 ar_loop
 multirun ar_secure
 multirun ar_timelimit
 :ar_loop
+debug_name ARLoop
 wait 16
 
 deaths 13 Exactly 1 187 ar_loop
@@ -4505,6 +4660,7 @@ deaths 13 Exactly 1 187 ar_loop
 return
 
 :ar_secure
+debug_name ARSecure
 deaths 13 Set 0 188 ar_loop
 #vespene geyser death used between ar_ waits to communicate if we're done with waiting
 wait_secure
@@ -4512,9 +4668,11 @@ deaths 13 Exactly 1 188 ar_other_done
 deaths 13 Set 0 187 ar_loop
 deaths 13 Set 1 188 ar_loop
 :ar_other_done
+debug_name AROtherDone
 stop
 
 :ar_timelimit
+debug_name ARTimeLimit
 deaths 13 Set 0 188 ar_loop
 wait_rand 625 850
 
@@ -4527,16 +4685,19 @@ deaths 13 Set 1 188 ar_loop
 stop
 
 :ar_simplified
+debug_name ARSimplified
 wait_rand 333 750
 return
 
 :late_check_transports
+debug_name LateCheckTransports
 wait_rand 29550 37240
 
 check_transports
 stop
 
 :max_supply_fallback
+debug_name MaxSupplyFallback
 wait 1500
 
 supply 13 AtMost 245 Used marine Terran max_supply_fallback
