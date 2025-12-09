@@ -4412,7 +4412,6 @@ resources_jump 1400 833 waitskip_do
 wait 1433
 
 :waitskip_do
-debug_name WaitskipDo
 return
 
 :defense_panic
