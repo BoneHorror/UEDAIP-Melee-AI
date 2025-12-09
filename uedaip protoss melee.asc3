@@ -2760,7 +2760,6 @@ check_transports
 stop
 
 :resource_waitskip
-debug_name ResourceWaitskip
 wait 16
 
 resources_jump 1033 785 waitskip_do

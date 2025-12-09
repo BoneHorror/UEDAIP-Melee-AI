@@ -4407,7 +4407,6 @@ check_transports
 stop
 
 :resource_waitskip
-debug_name ResourceWaitskip
 wait 320
 
 resources_jump 1400 833 waitskip_do
