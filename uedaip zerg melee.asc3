@@ -49,6 +49,7 @@ wait_rand 2 3
 
 multirun capitalize_weak_enemy
 multirun max_supply_fallback
+multirun delayed_campaign
 idle_orders 10 32 9 mutalisk 180 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 90 Health(LessThan 82)
 idle_orders 10 32 5 mutalisk 168 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 80 Health(LessThan 41)
 idle_orders 10 32 5 mutalisk 200 drone|scv|probe 100 0
