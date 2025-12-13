@@ -854,7 +854,7 @@ train 22 hydralisk
 set_attacks 2
 call check_antirush
 attack_add 22 hydralisk
-target_expansion
+call atk_expansion
 wait 150
 
 attack_do
@@ -1027,7 +1027,7 @@ train 32 hydralisk
 call resource_waitskip
 train 64 hydralisk
 attack_add 64 hydralisk
-target_expansion
+call atk_expansion
 wait 650
 
 call resource_waitskip
@@ -1580,7 +1580,7 @@ define_max 32 zergling
 upgrade 1 z_flyer_carapace 45
 set_attacks 1
 attack_add 11 mutalisk
-target_expansion
+call atk_expansion
 wait 300
 
 build 1 hydralisk_den 80
@@ -1622,7 +1622,7 @@ train 18 zergling
 train 14 mutalisk
 train 36 zergling
 attack_add 14 mutalisk
-target_expansion
+call atk_expansion
 wait 300
 
 attack_do
@@ -1633,7 +1633,7 @@ multirun train_lurker
 train 3 lurker
 attack_add 30 zergling
 attack_add 3 lurker
-target_expansion
+call atk_expansion
 wait 300
 
 attack_do
@@ -1685,7 +1685,7 @@ upgrade 1 z_missile_attack 30
 attack_add 10 ultralisk
 attack_add 3 defiler
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -1697,7 +1697,7 @@ attack_add 10 mutalisk
 attack_add 2 scourge
 attack_add 40 zergling
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -1744,7 +1744,7 @@ attack_add 2 defiler
 attack_add 8 ultralisk
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 
@@ -1807,7 +1807,7 @@ train 8 ultralisk
 train 3 defiler
 attack_add 8 ultralisk
 attack_add 3 defiler
-target_expansion
+call atk_expansion
 wait 300
 
 attack_do
@@ -1817,7 +1817,7 @@ train 20 mutalisk
 attack_add 20 mutalisk
 attack_add 1 queen
 call add_scourge
-target_expansion
+call atk_expansion
 wait 300
 
 attack_do
@@ -1860,7 +1860,7 @@ build 2 hatchery 80
 upgrade 1 z_flyer_carapace 45
 train 2 mutalisk
 attack_add 14 zergling
-target_expansion
+call atk_expansion
 :es_check_bank
 train 4 mutalisk
 deaths 13 AtLeast 1 valhalla es_skipu1
@@ -1882,7 +1882,7 @@ attack_clear
 set_attacks 2
 attack_add 11 mutalisk
 attack_add 18 zergling
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -1933,7 +1933,7 @@ attack_do
 attack_clear
 multirun train_lurker
 attack_add 35 zergling
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -2081,7 +2081,7 @@ attack_add 12 mutalisk
 attack_add 32 zergling
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 train 1 defiler
@@ -2132,7 +2132,7 @@ attack_add 12 mutalisk
 attack_add 5 guardian
 attack_add 3 devourer
 call check_antirush
-target_expansion
+call atk_expansion
 wait 344
 
 call resource_waitskip
@@ -2142,7 +2142,7 @@ train 14 mutalisk
 attack_add 14 mutalisk
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 train 12 zergling
 train 16 mutalisk
 train 2 defiler
@@ -2241,7 +2241,7 @@ attack_add 40 zergling
 attack_add 4 hydralisk
 attack_add 4 lurker
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -2251,7 +2251,7 @@ attack_add 1 queen
 attack_add 10 mutalisk
 attack_add 2 scourge
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -2298,7 +2298,7 @@ attack_add 3 ultralisk
 attack_add 32 zergling
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 
@@ -2362,7 +2362,7 @@ train 5 guardian
 attack_add 15 mutalisk
 attack_add 5 guardian
 call check_antirush
-target_expansion
+call atk_expansion
 call resource_waitskip
 
 attack_do
@@ -2376,7 +2376,7 @@ attack_add 40 zergling
 attack_add 1 defiler
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 train 5 mutalisk
 train 12 zergling
 train 8 ultralisk
@@ -2449,7 +2449,7 @@ call resource_waitskip
 train 20 mutalisk
 attack_add 20 mutalisk
 call check_antirush
-target_expansion
+call atk_expansion
 call resource_waitskip
 
 attack_do
@@ -2461,7 +2461,7 @@ attack_add 40 zergling
 attack_add 1 defiler
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 train 3 hydralisk
 train 3 lurker
 train 12 zergling
@@ -2529,7 +2529,7 @@ build 1 queen_nest 80
 attack_clear
 attack_add 9 mutalisk
 set_attacks 2
-target_expansion
+call atk_expansion
 wait 16
 
 train 6 hydralisk
@@ -2609,7 +2609,7 @@ set_attacks 2
 attack_add 1 queen
 attack_add 4 scourge
 attack_add 36 hydralisk
-target_expansion
+call atk_expansion
 attack_prepare
 wait 16
 
@@ -2652,7 +2652,7 @@ train 2 defiler
 train 16 mutalisk
 set_attacks 2
 attack_add 4 guardian
-target_expansion
+call atk_expansion
 wait 833
 
 attack_do
@@ -2669,7 +2669,7 @@ attack_add 3 ultralisk
 attack_add 12 zergling
 attack_add 24 hydralisk
 call check_antirush
-target_expansion
+call atk_expansion
 wait 660
 
 attack_do
@@ -2730,7 +2730,7 @@ attack_do
 train 13 mutalisk
 attack_clear
 attack_add 4 mutalisk
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -2785,7 +2785,7 @@ train 10 mutalisk
 attack_add 1 queen
 attack_add 10 mutalisk
 attack_add 12 hydralisk
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
@@ -2940,7 +2940,7 @@ attack_add 10 hydralisk
 attack_add 8 ultralisk
 call add_scourge
 call check_antirush
-target_expansion
+call atk_expansion
 wait 16
 
 train 1 queen
@@ -2975,7 +2975,7 @@ call resource_waitskip
 train 64 hydralisk
 attack_add 64 hydralisk
 call check_antirush
-target_expansion
+call atk_expansion
 call resource_waitskip
 wait 750
 
@@ -3037,11 +3037,33 @@ goto protoss_loop
 :island_muta_atk_subroutine
 train 9 mutalisk
 attack_add 9 mutalisk
-target_expansion
+call atk_expansion
 wait 16
 
 attack_do
 attack_clear
+return
+
+:delayed_campaign
+debug_name delayedCampaign
+wait 50
+
+supply 13 AtMost 41 InUnits drone Zerg delayed_campaign
+deaths 13 Set 1 201 delayed_campaign
+#set 1 Overmind Cocoon deaths; check them elsewhere to see if we started the campaign logic
+start_campaign
+wait 1000
+stop
+
+:atk_expansion
+deaths 13 Exactly 1 200 atk_exp_wcamp
+target_expansion
+return
+
+:atk_exp_wcamp
+unstart_campaign
+target_expansion
+start_campaign
 return
 
 :check_queens
