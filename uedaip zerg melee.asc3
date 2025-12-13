@@ -3738,3 +3738,12 @@ wait 5000
 
 goto capitalize_weak_enemy
 
+#:script_num_debug
+#wait 1
+#
+#deaths 0 Add 1 marine recurse_set
+#multirun script_num_debug
+#:m_idle
+#wait 5000
+#
+#goto m_idle
