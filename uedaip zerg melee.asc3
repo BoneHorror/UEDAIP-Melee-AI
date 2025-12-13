@@ -47,6 +47,7 @@ multirun basic_air
 multirun late_cash
 wait_rand 2 3
 
+multirun capitalize_weak_enemy
 multirun max_supply_fallback
 idle_orders 10 32 9 mutalisk 180 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 90 Health(LessThan 82)
 idle_orders 10 32 5 mutalisk 168 heavy_marine|ghost|death_knight|marine|dragoon|hydralisk|goliath|revenant|scout|corsair|mutalisk|wraith|scourge 80 Health(LessThan 41)
@@ -3657,3 +3658,46 @@ wait 5000
 
 print Debug_Zerg_SupplyCap
 goto max_supply_fallback
+
+:capitalize_weak_enemy
+debug_name ZcweEarly
+wait 1
+
+time_jump 21 cwe_midgame
+wait_rand 533 1044
+
+supply 13 AtMost 75 Used marine Zerg capitalize_weak_enemy
+supply 14 AtLeast 37 Used marine Any_Total capitalize_weak_enemy
+goto cwe_execute
+
+:cwe_midgame
+debug_name ZcweMid
+wait 1
+
+time_jump 42 cwe_lategame
+wait_rand 533 1044
+
+supply 13 AtMost 150 Used marine Zerg cwe_midgame
+supply 14 AtLeast 65 Used marine Any_Total cwe_midgame
+goto cwe_execute
+
+:cwe_lategame
+debug_name ZcweLate
+wait 1
+
+wait_rand 533 1044
+
+supply 13 AtMost 180 Used marine Zerg cwe_lategame
+supply 14 AtLeast 77 Used marine Any_Total cwe_lategame
+goto cwe_execute
+
+:cwe_execute
+debug_name ZcweExecute
+wait 50
+
+if_attacking cwe_execute
+send_suicide 0
+wait 5000
+
+goto capitalize_weak_enemy
+

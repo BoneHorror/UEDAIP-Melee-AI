@@ -97,6 +97,7 @@ wait 112
 multirun rush_panic
 multirun late_check_transports
 multirun max_supply_fallback
+multirun capitalize_weak_enemy
 #guard_all
 creep 3
 #TEST
@@ -3099,3 +3100,46 @@ wait 5000
 
 print Debug_Protoss_SupplyCap
 goto max_supply_fallback
+
+:capitalize_weak_enemy
+debug_name PcweEarly
+wait 1
+
+time_jump 21 cwe_midgame
+wait_rand 533 1044
+
+supply 13 AtMost 75 Used marine Protoss capitalize_weak_enemy
+supply 14 AtLeast 37 Used marine Any_Total capitalize_weak_enemy
+goto cwe_execute
+
+:cwe_midgame
+debug_name PcweMid
+wait 1
+
+time_jump 42 cwe_lategame
+wait_rand 533 1044
+
+supply 13 AtMost 150 Used marine Protoss cwe_midgame
+supply 14 AtLeast 65 Used marine Any_Total cwe_midgame
+goto cwe_execute
+
+:cwe_lategame
+debug_name PcweLate
+wait 1
+
+wait_rand 533 1044
+
+supply 13 AtMost 180 Used marine Protoss cwe_lategame
+supply 14 AtLeast 77 Used marine Any_Total cwe_lategame
+goto cwe_execute
+
+:cwe_execute
+debug_name PcweExecute
+wait 50
+
+if_attacking cwe_execute
+send_suicide 0
+wait 5000
+
+goto capitalize_weak_enemy
+
