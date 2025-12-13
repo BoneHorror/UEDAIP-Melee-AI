@@ -3044,6 +3044,7 @@ attack_clear
 return
 
 :check_queens
+debug_name checkQueens
 define_max 7 infested_terran
 wait 7500
 
@@ -3092,6 +3093,7 @@ wait 15000
 stop
 
 :it_wait
+debug_name itWait
 wait 16
 
 notowns_jump infested_command_center it_wait
@@ -3122,8 +3124,8 @@ wait 3000
 
 goto it_reinforce
 
-
 :check_zerglings
+debug_name checkZerglings
 wait 13500
 
 wait_train 20 zergling
@@ -3140,6 +3142,7 @@ upgrade 1 zergling_attack 60
 stop
 
 :check_hydralisks
+debug_name checkHydralisks
 wait 11500
 
 multirun lateral_check
@@ -3154,6 +3157,7 @@ upgrade 3 z_missile_attack 60
 stop
 
 :lateral_check
+debug_name lateralCheck
 wait_build 1 hive
 wait_train 3 lurker
 upgrade 1 lurker_speed 60
@@ -3162,6 +3166,7 @@ wait 480
 stop
 
 :check_defilers
+debug_name checkDefilers
 wait_train 1 defiler
 idle_orders 119 64 1 defiler 512 ultralisk 70 own|allied|notenemies|incombat
 idle_orders 119 64 1 defiler 512 zergling 30 own|allied|notenemies|incombat|Count(AtLeast 3 80 14)
@@ -3187,6 +3192,7 @@ wait 480
 stop
 
 :check_devourers
+debug_name checkDevourers
 wait 25000
 
 wait_train 3 devourer
@@ -3196,6 +3202,7 @@ upgrade 1 para_symbiosis 30
 stop
 
 :check_ultra
+debug_name checkUltra
 wait 12500
 
 wait_train 4 ultralisk
@@ -3213,6 +3220,7 @@ upgrade 1 voracity 60
 stop
 
 :supply_ensure
+debug_name supplyEnsure
 wait 50
 
 resources_jump 650 0 s_ensured
@@ -3348,6 +3356,7 @@ return
 #return
 
 :earlydef_panic
+debug_name earlydefPanic
 wait 245
 
 wait_secure
@@ -3359,6 +3368,7 @@ wait_build 2 overlord
 
 resources 13 Add Ore 60 ge_skip
 :mp_helper
+debug_name mpHelper
 wait 1500
 
 help_iftrouble
@@ -3414,6 +3424,7 @@ wait 250
 goto scourge_getter
 
 :basic_air
+debug_name zbasicAir
 wait 4500
 
 wait_train 5 mutalisk
@@ -3431,6 +3442,7 @@ upgrade 2 z_flyer_attack 30
 stop
 
 :basic_melee
+debug_name zbasicMelee
 wait 1500
 
 wait_train 16 zergling
@@ -3449,6 +3461,7 @@ upgrade 2 z_carapace 30
 stop
 
 :basic_ranged
+debug_name zbasicRanged
 wait 3000
 
 wait_train 10 hydralisk
@@ -3464,6 +3477,7 @@ upgrade 2 z_carapace 30
 stop
 
 :rush_panic
+debug_name rushPanic
 wait 50
 
 time_jump 14 void
@@ -3501,6 +3515,7 @@ build 3 spore_colony 80
 goto void
 
 :rwrap_spore
+debug_name rwrapSpore
 creep 4
 build 2 spore_colony 80
 wait 3000
@@ -3517,6 +3532,7 @@ build 3 sunken_colony 80
 goto void
 
 :rush_panic_exp
+debug_name rushPanicExp
 wait 50
 
 deaths 13 AtLeast 1 bunker void
