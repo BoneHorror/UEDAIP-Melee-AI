@@ -220,6 +220,10 @@ defensebuild_gg 1 zergling
 build 1 sunken_colony 80
 build 15 drone 80
 wait_buildstart 14 drone
+race_jump eo_check_rush eo_continue eo_check_rush
+:eo_check_rush
+rush 4 eo_emergency_sunkens
+:eo_continue
 build 1 lair 100
 wait_buildstart 1 lair
 deaths 13 Exactly 0 medic eo_skip_spire
@@ -251,6 +255,12 @@ build 3 creep_colony 80
 wait_buildstart 3 creep_colony
 build 3 sunken_colony 80
 return
+
+:eo_emergency_sunkens
+build 3 creep_colony 80
+build 3 sunken_colony 80
+train 4 zergling
+goto eo_continue
 
 :eo_getlair
 wait 4
@@ -3066,8 +3076,13 @@ return
 
 :atk_exp_wcamp
 unstart_campaign
+
 target_expansion
+wait 50
 start_campaign
+wait 1
+
+attack_timeout 30
 return
 
 :attack_close
@@ -3078,7 +3093,12 @@ return
 :attack_close_wcamp
 unstart_campaign
 attack_prepare
+wait 50
+
 start_campaign
+wait 1
+
+attack_timeout 120
 return
 
 :check_queens
@@ -3397,8 +3417,28 @@ return
 debug_name earlydefPanic
 wait 245
 
+multirun delayed_rush_reaction
 wait_secure
 defensebuild_gg 1 zergling
+stop
+
+:delayed_rush_reaction
+debug_name delayedRushReaction
+wait_rand 2555 2851
+
+race_jump drr_do void drr_do
+:drr_do
+#print EvaluateReaction
+rush 1 drr_react_to_rush
+#print ReactionExpired
+stop
+
+:drr_react_to_rush
+#print ReactingToRush
+debug_name reactToRush
+build 2 creep_colony 80
+build 2 sunken_colony 80
+train 6 zergling
 stop
 
 :start_cheat
