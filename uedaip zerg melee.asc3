@@ -717,14 +717,15 @@ goto island_mid
 debug_name Z_Hydras
 define_max 60 drone
 define_max 30 overlord
-define_max 50 mutalisk
-define_max 40 zergling
-define_max 6 ultralisk
-define_max 6 defiler
-define_max 60 hydralisk
-define_max 6 lurker
-define_max 22 guardian
-define_max 24 devourer
+define_max 255 mutalisk
+#intentionally low limits so immediately obvious if we do not PROPERLY re-set them in whatever script this goes to
+define_max 10 zergling
+define_max 255 ultralisk
+define_max 255 defiler
+define_max 20 hydralisk
+define_max 255 lurker
+define_max 255 guardian
+define_max 255 devourer
 define_max 6 scourge
 multirun worker_decay
 random_call 64 early_bust
@@ -792,14 +793,14 @@ goto mutaling
 debug_name P_HydraBust
 define_max 60 drone
 define_max 30 overlord
-define_max 24 mutalisk
+define_max 12 mutalisk
 define_max 4 zergling
-define_max 12 ultralisk
+define_max 6 ultralisk
 define_max 3 defiler
 define_max 120 hydralisk
 define_max 5 lurker
-define_max 12 guardian
-define_max 4 devourer
+define_max 255 guardian
+define_max 255 devourer
 define_max 6 scourge
 multirun worker_decay
 random_call 85 early_bust
@@ -974,6 +975,33 @@ wait_rand 6999 8566
 expand 6 generic_expansion
 goto exp_repeater
 
+:late_flood
+debug_name lateHydra
+wait 1500
+
+set_attacks 2
+train 32 hydralisk
+call resource_waitskip
+train 64 hydralisk
+attack_add 64 hydralisk
+target_expansion
+wait 650
+
+call resource_waitskip
+train 80 hydralisk
+call resource_waitskip
+train 6 ultralisk
+call resource_waitskip
+attack_do
+attack_clear
+train 60 hydralisk
+attack_add 60 hydralisk
+attack_add 4 ultralisk
+attack_do
+attack_clear
+call resource_waitskip
+goto late_flood
+
 :early_bust
 debug_name HydraBust
 build 6 drone 110
@@ -1031,33 +1059,6 @@ place_guard hydralisk 0
 place_guard hydralisk 2
 place_guard hydralisk 1
 return
-
-:late_flood
-debug_name lateHydra
-wait 1500
-
-set_attacks 2
-train 32 hydralisk
-call resource_waitskip
-train 64 hydralisk
-attack_add 64 hydralisk
-target_expansion
-wait 650
-
-call resource_waitskip
-train 80 hydralisk
-call resource_waitskip
-train 6 ultralisk
-call resource_waitskip
-attack_do
-attack_clear
-train 60 hydralisk
-attack_add 60 hydralisk
-attack_add 4 ultralisk
-attack_do
-attack_clear
-call resource_waitskip
-goto late_flood
 
 :resource_waitskip
 wait 16
@@ -1145,13 +1146,13 @@ goto late_vs_zerg
 debug_name LateSpread
 define_max 60 drone
 define_max 30 overlord
-define_max 36 mutalisk
+define_max 24 mutalisk
 define_max 64 zergling
-define_max 12 ultralisk
+define_max 8 ultralisk
 define_max 3 defiler
 define_max 24 hydralisk
 define_max 12 lurker
-define_max 12 guardian
+define_max 6 guardian
 define_max 4 devourer
 define_max 6 scourge
 multirun worker_decay
