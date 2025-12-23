@@ -558,14 +558,14 @@ goto exp_repeater
 debug_name MixedAttacks
 define_max 14 zealot
 define_max 7 revenant
-define_max 20 dragoon
+define_max 18 dragoon
 define_max 2 carrier
-define_max 10 dark_templar
+define_max 6 dark_templar
 define_max 1 dark_archon
 define_max 5 high_templar
 define_max 4 archon
-define_max 6 scout
-define_max 6 reaver
+define_max 4 scout
+define_max 4 reaver
 define_max 8 hornet
 define_max 3 corsair
 attack_do
@@ -1282,21 +1282,21 @@ define_max 255 dark_templar
 define_max 255 dark_archon
 define_max 4 high_templar
 define_max 1 archon
-define_max 8 scout
-define_max 8 reaver
-define_max 30 hornet
+define_max 3 scout
+define_max 7 reaver
+define_max 26 hornet
 define_max 3 corsair
 attack_do
 attack_clear 
 attack_add 10 hornet
 set_attacks 2
 
-:RRe
-debug_name RRe
+:robot_bay_wait
+debug_name robot_bay_wait
 train 10 hornet
 target_expansion 
 call resource_waitskip
-notowns_jump robotics_support_bay RRe
+notowns_jump robotics_support_bay robot_bay_wait
 attack_do
 attack_clear 
 attack_add 10 dragoon
@@ -1310,8 +1310,8 @@ train 10 dragoon
 target_expansion 
 call resource_waitskip
 
-:RPu
-debug_name RPu
+:robot_push
+debug_name robot_push
 attack_do
 attack_clear
 attack_add 6 zealot
@@ -1330,10 +1330,10 @@ wait 500
 target_expansion 
 call resource_waitskip
 
-notowns_jump fleet_beacon RPu
+notowns_jump fleet_beacon robot_push
 
-:RLo
-debug_name RLo
+:robot_loop
+debug_name robot_loop
 set_attacks 2
 attack_do
 attack_clear 
@@ -1361,7 +1361,7 @@ train 16 dragoon
 call check_antirush
 attack_prepare
 call resource_waitskip
-goto RLo
+goto robot_loop
 
 :khalai_squadron
 debug_name KhalaiSquadron
@@ -2646,15 +2646,11 @@ attack_do
 attack_clear 
 attack_add 6 revenant
 set_attacks 2
-
-:MSRe
-debug_name MSRe
 train 6 revenant
 wait 240
 
 target_expansion 
 call resource_waitskip
-notowns_jump citadel_of_adun MSRe
 attack_do
 attack_clear 
 define_max 3 revenant
