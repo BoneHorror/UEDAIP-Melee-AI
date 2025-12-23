@@ -1070,7 +1070,7 @@ goto exp_repeater
 :UED_BioScorpAt
 debug_name UEDBioScorpAt
 tech spider_mines 40
-define_max 50 heavy_marine
+define_max 45 heavy_marine
 define_max 255 tesla_trooper
 define_max 7 medic
 define_max 2 panzer
@@ -1108,8 +1108,8 @@ player_need 1 armory
 player_need 1 covert_ops
 build 2 starport 80
 build 2 control_tower 100
-:tPu
-debug_name TPu
+:uedbio_push
+debug_name uedbio_push
 attack_add 20 heavy_marine
 attack_add 10 scorpion
 attack_add 3 valkyrie
@@ -1128,9 +1128,9 @@ train 3 valkyrie
 target_expansion 
 call resource_waitskip
 
-notowns_jump covert_ops tPu
-:TLo
-debug_name TLo
+notowns_jump covert_ops uedbio_push
+:uedbio_loop
+debug_name uedbio_loop
 set_attacks 3
 
 attack_do
@@ -1187,7 +1187,7 @@ call check_antirush
 wait_force 2 valhalla
 target_expansion 
 call resource_waitskip
-goto TLo
+goto uedbio_loop
 
 :legion_allin
 debug_name LegionAllin
@@ -2401,17 +2401,18 @@ debug_name FiregolTer
 random_jump 128 ghost_focus
 define_max 40 marine
 define_max 20 goliath
-define_max 12 siege_tank
+define_max 10 siege_tank
 define_max 30 firebat
 define_max 9 ghost
+define_max 255 hnorad
 attack_do
 attack_clear 
 attack_add 8 goliath
 attack_add 12 firebat
 set_attacks 2
 
-:defRout017
-debug_name DefRout017
+:firegol_nosci
+debug_name firegol_nosci
 train 2 firebat
 train 2 goliath
 train 6 firebat
@@ -2420,7 +2421,7 @@ train 12 firebat
 train 8 goliath
 target_expansion 
 call resource_waitskip
-notowns_jump science_facility defRout017
+notowns_jump science_facility firegol_nosci
 attack_do
 attack_clear 
 attack_add 12 marine
@@ -2429,8 +2430,8 @@ attack_add 8 goliath
 attack_add 10 firebat
 set_attacks 2
 
-:defRout018
-debug_name DefRout018
+:firegol_nocovert
+debug_name firegol_nocovert
 #random_jump 1 latebio
 #random_jump 1 latemech
 train 6 marine
@@ -2443,7 +2444,7 @@ train 10 firebat
 train 4 siege_tank
 target_expansion 
 call resource_waitskip
-notowns_jump covert_ops defRout018
+notowns_jump covert_ops firegol_nocovert
 attack_do
 attack_clear
 attack_add 12 marine
@@ -2459,8 +2460,8 @@ train 20 firebat
 target_expansion 
 call resource_waitskip
 
-:defRout020
-debug_name DefRout020
+:firegol_loop
+debug_name firegol_loop
 set_attacks 2
 attack_do
 attack_clear 
@@ -2487,7 +2488,7 @@ train 18 firebat
 train 8 siege_tank
 target_expansion 
 call resource_waitskip
-goto defRout020
+goto firegol_loop
 
 :ghost_focus
 debug_name GhostFocus
@@ -2496,6 +2497,7 @@ define_max 12 goliath
 define_max 12 siege_tank
 define_max 6 firebat
 define_max 18 ghost
+define_max 255 hnorad
 attack_do
 attack_clear 
 attack_add 8 goliath
@@ -2548,8 +2550,8 @@ train 22 marine
 target_expansion 
 call resource_waitskip
 
-:gLo
-debug_name GLo
+:ghostfoc_loop
+debug_name GhostFocusLoop
 set_attacks 2
 attack_do
 attack_clear 
@@ -2578,7 +2580,7 @@ train 8 siege_tank
 call check_antirush
 target_expansion 
 call resource_waitskip
-goto gLo
+goto ghostfoc_loop
 
 :light_focus
 debug_name LightFocus
@@ -3266,7 +3268,7 @@ goto exp_repeater
 :TM_atk
 debug_name TMAtk
 define_max 20 marine
-define_max 30 goliath
+define_max 27 goliath
 define_max 20 siege_tank
 define_max 14 vulture
 define_max 255 firebat
@@ -3280,27 +3282,27 @@ attack_add 6 goliath
 attack_add 4 siege_tank
 set_attacks 2
 
-:TMSC
-debug_name TMSC
+:t_mech_sciwait
+debug_name t_mech_sciwait
 train 6 vulture
 train 6 goliath
 train 4 siege_tank
 target_expansion 
 call resource_waitskip
-notowns_jump science_facility TMSC
+notowns_jump science_facility t_mech_sciwait
 attack_do
 attack_clear 
 attack_add 10 goliath
 attack_add 8 siege_tank
 set_attacks 2
 
-:TMPu
-debug_name TMPu
+:t_mech_push
+debug_name t_mech_push
 train 10 goliath
 train 8 siege_tank
 target_expansion 
 call resource_waitskip
-notowns_jump physics_lab TMPu
+notowns_jump physics_lab t_mech_push
 attack_do
 attack_clear
 attack_add 1 science_vessel
@@ -3315,8 +3317,8 @@ train 10 goliath
 target_expansion 
 call resource_waitskip
 
-:TMLo
-debug_name TMLo
+:t_mech_loop
+debug_name t_mech_loop
 set_attacks 2
 attack_do
 attack_clear
@@ -3352,7 +3354,7 @@ wait 16
 
 attack_do
 attack_clear
-goto TMLo
+goto t_mech_loop
 
 :dominion_air
 debug_name DominionAir
@@ -4064,7 +4066,7 @@ goto se_loop
 
 :prodGetter
 debug_name ProdGetter
-resources 13 AtLeast_Wait Ore 400 defRout017
+resources 13 AtLeast_Wait Ore 400 firegol_nosci
 deaths 13 Exactly 1 lurker exp_comsat
 deaths 13 Exactly 2 lurker exp_comsat2
 deaths 13 Exactly 5 lurker exp_comsat2n
@@ -4072,7 +4074,7 @@ deaths 13 Exactly 3 lurker exp_comsat3
 deaths 13 Exactly 4 lurker exp_comsat4
 deaths 13 Exactly 6 lurker exp_comsat5n
 deaths 13 Exactly 7 lurker exp_comsat6
-resources 13 AtLeast_Wait Ore 1000 defRout017
+resources 13 AtLeast_Wait Ore 1000 firegol_nosci
 player_need 1 science_facility
 player_need 1 covert_ops
 place_guard ghost 0
@@ -4327,10 +4329,10 @@ goto iniTurret
 debug_name SmallTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
-resources 13 AtLeast_Wait Ore 500 defRout017
+resources 13 AtLeast_Wait Ore 500 firegol_nosci
 build 2 missile_turret 80
 wait_build 2 missile_turret
-resources 13 AtLeast_Wait Ore 600 defRout017
+resources 13 AtLeast_Wait Ore 600 firegol_nosci
 build 3 missile_turret 80
 wait_build 3 missile_turret
 
@@ -4357,7 +4359,7 @@ goto iniBTurret
 debug_name BigTurret
 build 1 missile_turret 80
 wait_build 1 missile_turret
-resources 13 AtLeast_Wait Ore 400 defRout017
+resources 13 AtLeast_Wait Ore 400 firegol_nosci
 build 2 missile_turret 80
 wait_build 2 missile_turret
 groundmap_jump bTur_con
@@ -4367,7 +4369,7 @@ goto loopTurret
 debug_name BTurCon
 build 3 missile_turret 80
 wait_build 3 missile_turret
-resources 13 AtLeast_Wait Ore 700 defRout017
+resources 13 AtLeast_Wait Ore 700 firegol_nosci
 build 4 missile_turret 80
 wait_build 4 missile_turret
 build 5 missile_turret 80
