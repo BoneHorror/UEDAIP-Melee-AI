@@ -192,7 +192,7 @@ deaths 13 Exactly 2 medic eo_skip_rush
 random_call 16 rush_subroutine_earlyground
 goto eo_join_post_cz
 :eo_skip_rush
-call cz_delayed_evo
+multirun cz_delayed_evo
 :eo_join_post_cz
 expand 1 priority_expansion
 max_workers 22
