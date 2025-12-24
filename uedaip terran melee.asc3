@@ -1697,10 +1697,8 @@ goto ScorpMechLoop
 
 :ued_AirStart
 debug_name UEDAirStart
-call usetup
 random_call 32 ued_valhallarush
 :ued_AirNoRush
-debug_name UEDAirNoRush
 build 8 scv 80
 wait_buildstart 7 scv
 deaths 13 Set 4 lurker ued_empair
@@ -1708,7 +1706,6 @@ build 1 supply_depot 80
 wait_buildstart 1 supply_depot
 build 10 scv 80
 wait_buildstart 8 scv
-call usetup
 groundmap_jump ius
 build 1 refinery 80
 :ius
