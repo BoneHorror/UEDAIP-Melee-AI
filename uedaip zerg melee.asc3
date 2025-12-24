@@ -102,8 +102,8 @@ multirun rush_panic
 race_jump gen_spread gen_muta gen_bust
 #vs T Z P
 :gen_spread
-build 5 drone 110
-wait 115
+build 6 drone 110
+wait 438
 
 deaths 14 Exactly 2 214 vs_ued
 #vs single terran enemy this will signal we play against UED, in multi it's inaccurate but better than nothing?

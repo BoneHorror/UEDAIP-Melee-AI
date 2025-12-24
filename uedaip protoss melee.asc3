@@ -10,6 +10,7 @@ farms_notiming
 defaultbuild_off
 default_min 0
 build 5 probe 100
+#multirun detect_deaths
 max_force 1500
 supply 13 Set 260 Max marine Protoss supply_ensure
 #under_attack 0
@@ -333,6 +334,10 @@ goto skytoss
 
 :vst
 debug_name VST
+build 6 probe 80
+wait 433
+#takes 408 +- 25 frames to set 214 deaths
+
 deaths 14 Exactly 2 214 vs_ued
 #vs single terran enemy this will signal we play against UED, in multi it's inaccurate but better than nothing?
 :vst_post_jump
@@ -350,7 +355,8 @@ enemyowns_jump probe vst_post_jump
 enemyowns_jump drone vst_post_jump
 #we're sure that this is multiplayer and we just return to vst...
 :vs_ued_locked
-random_call 52 4_gate_goon_opener
+random_call 252 4_gate_goon_opener
+#debug -> supposed to be 52
 random_jump 17 mixed_toss
 random_jump 51 dt_casters
 random_jump 64 khalai_squadron
@@ -715,6 +721,7 @@ call resource_waitskip
 goto MixALoop
 
 :dt_opener
+debug_name DTOpener
 define_max 7 zealot
 define_max 2 revenant
 define_max 4 dark_templar
@@ -779,6 +786,7 @@ train 2 dark_templar
 defensebuild_gg 1 revenant
 defenseuse_gg 1 revenant
 define_max 12 zealot
+enemyowns_jump skywing d_o_r
 enemyowns_jump science_vessel d_o_r
 enemyowns_jump lurker d_o_r
 enemyowns_jump observer d_o_r
@@ -885,6 +893,7 @@ random_jump 128 revenant_alt
 call dt_opener
 
 :dt_return
+debug_name DTCasters_Returned
 define_max 60 probe
 deaths 13 Set 2 lurker robof
 deaths 13 Set 1 98 robof
@@ -2843,6 +2852,7 @@ max_workers 255
 stop
 
 :zealot_opener
+debug_name ZealotOpener
 define_max 4 zealot
 build 1 nexus 130
 build 1 probe 110
@@ -2916,6 +2926,7 @@ expand 1 exp_noguard
 return
 
 :4_gate_goon_opener
+debug_name 4gateGoons
 define_max 1 zealot
 build 1 nexus 130
 build 1 probe 110
@@ -3219,3 +3230,13 @@ wait 5000
 
 goto capitalize_weak_enemy
 
+#:detect_deaths
+#wait 25
+#
+#deaths 14 Exactly 2 214 ued_detected
+#print NotDetected
+#goto detect_deaths
+#
+#:ued_detected
+#print DetectedUED
+#stop
