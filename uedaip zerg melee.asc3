@@ -100,6 +100,7 @@ goto muta_island
 :normal_select
 multirun rush_panic
 race_jump gen_spread gen_muta gen_bust
+#vs T Z P
 :gen_spread
 build 5 drone 110
 wait 115
@@ -3394,12 +3395,22 @@ stop
 debug_name delayedRushReaction
 wait_rand 2555 2851
 
-race_jump drr_do void drr_do
-:drr_do
+race_jump drr_do_t void drr_do_p
+:drr_do_p
 #print EvaluateReaction
 rush 1 drr_react_to_rush
+
+goto void
+
 #print ReactionExpired
-stop
+:drr_do_t
+
+rush 2 drr_react_to_rush
+supply 14 AtLeast 9 InUnits heavy_marine Terran drr_react_to_rush
+#the second check will be too strict in multiplayer but eh, cant do much abt it
+#print ReactionExpired
+goto void
+
 
 :drr_react_to_rush
 #print ReactingToRush
