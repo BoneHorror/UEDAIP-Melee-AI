@@ -1368,8 +1368,8 @@ upgrade 1 t_infantry_weapon 40
 train 10 heavy_marine
 upgrade 1 t_vehicle_weapon 40
 train 4 panzer
-wait_force 10 heavy_marine
-wait_force 4 panzer
+wait_force 8 heavy_marine
+wait_force 3 panzer
 attack_do 
 attack_clear 
 attack_add 2 medic
@@ -1637,8 +1637,8 @@ train 8 death_knight
 target_expansion 
 call resource_waitskip
 attack_clear
-:ScPu
-debug_name ScPu
+:ScorpMechPush
+debug_name ScorpMechPush
 attack_add 8 scorpion
 attack_add 5 panzer
 attack_add 7 death_knight
@@ -1649,9 +1649,9 @@ train 7 death_knight
 target_expansion 
 call resource_waitskip
 
-notowns_jump covert_ops ScPu
-:ScLo
-debug_name ScLo
+notowns_jump covert_ops ScorpMechPush
+:ScorpMechLoop
+debug_name ScorpMechLoop
 set_attacks 3
 
 attack_do
@@ -1693,7 +1693,7 @@ call check_antirush
 wait_force 2 valhalla
 target_expansion 
 call resource_waitskip
-goto ScLo
+goto ScorpMechLoop
 
 :ued_AirStart
 debug_name UEDAirStart
