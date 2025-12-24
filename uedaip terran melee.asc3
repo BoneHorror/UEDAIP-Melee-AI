@@ -3,6 +3,7 @@ script_id TMCx
 
 unstart_campaign
 deaths 13 Set 1 214 ued_empair
+#start location death to signal... something...
 deaths 13 Set 1 217 ued_empair
 #psi emitter death to disable scivessel aura malus
 wait 1
@@ -148,6 +149,8 @@ return
 :usetup
 #use mineral field #2 death to control whether we're locked into Terran (1) or UED (2) for recursion
 deaths 13 Set 2 177 recurse
+deaths 13 Set 2 214 ued_empair
+#signal UED via 2 start loc deaths
 #UED-specific unit storm orders depending on count or priority
 idle_orders 142 256 1 valhalla 1024 zergling|zealot 50 incombat|Count(AtLeast 4 48 14)
 idle_orders 142 256 1 valhalla 1024 hydralisk|dark_templar 50 incombat|Count(AtLeast 3 48 14)
