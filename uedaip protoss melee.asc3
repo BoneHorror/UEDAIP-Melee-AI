@@ -333,6 +333,9 @@ goto skytoss
 
 :vst
 debug_name VST
+deaths 14 Exactly 2 214 vs_ued
+#vs single terran enemy this will signal we play against UED, in multi it's inaccurate but better than nothing?
+:vst_post_jump
 random_call 47 dt_opener
 random_jump 8 khalai_squadron
 random_jump 51 skytoss
@@ -340,7 +343,21 @@ random_jump 63 dt_casters
 random_jump 97 robotics_force
 goto mixed_toss
 
+:vs_ued
+random_jump 128 vs_ued_locked
+#sometimes ignore whether its multi so that this has a chance to get used in MP
+enemyowns_jump probe vst_post_jump
+enemyowns_jump drone vst_post_jump
+#we're sure that this is multiplayer and we just return to vst...
+:vs_ued_locked
+random_call 52 4_gate_goon_opener
+random_jump 17 mixed_toss
+random_jump 51 dt_casters
+random_jump 64 khalai_squadron
+goto robotics_force
+
 :opener_randomizer
+random_jump 85 4_gate_goon_opener
 random_jump 128 zealot_opener
 goto dt_opener
 
@@ -2896,6 +2913,69 @@ attack_do
 attack_clear
 :z_o_r
 expand 1 exp_noguard
+return
+
+:4_gate_goon_opener
+define_max 1 zealot
+build 1 nexus 130
+build 1 probe 110
+build 7 probe 90
+wait_buildstart 7 probe
+build 8 probe 80
+wait_build 7 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 9 probe
+wait_build 8 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+defenseuse_gg 1 zealot
+wait_buildstart 11 probe
+build 13 probe 80
+wait_build 10 probe
+train 1 zealot
+defensebuild_gg 1 zealot
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 14 probe 80
+wait_buildstart 12 probe
+define_max 2 zealot
+train 1 zealot
+build 15 probe 80
+wait_buildstart 13 probe
+build 1 assimilator 80
+build 16 probe 80
+wait_buildstart 14 probe
+build 1 cybernetics_core 80
+define_max 11 dragoon
+defensebuild_gg 1 dragoon
+defenseuse_gg 1 dragoon
+defensebuild_ag 1 dragoon
+defenseuse_ag 1 dragoon
+wait_build 13 probe
+build 3 pylon 80
+wait_buildstart 3 pylon
+farms_timing
+train 1 dragoon
+build 17 probe 80
+wait_buildstart 15 probe
+upgrade 1 dragoon_range 60
+train 2 dragoon
+build 4 gateway 80
+wait_buildstart 4 gateway
+train 3 dragoon
+build 18 probe 80
+wait_buildstart 16 probe
+train 11 dragoon
+attack_add 11 dragoon
+attack_prepare
+wait 90
+
+expand 1 exp_noguard
+attack_do
+attack_clear
 return
 
 :panic_obs

@@ -105,6 +105,9 @@ race_jump gen_spread gen_muta gen_bust
 build 5 drone 110
 wait 115
 
+deaths 14 Exactly 2 214 vs_ued
+#vs single terran enemy this will signal we play against UED, in multi it's inaccurate but better than nothing?
+:gen_post_death_return
 creep 3
 random_jump 4 is_this_zvp
 random_jump 6 mutaling
@@ -112,6 +115,18 @@ random_jump 12 p_muta
 random_jump 85 crazy_zerg
 random_jump 128 early_spread
 goto late_spread
+
+:vs_ued
+random_jump 92 vs_ued_locked
+#sometimes ignore whether its multi so that this has a chance to get used in MP
+enemyowns_jump probe gen_post_death_return
+enemyowns_jump drone gen_post_death_return
+#we're sure that this is multiplayer and we just return to gen_spread...
+:vs_ued_locked
+random_jump 10 crazy_zerg
+random_jump 56 is_this_zvp
+random_jump 128 p_bust
+goto p_spread
 
 :gen_muta
 random_jump 31 4pool
