@@ -337,11 +337,11 @@ return
 :UED_selection
 debug_name UEDSelection
 defaultbuild_off
+call usetup
 build 1 command_center 150
 wait_buildstart 1 command_center
 build 8 scv 130
 wait_buildstart 7 scv
-call usetup
 multirun supply_fix
 multirun ued_detector
 race_jump ued_latebio ued_biomech ued_empair
