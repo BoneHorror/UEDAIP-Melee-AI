@@ -63,12 +63,18 @@ idle_orders 10 32 3 guardian 260 group_men 90 Health(LessThan 60)
 idle_orders 10 32 5 guardian 272 group_men 110 Health(LessThan 100)
 idle_orders 10 32 1 devourer 145 group_men 60 Health(LessThan 30)
 idle_orders 10 32 2 devourer 145 group_men 70 Health(LessThan 50)
-#idle_orders 11 16 2 lurker 198 drone|scv|probe 100 Count(AtLeast 2 40 14)
-#idle_orders 11 14 1 lurker 224 Any 20 WithoutUnitFlags(Air)
-#idle_orders 11 15 1 lurker 224 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
-#idle_orders 11 13 1 lurker 224 Any 60 InCombat|WithoutUnitFlags(Air)
-#idle_orders 11 12 1 lurker 224 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
+idle_orders 11 16 2 lurker 198 drone|scv|probe 100 Count(AtLeast 2 40 14)|Self(Order(158))
+idle_orders 11 14 1 lurker 224 Any 20 WithoutUnitFlags(Air)|Self(Order(158))
+idle_orders 11 15 1 lurker 224 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)|Self(Order(158))
+idle_orders 11 13 1 lurker 224 Any 60 InCombat|WithoutUnitFlags(Air)|Self(Order(158))
+idle_orders 11 12 1 lurker 224 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)|Self(Order(158))
+idle_orders 11 16 2 lurker 198 drone|scv|probe 100 Count(AtLeast 2 40 14)|Self(Order(157))
+idle_orders 11 14 1 lurker 224 Any 20 WithoutUnitFlags(Air)|Self(Order(157))
+idle_orders 11 15 1 lurker 224 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)|Self(Order(157))
+idle_orders 11 13 1 lurker 224 Any 60 InCombat|WithoutUnitFlags(Air)|Self(Order(157))
+idle_orders 11 12 1 lurker 224 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)|Self(Order(157))
 #116 is lurker burrow but maybe 11 makes them a bit smarter..?
+#158 is walk to harass, lurkers often get stuck near units w/ this; 157 is attack move ep, used when moving to other units; a bit too long
 idle_orders 10 32 2 zergling 100 drone|scv|probe 100 0
 idle_orders 10 32 1 zergling 192 infested_terran 60 InCombat
 idle_orders 10 32 3 zergling 120 panzer|death_knight|medic|siege_tank|goliath|revenant|dragoon|reaver|dark_archon|defiler 10 InCombat
@@ -3435,7 +3441,7 @@ goto void
 :drr_react_to_rush
 #print ReactingToRush
 debug_name reactToRush
-creep 4
+creep 3
 build 2 creep_colony 80
 build 2 sunken_colony 80
 train 6 zergling
