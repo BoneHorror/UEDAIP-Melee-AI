@@ -3016,7 +3016,7 @@ defenseuse_ag 1 marine
 build 13 scv 80
 wait_buildstart 11 scv
 random_call 128 2fac_timing
-train 2 marine
+train 1 marine
 random_jump 212 m_eexpo
 expand 1 std_expo
 :m_eexpo
@@ -3025,21 +3025,25 @@ build 1 factory 80
 wait_buildstart 1 factory
 expand 1 std_expo
 farms_timing
-train 1 vulture
 build 14 scv 80
 wait_buildstart 12 scv
 aicontrol build_gas
 build 15 scv 80
 wait_buildstart 13 scv
-random_jump 128 mb_skip
-build 2 barracks 80
-build 16 scv 80
+train 1 vulture
+rush 5 mech_extra_defense
+goto mb_skip
+
+:mech_extra_defense
+creep 3
+print GetExtraDefMech
+defensebuild_ag 1 marine
+build 1 bunker 100
 build 3 supply_depot 80
-wait_buildstart 2 barracks
+train 2 marine
 :mb_skip
-debug_name MBSkip
 build 16 scv 80
-build 3 supply_depot 80
+build 3 supply_depot 70
 wait_buildstart 14 scv
 train 1 vulture
 build 2 factory 80
