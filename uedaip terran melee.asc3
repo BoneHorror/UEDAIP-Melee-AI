@@ -39,6 +39,7 @@ wait 115
 multirun late_check_transports
 multirun max_supply_fallback
 multirun capitalize_weak_enemy
+multirun late_clearcombat
 #guard_all
 creep 3
 
@@ -4747,3 +4748,22 @@ send_suicide 0
 wait 5000
 
 goto capitalize_weak_enemy
+
+:late_clearcombat
+wait_rand 28800 31500
+:late_cc_loop
+wait 50
+
+if_attacking late_cc_loop
+start_campaign
+wait 50
+
+wait_secure
+#if we're not being attacked for some time - set a low max_force so that less units are roaming the wilds
+max_force 1
+#print clearedCombat
+
+wait_rand 855 2500
+
+max_force 1500
+goto late_cc_loop
