@@ -252,6 +252,7 @@ wait_buildstart 1 lair
 deaths 13 Exactly 0 medic eo_skip_spire
 deaths 13 Exactly 2 medic eo_skip_spire
 wait_build 14 drone
+creep 3
 build 2 creep_colony 80
 wait_build 1 lair
 build 1 spire 80
@@ -1868,6 +1869,7 @@ call resource_waitskip
 goto crazy_loop
 
 :early_spread
+debug_name EarlySpread
 deaths 13 Set 1 medic 4pret
 #use medic death as a marker
 define_max 60 drone
@@ -2734,6 +2736,7 @@ wait 16
 goto island_loop
 
 :p_muta
+debug_name vsPMuta
 define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
@@ -3426,9 +3429,10 @@ race_jump drr_do_t void drr_do_p
 #print EvaluateReaction
 rush 1 drr_react_to_rush
 
+#print ReactionExpired
 goto void
 
-#print ReactionExpired
+
 :drr_do_t
 
 rush 2 drr_react_to_rush
