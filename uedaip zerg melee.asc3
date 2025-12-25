@@ -8,7 +8,6 @@ start_town
 defaultbuild_off
 default_min 0
 max_force 1500
-capt_expand
 transports_off
 farms_notiming
 #under_attack 0
@@ -47,6 +46,7 @@ multirun basic_air
 multirun late_cash
 wait_rand 2 3
 
+multirun late_clearcombat
 multirun capitalize_weak_enemy
 multirun max_supply_fallback
 #multirun delayed_campaign
@@ -63,11 +63,12 @@ idle_orders 10 32 3 guardian 260 group_men 90 Health(LessThan 60)
 idle_orders 10 32 5 guardian 272 group_men 110 Health(LessThan 100)
 idle_orders 10 32 1 devourer 145 group_men 60 Health(LessThan 30)
 idle_orders 10 32 2 devourer 145 group_men 70 Health(LessThan 50)
-idle_orders 11 160 2 lurker 192 drone|scv|probe 100 Count(AtLeast 2 40 14)
-idle_orders 11 160 1 lurker 192 Any 20 WithoutUnitFlags(Air)
-idle_orders 11 160 1 lurker 192 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
-idle_orders 11 160 1 lurker 192 Any 60 InCombat|WithoutUnitFlags(Air)
-idle_orders 11 160 1 lurker 192 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
+#idle_orders 11 16 2 lurker 198 drone|scv|probe 100 Count(AtLeast 2 40 14)
+#idle_orders 11 14 1 lurker 224 Any 20 WithoutUnitFlags(Air)
+#idle_orders 11 15 1 lurker 224 Any 50 WithoutUnitFlags(Air)|UnitFlags(Detector)
+#idle_orders 11 13 1 lurker 224 Any 60 InCombat|WithoutUnitFlags(Air)
+#idle_orders 11 12 1 lurker 224 Any 100 InCombat|WithoutUnitFlags(Air)|UnitFlags(Detector)
+#116 is lurker burrow but maybe 11 makes them a bit smarter..?
 idle_orders 10 32 2 zergling 100 drone|scv|probe 100 0
 idle_orders 10 32 1 zergling 192 infested_terran 60 InCombat
 idle_orders 10 32 3 zergling 120 panzer|death_knight|medic|siege_tank|goliath|revenant|dragoon|reaver|dark_archon|defiler 10 InCombat
@@ -1575,11 +1576,11 @@ stop
 debug_name CrazyZerg
 define_max 75 drone
 define_max 30 overlord
-define_max 24 mutalisk
-define_max 18 ultralisk
+define_max 20 mutalisk
+define_max 16 ultralisk
 define_max 8 defiler
 define_max 28 hydralisk
-define_max 15 lurker
+define_max 6 lurker
 define_max 255 guardian
 define_max 255 devourer
 define_max 6 scourge
@@ -1626,6 +1627,7 @@ defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
 attack_do
 attack_clear
+expand 3 generic_expansion
 build 1 hive 80
 train 20 zergling
 attack_add 20 zergling
@@ -1646,16 +1648,20 @@ set_attacks 3
 build 1 ultralisk_cavern 80
 upgrade 1 z_melee_attack 35
 define_max 72 zergling
-expand 2 generic_expansion
+expand 4 generic_expansion
 multirun train_lurker
 train 3 hydralisk
 train 18 zergling
-train 14 mutalisk
+defensebuild_gg 1 ultralisk
+defenseuse_gg 1 ultralisk
+train 10 mutalisk
 train 36 zergling
+train 14 mutalisk
 attack_add 14 mutalisk
-target_expansion
+attack_prepare
 wait 300
 
+attack_timeout 60
 attack_do
 attack_clear
 build 2 evolution_chamber 80
@@ -1667,13 +1673,9 @@ attack_add 3 lurker
 target_expansion
 wait 300
 
-attack_do
-attack_clear
 tech burrowing 40
-expand 3 generic_expansion
+expand 4 generic_expansion
 train 1 ultralisk
-defensebuild_gg 1 ultralisk
-defenseuse_gg 1 ultralisk
 upgrade 1 ultralisk_armor 40
 build 1 defiler_mound 80
 train 4 ultralisk
@@ -1685,6 +1687,10 @@ train 2 lurker
 train 24 zergling
 train 5 mutalisk
 train 32 zergling
+attack_do
+attack_clear
+wait 15
+
 attack_add 32 zergling
 attack_add 2 lurker
 attack_add 4 ultralisk
@@ -1697,7 +1703,7 @@ defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
 upgrade 1 voracity 70
 upgrade 1 burrowed_regen 40
-expand 4 generic_expansion
+expand 5 generic_expansion
 upgrade 3 z_flyer_carapace 50
 upgrade 1 z_flyer_attack 40
 upgrade 2 z_melee_attack 30
@@ -1777,7 +1783,6 @@ call add_scourge
 call check_antirush
 target_expansion
 wait 16
-
 
 train 1 defiler
 attack_do
@@ -3430,6 +3435,7 @@ goto void
 :drr_react_to_rush
 #print ReactingToRush
 debug_name reactToRush
+creep 4
 build 2 creep_colony 80
 build 2 sunken_colony 80
 train 6 zergling
@@ -3772,6 +3778,24 @@ wait 5000
 
 goto capitalize_weak_enemy
 
+:late_clearcombat
+wait_rand 28800 31500
+:late_cc_loop
+wait 50
+
+if_attacking late_cc_loop
+start_campaign
+wait 50
+
+wait_secure
+#if we're not being attacked for some time - set a low max_force so that less units are roaming the wilds
+max_force 1
+#print clearedCombat
+
+wait_rand 855 2500
+
+max_force 1500
+goto late_cc_loop
 #:script_num_debug
 #wait 1
 #
