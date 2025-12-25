@@ -99,6 +99,7 @@ multirun rush_panic
 multirun late_check_transports
 multirun max_supply_fallback
 multirun capitalize_weak_enemy
+multirun late_clearcombat
 #guard_all
 creep 3
 #TEST
@@ -355,8 +356,7 @@ enemyowns_jump probe vst_post_jump
 enemyowns_jump drone vst_post_jump
 #we're sure that this is multiplayer and we just return to vst...
 :vs_ued_locked
-random_call 252 4_gate_goon_opener
-#debug -> supposed to be 52
+random_call 52 4_gate_goon_opener
 random_jump 17 mixed_toss
 random_jump 51 dt_casters
 random_jump 64 khalai_squadron
@@ -3240,3 +3240,22 @@ goto capitalize_weak_enemy
 #:ued_detected
 #print DetectedUED
 #stop
+
+:late_clearcombat
+wait_rand 28800 31500
+:late_cc_loop
+wait 50
+
+if_attacking late_cc_loop
+start_campaign
+wait 50
+
+wait_secure
+#if we're not being attacked for some time - set a low max_force so that less units are roaming the wilds
+max_force 1
+#print clearedCombat
+
+wait_rand 855 2500
+
+max_force 1500
+goto late_cc_loop
