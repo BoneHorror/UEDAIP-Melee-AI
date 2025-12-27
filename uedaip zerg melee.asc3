@@ -843,7 +843,7 @@ define_max 12 mutalisk
 define_max 4 zergling
 define_max 6 ultralisk
 define_max 3 defiler
-define_max 120 hydralisk
+define_max 110 hydralisk
 define_max 5 lurker
 define_max 255 guardian
 define_max 255 devourer
