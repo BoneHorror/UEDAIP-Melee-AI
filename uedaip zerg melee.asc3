@@ -587,6 +587,7 @@ place_guard hydralisk 0
 place_guard hydralisk 1
 goto island_mid
 
+#todo - add an island midgame alternate block that hops between island with lings/ultras instead of the generic air midgame
 :island_opener
 debug_name IslandOpener
 farms_notiming
@@ -1648,7 +1649,7 @@ wait_buildstart 1 hydralisk_den
 build 1 queen_nest 80
 wait_buildstart 1 queen_nest
 train 2 hydralisk
-tech lurker_aspect 40
+tech lurker_aspect 70
 defensebuild_gg 2 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_ag 2 hydralisk
