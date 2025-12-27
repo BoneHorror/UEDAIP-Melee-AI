@@ -504,7 +504,7 @@ define_max 50 mutalisk
 define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
-define_max 60 hydralisk
+define_max 1 hydralisk
 define_max 6 lurker
 define_max 12 mutalisk
 define_max 12 guardian
@@ -513,24 +513,25 @@ define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
 call island_opener
+debug_name HydraIsland
 build 16 drone 80
 wait_buildstart 11 drone
 build 3 overlord 130
 wait_buildstart 3 overlord
-upgrade 1 overlord_capacity 90
 build 2 hatchery 80
 build 17 drone 80
+build 1 hydralisk_den 80
+wait_buildstart 1 hydralisk_den
+build 1 evolution_chamber 80
 wait_buildstart 2 hatchery
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
 build 19 drone 80
 wait_buildstart 15 drone
-build 1 hydralisk_den 80
-wait_buildstart 1 hydralisk_den
-build 1 evolution_chamber 80
-build 2 lair 80
 wait_build 1 lair
+upgrade 1 overlord_capacity 90
 wait_upgrades
+define_max 3 hydralisk
 train 3 hydralisk
 upgrade 1 overlord_speed 75
 build 4 overlord 80
@@ -541,9 +542,11 @@ defenseuse_ag 2 hydralisk
 farms_timing
 upgrade 1 z_missile_attack 70
 upgrade 1 hydralisk_range 70
+define_max 15 hydralisk
 train 8 hydralisk
-expand 1 generic_expansion
+multirun island_cond_firstexp
 train 15 hydralisk
+build 2 lair 80
 wait_upgrades
 call check_antirush
 attack_add 15 hydralisk
@@ -564,8 +567,15 @@ upgrade 1 z_flyer_attack 30
 attack_do
 attack_clear
 train 4 scourge
-rush 4 skip_hydra_opener_island 
+race_jump hydra_island_check_terran hydra_island_check_zp hydra_island_check_zp
+:hydra_island_check_zp
+rush 4 skip_hydra_opener_island
+goto hic_done 
+:hydra_island_check_terran
+rush 2 skip_hydra_opener_island
+:hic_done
 #skip if enemies have a lot of ground
+define_max 27 hydralisk
 train 25 hydralisk
 attack_add 2 scourge
 attack_add 25 hydralisk
@@ -583,8 +593,11 @@ farms_notiming
 wait_build 6 drone
 build 9 drone 80
 wait_buildstart 8 drone
+aicontrol build_gas
 build 2 overlord 100
+build 1 extractor 80
 wait_buildstart 2 overlord
+build 1 lair 80
 build 10 drone 80
 wait_buildstart 8 drone
 build 11 drone 80
@@ -593,10 +606,10 @@ build 1 spawning_pool 80
 wait_buildstart 1 spawning_pool
 build 12 drone 80
 wait_buildstart 10 drone
-build 1 extractor 80
+
 max_workers 22
 #wait_buildstart 1 extractor
-aicontrol build_gas
+
 build 14 drone 80
 wait_buildstart 12 drone
 wait_build 1 spawning_pool
@@ -611,7 +624,7 @@ define_max 20 mutalisk
 define_max 6 zergling
 define_max 6 ultralisk
 define_max 6 defiler
-define_max 4 hydralisk
+define_max 1 hydralisk
 define_max 6 lurker
 define_max 12 guardian
 define_max 6 devourer
@@ -619,6 +632,7 @@ define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
 call island_opener
+debug_name MutaIsland
 build 2 hatchery 80
 build 16 drone 80
 wait_buildstart 12 drone
@@ -649,14 +663,14 @@ upgrade 1 z_flyer_carapace 70
 train 1 mutalisk
 build 4 overlord 80
 train 3 mutalisk
-call z_transport_wait
-expand 1 generic_expansion
+multirun island_cond_firstexp
 train 4 mutalisk
 build 5 overlord 80
 multirun scourge_getter
 defenseuse_aa 2 scourge
 train 9 mutalisk
 build 1 hydralisk_den 85
+define_max 3 hydralisk
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
@@ -674,21 +688,22 @@ place_guard mutalisk 1
 place_guard mutalisk 2
 goto island_mid
 
-:z_transport_wait
-wait 80
+#currently unused
+#:z_transport_wait
+#wait 80
 
-upgrade_jump 13 Exactly overlord_capacity 0 z_transport_wait
-return
+#upgrade_jump 13 Exactly overlord_capacity 0 z_transport_wait
+#return
 
 :generic_island
 debug_name GenericIsland
 define_max 60 drone
 define_max 30 overlord
 define_max 12 mutalisk
-define_max 8 zergling
+define_max 4 zergling
 define_max 6 ultralisk
 define_max 6 defiler
-define_max 4 hydralisk
+define_max 1 hydralisk
 define_max 6 lurker
 define_max 12 guardian
 define_max 6 devourer
@@ -696,45 +711,51 @@ define_max 14 scourge
 multirun worker_decay
 build 6 drone 110
 call island_opener
+debug_name GenericIsland
 build 12 drone 80
 wait_buildstart 10 drone
 build 16 drone 80
 build 3 overlord 110
 wait_buildstart 3 overlord
-build 1 hydralisk_den 80
 build 2 hatchery 80
 build 19 drone 80
 wait_buildstart 14 drone
-upgrade 1 overlord_capacity 90
 build 1 evolution_chamber 80
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
-build 2 lair 80
 wait_build 1 lair
+upgrade 1 overlord_capacity 90
+build 2 creep_colony 80
+build 2 spore_colony 80
 wait_upgrades
-build 1 spire 100
-upgrade 1 overlord_speed 70
-build 4 overlord 60
-expand 1 generic_expansion
-defensebuild_gg 1 mutalisk
-defenseuse_gg 1 mutalisk
+build 1 hydralisk_den 80
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_ag 2 hydralisk
 defenseuse_ag 2 hydralisk
+define_max 8 zergling
+multirun island_cond_firstexp
+build 1 spire 80
+wait_buildstart 1 spire
+upgrade 1 overlord_speed 80
+wait_upgrades
+define_max 2 hydralisk
+farms_timing
+defensebuild_gg 1 mutalisk
+defenseuse_gg 1 mutalisk
+define_max 3 hydralisk
+wait_build 1 spire
 define_max 6 hydralisk
 defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
-farms_timing
 upgrade 1 z_missile_attack 30
 upgrade 1 z_flyer_attack 60
-build 2 creep_colony 80
-build 2 spore_colony 80
 define_max 60 hydralisk
 place_guard hydralisk 0
 place_guard mutalisk 1
+build 2 lair 80
 goto island_mid
 
 :is_this_zvp
@@ -2538,12 +2559,12 @@ goto terran_loopng
 debug_name IslandMidGame
 define_max 30 mutalisk
 define_max 12 zergling
-define_max 4 ultralisk
-define_max 5 defiler
-define_max 60 hydralisk
-define_max 6 lurker
+define_max 3 ultralisk
+define_max 4 defiler
+define_max 42 hydralisk
+define_max 255 lurker
 define_max 12 guardian
-define_max 10 devourer
+define_max 8 devourer
 define_max 14 scourge
 define_max 6 queen
 build 1 spire 80
@@ -2671,6 +2692,8 @@ upgrade 3 z_carapace 40
 upgrade 3 z_flyer_attack 50
 upgrade 3 z_flyer_carapace 50
 build 1 ultralisk_cavern 80
+defensebuild_gg 1 ultralisk
+defenseuse_gg 1 ultralisk
 tech plague 60
 multirun exp_repeater
 :island_loop
@@ -3815,3 +3838,11 @@ goto late_cc_loop
 #wait 5000
 #
 #goto m_idle
+
+:island_cond_firstexp
+wait 50
+
+upgrade_jump 13 Exactly overlord_capacity 0 island_cond_firstexp
+expand 1 priority_expansion
+wait 1000
+stop
