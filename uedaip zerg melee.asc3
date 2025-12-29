@@ -309,7 +309,6 @@ define_max 75 hydralisk
 define_max 4 lurker
 define_max 12 guardian
 define_max 4 devourer
-define_max 6 scourge
 multirun worker_decay
 build 6 drone 90
 wait_build 5 drone
@@ -400,7 +399,6 @@ define_max 15 hydralisk
 define_max 3 lurker
 define_max 15 guardian
 define_max 6 devourer
-define_max 6 scourge
 multirun worker_decay
 build 6 drone 90
 wait_build 5 drone
@@ -769,7 +767,6 @@ define_max 20 hydralisk
 define_max 255 lurker
 define_max 255 guardian
 define_max 255 devourer
-define_max 6 scourge
 multirun worker_decay
 random_call 64 early_bust
 debug_name Z_Hydras
@@ -844,7 +841,6 @@ define_max 110 hydralisk
 define_max 5 lurker
 define_max 255 guardian
 define_max 255 devourer
-define_max 6 scourge
 multirun worker_decay
 random_call 85 early_bust
 debug_name P_HydraBust
@@ -1197,7 +1193,6 @@ define_max 24 hydralisk
 define_max 12 lurker
 define_max 6 guardian
 define_max 4 devourer
-define_max 6 scourge
 multirun worker_decay
 random_jump 85 mutaling
 build 6 drone 110
@@ -1609,7 +1604,6 @@ define_max 28 hydralisk
 define_max 6 lurker
 define_max 255 guardian
 define_max 255 devourer
-define_max 6 scourge
 define_max 5 queen
 deaths 13 Set 2 medic 4pret
 call expand_opening
@@ -1825,7 +1819,6 @@ defenseuse_gg 1 queen
 multirun exp_repeater
 :crazy_loop
 debug_name CrazyLoop
-define_max 6 scourge
 set_attacks 2
 train 20 zergling
 call resource_waitskip
@@ -1901,7 +1894,6 @@ define_max 24 hydralisk
 define_max 12 lurker
 define_max 12 guardian
 define_max 4 devourer
-define_max 6 scourge
 call expand_opening
 goto 4skip
 
@@ -2173,7 +2165,6 @@ upgrade 1 defiler_mana 50
 multirun exp_repeater
 :muta_loop
 debug_name MutaLoop
-define_max 6 scourge
 define_max 8 lurker
 define_max 80 zergling
 set_attacks 2
@@ -2418,7 +2409,6 @@ defenseuse_gg 1 queen
 multirun exp_repeater
 :terran_loop
 debug_name TerranLoop
-define_max 6 scourge
 set_attacks 2
 train 20 zergling
 call resource_waitskip
@@ -2507,7 +2497,6 @@ defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 multirun exp_repeater
 :terran_loopng
-define_max 6 scourge
 set_attacks 2
 train 20 zergling
 call resource_waitskip
@@ -2846,7 +2835,6 @@ define_max 82 hydralisk
 define_max 8 lurker
 define_max 8 guardian
 define_max 8 devourer
-define_max 6 scourge
 call expand_opening
 build 1 spire 80
 wait_buildstart 1 spire
