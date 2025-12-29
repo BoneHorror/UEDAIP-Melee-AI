@@ -1361,6 +1361,7 @@ notowns_jump fleet_beacon robot_push
 
 :robot_loop
 debug_name robot_loop
+rush 17 robot_loop_lowair
 set_attacks 2
 attack_do
 attack_clear 
@@ -1385,6 +1386,39 @@ train 10 hornet
 train 8 dragoon
 train 6 reaver
 train 16 dragoon
+call check_ifunderattack
+attack_prepare
+call resource_waitskip
+goto robot_loop
+
+:robot_loop_lowair
+debug_name robot_loop_lowair
+set_attacks 2
+attack_do
+attack_clear 
+attack_add 2 carrier
+attack_add 16 dragoon
+set_attacks 2
+train 8 dragoon
+train 1 carrier
+train 12 dragoon
+train 2 carrier
+train 16 dragoon
+call check_ifunderattack
+wait_force 2 carrier
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 20 dragoon
+attack_add 7 reaver
+train 2 reaver
+train 8 dragoon
+train 4 reaver
+train 16 dragoon
+train 7 reaver
+train 20 dragoon
 call check_ifunderattack
 attack_prepare
 call resource_waitskip
@@ -2476,6 +2510,7 @@ notowns_jump arbiter_tribunal STPu
 
 :STLo
 debug_name STLo
+rush 17 STLo_AA
 set_attacks 3
 attack_do
 attack_clear 
@@ -2501,7 +2536,7 @@ target_expansion
 call resource_waitskip
 attack_do
 attack_clear 
-attack_add 7 carrier
+attack_add 6 carrier
 attack_add 6 corsair
 attack_add 1 harbiter
 train 6 carrier
@@ -2520,6 +2555,61 @@ wait 500
 
 attack_add 16 scout
 train 16 scout
+target_expansion 
+call resource_waitskip
+goto STLo
+
+:STLo_AA
+debug_name STLo
+rush 17 STLo_AA
+set_attacks 3
+attack_do
+attack_clear 
+attack_add 1 harbiter
+attack_add 14 scout
+attack_add 2 reaver
+attack_add 8 zealot
+attack_add 6 dragoon
+set_attacks 2
+train 4 scout
+train 4 dragoon
+train 1 harbiter
+train 6 scout
+train 4 zealot
+train 2 reaver
+train 8 zealot
+train 10 scout
+train 6 dragoon
+train 14 scout
+call check_ifunderattack
+target_expansion 
+
+call resource_waitskip
+attack_do
+attack_clear 
+attack_add 3 carrier
+attack_add 9 scout
+attack_add 6 corsair
+attack_add 1 harbiter
+train 3 carrier
+train 9 scout
+train 1 harbiter
+train 6 corsair
+wait_force 3 carrier
+wait 240
+
+call check_ifunderattack
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear
+wait 500
+
+attack_add 13 scout
+attack_add 6 dragoon
+train 6 dragoon
+train 13 scout
 target_expansion 
 call resource_waitskip
 goto STLo
@@ -2728,6 +2818,7 @@ call check_ifunderattack
 attack_prepare
 #normal prepare to vary between targets
 call resource_waitskip
+rush 17 MSLo_AA
 attack_do
 attack_clear 
 attack_add 10 scout
@@ -2755,6 +2846,45 @@ attack_add 12 scout
 attack_add 4 corsair
 train 12 scout
 train 4 corsair
+call check_ifunderattack
+target_expansion 
+call resource_waitskip
+goto MSLo
+
+:MSLo_AA
+debug_name MSLo_AA
+attack_do
+attack_clear 
+attack_add 4 corsair
+attack_add 12 revenant
+attack_add 7 zealot
+train 3 revenant
+train 1 corsair
+train 6 revenant
+train 2 corsair
+train 9 revenant
+train 4 corsair
+train 12 revenant
+train 7 zealot
+wait 240
+
+call check_ifunderattack
+target_expansion 
+call resource_waitskip
+
+attack_do
+attack_clear
+wait 500
+
+attack_add 4 reaver
+attack_add 14 revenant
+set_attacks 2
+train 2 reaver
+train 8 revenant
+train 4 reaver
+train 14 revenant
+wait 240
+
 call check_ifunderattack
 target_expansion 
 call resource_waitskip
