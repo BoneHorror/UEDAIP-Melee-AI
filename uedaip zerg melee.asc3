@@ -14,7 +14,7 @@ farms_notiming
 aicontrol global_disable_spell_focus
 aicontrol global_disable_acid_spore_focus
 aicontrol global_disable_carrier_focus
-supply 13 Set 250 Max 0 Zerg normal_select
+supply 13 Set 260 Max 0 Zerg normal_select
 build 1 hatchery 150
 build 4 drone 150
 build 1 overlord 130
@@ -3792,10 +3792,10 @@ stop
 debug_name SupplyFailsafe
 wait 1500
 
-supply 13 AtMost 245 Used marine Zerg max_supply_fallback
+supply 13 AtMost 255 Used marine Zerg max_supply_fallback
 wait 2250
 
-supply 13 AtMost 245 Used marine Zerg max_supply_fallback
+supply 13 AtMost 255 Used marine Zerg max_supply_fallback
 if_attacking max_supply_fallback
 send_suicide 0
 wait 5000

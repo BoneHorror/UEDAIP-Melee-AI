@@ -16,7 +16,7 @@ default_min 0
 build 5 scv 100
 farms_notiming
 max_force 1500
-supply 13 Set 250 Max marine Terran t_groundmap
+supply 13 Set 260 Max marine Terran t_groundmap
 #under_attack 0
 aicontrol global_disable_spell_focus
 aicontrol global_disable_acid_spore_focus
@@ -4716,10 +4716,10 @@ stop
 debug_name MaxSupplyFallback
 wait 1500
 
-supply 13 AtMost 245 Used marine Terran max_supply_fallback
+supply 13 AtMost 255 Used marine Terran max_supply_fallback
 wait 2250
 
-supply 13 AtMost 245 Used marine Terran max_supply_fallback
+supply 13 AtMost 255 Used marine Terran max_supply_fallback
 if_attacking max_supply_fallback
 send_suicide 0
 wait 5000
