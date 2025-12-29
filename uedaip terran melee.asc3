@@ -31,6 +31,7 @@ multirun grand_exchange
 multirun start_cheat
 wait 120
 
+multirun early_moves_reactions
 multirun comsat_evaluator
 multirun sciv_evaluator
 multirun late_cash
@@ -3031,7 +3032,8 @@ aicontrol build_gas
 build 15 scv 80
 wait_buildstart 13 scv
 train 1 vulture
-rush 5 mech_extra_defense
+rush 3 mech_extra_defense
+rush 4 mech_extra_defense
 goto mb_skip
 
 :mech_extra_defense
@@ -4473,11 +4475,23 @@ goto dec_3
 
 :ued_detector
 debug_name UEDDetector
-wait_build 1 starport
+
+rush 12 do_ued_obs
+notowns_jump factory ued_detector
+rush 11 delay_ued_obs
+goto ued_detector
+
+:delay_ued_obs
+call resource_waitskip
+:do_ued_obs
+build 1 starport 80
+train 1 skywing
 defensebuild_gg 1 skywing
 defenseuse_gg 1 skywing
 defensebuild_aa 1 skywing
 defenseuse_aa 1 skywing
+wait 1000
+
 stop
 
 :harsh_dec
@@ -4547,12 +4561,13 @@ stop
 debug_name PanicObs
 wait 16
 
-enemyowns_jump lurker obs_get
-enemyowns_jump dark_templar obs_get
-enemyowns_jump revenant obs_get
-enemyowns_jump wraith obs_get
+if_attacking panic_obs
+rush 12 obs_get
+rush 11 delay_obs
 goto panic_obs
 
+:delay_obs
+call resource_waitskip
 :obs_get
 debug_name ObsGet
 build 1 academy 80
@@ -4771,3 +4786,46 @@ wait_rand 855 2500
 
 max_force 1500
 goto late_cc_loop
+
+:early_moves_reactions
+debug_name early_moves_reactions
+#for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
+wait_build 6 scv
+rush 0 emr_enemy_loweco_atk
+wait_build 8 scv
+rush 1 emr_enemy_loweco_atk
+wait_build 13 scv
+rush 2 emr_enemy_early_atk
+rush 3 emr_enemy_early_atk_prio
+wait_build 15 scv
+rush 4 emr_enemy_push
+stop
+
+:emr_enemy_loweco_atk
+print emr_loweco
+build 1 barracks 90
+deaths 13 Exactly 2 214 emr_local_1
+defensebuild_gg 1 marine
+defenseuse_gg 1 marine
+stop
+
+:emr_local_1
+defensebuild_gg 1 heavy_marine
+defenseuse_gg 1 heavy_marine
+stop
+
+:emr_enemy_early_atk
+print emr_early
+build 1 bunker 80
+stop
+
+:emr_enemy_early_atk_prio
+print emr_earlyprio
+build 1 bunker 100
+stop
+
+:emr_enemy_push
+print emr_push
+build 2 bunker 90
+stop
+

@@ -82,6 +82,7 @@ multirun grand_exchange
 multirun start_cheat
 wait_rand 2 3
 
+multirun early_moves_reactions
 multirun panic_obs
 multirun late_cash
 wait_rand 1 2
@@ -398,7 +399,7 @@ build 15 probe 80
 wait_buildstart 13 probe
 train 5 zealot
 call check_ifunderattack
-rush 11 mixed_skip_zealots
+rush 6 mixed_skip_zealots
 attack_add 5 zealot
 attack_prepare
 :mixed_skip_zealots
@@ -2993,12 +2994,13 @@ return
 debug_name PanicObs
 wait 16
 
-enemyowns_jump lurker obs_get
-enemyowns_jump dark_templar obs_get
-enemyowns_jump revenant obs_get
-enemyowns_jump wraith obs_get
+if_attacking panic_obs
+rush 12 obs_get
+rush 11 delay_obs
 goto panic_obs
 
+:delay_obs
+call resource_waitskip
 :obs_get
 debug_name ObsGet
 wait_build 1 cybernetics_core
@@ -3259,3 +3261,43 @@ wait_rand 855 2500
 
 max_force 1500
 goto late_cc_loop
+
+:early_moves_reactions
+debug_name early_moves_reactions
+#for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
+wait_build 6 probe
+rush 0 emr_enemy_loweco_atk
+wait_build 8 probe
+rush 1 emr_enemy_loweco_atk
+wait_build 13 probe
+rush 2 emr_enemy_early_atk
+rush 3 emr_enemy_early_atk_prio
+wait_build 15 probe
+rush 4 emr_enemy_push
+stop
+
+:emr_enemy_loweco_atk
+print emr_loweco
+build 1 gateway 90
+defensebuild_gg 1 zealot
+defenseuse_gg 1 zealot
+stop
+
+:emr_enemy_early_atk
+print emr_early
+build 1 forge 80
+build 1 photon_cannon 80
+stop
+
+:emr_enemy_early_atk_prio
+print emr_earlyprio
+build 1 forge 90
+build 1 photon_cannon 100
+stop
+
+:emr_enemy_push
+print emr_push
+build 1 forge 90
+build 3 photon_cannon 100
+stop
+

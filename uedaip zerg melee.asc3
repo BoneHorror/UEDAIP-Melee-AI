@@ -46,6 +46,7 @@ multirun basic_air
 multirun late_cash
 wait_rand 2 3
 
+multirun early_moves_reactions
 multirun late_clearcombat
 multirun capitalize_weak_enemy
 multirun max_supply_fallback
@@ -245,7 +246,7 @@ build 15 drone 80
 wait_buildstart 14 drone
 race_jump eo_check_rush eo_continue eo_check_rush
 :eo_check_rush
-rush 4 eo_emergency_sunkens
+rush 3 eo_emergency_sunkens
 :eo_continue
 build 1 lair 100
 wait_buildstart 1 lair
@@ -549,10 +550,12 @@ train 15 hydralisk
 build 2 lair 80
 wait_upgrades
 call check_ifunderattack
+rush 6 skip_hydra_opening_island
 attack_add 15 hydralisk
 attack_prepare
 wait 16
 
+:skip_hydra_opening_island
 upgrade 1 hydralisk_speed 70
 build 2 creep_colony 80
 build 2 spore_colony 80
@@ -567,13 +570,7 @@ upgrade 1 z_flyer_attack 30
 attack_do
 attack_clear
 train 4 scourge
-race_jump hydra_island_check_terran hydra_island_check_zp hydra_island_check_zp
-:hydra_island_check_zp
-rush 4 skip_hydra_opener_island
-goto hic_done 
-:hydra_island_check_terran
-rush 2 skip_hydra_opener_island
-:hic_done
+rush 7 skip_hydra_push_island
 #skip if enemies have a lot of ground
 define_max 27 hydralisk
 train 25 hydralisk
@@ -582,7 +579,7 @@ attack_add 25 hydralisk
 attack_prepare
 wait 16
 
-:skip_hydra_opener_island
+:skip_hydra_push_island
 place_guard hydralisk 0
 place_guard hydralisk 1
 goto island_mid
@@ -677,7 +674,7 @@ defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
 call check_ifunderattack
-rush 13 skip_muta_rush_island
+rush 9 skip_muta_rush_island
 attack_add 9 mutalisk
 attack_prepare
 wait 16
@@ -2036,18 +2033,27 @@ train 1 lurker
 stop
 
 :add_scourge
-enemyowns_jump battlecruiser execute_scourge
-enemyowns_jump valhalla execute_scourge
-enemyowns_jump devourer execute_scourge
-enemyowns_jump carrier execute_scourge
-enemyowns_jump arbiter execute_scourge
-enemyowns_jump science_vessel execute_scourge
+rush 18 e_small_scourge
+rush 19 e_med_scourge
+rush 20 execute_scourge
+return
+
+:e_small_scourge
+define_max 10 scourge
+train 2 scourge
+attack_add 2 scourge
+return
+
+:e_med_scourge
+define_max 10 scourge
+train 4 scourge
+attack_add 4 scourge
 return
 
 :execute_scourge
 define_max 10 scourge
-train 6 scourge
-attack_add 6 scourge
+train 8 scourge
+attack_add 8 scourge
 return
 
 :late_vs_zerg
@@ -3448,22 +3454,13 @@ stop
 debug_name delayedRushReaction
 wait_rand 2555 2851
 
-race_jump drr_do_t void drr_do_p
-:drr_do_p
 #print EvaluateReaction
-rush 1 drr_react_to_rush
+rush 3 drr_react_to_rush
 
 #print ReactionExpired
 goto void
 
 
-:drr_do_t
-
-rush 2 drr_react_to_rush
-supply 14 AtLeast 9 InUnits heavy_marine Terran drr_react_to_rush
-#the second check will be too strict in multiplayer but eh, cant do much abt it
-#print ReactionExpired
-goto void
 
 
 :drr_react_to_rush
@@ -3497,20 +3494,8 @@ debug_name ScourgeGetter
 wait 15
 
 resources 13 AtMost Gas 150 scourge_getter
-enemyowns_jump battlecruiser bsg
-enemyowns_jump valhalla bsg
-enemyowns_jump devourer bsg
-enemyowns_jump carrier bsg
-enemyowns_jump arbiter bsg
-enemyowns_jump science_vessel bsg
-enemyowns_jump scout ssg
-enemyowns_jump valkyrie ssg
-enemyowns_jump corsair ssg
-enemyowns_jump guardian ssg
-enemyowns_jump mutalisk ssg
-enemyowns_jump wraith ssg
-enemyowns_jump skywing ssg
-enemyowns_jump hornet ssg
+rush 19 ssg
+rush 20 bsg
 groundmap_jump scourge_for_transports
 wait 20
 
@@ -3611,13 +3596,7 @@ wait 1500
 
 creep 4
 build 4 creep_colony 110
-enemyowns_jump scout rwrap_spore
-enemyowns_jump wraith rwrap_spore
-enemyowns_jump corsair rwrap_spore
-enemyowns_jump skywing rwrap_spore
-enemyowns_jump shuttle rwrap_spore
-enemyowns_jump scourge rwrap_spore
-enemyowns_jump mutalisk rwrap_spore
+rush 18 rwrap_spore
 build 4 sunken_colony 80
 wait 3000
 
@@ -3742,10 +3721,7 @@ return
 debug_name DetectorLoop
 wait 50
 
-enemyowns_jump citadel_of_adun detector_get
-enemyowns_jump covert_ops detector_get
-enemyowns_jump control_tower detector_get
-enemyowns_jump lurker detector_get
+rush 12 detector_get
 goto need_detectors
 
 :detector_get
@@ -3846,4 +3822,43 @@ wait 50
 upgrade_jump 13 Exactly overlord_capacity 0 island_cond_firstexp
 expand 1 priority_expansion
 wait 1000
+stop
+
+:early_moves_reactions
+debug_name early_moves_reactions
+#for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
+wait_build 6 drone
+rush 0 emr_enemy_loweco_atk
+wait_build 8 drone
+rush 1 emr_enemy_loweco_atk
+wait_build 12 drone
+rush 2 emr_enemy_early_atk
+rush 3 emr_enemy_early_atk_prio
+wait_build 14 drone
+rush 4 emr_enemy_push
+stop
+
+:emr_enemy_loweco_atk
+print emr_loweco
+build 1 spawning_pool 90
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
+stop
+
+:emr_enemy_early_atk
+print emr_early
+build 1 creep_colony 80
+build 1 sunken_colony 80
+stop
+
+:emr_enemy_early_atk_prio
+print emr_earlyprio
+build 1 creep_colony 100
+build 1 sunken_colony 90
+stop
+
+:emr_enemy_push
+print emr_push
+build 3 creep_colony 80
+build 3 sunken_colony 80
 stop
