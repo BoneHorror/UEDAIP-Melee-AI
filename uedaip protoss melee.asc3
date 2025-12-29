@@ -2560,8 +2560,7 @@ call resource_waitskip
 goto STLo
 
 :STLo_AA
-debug_name STLo
-rush 17 STLo_AA
+debug_name STLo_AA
 set_attacks 3
 attack_do
 attack_clear 

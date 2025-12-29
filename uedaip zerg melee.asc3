@@ -2785,7 +2785,6 @@ goto island_loop
 
 :island_loop_aa
 debug_name IslandLoopAA
-rush 17 island_loop_aa
 train 3 queen
 train 10 mutalisk
 call resource_waitskip
