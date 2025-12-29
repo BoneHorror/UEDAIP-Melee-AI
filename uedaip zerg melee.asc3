@@ -2231,6 +2231,7 @@ attack_add 3 lurker
 attack_add 1 defiler
 attack_do
 attack_clear
+rush 17 muta_loop_finish
 train 8 mutalisk
 train 4 guardian
 call resource_waitskip
@@ -2238,6 +2239,22 @@ train 24 mutalisk
 attack_add 13 mutalisk
 attack_add 8 guardian
 attack_add 3 devourer
+call add_scourge
+call check_ifunderattack
+attack_do
+attack_clear
+call resource_waitskip
+
+goto muta_loop
+
+:muta_loop_finish
+train 8 mutalisk
+train 4 guardian
+call resource_waitskip
+train 24 mutalisk
+attack_add 16 mutalisk
+attack_add 2 guardian
+attack_add 6 devourer
 call add_scourge
 call check_ifunderattack
 attack_do
@@ -2705,6 +2722,7 @@ tech plague 60
 multirun exp_repeater
 :island_loop
 debug_name IslandLoop
+rush 17 island_loop_aa
 train 3 queen
 train 10 mutalisk
 call resource_waitskip
@@ -2756,6 +2774,58 @@ attack_add 4 guardian
 attack_add 2 devourer
 attack_add 30 hydralisk
 attack_add 2 scourge
+call check_ifunderattack
+attack_prepare
+call resource_waitskip
+attack_do
+attack_clear
+wait 16
+
+goto island_loop
+
+:island_loop_aa
+debug_name IslandLoopAA
+rush 17 island_loop_aa
+train 3 queen
+train 10 mutalisk
+call resource_waitskip
+train 30 mutalisk
+train 8 devourer
+train 2 scourge
+attack_add 8 devourer
+attack_add 22 mutalisk
+call add_scourge
+call check_ifunderattack
+attack_do
+attack_clear
+set_attacks 2
+train 24 hydralisk
+train 3 ultralisk
+train 12 zergling
+train 4 scourge
+train 8 mutalisk
+train 4 devourer
+attack_add 2 defiler
+attack_add 3 ultralisk
+attack_add 12 zergling
+attack_add 24 hydralisk
+attack_add 4 devourer
+call add_scourge
+call check_ifunderattack
+target_expansion
+wait 660
+
+attack_do
+attack_clear
+call resource_waitskip
+train 14 mutalisk
+train 30 hydralisk
+train 6 devourer
+train 2 scourge
+attack_add 8 mutalisk
+attack_add 6 devourer
+attack_add 30 hydralisk
+call add_scourge
 call check_ifunderattack
 attack_prepare
 call resource_waitskip
