@@ -411,7 +411,7 @@ build 1 academy 80
 wait_buildstart 1 academy
 train 10 heavy_marine
 attack_add 8 heavy_marine
-call check_antirush
+call check_ifunderattack
 attack_prepare 
 upgrade 1 thunder_boosters 40
 build 1 factory 80
@@ -663,7 +663,7 @@ train 24 heavy_marine
 attack_add 24 heavy_marine
 attack_add 4 scorpion
 attack_add 3 valhalla
-call check_antirush
+call check_ifunderattack
 attack_prepare
 wait 16
 
@@ -762,7 +762,7 @@ train 3 panzer
 train 30 heavy_marine
 train 10 phantom
 train 5 medic
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -779,7 +779,7 @@ train 30 heavy_marine
 train 8 phantom
 train 5 medic
 train 2 valhalla
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -792,7 +792,7 @@ train 4 valhalla
 train 20 heavy_marine
 train 10 tesla_trooper
 train 3 medic
-call check_antirush
+call check_ifunderattack
 wait_force 4 valhalla
 target_expansion 
 call resource_waitskip
@@ -844,7 +844,7 @@ build 18 scv 80
 wait_buildstart 16 scv
 train 8 tesla_trooper
 attack_add 8 tesla_trooper
-call check_antirush
+call check_ifunderattack
 attack_prepare 
 wait 150
 
@@ -954,7 +954,7 @@ place_guard medic 0
 place_guard heavy_marine 0
 place_guard heavy_marine 0
 place_guard scorpion 1
-call check_antirush
+call check_ifunderattack
 wait_force 10 heavy_marine
 wait_force 3 scorpion
 attack_do 
@@ -1152,7 +1152,7 @@ train 36 heavy_marine
 train 4 phantom
 train 6 medic
 train 1 valkyrie
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1174,7 +1174,7 @@ train 30 heavy_marine
 train 16 scorpion
 train 5 medic
 train 1 valhalla
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1187,7 +1187,7 @@ attack_add 2 valhalla
 train 2 valhalla
 train 20 heavy_marine
 train 3 medic
-call check_antirush
+call check_ifunderattack
 wait_force 2 valhalla
 target_expansion 
 call resource_waitskip
@@ -1209,7 +1209,7 @@ build 4 barracks 80
 upgrade 1 t_infantry_weapon 40
 train 20 heavy_marine
 attack_add 20 heavy_marine
-call check_antirush
+call check_ifunderattack
 attack_prepare
 return
 
@@ -1270,7 +1270,7 @@ defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
 train 6 scorpion
 attack_add 6 scorpion
-call check_antirush
+call check_ifunderattack
 attack_prepare
 train 2 heavy_marine
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -1340,7 +1340,7 @@ attack_do
 attack_clear
 attack_add 8 heavy_marine
 attack_add 1 panzer
-call check_antirush
+call check_ifunderattack
 attack_prepare 
 build 2 factory 80
 wait_buildstart 2 factory
@@ -1565,7 +1565,7 @@ train 4 phantom
 train 7 panzer
 train 4 skywing
 train 3 medic
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1580,7 +1580,7 @@ train 6 death_knight
 train 8 skywing
 train 12 death_knight
 train 2 valhalla
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1598,7 +1598,7 @@ train 10 heavy_marine
 train 7 death_knight
 train 20 heavy_marine
 train 3 medic
-call check_antirush
+call check_ifunderattack
 wait_force 2 valhalla
 target_expansion 
 call resource_waitskip
@@ -1662,7 +1662,7 @@ attack_do
 attack_clear 
 attack_add 10 scorpion
 train 10 scorpion
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1677,7 +1677,7 @@ train 6 death_knight
 train 8 skywing
 train 12 death_knight
 train 2 valhalla
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1693,7 +1693,7 @@ train 2 death_knight
 train 4 scorpion
 train 7 death_knight
 train 8 scorpion
-call check_antirush
+call check_ifunderattack
 wait_force 2 valhalla
 target_expansion 
 call resource_waitskip
@@ -1814,7 +1814,7 @@ build 3 starport 80
 wait_buildstart 3 starport
 build 3 control_tower 100
 train 6 skywing
-call check_antirush
+call check_ifunderattack
 wait_force 10 heavy_marine
 wait_force 6 skywing
 attack_do 
@@ -1987,7 +1987,7 @@ train 2 valhalla
 train 15 heavy_marine
 train 4 valhalla
 train 3 medic
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -1997,7 +1997,7 @@ attack_add 16 skywing
 attack_add 3 valkyrie
 train 3 valkyrie
 train 16 skywing
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 
@@ -2005,7 +2005,7 @@ attack_do
 attack_clear 
 attack_add 7 valhalla
 train 7 valhalla
-call check_antirush
+call check_ifunderattack
 wait_force 7 valhalla
 target_expansion 
 call resource_waitskip
@@ -2101,7 +2101,7 @@ train 14 marine
 tech stim_packs 50
 attack_clear
 attack_add 12 marine
-call check_antirush
+call check_ifunderattack
 attack_prepare 
 build 4 barracks 80
 wait_buildstart 4 barracks
@@ -2391,7 +2391,7 @@ train 14 marine
 build 17 scv 60
 train 23 marine
 attack_add 23 marine
-call check_antirush
+call check_ifunderattack
 attack_prepare
 place_guard marine 1
 place_guard marine 2
@@ -2562,7 +2562,7 @@ train 8 ghost
 train 20 marine
 train 16 ghost
 train 40 marine
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -2578,7 +2578,7 @@ train 12 goliath
 train 3 siege_tank
 train 8 ghost
 train 8 siege_tank
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 goto ghostfoc_loop
@@ -2858,14 +2858,14 @@ attack_add 6 siege_tank
 attack_add 12 vulture
 train 6 siege_tank
 train 12 vulture
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
 attack_clear
 attack_add 10 wraith
 train 10 wraith
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -2885,7 +2885,7 @@ train 2 wraith
 train 6 goliath
 train 4 wraith
 train 16 vulture
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 goto LLo
@@ -2931,7 +2931,7 @@ tech spider_mines 40
 :skip_spider
 attack_add 8 vulture
 attack_prepare
-call check_antirush
+call check_ifunderattack
 
 expand 2 std_expo
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -2982,7 +2982,7 @@ train 6 goliath
 build 6 supply_depot 80
 train 8 goliath
 attack_add 8 goliath
-call check_antirush
+call check_ifunderattack
 attack_do
 attack_clear
 place_guard goliath 2
@@ -3085,7 +3085,7 @@ set_attacks 1
 prep_down 3 4 marine
 attack_add 2 siege_tank
 attack_add 2 vulture
-call check_antirush
+call check_ifunderattack
 attack_prepare
 build 20 scv 80
 wait_buildstart 18 scv
@@ -3331,7 +3331,7 @@ attack_add 10 vulture
 attack_add 20 goliath
 train 20 goliath
 train 10 vulture
-call check_antirush
+call check_ifunderattack
 attack_prepare 
 call resource_waitskip
 attack_do
@@ -3346,14 +3346,14 @@ train 10 siege_tank
 train 2 hnorad
 train 14 goliath
 train 14 siege_tank
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
 attack_clear
 attack_add 10 vulture
 train 10 vulture
-call check_antirush
+call check_ifunderattack
 target_expansion
 wait 16
 
@@ -3508,7 +3508,7 @@ train 14 marine
 attack_add 14 marine
 attack_add 5 wraith
 attack_add 2 siege_tank
-call check_antirush
+call check_ifunderattack
 attack_prepare
 :doma_skiptiming
 debug_name DomaSkipTiming
@@ -3753,7 +3753,7 @@ attack_add 4 siege_tank
 train 4 siege_tank
 :islandloop_skiptank
 debug_name IslandLoopSkipTank
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -3768,7 +3768,7 @@ train 2 hnorad
 :islandloop_skipbc
 debug_name IslandLoopSkipBC
 train 20 marine
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -3779,7 +3779,7 @@ attack_add 10 wraith
 train 2 science_vessel
 train 4 hnorad
 train 10 wraith
-call check_antirush
+call check_ifunderattack
 target_expansion 
 call resource_waitskip
 goto DLo
@@ -3791,7 +3791,7 @@ wait_build 1 control_tower
 tech cloaking_field 90
 train 7 wraith
 attack_add 7 wraith
-call check_antirush
+call check_ifunderattack
 attack_prepare
 wait 150
 
@@ -4649,7 +4649,7 @@ wait 28350
 upgrade_jump 13 Set 74 1 late_cash
 stop
 
-:check_antirush
+:check_ifunderattack
 deaths 13 AtLeast 1 187 ar_simplified
 #if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
 deaths 13 Set 1 187 ar_loop
