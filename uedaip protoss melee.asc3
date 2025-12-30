@@ -1822,11 +1822,11 @@ wait 3500
 :e_ng_robo
 debug_name ENGRobo
 build 1 robotics_facility 80
-:e_ng_loop
-debug_name ENGLoop
+:town_tech_loop
+debug_name town_idle_tech
 wait 1500
 
-goto e_ng_loop
+goto town_tech_loop
 
 :e_ng_air
 debug_name ENGAir
@@ -1837,7 +1837,7 @@ random_jump 128 e_ng_robo
 build 1 gateway 80
 wait 3500
 
-goto e_ng_loop
+goto town_tech_loop
 
 :sb_checker
 debug_name SBChecker
@@ -2913,7 +2913,7 @@ check_transports
 stop
 
 :resource_waitskip
-wait 16
+wait 1
 
 resources_jump 1033 785 waitskip_do
 wait 1299
