@@ -246,6 +246,7 @@ build 15 drone 80
 wait_buildstart 14 drone
 race_jump eo_check_rush eo_continue eo_check_rush
 :eo_check_rush
+#print using_rush_3_eo_emergency_sunkens
 rush 3 eo_emergency_sunkens
 :eo_continue
 build 1 lair 100
@@ -548,6 +549,7 @@ train 15 hydralisk
 build 2 lair 80
 wait_upgrades
 call check_ifunderattack
+#print using_rush_6_skip_hydra_opening_island
 rush 6 skip_hydra_opening_island
 attack_add 15 hydralisk
 attack_prepare
@@ -568,6 +570,7 @@ upgrade 1 z_flyer_attack 30
 attack_do
 attack_clear
 train 4 scourge
+#print using_rush_7_skip_hydra_push_island
 rush 7 skip_hydra_push_island
 #skip if enemies have a lot of ground
 define_max 27 hydralisk
@@ -672,6 +675,7 @@ defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
 call check_ifunderattack
+#print using_rush_9_skip_muta_rush_island
 rush 9 skip_muta_rush_island
 attack_add 9 mutalisk
 attack_prepare
@@ -1029,12 +1033,13 @@ wait 1500
 
 train 80 hydralisk
 call resource_waitskip
-rush 20 lf_skip_ultras
-#enemy has so much air to ground we don't waste resources on ultras
 train 6 ultralisk
 call resource_waitskip
 attack_do
 attack_clear
+#print using_rush_20_lf_skip_ultras
+rush 20 lf_skip_ultras
+#enemy has so much air to ground we don't waste resources on ultra suicide runs
 attack_add 6 ultralisk
 target_expansion
 wait 1500
@@ -2036,8 +2041,11 @@ train 1 lurker
 stop
 
 :add_scourge
+#print using_rush_18_e_small_scourge
 rush 18 e_small_scourge
+#print using_rush_19_e_med_scourge
 rush 19 e_med_scourge
+#print using_rush_20_execute_scourge
 rush 20 execute_scourge
 return
 
@@ -2237,6 +2245,7 @@ attack_add 3 lurker
 attack_add 1 defiler
 attack_do
 attack_clear
+#print using_rush_17_muta_loop_finish
 rush 17 muta_loop_finish
 train 8 mutalisk
 train 4 guardian
@@ -2737,6 +2746,7 @@ attack_do
 attack_clear
 :island_loop
 debug_name IslandLoop
+#print using_rush_17_island_loop_aa
 rush 17 island_loop_aa
 train 3 queen
 train 10 mutalisk
@@ -3469,11 +3479,13 @@ return
 
 :eg_do
 #use rush that checks for a small amount of ground defense - rush 5 checks if target owns OVER 6 marines / 2 rines + bunker / 6 ZGS / over 3 zealots
+#print using_rush_5_skip_earlyground
 rush 5 skip_earlyground
 #proceed into a small ling attack since we didn't see ground defense
 train 6 zergling
 resources 13 AtLeast Ore 400 sub_hatch
 :sub_return
+#print using_rush_5_skip_earlyground
 rush 5 skip_earlyground
 attack_add 6 zergling
 attack_prepare
@@ -3541,6 +3553,7 @@ debug_name delayedRushReaction
 wait_rand 2555 2851
 
 #print EvaluateReaction
+#print using_rush_3_drr_react_to_rush
 rush 3 drr_react_to_rush
 
 #print ReactionExpired
@@ -3549,6 +3562,7 @@ goto void
 :drr_react_to_rush
 #print ReactingToRush
 debug_name reactToRush
+#print using_rush_23_void
 rush 23 void
 creep 3
 build 2 creep_colony 80
@@ -3579,7 +3593,9 @@ wait 15
 
 resources 13 AtMost Gas 150 scourge_getter
 if_attacking scourge_getter
+#print using_rush_19_ssg
 rush 19 ssg
+#print using_rush_20_bsg
 rush 20 bsg
 groundmap_jump scourge_for_transports
 wait 20
@@ -3685,6 +3701,7 @@ build 4 creep_colony 110
 wait 50
 
 if_attacking panic_delay
+#print using_rush_18_rwrap_spore
 rush 18 rwrap_spore
 build 4 sunken_colony 80
 wait 3000
@@ -3811,6 +3828,7 @@ debug_name DetectorLoop
 wait 50
 
 if_attacking need_detectors
+#print using_rush_12_detector_get
 rush 12 detector_get
 goto need_detectors
 
@@ -3918,13 +3936,18 @@ stop
 debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 drone
+#print using_rush_0_emr_enemy_loweco_atk
 rush 0 emr_enemy_loweco_atk
 wait_build 8 drone
+#print using_rush_1_emr_enemy_loweco_atk
 rush 1 emr_enemy_loweco_atk
 wait_build 12 drone
+#print using_rush_2_emr_enemy_early_atk
 rush 2 emr_enemy_early_atk
+#print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
 wait_build 14 drone
+#print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
 stop
 
