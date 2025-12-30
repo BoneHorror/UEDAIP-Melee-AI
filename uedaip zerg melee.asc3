@@ -3681,6 +3681,10 @@ wait 1500
 
 creep 4
 build 4 creep_colony 110
+:panic_delay
+wait 50
+
+if_attacking panic_delay
 rush 18 rwrap_spore
 build 4 sunken_colony 80
 wait 3000
@@ -3806,6 +3810,7 @@ return
 debug_name DetectorLoop
 wait 50
 
+if_attacking need_detectors
 rush 12 detector_get
 goto need_detectors
 
