@@ -101,6 +101,7 @@ multirun late_check_transports
 multirun max_supply_fallback
 multirun capitalize_weak_enemy
 multirun late_clearcombat
+multirun clear_regions
 #guard_all
 creep 3
 #TEST
@@ -399,6 +400,7 @@ build 15 probe 80
 wait_buildstart 13 probe
 train 5 zealot
 call check_ifunderattack
+#print using_rush_6_mixed_skip_zealots
 rush 6 mixed_skip_zealots
 attack_add 5 zealot
 attack_prepare
@@ -1373,6 +1375,7 @@ debug_name robot_loop
 set_attacks 2
 attack_do
 attack_clear 
+#print using_rush_17_robot_loop_lowair
 rush 17 robot_loop_lowair
 set_attacks 2
 train 1 carrier
@@ -2536,6 +2539,7 @@ debug_name STLo
 set_attacks 3
 attack_do
 attack_clear 
+#print using_rush_17_STLo_AA
 rush 17 STLo_AA
 set_attacks 2
 train 2 carrier
@@ -2851,6 +2855,7 @@ attack_prepare
 call resource_waitskip
 attack_do
 attack_clear 
+#print using_rush_17_MSLo_AA
 rush 17 MSLo_AA
 train 4 scout
 train 1 harbiter
@@ -3161,7 +3166,9 @@ debug_name PanicObs
 wait 650
 
 if_attacking panic_obs
+#print using_rush_12_obs_get
 rush 12 obs_get
+#print using_rush_11_delay_obs
 rush 11 delay_obs
 goto panic_obs
 
@@ -3433,19 +3440,27 @@ debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 probe
 if_attacking emr_skip_1
+#print using_rush_0_emr_enemy_loweco_atk
+rush 21 emr_skip_1
 rush 0 emr_enemy_loweco_atk
 :emr_skip_1
-wait_build 8 probe
+wait_build 12 probe
 if_attacking emr_skip_2
+#print using_rush_1_emr_enemy_loweco_atk
+rush 21 emr_skip_2
 rush 1 emr_enemy_loweco_atk
 :emr_skip_2
-wait_build 13 probe
+wait_build 16 probe
 if_attacking emr_skip_3
+#print using_rush_2_emr_enemy_early_atk
+rush 22 emr_skip_3
 rush 2 emr_enemy_early_atk
+#print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
 :emr_skip_3
-wait_build 15 probe
+wait_build 20 probe
 if_attacking void
+#print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
 stop
 
@@ -3472,5 +3487,18 @@ stop
 print emr_push
 build 1 forge 90
 build 3 photon_cannon 100
+:void
 stop
 
+:clear_regions
+wait 56
+
+time_jump 16 cr_loop
+goto clear_regions
+
+:cr_loop
+wait 1
+
+wait_rand 1033 5450
+harass_location
+goto cr_loop
