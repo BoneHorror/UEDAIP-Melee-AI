@@ -7,10 +7,10 @@ wait 1
 start_town
 defaultbuild_off
 default_min 0
-max_force 1500
+max_force 2500
 transports_off
 farms_notiming
-#under_attack 0
+capt_expand
 aicontrol global_disable_spell_focus
 aicontrol global_disable_acid_spore_focus
 aicontrol global_disable_carrier_focus
@@ -46,6 +46,7 @@ multirun basic_air
 multirun late_cash
 wait_rand 2 3
 
+multirun clear_regions
 multirun early_moves_reactions
 multirun late_clearcombat
 multirun capitalize_weak_enemy
@@ -3421,12 +3422,12 @@ wait 50
 
 deaths 13 AtMost 12 drone dp_checker
 #under_attack 1
-max_force 1500
+max_force 2500
 :dp_retain
 wait 1000
 
 deaths 13 AtLeast 13 drone dp_retain
-max_force 2000
+max_force 3000
 #under_attack 0
 goto dp_checker
 
@@ -3543,31 +3544,8 @@ return
 debug_name earlydefPanic
 wait 245
 
-multirun delayed_rush_reaction
 wait_secure
 defensebuild_gg 1 zergling
-stop
-
-:delayed_rush_reaction
-debug_name delayedRushReaction
-wait_rand 2555 2851
-
-#print EvaluateReaction
-#print using_rush_3_drr_react_to_rush
-rush 3 drr_react_to_rush
-
-#print ReactionExpired
-goto void
-
-:drr_react_to_rush
-#print ReactingToRush
-debug_name reactToRush
-#print using_rush_23_void
-rush 23 void
-creep 3
-build 2 creep_colony 80
-build 2 sunken_colony 80
-train 6 zergling
 stop
 
 :start_cheat
@@ -3681,7 +3659,6 @@ wait 50
 time_jump 14 void
 resources 13 AtMost Ore 1050 rush_panic
 #print ZERG_RUSH_PANIC
-guard_all
 creep 3
 build 2 creep_colony 110
 build 2 sunken_colony 80
@@ -3737,7 +3714,6 @@ time_jump 30 void
 resources 13 AtMost Ore 3050 rush_panic_exp
 deaths 13 Set 1 bunker void
 #print ZERG_RUSH_PANIC_EXP
-guard_all
 build 1 spawning_pool 120
 build 1 hydralisk_den 120
 defensebuild_gg 1 zergling
@@ -3912,7 +3888,7 @@ max_force 1
 
 wait_rand 855 2500
 
-max_force 1500
+max_force 2500
 goto late_cc_loop
 #:script_num_debug
 #wait 1
@@ -3936,17 +3912,27 @@ stop
 debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 drone
+if_attacking emr_skip_1
 #print using_rush_0_emr_enemy_loweco_atk
+rush 21 emr_skip_1
 rush 0 emr_enemy_loweco_atk
-wait_build 8 drone
-#print using_rush_1_emr_enemy_loweco_atk
-rush 1 emr_enemy_loweco_atk
+:emr_skip_1
 wait_build 12 drone
+if_attacking emr_skip_2
+#print using_rush_1_emr_enemy_loweco_atk
+rush 21 emr_skip_2
+rush 1 emr_enemy_loweco_atk
+:emr_skip_2
+wait_build 16 drone
+if_attacking emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
+rush 22 emr_skip_3
 rush 2 emr_enemy_early_atk
 #print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
-wait_build 14 drone
+:emr_skip_3
+wait_build 20 drone
+if_attacking void
 #print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
 stop
@@ -3960,18 +3946,36 @@ stop
 
 :emr_enemy_early_atk
 print emr_early
+creep 3
 build 1 creep_colony 80
 build 1 sunken_colony 80
 stop
 
 :emr_enemy_early_atk_prio
 print emr_earlyprio
+creep 3
 build 1 creep_colony 100
 build 1 sunken_colony 90
+do_morph 4 zergling
 stop
 
 :emr_enemy_push
 print emr_push
+creep 3
 build 3 creep_colony 80
 build 3 sunken_colony 80
+do_morph 6 zergling
 stop
+
+:clear_regions
+wait 56
+
+time_jump 16 cr_loop
+goto clear_regions
+
+:cr_loop
+wait 1
+
+wait_rand 1033 5450
+harass_location
+goto cr_loop
