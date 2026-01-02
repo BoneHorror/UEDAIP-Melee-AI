@@ -82,7 +82,6 @@ multirun grand_exchange
 multirun start_cheat
 wait_rand 2 3
 
-multirun early_moves_reactions
 multirun panic_obs
 multirun late_cash
 wait_rand 1 2
@@ -315,6 +314,7 @@ stop
 
 :ground_picker
 debug_name GroundPicker
+multirun early_moves_reactions
 race_jump vst vsz vsp
 
 :vsp
@@ -3488,21 +3488,38 @@ stop
 
 :emr_enemy_early_atk
 print emr_early
+random_jump 85 emr_random_react_1
 build 1 forge 80
 build 1 photon_cannon 80
 stop
 
 :emr_enemy_early_atk_prio
 print emr_earlyprio
+random_jump 128 emr_random_react_1
 build 1 forge 90
 build 1 photon_cannon 100
 stop
 
 :emr_enemy_push
 print emr_push
+random_jump 64 emr_random_react_2
 build 1 forge 90
 build 3 photon_cannon 100
 :void
+stop
+
+:emr_random_react_1
+build 1 gateway 90
+defensebuild_gg 1 zealot
+defenseuse_gg 1 zealot
+train 2 zealot
+stop
+
+:emr_random_react_2
+build 2 gateway 90
+defensebuild_gg 1 zealot
+defenseuse_gg 1 zealot
+train 6 zealot
 stop
 
 :clear_regions

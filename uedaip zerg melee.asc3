@@ -47,7 +47,6 @@ multirun late_cash
 wait_rand 2 3
 
 multirun clear_regions
-multirun early_moves_reactions
 multirun late_clearcombat
 multirun capitalize_weak_enemy
 multirun max_supply_fallback
@@ -107,6 +106,7 @@ random_jump 85 generic_island
 goto muta_island
 #goto spread_island
 :normal_select
+multirun early_moves_reactions
 multirun rush_panic
 race_jump gen_spread gen_muta gen_bust
 #vs T Z P
@@ -3055,13 +3055,13 @@ attack_add 9 mutalisk
 attack_prepare
 wait 16
 
-attack_timeout 15
-attack_do
-attack_clear
+attack_timeout 90
 call resource_waitskip
 train 2 queen
 train 32 zergling
 train 4 hydralisk
+attack_do
+attack_clear
 train 4 lurker
 attack_add 2 queen
 attack_add 32 zergling
@@ -3070,9 +3070,7 @@ call check_ifunderattack
 attack_prepare
 wait 16
 
-attack_timeout 65
-attack_do
-attack_clear
+attack_timeout 90
 build 1 ultralisk_cavern 80
 defenseuse_ag 2 scourge
 #defensebuild_ag 2 scourge
@@ -3085,6 +3083,9 @@ defenseuse_gg 1 queen
 expand 3 generic_expansion
 upgrade 1 queen_mana 35
 tech consume 70
+train 20 hydralisk
+attack_do
+attack_clear
 train 44 hydralisk
 attack_add 44 hydralisk
 define_max 3 defiler
@@ -3138,6 +3139,11 @@ tech ensnare 50
 defensebuild_ga 1 guardian
 defenseuse_ga 1 guardian
 multirun exp_repeater
+train 15 mutalisk
+attack_add 15 mutalisk
+target_expansion
+wait 600
+
 wait_build 1 greater_spire
 attack_do
 attack_clear
@@ -3970,6 +3976,7 @@ creep 3
 build 1 spawning_pool 90
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
+random_jump 32 emr_random_react_1
 build 1 creep_colony 80
 build 1 sunken_colony 80
 stop
@@ -3977,6 +3984,7 @@ stop
 :emr_enemy_early_atk_prio
 print emr_earlyprio
 creep 3
+random_jump 64 emr_random_react_1
 build 1 creep_colony 100
 build 1 sunken_colony 90
 do_morph 4 zergling
@@ -3985,9 +3993,20 @@ stop
 :emr_enemy_push
 print emr_push
 creep 3
+random_jump 128 emr_random_react_2
 build 3 creep_colony 80
 build 3 sunken_colony 80
 do_morph 6 zergling
+stop
+
+:emr_random_react_1
+train 4 zergling
+stop
+
+:emr_random_react_2
+build 1 creep_colony 100
+build 1 sunken_colony 90
+train 8 zergling
 stop
 
 :clear_regions
