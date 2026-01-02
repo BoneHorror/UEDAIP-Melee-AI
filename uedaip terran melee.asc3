@@ -4808,7 +4808,7 @@ rush 4 emr_enemy_push
 stop
 
 :emr_enemy_loweco_atk
-print emr_loweco
+#print emr_loweco
 build 1 barracks 90
 deaths 13 Exactly 2 177 emr_local_1
 defensebuild_gg 1 marine
@@ -4821,7 +4821,7 @@ defenseuse_gg 1 heavy_marine
 stop
 
 :emr_enemy_early_atk
-print emr_early
+#print emr_early
 build 1 barracks 90
 build 1 bunker 80
 deaths 13 Exactly 2 177 emr_local_1
@@ -4830,12 +4830,12 @@ defenseuse_gg 1 marine
 stop
 
 :emr_enemy_early_atk_prio
-print emr_earlyprio
+#print emr_earlyprio
 build 1 bunker 100
 goto emr_troops
 
 :emr_enemy_push
-print emr_push
+#print emr_push
 build 2 bunker 90
 goto emr_troops
 

@@ -3480,28 +3480,28 @@ rush 4 emr_enemy_push
 stop
 
 :emr_enemy_loweco_atk
-print emr_loweco
+#print emr_loweco
 build 1 gateway 90
 defensebuild_gg 1 zealot
 defenseuse_gg 1 zealot
 stop
 
 :emr_enemy_early_atk
-print emr_early
+#print emr_early
 random_jump 85 emr_random_react_1
 build 1 forge 80
 build 1 photon_cannon 80
 stop
 
 :emr_enemy_early_atk_prio
-print emr_earlyprio
+#print emr_earlyprio
 random_jump 128 emr_random_react_1
 build 1 forge 90
 build 1 photon_cannon 100
 stop
 
 :emr_enemy_push
-print emr_push
+#print emr_push
 random_jump 64 emr_random_react_2
 build 1 forge 90
 build 3 photon_cannon 100
