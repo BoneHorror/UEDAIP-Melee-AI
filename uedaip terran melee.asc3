@@ -4774,9 +4774,11 @@ wait_build 12 scv
 if_attacking emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
-rush 1 emr_enemy_loweco_atk
+rush 1 emr_enemy_early_atk
 :emr_skip_2
-wait_build 16 scv
+wait 25
+
+supply 13 AtMost 15 InUnits scv Terran emr_skip_2
 if_attacking emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -4784,7 +4786,9 @@ rush 2 emr_enemy_early_atk
 #print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
 :emr_skip_3
-wait_build 20 scv
+wait 25
+
+supply 13 AtMost 19 InUnits scv Terran emr_skip_3
 if_attacking void
 #print using_rush_4_emr_enemy_push
 rush 22 void
@@ -4794,7 +4798,7 @@ stop
 :emr_enemy_loweco_atk
 print emr_loweco
 build 1 barracks 90
-deaths 13 Exactly 2 214 emr_local_1
+deaths 13 Exactly 2 177 emr_local_1
 defensebuild_gg 1 marine
 defenseuse_gg 1 marine
 stop
@@ -4806,7 +4810,11 @@ stop
 
 :emr_enemy_early_atk
 print emr_early
+build 1 barracks 90
 build 1 bunker 80
+deaths 13 Exactly 2 177 emr_local_1
+defensebuild_gg 1 marine
+defenseuse_gg 1 marine
 stop
 
 :emr_enemy_early_atk_prio

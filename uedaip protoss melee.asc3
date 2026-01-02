@@ -2178,16 +2178,27 @@ groundmap_jump can_con
 goto can_skip
 
 :can_con
+call resource_waitskip
 creep 3
 build 2 photon_cannon 80
 wait_build 2 photon_cannon
+call resource_waitskip
 creep 4
 build 3 photon_cannon 80
 wait_build 3 photon_cannon
+random_jump 26 can_skip
+call resource_waitskip
+creep 4
 build 4 photon_cannon 80
 wait_build 4 photon_cannon
+random_jump 85 can_skip
+call resource_waitskip
+creep 4
 build 5 photon_cannon 80
 wait_build 5 photon_cannon
+random_jump 128 can_skip
+creep 4
+call resource_waitskip
 build 6 photon_cannon 80
 wait_build 6 photon_cannon
 :can_skip
@@ -3450,7 +3461,9 @@ if_attacking emr_skip_2
 rush 21 emr_skip_2
 rush 1 emr_enemy_loweco_atk
 :emr_skip_2
-wait_build 16 probe
+wait 25
+
+supply 13 AtMost 15 InUnits probe Protoss emr_skip_2
 if_attacking emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -3458,7 +3471,9 @@ rush 2 emr_enemy_early_atk
 #print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
 :emr_skip_3
-wait_build 20 probe
+wait 25
+
+supply 13 AtMost 19 InUnits probe Protoss emr_skip_3
 if_attacking void
 #print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push

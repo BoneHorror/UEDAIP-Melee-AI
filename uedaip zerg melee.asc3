@@ -207,6 +207,7 @@ stop
 multirun worker_decay
 build 6 drone 110
 wait_build 5 drone
+define_max 4 zergling
 build 9 drone 80
 wait_buildstart 8 drone
 build 2 overlord 80
@@ -268,15 +269,19 @@ creep 3
 build 2 creep_colony 80
 wait_buildstart 2 creep_colony
 build 2 sunken_colony 80
+build 1 evolution_chamber 80
+upgrade 1 zergling_speed 50
 :eo_skip_c
 build 18 drone 80
-upgrade 1 zergling_speed 50
 build 2 hatchery 60
 defensebuild_gg 2 zergling
 defenseuse_gg 1 zergling
-build 1 evolution_chamber 80
 wait_build 1 lair
 build 4 overlord 80
+rush 4 eo_extra_def
+return
+
+:eo_extra_def
 creep 4
 build 3 creep_colony 80
 wait_buildstart 3 creep_colony
@@ -284,6 +289,7 @@ build 3 sunken_colony 80
 return
 
 :eo_emergency_sunkens
+define_max 8 zergling
 build 3 creep_colony 80
 build 3 sunken_colony 80
 train 4 zergling
@@ -1627,6 +1633,7 @@ call expand_opening
 define_max 8 zergling
 #todo continue
 train 2 zergling
+build 1 evolution_chamber 80
 build 1 spire 100
 build 20 drone 80
 wait_buildstart 16 drone
@@ -1902,7 +1909,8 @@ goto crazy_loop
 :early_spread
 debug_name EarlySpread
 deaths 13 Set 1 medic 4pret
-#use medic death as a marker
+#use medic death as a marker for expand opening to get a spire earlier
+call expand_opening
 define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
@@ -1913,12 +1921,12 @@ define_max 24 hydralisk
 define_max 12 lurker
 define_max 12 guardian
 define_max 4 devourer
-call expand_opening
 goto 4skip
 
 :4pret
 build 1 spire 80
 :4skip
+build 1 evolution_chamber 80
 define_max 32 zergling
 upgrade 1 zergling_speed 80
 train 14 zergling
@@ -2862,6 +2870,9 @@ goto island_loop
 
 :p_muta
 debug_name vsPMuta
+deaths 13 Set 1 medic 4pret
+#use medic death as a marker for expand opening to get a spire earlier
+call expand_opening
 define_max 60 drone
 define_max 30 overlord
 define_max 24 mutalisk
@@ -2872,31 +2883,27 @@ define_max 82 hydralisk
 define_max 8 lurker
 define_max 8 guardian
 define_max 8 devourer
-call expand_opening
-build 1 spire 80
+build 1 spire 100
 wait_buildstart 1 spire
-defensebuild_gg 1 mutalisk
-defenseuse_gg 1 mutalisk
-defenseuse_gg 1 mutalisk
-defensebuild_aa 1 mutalisk
-defenseuse_aa 1 mutalisk
+defensebuild_gg 2 mutalisk
+defenseuse_gg 2 mutalisk
+defensebuild_aa 2 mutalisk
+defenseuse_aa 2 mutalisk
 defenseuse_ag 2 scourge
 multirun scourge_getter
 defenseuse_aa 2 scourge
-train 10 zergling
 upgrade 1 z_missile_attack 50
 set_attacks 2
-attack_add 10 zergling
-attack_prepare
-attack_timeout 30
 :pm_check_bank
 build 2 hatchery 80
 train 4 mutalisk
+rush 9 pm_get_more_mutas
+goto pm_instantly_execute
+:pm_get_more_mutas
 train 7 mutalisk
 train 9 mutalisk
-attack_do
 train 13 mutalisk
-attack_clear
+:pm_instantly_execute
 attack_add 4 mutalisk
 target_expansion
 wait 800
@@ -2904,6 +2911,8 @@ wait 800
 attack_do
 attack_clear
 multirun late_vs_protoss
+build 1 evolution_chamber 80
+train 11 mutalisk
 attack_add 11 mutalisk
 attack_prepare
 wait 16
@@ -3578,6 +3587,13 @@ rush 20 bsg
 groundmap_jump scourge_for_transports
 wait 20
 
+resources 13 AtLeast Gas 850 some_scourge_get
+goto scourge_getter
+
+:some_scourge_get
+train 4 scourge
+wait 200
+
 goto scourge_getter
 
 :scourge_for_transports
@@ -3921,9 +3937,11 @@ wait_build 12 drone
 if_attacking emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
-rush 1 emr_enemy_loweco_atk
+rush 1 emr_enemy_early_atk
 :emr_skip_2
-wait_build 16 drone
+wait 25
+
+supply 13 AtMost 15 InUnits drone Zerg emr_skip_2
 if_attacking emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -3931,7 +3949,9 @@ rush 2 emr_enemy_early_atk
 #print using_rush_3_emr_enemy_early_atk_prio
 rush 3 emr_enemy_early_atk_prio
 :emr_skip_3
-wait_build 20 drone
+wait 25
+
+supply 13 AtMost 19 InUnits drone Zerg emr_skip_3
 if_attacking void
 #print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
@@ -3947,6 +3967,9 @@ stop
 :emr_enemy_early_atk
 print emr_early
 creep 3
+build 1 spawning_pool 90
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
 build 1 creep_colony 80
 build 1 sunken_colony 80
 stop
