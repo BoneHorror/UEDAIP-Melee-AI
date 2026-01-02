@@ -3896,11 +3896,11 @@ goto capitalize_weak_enemy
 
 :late_clearcombat
 wait_rand 28800 31500
+
 :late_cc_loop
 wait 50
 
 if_attacking late_cc_loop
-start_campaign
 wait 50
 
 wait_secure
@@ -3964,14 +3964,14 @@ rush 4 emr_enemy_push
 stop
 
 :emr_enemy_loweco_atk
-print emr_loweco
+#print emr_loweco
 build 1 spawning_pool 90
 defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
 stop
 
 :emr_enemy_early_atk
-print emr_early
+#print emr_early
 creep 3
 build 1 spawning_pool 90
 defensebuild_gg 1 zergling
@@ -3982,7 +3982,7 @@ build 1 sunken_colony 80
 stop
 
 :emr_enemy_early_atk_prio
-print emr_earlyprio
+#print emr_earlyprio
 creep 3
 random_jump 64 emr_random_react_1
 build 1 creep_colony 100
@@ -3991,7 +3991,7 @@ do_morph 4 zergling
 stop
 
 :emr_enemy_push
-print emr_push
+#print emr_push
 creep 3
 random_jump 128 emr_random_react_2
 build 3 creep_colony 80
