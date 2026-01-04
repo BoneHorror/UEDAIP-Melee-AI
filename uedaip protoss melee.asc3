@@ -101,10 +101,8 @@ multirun max_supply_fallback
 multirun capitalize_weak_enemy
 multirun late_clearcombat
 multirun clear_regions
-#guard_all
 creep 3
-#TEST
-#random_jump 250 skytoss
+
 :recurse
 debug_name Recurse
 deaths 13 Set 1000 176 recurse_set
@@ -328,7 +326,7 @@ goto mixed_toss
 
 :vsz
 debug_name VSZ
-random_call 72 zealot_opener
+random_call 72 opener_rand_zealots
 random_jump 14 dt_casters
 random_jump 33 mixed_toss
 random_jump 85 robotics_force
@@ -365,9 +363,14 @@ random_jump 64 khalai_squadron
 goto robotics_force
 
 :opener_randomizer
+random_jump 4 switcheroo_opener_aironly
 random_jump 85 4_gate_goon_opener
 random_jump 128 zealot_opener
 goto dt_opener
+
+:opener_rand_zealots
+random_jump 12 switcheroo_opener_aironly
+goto zealot_opener
 
 :mixed_toss
 debug_name MixedToss
@@ -3108,6 +3111,86 @@ attack_clear
 expand 1 exp_noguard
 return
 
+:switcheroo_opener_aironly
+debug_name CarrierZetaOpener
+define_max 4 zealot
+build 1 nexus 130
+build 1 probe 110
+build 7 probe 90
+wait_buildstart 7 probe
+build 8 probe 80
+wait_build 7 probe
+build 1 pylon 80
+wait_buildstart 1 pylon
+build 10 probe 80
+wait_buildstart 9 probe
+wait_build 8 probe
+build 1 gateway 80
+wait_buildstart 1 gateway
+build 12 probe 80
+defensebuild_gg 2 zealot
+build 2 gateway 80
+wait_buildstart 11 probe
+build 13 probe 80
+wait_build 10 probe
+wait_buildstart 2 gateway
+defensebuild_gg 2 zealot
+build 2 pylon 80
+wait_buildstart 2 pylon
+build 14 probe 80
+wait_buildstart 12 probe
+train 2 zealot
+build 15 probe 80
+train 4 zealot
+define_max 10 zealot
+build 1 assimilator 80
+build 16 probe 80
+build 3 pylon 80
+wait_buildstart 14 probe
+build 1 cybernetics_core 80
+train 6 zealot
+expand 1 exp_noguard
+wait_buildstart 3 pylon
+farms_timing
+wait_buildstart 15 probe
+train 8 zealot
+attack_add 8 zealot
+attack_prepare
+wait 90
+
+build 1 stargate 80
+attack_timeout 90
+attack_do
+attack_clear
+define_max 2 scout
+define_max 1 carrier
+defensebuild_gg 1 carrier
+defensebuild_ag 1 carrier
+defensebuild_ga 1 carrier
+defensebuild_aa 1 carrier
+build 1 fleet_beacon 80
+train 1 carrier
+upgrade 1 carrier_capacity 50
+defensebuild_gg 1 scout
+defensebuild_ag 1 scout
+defensebuild_ga 1 scout
+defensebuild_aa 1 scout
+multirun cne_delay
+return
+
+:cne_delay
+wait 3000
+
+:carrier_next_atk
+wait 50
+
+if_attacking cne_add
+goto carrier_next_atk
+
+:cne_add
+attack_add 1 carrier
+stop
+
 :4_gate_goon_opener
 debug_name 4gateGoons
 define_max 1 zealot
@@ -3433,7 +3516,6 @@ wait_rand 28800 31500
 wait 50
 
 if_attacking late_cc_loop
-start_campaign
 wait 50
 
 wait_secure

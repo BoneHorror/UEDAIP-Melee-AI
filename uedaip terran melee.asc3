@@ -411,8 +411,8 @@ train 9 heavy_marine
 build 1 academy 80
 wait_buildstart 1 academy
 train 10 heavy_marine
-attack_add 8 heavy_marine
 call check_ifunderattack
+attack_add 8 heavy_marine
 attack_prepare 
 upgrade 1 thunder_boosters 40
 build 1 factory 80
@@ -849,8 +849,8 @@ build 4 supply_depot 80
 build 18 scv 80
 wait_buildstart 16 scv
 train 8 tesla_trooper
-attack_add 8 tesla_trooper
 call check_ifunderattack
+attack_add 8 tesla_trooper
 attack_prepare 
 wait 150
 
@@ -960,11 +960,11 @@ place_guard medic 0
 place_guard heavy_marine 0
 place_guard heavy_marine 0
 place_guard scorpion 1
-call check_ifunderattack
 wait_force 10 heavy_marine
 wait_force 3 scorpion
 attack_do 
 attack_clear 
+call check_ifunderattack
 attack_add 2 medic
 attack_add 10 heavy_marine
 attack_add 3 scorpion
@@ -1216,8 +1216,8 @@ train 13 heavy_marine
 build 4 barracks 80
 upgrade 1 t_infantry_weapon 40
 train 20 heavy_marine
-attack_add 20 heavy_marine
 call check_ifunderattack
+attack_add 20 heavy_marine
 attack_prepare
 return
 
@@ -1277,8 +1277,8 @@ build 5 supply_depot 80
 defensebuild_gg 1 scorpion
 defenseuse_gg 1 scorpion
 train 6 scorpion
-attack_add 6 scorpion
 call check_ifunderattack
+attack_add 6 scorpion
 attack_prepare
 train 2 heavy_marine
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -1346,9 +1346,9 @@ wait_buildstart 1 academy
 train 8 heavy_marine
 attack_do
 attack_clear
+call check_ifunderattack
 attack_add 8 heavy_marine
 attack_add 1 panzer
-call check_ifunderattack
 attack_prepare 
 build 2 factory 80
 wait_buildstart 2 factory
@@ -1845,11 +1845,11 @@ build 3 starport 80
 wait_buildstart 3 starport
 build 3 control_tower 100
 train 6 skywing
-call check_ifunderattack
 wait_force 10 heavy_marine
 wait_force 6 skywing
 attack_do 
 attack_clear 
+call check_ifunderattack
 attack_add 2 medic
 attack_add 10 heavy_marine
 attack_add 4 skywing
@@ -2135,8 +2135,8 @@ train 14 marine
 tech stim_packs 50
 attack_do
 attack_clear
-attack_add 12 marine
 call check_ifunderattack
+attack_add 12 marine
 attack_prepare 
 build 4 barracks 80
 wait_buildstart 4 barracks
@@ -2358,8 +2358,8 @@ tech stim_packs 60
 train 14 marine
 build 17 scv 60
 train 23 marine
-attack_add 23 marine
 call check_ifunderattack
+attack_add 23 marine
 attack_prepare
 place_guard marine 1
 place_guard marine 2
@@ -2902,9 +2902,9 @@ train 7 vulture
 deaths 13 Exactly 7 lurker skip_spider
 tech spider_mines 40
 :skip_spider
+call check_ifunderattack
 attack_add 8 vulture
 attack_prepare
-call check_ifunderattack
 
 expand 2 std_expo
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
@@ -2954,8 +2954,8 @@ defenseuse_gg 2 goliath
 train 6 goliath
 build 6 supply_depot 80
 train 8 goliath
-attack_add 8 goliath
 call check_ifunderattack
+attack_add 8 goliath
 attack_do
 attack_clear
 place_guard goliath 2
@@ -3058,10 +3058,10 @@ train 2 siege_tank
 train 6 marine
 train 2 vulture
 set_attacks 1
+call check_ifunderattack
 prep_down 3 4 marine
 attack_add 2 siege_tank
 attack_add 2 vulture
-call check_ifunderattack
 attack_prepare
 build 20 scv 80
 wait_buildstart 18 scv
@@ -3485,10 +3485,10 @@ train 2 siege_tank
 train 12 marine
 train 5 wraith
 train 14 marine
+call check_ifunderattack
 attack_add 14 marine
 attack_add 5 wraith
 attack_add 2 siege_tank
-call check_ifunderattack
 attack_prepare
 :doma_skiptiming
 debug_name DomaSkipTiming
@@ -3732,10 +3732,10 @@ train 3 siege_tank
 resources 13 AtMost Ore 2500 islandloop_skiptank
 resources 13 AtMost Gas 500 islandloop_skiptank
 train 4 siege_tank
+call check_ifunderattack
 attack_add 4 siege_tank
 attack_add 10 wraith
 :islandloop_skiptank
-call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -3745,11 +3745,11 @@ train 4 siege_tank
 resources 13 AtMost Ore 3000 islandloop_skipbc
 resources 13 AtMost Gas 1200 islandloop_skipbc
 train 2 hnorad
+call check_ifunderattack
 attack_add 2 hnorad
 :islandloop_skipbc
 attack_add 4 siege_tank
 attack_add 20 marine
-call check_ifunderattack
 target_expansion 
 call resource_waitskip
 attack_do
@@ -3770,9 +3770,9 @@ build 1 control_tower 100
 train 1 wraith
 wait_build 1 control_tower
 tech cloaking_field 90
+call check_ifunderattack
 train 7 wraith
 attack_add 7 wraith
-call check_ifunderattack
 attack_prepare
 wait 150
 
@@ -4760,7 +4760,6 @@ wait_rand 28800 31500
 wait 50
 
 if_attacking late_cc_loop
-start_campaign
 wait 50
 
 wait_secure
