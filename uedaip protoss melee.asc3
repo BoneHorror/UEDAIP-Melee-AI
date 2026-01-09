@@ -3539,6 +3539,7 @@ rush 0 emr_enemy_loweco_atk
 :emr_skip_1
 wait_build 12 probe
 if_attacking emr_skip_2
+random_jump 64 emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
 rush 1 emr_enemy_loweco_atk
@@ -3547,6 +3548,7 @@ wait 25
 
 supply 13 AtMost 15 InUnits probe Protoss emr_skip_2
 if_attacking emr_skip_3
+random_jump 85 emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
 rush 2 emr_enemy_early_atk
@@ -3573,14 +3575,16 @@ stop
 random_jump 85 emr_random_react_1
 build 1 forge 80
 build 1 photon_cannon 80
-stop
+goto emr_skip_3
+#go back to check if it does not develop into a larger early push
 
 :emr_enemy_early_atk_prio
 #print emr_earlyprio
 random_jump 128 emr_random_react_1
 build 1 forge 90
 build 1 photon_cannon 100
-stop
+goto emr_skip_3
+#go back to check if it does not develop into a larger early push
 
 :emr_enemy_push
 #print emr_push
@@ -3613,6 +3617,6 @@ goto clear_regions
 :cr_loop
 wait 1
 
-wait_rand 1033 5450
+wait_rand 533 2450
 harass_location
 goto cr_loop
