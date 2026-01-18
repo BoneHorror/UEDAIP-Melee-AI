@@ -1522,7 +1522,7 @@ place_guard dragoon 1
 place_guard dragoon 2
 build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
-attack_do
+#attack_do #this will just repeat the attack since its so late the real one ended
 attack_clear 
 attack_add 8 zealot
 attack_add 8 dragoon
@@ -1697,9 +1697,10 @@ call resource_waitskip
 :KhaPu
 debug_name KhaPu
 attack_do
-attack_clear 
+attack_clear
+#print using_rush_10_KhaPu_NoAir
+rush 10 KhaPu_NoAir
 set_attacks 2
-
 train 2 scout
 train 8 zealot
 do_morph 4 archon
@@ -1718,6 +1719,34 @@ train 10 zealot
 attack_add 10 zealot
 attack_add 4 scout
 attack_add 4 archon
+target_expansion
+wait 1200
+
+call resource_waitskip
+
+notowns_jump arbiter_tribunal KhaPu
+defensebuild_gg 1 harbiter
+defenseuse_gg 1 harbiter
+goto KhaLo
+
+:KhaPu_NoAir
+set_attacks 2
+train 8 zealot
+do_morph 4 archon
+wait 250
+
+train 9 zealot
+train 5 high_templar
+do_morph 4 archon
+wait 150
+
+train 4 high_templar
+do_morph 4 archon
+train 10 zealot
+train 6 dragoon
+attack_add 10 zealot
+attack_add 4 archon
+attack_add 6 dragoon
 target_expansion
 wait 1200
 
