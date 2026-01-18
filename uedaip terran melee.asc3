@@ -4502,6 +4502,8 @@ goto grand_exchange
 :ge_gas
 resources 13 AtLeast Gas 600 ge_skip
 resources 13 AtMost Ore 1199 ge_skip
+#since poor old me keeps forgetting - logic here is two first checks are used to check when we DO NOT want to make this trade, if we pass through them the trade is done
+#this is why they look counterintuitive at first glance
 resources 13 Subtract Ore 150 ge_skip
 resources 13 Add Gas 80 ge_skip
 return
@@ -4652,7 +4654,7 @@ stop
 
 :check_ifunderattack
 deaths 13 AtLeast 1 187 ar_simplified
-#if this is used more than once in a short timespam (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
+#if this is used more than once in a short timespan (hopefully should not be), run a non-death-checking block instead to avoid awkward interactions
 deaths 13 Set 1 187 ar_loop
 #set 1 khaydarin crystal formation death and don't release until it's removed
 multirun ar_secure

@@ -1033,6 +1033,9 @@ debug_name lateHydra
 set_attacks 2
 train 32 hydralisk
 call resource_waitskip
+#print rush_14_lf_get_breakthru
+rush 14 lf_get_breakthru
+:lf_return_breakthru
 train 64 hydralisk
 attack_add 64 hydralisk
 target_expansion
@@ -1063,6 +1066,11 @@ wait 300
 attack_do
 attack_clear
 goto late_flood
+
+:lf_get_breakthru
+train 4 ultralisk
+attack_add 4 ultralisk
+goto lf_return_breakthru
 
 :early_bust
 debug_name HydraBust
@@ -1113,7 +1121,6 @@ call check_ifunderattack
 attack_add 12 hydralisk
 attack_prepare
 wait 16
-
 
 attack_do
 attack_clear
