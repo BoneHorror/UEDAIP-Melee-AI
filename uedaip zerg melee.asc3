@@ -2917,7 +2917,6 @@ wait 800
 
 attack_do
 attack_clear
-multirun late_vs_protoss
 build 1 evolution_chamber 80
 train 11 mutalisk
 attack_add 11 mutalisk
@@ -2926,6 +2925,7 @@ wait 16
 
 attack_do
 attack_clear
+multirun late_vs_protoss
 build 2 lair 80
 deaths 13 AtLeast 1 arbiter pm_skip_check
 deaths 13 Add 1 arbiter pm_skip_check
@@ -3130,6 +3130,8 @@ wait 16
 train 1 queen
 call resource_waitskip
 build 4 hatchery 80
+wait 600
+
 creep 4
 build 4 creep_colony 80
 build 2 spore_colony 80
@@ -3139,6 +3141,8 @@ upgrade 3 z_flyer_attack 30
 upgrade 3 z_flyer_carapace 40
 build 1 spire 80
 wait_build 1 spire
+wait 900
+
 build 1 greater_spire 110
 tech plague 60
 tech ensnare 50
