@@ -2953,7 +2953,7 @@ attack_add 12 revenant
 attack_add 7 zealot
 target_expansion 
 call resource_waitskip
-wait 900
+wait 1200
 
 attack_do
 attack_clear
@@ -2968,8 +2968,11 @@ wait 240
 call check_ifunderattack
 attack_add 4 reaver
 attack_add 14 revenant
-target_expansion 
-wait 1500
+attack_prepare
+wait 300
+
+attack_do
+attack_clear
 
 call resource_waitskip
 goto MSLo
