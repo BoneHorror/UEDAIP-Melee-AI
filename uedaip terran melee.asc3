@@ -438,7 +438,7 @@ wait_buildstart 3 barracks
 train 6 tesla_trooper
 wait_force 6 heavy_marine
 wait_force 8 tesla_trooper
-attack_do 
+call attack_wait_finish 
 attack_clear
 attack_add 2 medic
 attack_add 6 heavy_marine
@@ -473,7 +473,7 @@ define_max 16 heavy_marine
 tech optical_flare 40
 train 15 heavy_marine
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 9 heavy_marine
 attack_add 1 panzer
@@ -669,7 +669,7 @@ attack_prepare
 wait 16
 
 attack_timeout 60
-attack_do
+call attack_wait_finish
 attack_clear
 upgrade 2 p_plasma_shield 35
 multirun added_vals
@@ -697,7 +697,7 @@ call resource_waitskip
 player_need 1 machine_shop
 :EMPPush
 debug_name EMPPush
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 
@@ -717,7 +717,7 @@ set_attacks 2
 
 :EPu2
 debug_name EPu2
-attack_do
+call attack_wait_finish
 attack_clear
 train 20 heavy_marine
 train 1 panzer
@@ -730,7 +730,7 @@ attack_add 10 tesla_trooper
 target_expansion 
 call resource_waitskip
 notowns_jump covert_ops EPu2
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -753,7 +753,7 @@ notowns_jump covert_ops EPu2
 debug_name ELo
 set_attacks 3
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 1 panzer
 train 5 phantom
@@ -771,7 +771,7 @@ attack_add 10 phantom
 attack_add 5 medic
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 4 panzer
 train 4 phantom
@@ -788,7 +788,7 @@ attack_add 4 medic
 attack_add 4 panzer
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 4 valhalla
 train 20 heavy_marine
@@ -854,7 +854,7 @@ attack_add 8 tesla_trooper
 attack_prepare 
 wait 150
 
-attack_do
+call attack_wait_finish
 attack_clear
 place_guard tesla_trooper 0
 return
@@ -962,7 +962,7 @@ place_guard heavy_marine 0
 place_guard scorpion 1
 wait_force 10 heavy_marine
 wait_force 3 scorpion
-attack_do 
+call attack_wait_finish 
 attack_clear 
 call check_ifunderattack
 attack_add 2 medic
@@ -993,7 +993,7 @@ train 8 scorpion
 define_max 21 heavy_marine
 train 18 heavy_marine
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 18 heavy_marine
 attack_add 2 medic
@@ -1089,7 +1089,7 @@ define_max 20 scorpion
 define_max 4 valkyrie
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 player_need 1 machine_shop
@@ -1100,7 +1100,7 @@ attack_add 13 scorpion
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 wait_build 1 science_facility
 player_need 5 barracks
@@ -1119,7 +1119,7 @@ build 2 starport 80
 build 2 control_tower 100
 :uedbio_push
 debug_name uedbio_push
-attack_do
+call attack_wait_finish
 attack_clear
 
 set_attacks 2
@@ -1145,7 +1145,7 @@ notowns_jump covert_ops uedbio_push
 debug_name uedbio_loop
 set_attacks 3
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 1 panzer
 train 2 phantom
@@ -1164,7 +1164,7 @@ attack_add 6 medic
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 panzer
 train 4 scorpion
@@ -1186,7 +1186,7 @@ attack_add 2 panzer
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 valhalla
 train 20 heavy_marine
@@ -1283,7 +1283,7 @@ attack_prepare
 train 2 heavy_marine
 #idle_orders 163 4 1 vulture 4096 command_center 255 Own|Self(Health(LessThanPercent 40))
 #this is kinda cool but ends up not working - vultures spin and would need to be removed from atk to return (163 is returntobase)
-attack_do
+call attack_wait_finish
 attack_clear
 place_guard scorpion 2
 return
@@ -1344,7 +1344,7 @@ wait_buildstart 4 supply_depot
 build 1 academy 80
 wait_buildstart 1 academy
 train 8 heavy_marine
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 8 heavy_marine
@@ -1382,7 +1382,7 @@ upgrade 1 t_vehicle_weapon 40
 train 4 panzer
 wait_force 8 heavy_marine
 wait_force 3 panzer
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 2 medic
 attack_add 10 heavy_marine
@@ -1409,7 +1409,7 @@ upgrade 1 goliath_range 40
 train 2 panzer
 define_max 21 heavy_marine
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 12 heavy_marine
 attack_add 2 panzer
@@ -1515,7 +1515,7 @@ define_max 8 skywing
 define_max 14 death_knight
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 6 death_knight
@@ -1524,7 +1524,7 @@ attack_add 6 panzer
 attack_add 6 death_knight
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 set_attacks 2
@@ -1536,7 +1536,7 @@ attack_add 4 medic
 attack_add 8 death_knight
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 :mPu
 debug_name MPu
@@ -1564,7 +1564,7 @@ notowns_jump covert_ops mPu
 debug_name MLo
 set_attacks 3
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 4 panzer
 train 2 phantom
@@ -1580,7 +1580,7 @@ attack_add 3 medic
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 7 panzer
 train 6 skywing
@@ -1595,7 +1595,7 @@ attack_add 8 skywing
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 2 valhalla
@@ -1633,7 +1633,7 @@ defensebuild_gg 2 scorpion
 defenseuse_gg 2 scorpion
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 
 set_attacks 2
@@ -1645,7 +1645,7 @@ attack_add 4 death_knight
 attack_add 4 scorpion
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 set_attacks 2
@@ -1659,7 +1659,7 @@ call resource_waitskip
 :ScorpMechPush
 debug_name ScorpMechPush
 
-attack_do
+call attack_wait_finish
 attack_clear
 
 set_attacks 2
@@ -1677,7 +1677,7 @@ notowns_jump covert_ops ScorpMechPush
 debug_name ScorpMechLoop
 set_attacks 3
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 10 scorpion
 call check_ifunderattack
@@ -1685,7 +1685,7 @@ attack_add 10 scorpion
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 7 panzer
@@ -1701,7 +1701,7 @@ attack_add 8 skywing
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 valhalla
 train 3 panzer
@@ -1847,7 +1847,7 @@ build 3 control_tower 100
 train 6 skywing
 wait_force 10 heavy_marine
 wait_force 6 skywing
-attack_do 
+call attack_wait_finish 
 attack_clear 
 call check_ifunderattack
 attack_add 2 medic
@@ -1874,7 +1874,7 @@ define_max 19 heavy_marine
 train 15 heavy_marine
 define_max 21 heavy_marine
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 8 skywing
 attack_prepare
@@ -1966,7 +1966,7 @@ define_max 20 skywing
 define_max 5 death_knight
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 1 death_knight
@@ -1975,7 +1975,7 @@ train 2 death_knight
 attack_add 10 skywing
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 3 death_knight
@@ -1989,7 +1989,7 @@ target_expansion
 call resource_waitskip
 :aPu
 debug_name APu
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 3 skywing
@@ -2011,7 +2011,7 @@ notowns_jump science_facility aPu
 debug_name ALo
 set_attacks 3
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 valhalla
 train 15 heavy_marine
@@ -2023,7 +2023,7 @@ attack_add 4 valhalla
 attack_add 3 medic
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 3 valkyrie
@@ -2034,7 +2034,7 @@ attack_add 3 valkyrie
 target_expansion 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear 
 train 7 valhalla
 call check_ifunderattack
@@ -2133,7 +2133,7 @@ build 1 academy 80
 wait_buildstart 1 academy
 train 14 marine
 tech stim_packs 50
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 12 marine
@@ -2167,7 +2167,7 @@ tech siege_mode 40
 expand 2 std_expo
 train 6 marine
 train 8 firebat
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 6 marine
 attack_add 8 firebat
@@ -2209,7 +2209,7 @@ build 2 machine_shop 100
 build 3 factory 80
 build 2 armory 80
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 wait_force 4 goliath
 attack_add 10 marine
@@ -2376,7 +2376,7 @@ define_max 9 ghost
 define_max 255 hnorad
 :firegol_nosci
 debug_name firegol_nosci
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -2393,7 +2393,7 @@ call resource_waitskip
 notowns_jump science_facility firegol_nosci
 :firegol_nocovert
 debug_name firegol_nocovert
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -2412,7 +2412,7 @@ attack_add 10 firebat
 target_expansion 
 call resource_waitskip
 notowns_jump covert_ops firegol_nocovert
-attack_do
+call attack_wait_finish
 attack_clear
 
 set_attacks 2
@@ -2431,7 +2431,7 @@ call resource_waitskip
 :firegol_loop
 debug_name firegol_loop
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 7 ghost
@@ -2442,7 +2442,7 @@ attack_add 20 firebat
 attack_add 7 ghost
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 6 goliath
@@ -2470,7 +2470,7 @@ define_max 18 ghost
 define_max 255 hnorad
 :gFac
 debug_name GFac
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -2488,7 +2488,7 @@ notowns_jump science_facility gFac
 
 :gCo
 debug_name GCo
-attack_do
+call attack_wait_finish
 attack_clear 
 
 set_attacks 2
@@ -2506,7 +2506,7 @@ attack_add 8 goliath
 target_expansion 
 call resource_waitskip
 notowns_jump covert_ops gCo
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 7 ghost
@@ -2524,7 +2524,7 @@ call resource_waitskip
 :ghostfoc_loop
 debug_name GhostFocusLoop
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear 
 train 8 ghost
 train 20 marine
@@ -2535,7 +2535,7 @@ attack_add 40 marine
 attack_add 16 ghost
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 6 goliath
 train 4 ghost
@@ -2624,7 +2624,7 @@ build 1 armory 80
 multirun vult_avail
 tech spider_mines 50
 train 4 vulture
-attack_do
+call attack_wait_finish
 attack_clear
 build 2 starport 80
 wait_buildstart 2 starport
@@ -2643,7 +2643,7 @@ expand 2 std_expo
 train 1 siege_tank
 train 8 vulture
 train 4 wraith
-attack_do 
+call attack_wait_finish 
 attack_clear 
 set_attacks 2
 attack_add 8 vulture
@@ -2660,7 +2660,7 @@ train 6 wraith
 build 2 control_tower 100
 build 3 starport 80
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear
 define_max 10 wraith
 define_max 4 goliath
@@ -2769,7 +2769,7 @@ define_max 4 hnorad
 define_max 14 wraith
 :LSC
 debug_name LSC
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 
@@ -2788,7 +2788,7 @@ call resource_waitskip
 notowns_jump science_facility LSC
 :LPu
 debug_name LPu
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -2800,7 +2800,7 @@ attack_add 6 goliath
 target_expansion 
 call resource_waitskip
 notowns_jump physics_lab LPu
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 2 hnorad
@@ -2813,7 +2813,7 @@ call resource_waitskip
 :LLo
 debug_name LLo
 set_attacks 4
-attack_do
+call attack_wait_finish
 attack_clear 
 train 4 vulture
 train 3 wraith
@@ -2833,7 +2833,7 @@ attack_add 6 siege_tank
 attack_add 12 vulture
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 
 train 10 wraith
@@ -2841,7 +2841,7 @@ call check_ifunderattack
 attack_add 10 wraith
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 train 1 science_vessel
@@ -2915,7 +2915,7 @@ build 1 missile_turret 80
 do_morph 4 marine
 train 8 vulture
 do_morph 1 siege_tank
-attack_do
+call attack_wait_finish
 attack_clear
 return
 
@@ -2956,7 +2956,8 @@ build 6 supply_depot 80
 train 8 goliath
 call check_ifunderattack
 attack_add 8 goliath
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 place_guard goliath 2
 return
@@ -3091,7 +3092,7 @@ defenseuse_gg 2 goliath
 defenseuse_ag 2 goliath
 define_max 10 vulture
 define_max 8 goliath
-attack_do 
+call attack_wait_finish 
 attack_clear
 set_attacks 2
 train 4 siege_tank
@@ -3119,7 +3120,7 @@ upgrade 1 vulture_speed 40
 build 1 starport 80
 build 2 armory 80
 wait_buildstart 2 armory
-attack_do 
+call attack_wait_finish 
 attack_clear 
 build 1 science_facility 80
 wait_buildstart 1 science_facility
@@ -3258,7 +3259,7 @@ define_max 3 hnorad
 define_max 255 wraith
 :t_mech_sciwait
 debug_name t_mech_sciwait
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -3271,7 +3272,7 @@ attack_add 4 siege_tank
 target_expansion 
 call resource_waitskip
 notowns_jump science_facility t_mech_sciwait
-attack_do
+call attack_wait_finish
 attack_clear 
 
 set_attacks 2
@@ -3285,7 +3286,7 @@ attack_add 8 siege_tank
 target_expansion 
 call resource_waitskip
 notowns_jump physics_lab t_mech_push
-attack_do
+call attack_wait_finish
 attack_clear
 
 set_attacks 2
@@ -3303,7 +3304,7 @@ call resource_waitskip
 :t_mech_loop
 debug_name t_mech_loop
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear
 
 train 20 goliath
@@ -3313,7 +3314,7 @@ attack_add 10 vulture
 attack_add 20 goliath
 attack_prepare 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 
 train 1 science_vessel
@@ -3329,7 +3330,7 @@ attack_add 14 siege_tank
 attack_add 14 goliath
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 train 10 vulture
 call check_ifunderattack
@@ -3337,7 +3338,7 @@ attack_add 10 vulture
 target_expansion
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 goto t_mech_loop
 
@@ -3529,7 +3530,7 @@ train 1 siege_tank
 train 4 marine
 train 6 wraith
 train 8 marine
-attack_do 
+call attack_wait_finish 
 attack_clear 
 attack_add 6 wraith
 attack_prepare 
@@ -3542,7 +3543,7 @@ define_max 22 marine
 build 2 control_tower 100
 build 4 starport 80
 panic std_expo
-attack_do 
+call attack_wait_finish 
 attack_clear 
 define_max 14 wraith
 build 1 science_facility 80
@@ -3671,7 +3672,7 @@ define_max 7 hnorad
 define_max 14 wraith
 :DSC
 debug_name DSC
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -3689,7 +3690,7 @@ notowns_jump science_facility DSC
 
 :DPu
 debug_name DPu
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -3700,7 +3701,7 @@ wait 600
 
 call resource_waitskip
 notowns_jump physics_lab DPu
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 2 science_vessel
@@ -3715,7 +3716,7 @@ define_max 22 wraith
 :DLo
 debug_name DLo
 set_attacks 3
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 marine
 train 4 wraith
@@ -3738,7 +3739,7 @@ attack_add 10 wraith
 :islandloop_skiptank
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 train 20 marine
 train 4 siege_tank
@@ -3752,7 +3753,7 @@ attack_add 4 siege_tank
 attack_add 20 marine
 target_expansion 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 train 2 science_vessel
 train 4 hnorad
@@ -3776,7 +3777,7 @@ attack_add 7 wraith
 attack_prepare
 wait 150
 
-attack_do
+call attack_wait_finish
 attack_clear
 return
 
@@ -4457,7 +4458,7 @@ goto dec_3
 debug_name UEDDetector
 wait 615
 
-if_attacking ued_detector
+if_preparing ued_detector
 #print using_rush_12_do_ued_obs
 rush 12 do_ued_obs
 notowns_jump factory ued_detector
@@ -4547,7 +4548,7 @@ stop
 debug_name PanicObs
 wait 595
 
-if_attacking panic_obs
+if_preparing panic_obs
 #print using_rush_12_obs_get
 rush 12 obs_get
 #print using_rush_11_delay_obs
@@ -4778,14 +4779,14 @@ goto late_cc_loop
 debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 scv
-if_attacking emr_skip_1
+if_preparing emr_skip_1
 #print using_rush_0_emr_enemy_loweco_atk
 rush 21 emr_skip_1
 rush 0 emr_enemy_loweco_atk
 :emr_skip_1
 wait_build 12 scv
 random_jump 64 emr_skip_2
-if_attacking emr_skip_2
+if_preparing emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
 rush 1 emr_enemy_early_atk
@@ -4793,7 +4794,7 @@ rush 1 emr_enemy_early_atk
 wait 25
 
 supply 13 AtMost 15 InUnits scv Terran emr_skip_2
-if_attacking emr_skip_3
+if_preparing emr_skip_3
 random_jump 85 emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -4804,7 +4805,7 @@ rush 3 emr_enemy_early_atk_prio
 wait 25
 
 supply 13 AtMost 19 InUnits scv Terran emr_skip_3
-if_attacking void
+if_preparing void
 #print using_rush_4_emr_enemy_push
 rush 22 void
 rush 4 emr_enemy_push
@@ -4867,3 +4868,9 @@ wait 1
 wait_rand 533 2450
 harass_location
 goto cr_loop
+
+:attack_wait_finish
+wait 50
+
+if_attacking attack_wait_finish
+return

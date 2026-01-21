@@ -467,7 +467,7 @@ train 1 corsair
 train 1 shuttle
 check_transports 
 train 4 zealot
-attack_do
+call attack_wait_finish
 attack_clear
 build 1 templar_archives 80
 wait_buildstart 1 templar_archives
@@ -599,7 +599,7 @@ define_max 8 hornet
 define_max 3 corsair
 :MixAMid
 debug_name MixAMid
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -614,7 +614,7 @@ wait 900
 
 call resource_waitskip
 notowns_jump templar_archives MixAMid
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 wait 300
@@ -642,7 +642,7 @@ do_morph 1 dark_archon
 notowns_jump robotics_support_bay MixAMid
 :MixALate
 debug_name MixALate
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -679,7 +679,7 @@ notowns_jump fleet_beacon MixALate
 :MixALoop
 debug_name MixALoop
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 corsair
 train 2 carrier
@@ -703,7 +703,7 @@ target_expansion
 wait 1200
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 high_templar
 train 7 dragoon
@@ -814,14 +814,14 @@ train 2 revenant
 creep 3
 build 1 photon_cannon 80
 attack_timeout 90
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 2 revenant
 attack_prepare
 wait 16
 
 attack_timeout 90
-attack_do
+call attack_wait_finish
 attack_clear
 :d_o_r
 return
@@ -957,7 +957,7 @@ train 1 corsair
 train 1 shuttle
 check_transports 
 train 4 dark_templar
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 1 corsair
 attack_prepare
@@ -1064,7 +1064,7 @@ attack_add 6 revenant
 attack_prepare
 wait 500
 
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 15 dark_templar
@@ -1073,7 +1073,7 @@ attack_add 1 dark_archon
 target_expansion
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 train 3 zealot
 train 2 reaver
@@ -1092,7 +1092,7 @@ attack_add 8 revenant
 target_expansion
 wait 1200
 
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 2 reaver
 attack_add 4 revenant
@@ -1186,7 +1186,7 @@ build 1 robotics_support_bay 80
 wait_buildstart 1 robotics_support_bay
 train 2 dragoon
 train 8 hornet
-attack_do
+call attack_wait_finish
 attack_clear 
 attack_add 4 hornet
 attack_add 4 dragoon
@@ -1214,7 +1214,7 @@ train 1 corsair
 train 1 shuttle
 define_max 3 shuttle
 train 4 dragoon
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 1 corsair
 attack_prepare
@@ -1327,7 +1327,7 @@ define_max 26 hornet
 define_max 3 corsair
 :robot_bay_wait
 debug_name robot_bay_wait
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 train 10 hornet
@@ -1337,7 +1337,7 @@ wait 1500
 
 call resource_waitskip
 notowns_jump robotics_support_bay robot_bay_wait
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 train 1 reaver
@@ -1353,7 +1353,7 @@ call resource_waitskip
 
 :robot_push
 debug_name robot_push
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 2 zealot
@@ -1376,7 +1376,7 @@ notowns_jump fleet_beacon robot_push
 :robot_loop
 debug_name robot_loop
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear 
 #print using_rush_17_robot_loop_lowair
 rush 17 robot_loop_lowair
@@ -1393,7 +1393,7 @@ target_expansion
 wait 900
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 10 hornet
@@ -1425,7 +1425,7 @@ target_expansion
 wait 1200
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 
 train 2 reaver
@@ -1522,7 +1522,7 @@ place_guard dragoon 1
 place_guard dragoon 2
 build 1 robotics_facility 80
 wait_buildstart 1 robotics_facility
-#attack_do #this will just repeat the attack since its so late the real one ended
+call attack_wait_finish
 attack_clear 
 attack_add 8 zealot
 attack_add 8 dragoon
@@ -1552,7 +1552,7 @@ check_transports
 expand 2 std_expansion
 train 4 dragoon
 train 1 observer
-attack_do
+call attack_wait_finish
 attack_clear
 wait 16
 
@@ -1658,7 +1658,7 @@ define_max 255 corsair
 define_max 2 harbiter
 :KhaWa
 debug_name KhaWa
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -1671,7 +1671,7 @@ wait 1200
 
 call resource_waitskip
 notowns_jump templar_archives KhaWa
-attack_do
+call attack_wait_finish
 attack_clear 
 multirun templar_ensure
 set_attacks 2
@@ -1696,7 +1696,7 @@ call resource_waitskip
 
 :KhaPu
 debug_name KhaPu
-attack_do
+call attack_wait_finish
 attack_clear
 #print using_rush_10_KhaPu_NoAir
 rush 10 KhaPu_NoAir
@@ -1759,7 +1759,7 @@ defenseuse_gg 1 harbiter
 :KhaLo
 debug_name KhaLo
 set_attacks 2
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 train 2 harbiter
@@ -1790,7 +1790,7 @@ attack_add 2 reaver
 target_expansion 
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 2 scout
 train 7 dragoon
@@ -2334,7 +2334,7 @@ attack_add 2 dragoon
 target_expansion
 wait 960
 
-attack_do
+call attack_wait_finish
 attack_clear
 wait 11500
 
@@ -2444,7 +2444,7 @@ train 6 scout
 wait_force 2 carrier
 wait 240
 
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 2 carrier
 attack_add 6 scout
@@ -2530,7 +2530,7 @@ define_max 255 hornet
 define_max 2 harbiter
 define_max 6 corsair
 :STRe
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 debug_name STRe
@@ -2546,7 +2546,7 @@ wait 1200
 
 call resource_waitskip
 notowns_jump citadel_of_adun STRe
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 
@@ -2559,7 +2559,7 @@ call resource_waitskip
 
 :STPu
 debug_name STPu
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 
@@ -2580,7 +2580,7 @@ notowns_jump arbiter_tribunal STPu
 :STLo
 debug_name STLo
 set_attacks 3
-attack_do
+call attack_wait_finish
 attack_clear 
 #print using_rush_17_STLo_AA
 rush 17 STLo_AA
@@ -2605,7 +2605,7 @@ target_expansion
 wait 1500
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 6 carrier
 train 1 harbiter
@@ -2622,7 +2622,7 @@ wait 1200
 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 train 16 scout
 attack_add 16 scout
@@ -2655,7 +2655,7 @@ target_expansion
 wait 1200
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 train 3 carrier
 train 9 scout
@@ -2674,7 +2674,7 @@ wait 1200
 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 train 6 dragoon
 train 13 scout
@@ -2746,7 +2746,7 @@ train 2 corsair
 train 8 scout
 wait 240
 
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 2 corsair
 attack_add 8 scout
@@ -2831,7 +2831,7 @@ define_max 255 hornet
 define_max 2 harbiter
 define_max 8 corsair
 define_max 3 shuttle
-attack_do
+call attack_wait_finish
 attack_clear 
 set_attacks 2
 train 6 revenant
@@ -2842,7 +2842,7 @@ target_expansion
 wait 600
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 define_max 3 revenant
 set_attacks 2
@@ -2859,7 +2859,7 @@ call resource_waitskip
 
 :MSPu
 debug_name MSPu
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 
@@ -2879,7 +2879,7 @@ notowns_jump arbiter_tribunal MSPu
 :MSLo
 debug_name MSLo
 set_attacks 3
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 1 reaver
@@ -2896,7 +2896,7 @@ attack_add 7 revenant
 attack_prepare
 #normal prepare to vary between targets
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear 
 #print using_rush_17_MSLo_AA
 rush 17 MSLo_AA
@@ -2919,7 +2919,7 @@ wait 900
 
 call resource_waitskip
 
-attack_do
+call attack_wait_finish
 attack_clear
 wait 500
 
@@ -2955,7 +2955,7 @@ target_expansion
 call resource_waitskip
 wait 1200
 
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 set_attacks 2
@@ -2971,7 +2971,7 @@ attack_add 14 revenant
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 
 call resource_waitskip
@@ -3137,7 +3137,7 @@ wait 90
 
 expand 1 exp_noguard
 attack_timeout 90
-attack_do
+call attack_wait_finish
 attack_clear
 :z_o_r
 expand 1 exp_noguard
@@ -3192,7 +3192,7 @@ wait 90
 
 build 1 stargate 80
 attack_timeout 90
-attack_do
+call attack_wait_finish
 attack_clear
 define_max 2 scout
 define_max 1 carrier
@@ -3283,7 +3283,7 @@ attack_prepare
 wait 90
 
 expand 1 exp_noguard
-attack_do
+call attack_wait_finish
 attack_clear
 return
 
@@ -3291,7 +3291,7 @@ return
 debug_name PanicObs
 wait 650
 
-if_attacking panic_obs
+if_preparing panic_obs
 #print using_rush_12_obs_get
 rush 12 obs_get
 #print using_rush_11_delay_obs
@@ -3564,13 +3564,13 @@ goto late_cc_loop
 debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 probe
-if_attacking emr_skip_1
+if_preparing emr_skip_1
 #print using_rush_0_emr_enemy_loweco_atk
 rush 21 emr_skip_1
 rush 0 emr_enemy_loweco_atk
 :emr_skip_1
 wait_build 12 probe
-if_attacking emr_skip_2
+if_preparing emr_skip_2
 random_jump 64 emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
@@ -3579,7 +3579,7 @@ rush 1 emr_enemy_loweco_atk
 wait 25
 
 supply 13 AtMost 15 InUnits probe Protoss emr_skip_2
-if_attacking emr_skip_3
+if_preparing emr_skip_3
 random_jump 85 emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -3590,7 +3590,7 @@ rush 3 emr_enemy_early_atk_prio
 wait 25
 
 supply 13 AtMost 19 InUnits probe Protoss emr_skip_3
-if_attacking void
+if_preparing void
 #print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
 stop
@@ -3652,3 +3652,9 @@ wait 1
 wait_rand 533 2450
 harass_location
 goto cr_loop
+
+:attack_wait_finish
+wait 50
+
+if_attacking attack_wait_finish
+return

@@ -179,7 +179,7 @@ wait_buildstart 5 drone
 build 7 drone 80
 wait_buildstart 6 drone
 farms_timing
-attack_do
+call attack_wait_finish
 attack_clear
 expand 1 low_prio
 random_jump 85 p_spread
@@ -373,6 +373,7 @@ build 4 overlord 80
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
 farms_timing
+set_attacks 1
 train 16 zergling
 train 10 hydralisk
 train 4 lurker
@@ -382,10 +383,10 @@ attack_add 20 zergling
 attack_add 4 lurker
 attack_add 10 hydralisk
 attack_prepare
-attack_timeout 43
-wait 16
+target_expansion
+wait 1200
 
-attack_do
+call attack_wait_finish
 attack_clear
 build 2 lair 80
 build 1 spire 80
@@ -486,15 +487,15 @@ defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
 farms_timing
+set_attacks 1
 tech burrowing 30
 tech lurker_aspect 90
 attack_add 36 zergling
 attack_add 10 mutalisk
-attack_prepare
-attack_timeout 60
-wait 16
+target_expansion
+wait 1200
 
-attack_do
+call attack_wait_finish
 attack_clear
 build 1 queen_nest 80
 upgrade 1 burrowed_regen 30
@@ -574,7 +575,7 @@ defenseuse_aa 1 mutalisk
 multirun scourge_getter
 defenseuse_aa 2 scourge
 upgrade 1 z_flyer_attack 30
-attack_do
+call attack_wait_finish
 attack_clear
 train 4 scourge
 #print using_rush_7_skip_hydra_push_island
@@ -950,7 +951,7 @@ upgrade 1 overlord_speed 60
 defenseuse_gg 1 hydralisk
 defensebuild_ag 3 hydralisk
 defenseuse_ag 3 hydralisk
-attack_do
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 25 hydralisk
@@ -961,7 +962,7 @@ attack_prepare
 upgrade 2 z_carapace 50
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 lurker
@@ -1045,7 +1046,7 @@ train 80 hydralisk
 call resource_waitskip
 train 6 ultralisk
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 #print using_rush_20_lf_skip_ultras
 rush 20 lf_skip_ultras
@@ -1055,7 +1056,7 @@ target_expansion
 wait 1500
 
 :lf_skip_ultras
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 train 96 hydralisk
@@ -1063,7 +1064,7 @@ attack_add 96 hydralisk
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 goto late_flood
 
@@ -1122,7 +1123,7 @@ attack_add 12 hydralisk
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 place_guard hydralisk 0
 place_guard hydralisk 2
@@ -1197,7 +1198,7 @@ train 5 mutalisk
 train 5 hydralisk
 train 5 lurker
 train 10 mutalisk
-attack_do
+call attack_wait_finish
 attack_clear
 expand 4 generic_expansion
 build 2 lair 80
@@ -1207,7 +1208,7 @@ attack_add 3 mutalisk
 call force_attack
 build 1 spire 80
 upgrade 1 overlord_speed 50
-attack_do
+call attack_wait_finish
 attack_clear
 goto late_vs_zerg
 
@@ -1321,14 +1322,14 @@ train 24 zergling
 train 6 lurker
 train 30 zergling
 train 10 hydralisk
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 2 lurker
 attack_add 10 zergling
 call force_attack
 build 1 spire 80
 upgrade 1 overlord_speed 50
-attack_do
+call attack_wait_finish
 attack_clear
 upgrade 1 burrowed_regen 30
 upgrade 1 hydralisk_speed 50
@@ -1355,7 +1356,7 @@ return
 #return
 #
 #:sat_r
-#attack_do
+#call attack_wait_finish
 #attack_clear
 #return
 #
@@ -1679,14 +1680,14 @@ defenseuse_ag 2 hydralisk
 expand 3 generic_expansion
 build 1 hive 80
 train 20 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 20 zergling
 attack_prepare
 wait 16
 
 train 1 queen
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
@@ -1713,7 +1714,7 @@ attack_prepare
 wait 300
 
 attack_timeout 60
-attack_do
+call attack_wait_finish
 attack_clear
 build 2 evolution_chamber 80
 upgrade 2 z_flyer_carapace 40
@@ -1738,7 +1739,7 @@ train 2 lurker
 train 24 zergling
 train 5 mutalisk
 train 32 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 wait 15
 
@@ -1748,7 +1749,7 @@ attack_add 4 ultralisk
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
@@ -1779,7 +1780,7 @@ wait 600
 expand 5 generic_expansion
 train 10 mutalisk
 train 40 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 10 mutalisk
@@ -1797,7 +1798,7 @@ train 24 zergling
 train 4 lurker
 train 6 ultralisk
 train 44 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 define_max 5 defiler
 train 1 defiler
@@ -1813,7 +1814,7 @@ train 6 mutalisk
 train 3 defiler
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
-attack_do
+call attack_wait_finish
 attack_clear
 build 3 hatchery 80
 train 3 ultralisk
@@ -1848,7 +1849,7 @@ defenseuse_gg 1 queen
 multirun exp_repeater
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 :crazy_loop
 debug_name CrazyLoop
@@ -1870,7 +1871,7 @@ attack_add 12 ultralisk
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 train 3 hydralisk
@@ -1888,7 +1889,7 @@ call check_ifunderattack
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 train 8 ultralisk
@@ -1900,7 +1901,7 @@ wait 1200
 
 train 1 queen
 train 20 mutalisk
-attack_do
+call attack_wait_finish
 attack_clear
 call add_scourge
 attack_add 20 mutalisk
@@ -1908,7 +1909,7 @@ attack_add 1 queen
 target_expansion
 wait 1500
 
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 goto crazy_loop
@@ -1967,7 +1968,7 @@ train 9 mutalisk
 train 11 mutalisk
 train 20 zergling
 deaths 13 AtLeast 1 valhalla es_skipdo
-attack_do
+call attack_wait_finish
 attack_clear
 :es_skipdo
 set_attacks 2
@@ -2007,7 +2008,7 @@ train 7 mutalisk
 train 36 zergling
 train 10 mutalisk
 train 40 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 10 mutalisk
 attack_prepare
@@ -2016,7 +2017,7 @@ wait 16
 attack_timeout 60
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 multirun train_lurker
 attack_add 35 zergling
@@ -2039,14 +2040,14 @@ train 4 lurker
 train 24 zergling
 train 5 mutalisk
 train 32 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 32 zergling
 attack_add 4 lurker
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 upgrade 1 burrowed_regen 40
 define_max 64 zergling
@@ -2117,7 +2118,7 @@ wait 16
 upgrade 1 overlord_speed 50
 call resource_waitskip
 train 15 mutalisk
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -2125,7 +2126,7 @@ attack_add 15 mutalisk
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 train 12 hydralisk
 build 1 defiler_mound 80
@@ -2154,7 +2155,7 @@ train 6 mutalisk
 train 3 defiler
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
-attack_do
+call attack_wait_finish
 attack_clear
 build 3 hatchery 80
 call resource_waitskip
@@ -2198,7 +2199,7 @@ upgrade 1 defiler_mana 50
 multirun exp_repeater
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 :muta_loop
 debug_name MutaLoop
@@ -2222,7 +2223,8 @@ attack_add 4 lurker
 attack_add 60 zergling
 attack_add 5 guardian
 attack_add 5 mutalisk
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 train 15 mutalisk
@@ -2237,7 +2239,7 @@ wait 600
 
 call resource_waitskip
 train 14 mutalisk
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -2251,7 +2253,7 @@ train 24 zergling
 train 5 hydralisk
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
@@ -2259,7 +2261,8 @@ attack_add 24 zergling
 attack_add 16 mutalisk
 attack_add 3 lurker
 attack_add 1 defiler
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 #print using_rush_17_muta_loop_finish
 rush 17 muta_loop_finish
@@ -2272,7 +2275,8 @@ call add_scourge
 attack_add 13 mutalisk
 attack_add 8 guardian
 attack_add 3 devourer
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 
@@ -2288,7 +2292,8 @@ call add_scourge
 attack_add 16 mutalisk
 attack_add 2 guardian
 attack_add 6 devourer
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 
@@ -2333,14 +2338,14 @@ wait 16
 upgrade 1 overlord_speed 50
 train 9 mutalisk
 train 6 hydralisk
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 9 mutalisk
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 build 1 defiler_mound 80
 build 1 ultralisk_cavern 80
@@ -2363,7 +2368,7 @@ attack_add 4 lurker
 target_expansion
 wait 1500
 
-attack_do
+call attack_wait_finish
 attack_clear
 expand 4 generic_expansion
 call check_ifunderattack
@@ -2380,7 +2385,7 @@ train 3 ultralisk
 train 24 zergling
 train 6 ultralisk
 train 44 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 define_max 5 defiler
 train 1 defiler
@@ -2395,7 +2400,7 @@ train 6 mutalisk
 train 3 defiler
 defensebuild_ag 1 defiler
 defenseuse_ag 1 defiler
-attack_do
+call attack_wait_finish
 attack_clear
 build 3 hatchery 80
 train 3 ultralisk
@@ -2444,7 +2449,7 @@ defensebuild_gg 1 queen
 defenseuse_gg 1 queen
 multirun exp_repeater
 wait_build 1 greater_spire
-attack_do
+call attack_wait_finish
 attack_clear
 :terran_loop
 debug_name TerranLoop
@@ -2469,7 +2474,8 @@ attack_add 4 lurker
 attack_add 60 zergling
 attack_add 2 queen
 attack_add 6 ultralisk
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 train 10 mutalisk
 train 20 zergling
@@ -2488,7 +2494,7 @@ train 4 ultralisk
 train 1 defiler
 train 2 scourge
 train 40 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -2507,7 +2513,7 @@ train 20 hydralisk
 wait 550
 
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 24 zergling
 attack_add 20 hydralisk
@@ -2516,7 +2522,8 @@ attack_add 3 lurker
 attack_add 1 queen
 attack_add 1 defiler
 attack_add 5 guardian
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 train 8 mutalisk
 train 4 guardian
@@ -2526,7 +2533,8 @@ call add_scourge
 attack_add 14 mutalisk
 attack_add 8 guardian
 attack_add 2 devourer
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 goto terran_loop
@@ -2540,7 +2548,7 @@ defenseuse_gg 1 queen
 multirun exp_repeater
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 :terran_loopng
 set_attacks 2
@@ -2565,7 +2573,8 @@ attack_add 4 lurker
 attack_add 50 zergling
 attack_add 2 queen
 attack_add 4 ultralisk
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 train 10 mutalisk
 train 20 zergling
@@ -2580,7 +2589,7 @@ wait 250
 train 1 defiler
 train 2 scourge
 train 40 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -2603,7 +2612,7 @@ train 32 zergling
 train 6 hydralisk
 train 6 lurker
 train 40 zergling
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 call check_ifunderattack
@@ -2612,7 +2621,8 @@ attack_add 8 ultralisk
 attack_add 6 lurker
 attack_add 1 queen
 attack_add 1 defiler
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 goto terran_loopng
@@ -2653,6 +2663,7 @@ train 6 mutalisk
 upgrade 2 z_missile_attack 30
 train 9 mutalisk
 build 1 queen_nest 80
+call attack_wait_finish
 attack_clear
 attack_add 9 mutalisk
 set_attacks 2
@@ -2674,7 +2685,7 @@ call resource_waitskip
 build 1 greater_spire 110
 train 24 hydralisk
 train 2 scourge
-attack_do
+call attack_wait_finish
 attack_clear
 race_jump im_terran_queen imtq_skip imtq_skip
 :im_terran_queen
@@ -2687,7 +2698,7 @@ attack_prepare
 wait 16
 
 attack_timeout 90
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_gg 1 guardian
 defenseuse_gg 1 guardian
@@ -2697,8 +2708,6 @@ defenseuse_ag 1 devourer
 defensebuild_aa 1 mutalisk
 defensebuild_aa 1 devourer
 defenseuse_aa 1 devourer
-attack_do
-attack_clear
 resources 13 AtLeast_Call Gas 600 island_muta_atk_subroutine
 define_max 18 zergling
 upgrade 2 z_carapace 30
@@ -2726,7 +2735,7 @@ attack_prepare
 wait 16
 
 train 2 defiler
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 upgrade 1 ultralisk_speed 50
@@ -2758,7 +2767,7 @@ defenseuse_gg 1 ultralisk
 tech plague 60
 multirun exp_repeater
 wait_build 1 ultralisk_cavern
-attack_do
+call attack_wait_finish
 attack_clear
 :island_loop
 debug_name IslandLoop
@@ -2776,7 +2785,10 @@ attack_add 2 scourge
 attack_add 8 devourer
 attack_add 8 guardian
 attack_add 14 mutalisk
-attack_do
+attack_prepare
+wait 16
+
+call attack_wait_finish
 attack_clear
 train 8 mutalisk
 train 4 guardian
@@ -2793,7 +2805,7 @@ train 3 ultralisk
 train 1 queen
 train 12 zergling
 train 4 scourge
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 1 queen
@@ -2808,7 +2820,7 @@ call resource_waitskip
 train 14 mutalisk
 train 30 hydralisk
 train 2 scourge
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 attack_add 8 mutalisk
@@ -2818,7 +2830,7 @@ attack_add 30 hydralisk
 attack_add 2 scourge
 attack_prepare
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 wait 16
 
@@ -2836,7 +2848,8 @@ call check_ifunderattack
 call add_scourge
 attack_add 8 devourer
 attack_add 22 mutalisk
-attack_do
+attack_prepare
+call attack_wait_finish
 attack_clear
 set_attacks 2
 train 24 hydralisk
@@ -2860,7 +2873,7 @@ train 14 mutalisk
 train 30 hydralisk
 train 6 devourer
 train 2 scourge
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -2869,7 +2882,7 @@ attack_add 6 devourer
 attack_add 30 hydralisk
 attack_prepare
 call resource_waitskip
-attack_do
+call attack_wait_finish
 attack_clear
 wait 16
 
@@ -2915,7 +2928,7 @@ attack_add 4 mutalisk
 target_expansion
 wait 800
 
-attack_do
+call attack_wait_finish
 attack_clear
 build 1 evolution_chamber 80
 train 11 mutalisk
@@ -2923,7 +2936,7 @@ attack_add 11 mutalisk
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 multirun late_vs_protoss
 build 2 lair 80
@@ -2975,7 +2988,7 @@ wait 900
 call resource_waitskip
 train 16 hydralisk
 train 1 queen
-attack_do
+call attack_wait_finish
 attack_clear
 defensebuild_gg 1 queen
 defenseuse_gg 1 queen
@@ -2984,7 +2997,7 @@ attack_add 6 lurker
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 deaths 13 Add 1 lurker pm_pskip
 deaths 13 AtLeast 3 lurker pm_pskip
@@ -3015,7 +3028,7 @@ attack_add 2 queen
 attack_prepare
 wait 16
 
-attack_do
+call attack_wait_finish
 attack_clear
 :pm_loop
 wait 1500
@@ -3055,7 +3068,7 @@ attack_prepare
 wait 16
 
 train 9 mutalisk
-attack_do
+call attack_wait_finish
 attack_clear
 attack_add 9 mutalisk
 attack_prepare
@@ -3066,7 +3079,7 @@ call resource_waitskip
 train 2 queen
 train 32 zergling
 train 4 hydralisk
-attack_do
+call attack_wait_finish
 attack_clear
 train 4 lurker
 call check_ifunderattack
@@ -3090,7 +3103,7 @@ expand 3 generic_expansion
 upgrade 1 queen_mana 35
 tech consume 70
 train 20 hydralisk
-attack_do
+call attack_wait_finish
 attack_clear
 train 44 hydralisk
 call check_ifunderattack
@@ -3103,7 +3116,7 @@ train 6 ultralisk
 upgrade 3 z_melee_attack 35
 upgrade 3 z_carapace 40
 train 3 defiler
-attack_do
+call attack_wait_finish
 attack_clear
 build 3 hatchery 80
 call resource_waitskip
@@ -3155,7 +3168,7 @@ target_expansion
 wait 600
 
 wait_build 1 greater_spire
-attack_do
+call attack_wait_finish
 attack_clear
 :protoss_loop
 debug_name TossLoop
@@ -3183,7 +3196,7 @@ train 2 scourge
 train 8 ultralisk
 wait 250
 
-attack_do
+call attack_wait_finish
 attack_clear
 call check_ifunderattack
 call add_scourge
@@ -3192,7 +3205,10 @@ attack_add 5 lurker
 attack_add 8 ultralisk
 attack_add 1 defiler
 attack_add 2 queen
-attack_do
+attack_prepare
+wait 16
+
+call attack_wait_finish
 attack_clear
 train 6 mutalisk
 call resource_waitskip
@@ -3209,7 +3225,7 @@ attack_add 2 devourer
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 train 1 queen
 train 4 mutalisk
@@ -3225,7 +3241,7 @@ attack_add 7 guardian
 attack_prepare
 wait 300
 
-attack_do
+call attack_wait_finish
 attack_clear
 call resource_waitskip
 goto protoss_loop
@@ -3236,7 +3252,7 @@ attack_add 9 mutalisk
 target_expansion
 wait 900
 
-attack_do
+call attack_wait_finish
 attack_clear
 return
 
@@ -3520,7 +3536,7 @@ wait 60
 attack_timeout 60
 #lets ensure we don't waste much time
 build 2 hatchery 70
-attack_do
+call attack_wait_finish
 attack_clear
 :skip_earlyground
 #cancel exec
@@ -3595,7 +3611,7 @@ debug_name ScourgeGetter
 wait 15
 
 resources 13 AtMost Gas 150 scourge_getter
-if_attacking scourge_getter
+if_preparing scourge_getter
 #print using_rush_19_ssg
 rush 19 ssg
 #print using_rush_20_bsg
@@ -3709,7 +3725,7 @@ build 4 creep_colony 110
 :panic_delay
 wait 50
 
-if_attacking panic_delay
+if_preparing panic_delay
 #print using_rush_18_rwrap_spore
 rush 18 rwrap_spore
 build 4 sunken_colony 80
@@ -3835,7 +3851,7 @@ return
 debug_name DetectorLoop
 wait 50
 
-if_attacking need_detectors
+if_preparing need_detectors
 #print using_rush_12_detector_get
 rush 12 detector_get
 goto need_detectors
@@ -3944,13 +3960,13 @@ stop
 debug_name early_moves_reactions
 #for now intentionally it's just one reaction allowed per game so that it does not feel overwhelming
 wait_build 6 drone
-if_attacking emr_skip_1
+if_preparing emr_skip_1
 #print using_rush_0_emr_enemy_loweco_atk
 rush 21 emr_skip_1
 rush 0 emr_enemy_loweco_atk
 :emr_skip_1
 wait_build 12 drone
-if_attacking emr_skip_2
+if_preparing emr_skip_2
 random_jump 35 emr_skip_2
 #print using_rush_1_emr_enemy_loweco_atk
 rush 21 emr_skip_2
@@ -3959,7 +3975,7 @@ rush 1 emr_enemy_early_atk
 wait 25
 
 supply 13 AtMost 15 InUnits drone Zerg emr_skip_2
-if_attacking emr_skip_3
+if_preparing emr_skip_3
 random_jump 64 emr_skip_3
 #print using_rush_2_emr_enemy_early_atk
 rush 22 emr_skip_3
@@ -3970,7 +3986,7 @@ rush 3 emr_enemy_early_atk_prio
 wait 25
 
 supply 13 AtMost 19 InUnits drone Zerg emr_skip_3
-if_attacking void
+if_preparing void
 #print using_rush_4_emr_enemy_push
 rush 4 emr_enemy_push
 stop
@@ -4035,3 +4051,10 @@ wait 1
 wait_rand 733 1450
 harass_location
 goto cr_loop
+
+:attack_wait_finish
+wait 50
+
+if_attacking attack_wait_finish
+return
+
