@@ -490,11 +490,15 @@ farms_timing
 set_attacks 1
 tech burrowing 30
 tech lurker_aspect 90
+train 10 mutalisk
+train 36 zergling
 attack_add 36 zergling
 attack_add 10 mutalisk
 target_expansion
 wait 1200
 
+train 10 mutalisk
+train 36 zergling
 call attack_wait_finish
 attack_clear
 build 1 queen_nest 80
@@ -2184,6 +2188,10 @@ attack_add 32 zergling
 target_expansion
 wait 16
 
+train 6 lurker
+train 1 defiler
+train 12 mutalisk
+train 32 zergling
 train 1 defiler
 creep 4
 build 4 creep_colony 80
