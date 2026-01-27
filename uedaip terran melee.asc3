@@ -2464,7 +2464,7 @@ goto firegol_loop
 debug_name GhostFocus
 define_max 50 marine
 define_max 12 goliath
-define_max 12 siege_tank
+define_max 8 siege_tank
 define_max 6 firebat
 define_max 18 ghost
 define_max 255 hnorad
@@ -2533,7 +2533,9 @@ train 40 marine
 call check_ifunderattack
 attack_add 40 marine
 attack_add 16 ghost
-target_expansion 
+target_expansion
+wait 800
+
 call resource_waitskip
 call attack_wait_finish
 attack_clear 
@@ -2549,7 +2551,9 @@ call check_ifunderattack
 attack_add 8 ghost
 attack_add 12 goliath
 attack_add 8 siege_tank
-target_expansion 
+target_expansion
+wait 1200
+
 call resource_waitskip
 goto ghostfoc_loop
 
@@ -4388,14 +4392,21 @@ wait_train 2 dropship
 debug_name TransportEnsure
 wait 50
 
-resources_jump 2500 1000 t_ensured
+resources_jump 1000 900 t_ensured
 goto transport_ensure
 
 :t_ensured
 debug_name TEnsured
 define_max 5 dropship
 check_transports
-stop
+:small_transport_loop
+wait 833
+
+resources 13 AtMost Ore 800 small_transport_loop
+resources 13 AtMost Gas 500 small_transport_loop
+train 2 dropship
+
+goto small_transport_loop
 
 :resource_waitskip
 wait 1
@@ -4710,9 +4721,14 @@ wait 2250
 supply 13 AtMost 255 Used marine Terran max_supply_fallback
 if_attacking max_supply_fallback
 send_suicide 0
+#print Debug_Terran_SupplyCap
+attack_add 1 hultralisk
+#marker fake unit we do not expect to be able to atk with
 wait 5000
 
-print Debug_Terran_SupplyCap
+if_attacking max_supply_fallback
+if_preparing max_supply_fallback
+attack_clear
 goto max_supply_fallback
 
 :capitalize_weak_enemy
@@ -4753,8 +4769,13 @@ wait 50
 
 if_attacking cwe_execute
 send_suicide 0
+attack_add 1 hultralisk
+#marker fake unit we do not expect to be able to atk with
 wait 5000
 
+if_attacking cwe_execute
+if_preparing cwe_execute
+attack_clear
 goto capitalize_weak_enemy
 
 :late_clearcombat
