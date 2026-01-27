@@ -1321,7 +1321,7 @@ define_max 255 dark_templar
 define_max 255 dark_archon
 define_max 4 high_templar
 define_max 1 archon
-define_max 3 scout
+define_max 1 scout
 define_max 7 reaver
 define_max 26 hornet
 define_max 3 corsair
@@ -1380,6 +1380,11 @@ call attack_wait_finish
 attack_clear 
 #print using_rush_17_robot_loop_lowair
 rush 17 robot_loop_lowair
+#print using_rush_15_robot_loop_highair
+rush 16 continue_robot_loop
+goto robo_loop_highair
+#enemy does not have real AA so we can afford a bit more? 
+:continue_robot_loop
 set_attacks 2
 train 1 carrier
 train 10 hornet
@@ -1437,6 +1442,42 @@ train 20 dragoon
 call check_ifunderattack
 attack_add 20 dragoon
 attack_add 7 reaver
+attack_prepare
+call resource_waitskip
+goto robot_loop
+
+:robo_loop_highair
+#we got some carriers so why not use them?
+debug_name robot_loop_highair
+set_attacks 2
+call attack_wait_finish
+attack_clear 
+#print using_rush_17_robot_loop_lowair
+rush 17 robot_loop_lowair
+set_attacks 2
+train 2 carrier
+train 6 hornet
+train 4 carrier
+train 12 hornet
+call check_ifunderattack
+wait_force 4 carrier
+attack_add 4 carrier
+attack_add 12 hornet
+target_expansion 
+wait 1200
+
+call resource_waitskip
+call attack_wait_finish
+attack_clear 
+train 3 shuttle
+train 10 hornet
+train 8 dragoon
+train 6 reaver
+train 16 dragoon
+call check_ifunderattack
+attack_add 16 dragoon
+attack_add 6 reaver
+attack_add 10 hornet
 attack_prepare
 call resource_waitskip
 goto robot_loop
@@ -2992,13 +3033,21 @@ wait_train 2 shuttle
 debug_name TransportEnsure
 wait 50
 
-resources_jump 2500 1000 t_ensured
+resources_jump 1200 800 t_ensured
+try_townpoint 4 t_ensured
+try_townpoint 5 t_ensured
 goto transport_ensure
 
 :t_ensured
 define_max 5 shuttle
 check_transports
-stop
+:small_transport_loop
+wait 833
+
+resources 13 AtMost Ore 800 small_transport_loop
+train 2 shuttle
+
+goto small_transport_loop
 
 :resource_waitskip
 wait 1
@@ -3484,9 +3533,14 @@ wait 2250
 supply 13 AtMost 249 Used marine Protoss max_supply_fallback
 if_attacking max_supply_fallback
 send_suicide 0
+attack_add 1 hultralisk
+#print Debug_Protoss_SupplyCap
+#marker fake unit we do not expect to be able to atk with
 wait 5000
 
-print Debug_Protoss_SupplyCap
+if_attacking max_supply_fallback
+if_preparing max_supply_fallback
+attack_clear
 goto max_supply_fallback
 
 :capitalize_weak_enemy
@@ -3527,8 +3581,13 @@ wait 50
 
 if_attacking cwe_execute
 send_suicide 0
+attack_add 1 hultralisk
+#marker fake unit we do not expect to be able to atk with
 wait 5000
 
+if_attacking cwe_execute
+if_preparing cwe_execute
+attack_clear
 goto capitalize_weak_enemy
 
 #:detect_deaths
