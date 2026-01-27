@@ -394,7 +394,7 @@ build 1 queen_nest 80
 place_guard lurker 0
 place_guard zergling 0
 place_guard zergling 0
-goto pm_check_bank
+goto p_spread_return
 
 :mutaling
 debug_name Mutaling
@@ -2922,7 +2922,7 @@ multirun scourge_getter
 defenseuse_aa 2 scourge
 upgrade 1 z_missile_attack 50
 set_attacks 2
-:pm_check_bank
+:p_spread_return
 build 2 hatchery 80
 train 4 mutalisk
 rush 9 pm_get_more_mutas
@@ -2948,16 +2948,12 @@ call attack_wait_finish
 attack_clear
 multirun late_vs_protoss
 build 2 lair 80
-deaths 13 AtLeast 1 arbiter pm_skip_check
-deaths 13 Add 1 arbiter pm_skip_check
 upgrade 1 z_flyer_carapace 50
 upgrade 1 z_carapace 50
 creep 3
 build 2 creep_colony 80
 build 2 sunken_colony 80
 expand 2 generic_expansion
-resources_jump 500 500 pm_check_bank
-:pm_skip_check
 set_attacks 9
 build 1 hydralisk_den 80
 tech lurker_aspect 70
@@ -3616,10 +3612,11 @@ stop
 
 :scourge_getter
 debug_name ScourgeGetter
-wait 15
+wait 85
 
 resources 13 AtMost Gas 150 scourge_getter
 if_preparing scourge_getter
+if_attacking scourge_getter
 #print using_rush_19_ssg
 rush 19 ssg
 #print using_rush_20_bsg
@@ -3881,9 +3878,14 @@ wait 2250
 supply 13 AtMost 255 Used marine Zerg max_supply_fallback
 if_attacking max_supply_fallback
 send_suicide 0
+#print Debug_Zerg_SupplyCap
+attack_add 1 carrier
+#unit that the script will not be able to access - really a marker for if_preparing to stop rush jumps 
 wait 5000
 
-print Debug_Zerg_SupplyCap
+if_attacking max_supply_fallback
+if_preparing max_supply_fallback
+attack_clear
 goto max_supply_fallback
 
 :capitalize_weak_enemy
@@ -3924,8 +3926,14 @@ wait 50
 
 if_attacking cwe_execute
 send_suicide 0
+#print Debug_Zerg_CWE
+attack_add 1 carrier
+#unit that the script will not be able to access - really a marker for if_preparing to stop rush jumps 
 wait 5000
 
+if_attacking cwe_execute
+if_preparing cwe_execute
+attack_clear
 goto capitalize_weak_enemy
 
 :late_clearcombat
