@@ -3750,6 +3750,8 @@ attack_add 10 wraith
 target_expansion 
 call resource_waitskip
 call attack_wait_finish
+wait 2250
+
 attack_clear
 train 20 marine
 train 4 siege_tank
@@ -3763,6 +3765,8 @@ attack_add 4 siege_tank
 attack_add 20 marine
 target_expansion 
 call resource_waitskip
+wait 1850
+
 call attack_wait_finish
 attack_clear
 train 2 science_vessel
@@ -3774,6 +3778,8 @@ attack_add 4 hnorad
 attack_add 10 wraith
 target_expansion 
 call resource_waitskip
+wait 2500
+
 goto DLo
 
 :earlycloak
