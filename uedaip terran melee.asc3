@@ -2206,6 +2206,7 @@ train 22 marine
 train 4 goliath
 train 8 firebat
 build 2 machine_shop 100
+upgrade 1 firebat_range 40
 build 3 factory 80
 build 2 armory 80
 panic std_expo
@@ -2400,15 +2401,17 @@ set_attacks 2
 train 6 marine
 train 4 siege_tank
 train 12 marine
+train 2 ghost
 train 4 goliath
 train 5 firebat
 train 8 goliath
-train 10 firebat
+train 8 firebat
 train 4 siege_tank
 attack_add 12 marine
 attack_add 4 siege_tank
 attack_add 8 goliath
-attack_add 10 firebat
+attack_add 8 firebat
+attack_add 2 ghost
 target_expansion 
 call resource_waitskip
 notowns_jump covert_ops firegol_nocovert
@@ -2477,11 +2480,14 @@ set_attacks 2
 train 2 marine
 train 2 goliath
 train 6 marine
+train 3 ghost
 train 4 goliath
-train 12 marine
+train 10 marine
+train 6 ghost
 train 8 goliath
 attack_add 8 goliath
-attack_add 12 marine
+attack_add 6 ghost
+attack_add 10 marine
 target_expansion 
 call resource_waitskip
 notowns_jump science_facility gFac
